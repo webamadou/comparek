@@ -31,9 +31,18 @@
                         </svg> Projects<span class="badge badge-sm bg-primary ms-2">42</span></a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">
-                        <svg class="icon me-2">
-                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
-                        </svg> Logout
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-dropdown-link :href="route('logout')"
+                                             onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                <svg class="icon me-2">
+                                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
+                                </svg>
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
                     </a>
                 </div>
             </li>
