@@ -1,9 +1,7 @@
 <header class="header header-sticky p-0 mb-4">
     <div class="container-fluid border-bottom px-4">
         <button class="header-toggler" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()" style="margin-inline-start: -14px;">
-            <svg class="icon icon-lg">
-                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-menu"></use>
-            </svg>
+            &nbsp;
         </button>
         <ul class="header-nav">
             <li class="nav-item py-1">
@@ -16,19 +14,13 @@
                         <div class="fw-semibold">Parametres</div>
                     </div>
                     <a class="dropdown-item" href="#">
-                        <svg class="icon me-2">
-                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user"></use>
-                        </svg> Profil
+                        Profil
                     </a>
                     <a class="dropdown-item" href="#">
-                        <svg class="icon me-2">
-                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-credit-card"></use>
-                        </svg> Compta<span class="badge badge-sm bg-secondary ms-2">42</span>
+                        Compta<span class="badge badge-sm bg-secondary ms-2">42</span>
                     </a>
                     <a class="dropdown-item" href="#">
-                        <svg class="icon me-2">
-                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-file"></use>
-                        </svg> Projects<span class="badge badge-sm bg-primary ms-2">42</span></a>
+                        Projects<span class="badge badge-sm bg-primary ms-2">42</span></a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">
                         <!-- Authentication -->
@@ -37,9 +29,7 @@
                             <x-dropdown-link :href="route('logout')"
                                              onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                <svg class="icon me-2">
-                                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
-                                </svg>
+                                
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>

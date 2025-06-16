@@ -22,8 +22,7 @@
         <link href="{{ asset('coreui/css/coreui.min.css') }}" rel="stylesheet">
         <!-- Main styles for this application-->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-        <!-- We use those styles to show code examples, you should remove them in your application.-->
-        <link href="css/examples.css" rel="stylesheet">
+        @livewireStyles
         @vite(['resources/js/app.js'])
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -42,6 +41,7 @@
             tinymce.init({ selector: 'textarea.rich-text' });
         </script>
         <!-- CoreUI JS -->
+        @livewireScripts
         <script src="{{ asset('coreui/js/coreui.bundle.min.js') }}"></script>
     </body>
 </html>
