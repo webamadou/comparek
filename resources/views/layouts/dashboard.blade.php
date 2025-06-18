@@ -21,10 +21,13 @@
         <link rel="stylesheet" href="css/vendors/simplebar.css">--}}
         <link href="{{ asset('coreui/css/coreui.min.css') }}" rel="stylesheet">
         <!-- Main styles for this application-->
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/dashboard_style.css') }}" rel="stylesheet">
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         @livewireStyles
         @vite(['resources/js/app.js'])
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     </head>
     <body class="font-sans antialiased">
         @include('layouts.partials.sidebar')
@@ -36,6 +39,12 @@
             <div><a href="https://coreui.io">CoreUI </a><a href="https://coreui.io/product/free-bootstrap-admin-template/">Bootstrap Admin Template</a> &copy; 2025 creativeLabs.</div>
             <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI UI Components</a></div>
         </footer>
+        <!-- DataTables JS -->
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
         <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"></script>
         <script>
             tinymce.init({ selector: 'textarea.rich-text' });

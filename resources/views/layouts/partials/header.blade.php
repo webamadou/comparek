@@ -1,8 +1,6 @@
 <header class="header header-sticky p-0 mb-4">
     <div class="container-fluid border-bottom px-4">
-        <button class="header-toggler" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()" style="margin-inline-start: -14px;">
-            &nbsp;
-        </button>
+        <button class="header-toggler" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()" style="margin-inline-start: -14px;"></button>
         <ul class="header-nav">
             <li class="nav-item py-1">
                 <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
@@ -29,7 +27,7 @@
                             <x-dropdown-link :href="route('logout')"
                                              onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                
+
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>

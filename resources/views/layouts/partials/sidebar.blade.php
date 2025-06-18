@@ -13,7 +13,7 @@
         </li>
         <li class="nav-title">Gestion</li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('serviceTypes.index')}}">
+            <a class="nav-link" href="#">
                 <svg class="nav-icon">
                     <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-drop"></use>
                 </svg> Types de services</a>
