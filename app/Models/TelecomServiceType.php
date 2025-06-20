@@ -4,15 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class TelecomOperator extends Model
+class TelecomServiceType extends Model
 {
-    /** @use HasFactory<\Database\Factories\TelecomOperatorFactory> */
-    use HasSlug;
+    /** @use HasFactory<\Database\Factories\TelecomServiceTypeFactory> */
     use HasFactory;
-
     protected $guarded = [];
 
     /**

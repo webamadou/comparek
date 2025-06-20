@@ -6,7 +6,14 @@
                 <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
             </li>
             <li class="nav-item dropdown"><a class="nav-link py-0 pe-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/8.jpg" alt="user@email.com"></div></a>
+                    <div class="avatar avatar-md">
+                    <svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="75" cy="75" r="75" fill="#E3F2FD"/>
+                        <circle cx="75" cy="60" r="30" fill="#90CAF9"/>
+                        <rect x="30" y="95" width="90" height="40" rx="20" fill="#90CAF9"/>
+                    </svg>
+                    </div>
+                </a>
                 <div class="dropdown-menu dropdown-menu-end pt-0">
                     <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold my-2">
                         <div class="fw-semibold">Parametres</div>

@@ -14,7 +14,6 @@
         <link rel="icon" type="image/svg+xml" href="{{asset('assets/logo/favicon/favicon.svg')}}" />
         <link rel="shortcut icon" href="{{asset('assets/logo/favicon/favicon.ico')}}" />
         <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/logo/favicon/apple-touch-icon.png')}}" />
-        <link rel="manifest" href="/comparek.sn" />
 
         <!-- Vendors styles-->
         <link href="{{ asset('coreui/css/coreui.min.css') }}" rel="stylesheet">
@@ -39,12 +38,13 @@
         <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"></script>
+        <<!-- script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"></script>
         <script>
             tinymce.init({ selector: 'textarea.rich-text' });
-        </script>
+        </script> -->
         <!-- CoreUI JS -->
         <script src="{{ asset('coreui/js/coreui.bundle.min.js') }}"></script>
+        <script src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     </body>
 </html>

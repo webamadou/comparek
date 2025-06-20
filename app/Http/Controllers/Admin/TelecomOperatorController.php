@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\DataTables\TelecomOperatorsDataTable;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\TelecomOperatorRequest;
 use App\Models\TelecomOperator;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class TelecomOperatorController extends Controller
 {

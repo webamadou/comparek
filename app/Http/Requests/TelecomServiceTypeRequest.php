@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class TelecomOperatorRequest extends FormRequest
+class TelecomServiceTypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,16 +22,11 @@ class TelecomOperatorRequest extends FormRequest
      */
     public function rules(): array
     {
-        $tlcOp = $this->telecom_operator->id ?? '';
+        $tlcOp = $this->telecom_service_type->id ?? '';
 
         return [
-            'name' => 'required|string|max:255|' . Rule::unique('telecom_operators')->ignore($tlcOp),
-            'logo_path' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'website_url' => 'nullable|url|max:255',
+            'name' => 'required|string|max:255|' . Rule::unique('telecom_service_types')->ignore($tlcOp),
             'description' => 'nullable|string',
-            'headquarters_location' => 'nullable|string|max:255',
-            'established_year' => 'nullable|integer|min:1800|max:' . now()->year,
-            'is_active' => 'boolean',
         ];
     }
 }
