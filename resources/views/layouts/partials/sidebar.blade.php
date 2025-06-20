@@ -1,7 +1,7 @@
 <div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar">
     <div class="sidebar-header border-bottom">
         <div class="sidebar-brand">
-            <img src="{{asset('assets/logo/CompareK.png')}}" alt="comparek">
+            <img src="{{asset('assets/logo/CompareK.png')}}" alt="comparek" style="width: 100%; height: auto;">
         </div>
         <button class="btn-close d-lg-none" type="button" data-coreui-theme="dark" aria-label="Close" onclick="coreui.Sidebar.getInstance(document.querySelector(&quot;#sidebar&quot;)).toggle()"></button>
     </div>
@@ -16,7 +16,7 @@
             <a class="nav-link" href="#">
                 <svg class="nav-icon">
                     <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-drop"></use>
-                </svg> Types de services</a>
+                </svg> Opérateurs télécom</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="typography.html">

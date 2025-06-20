@@ -12,7 +12,7 @@
                     <div class="example">
                         <div class="tab-content rounded-bottom">
                             <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1002">
-                                @livewire('telecom-operators-table')
+                                <livewire:telecom-operators-table />
                             </div>
                         </div>
                     </div>

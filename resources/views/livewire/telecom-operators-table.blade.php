@@ -3,7 +3,7 @@
     {{-- Filters --}}
     <div class="row mb-3">
         <div class="col-md-3">
-            <input wire:model.debounce.500ms="searchName" type="text" class="form-control" placeholder="Search Name">
+            <input wire:model.debounce.500ms="searchName" type="text" class="form-control" placeholder="Search Name">{{$searchName}}
         </div>
         <div class="col-md-3">
             <input wire:model.debounce.500ms="searchSlug" type="text" class="form-control" placeholder="Search Slug">
