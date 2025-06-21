@@ -9,6 +9,8 @@ class TelecomServiceTypeSeeder extends Seeder
 {
     public function run(): void
     {
-        TelecomServiceType::factory()->count(20)->create();
+        foreach (['Mobile', 'Internet', 'TV', 'Forfait'] as $service_type) {
+            TelecomServiceType::factory()->create(['name' => $service_type, 'description' => '-']);
+        }
     }
 }

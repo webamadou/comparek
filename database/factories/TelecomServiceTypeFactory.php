@@ -17,6 +17,7 @@ class TelecomServiceTypeFactory extends Factory
 
         return [
             'name' => $name,
+            'slug' => $slug,
             'description' => $this->faker->sentence,
         ];
     }

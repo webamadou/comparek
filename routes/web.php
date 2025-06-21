@@ -23,6 +23,7 @@ Route::middleware('auth')
     // Route::resource('serviceTypes', ServiceTypeController::class);
     Route::resource('telecom_operator', TelecomOperatorController::class);
     Route::resource('telecom_service_type', TelecomServiceTypeController::class);
+    Route::resource('telecom_offer', \App\Http\Controllers\TelecomOfferController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -26,4 +26,9 @@ class TelecomOperator extends Model
             ->usingSeparator('_')
             ->doNotGenerateSlugsOnUpdate();
     }
+
+    public function offers(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(TelecomOperator::class, 'telecom_operator_id');
+    }
 }

@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             RolesAndPermissionsSeeder::class,
             TelecomOperatorSeeder::class,
             TelecomServiceTypeSeeder::class,
+            TelecomOfferSeeder::class,
         ]);
 
 
