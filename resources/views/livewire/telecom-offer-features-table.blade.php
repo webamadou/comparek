@@ -3,11 +3,11 @@
         <thead>
             <tr>
                 <th wire:click="sortBy('name')" style="cursor:pointer;">Name @if($sortField == 'name') ({{ $sortDirection }}) @endif</th>
-                <th>Feature</th>
-                <th>Valeur</th>
-                <th>Unité</th>
+                <th wire:click="sortBy('feature')" style="cursor:pointer;">Feature</th>
+                <th>Volume</th>
+                <th>Appels & SMS</th>
+                <th>Valable Jusqu'a</th>
                 <th>Prix</th>
-                <th>Highlighted</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,10 +17,24 @@
                 <tr>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->offer?->name }}</td>
-                    <td>{{ $item->value }}</td>
-                    <td>{{ $item->unit }}</td>
+                    <td>
+                        <strong>{{ $item->data_volume_value }}</strong> {{ $item->data_volume_unit }}
+                    </td>
+                    <td>
+                        @if (! empty($item->voice_minutes))
+                            <span class="iconify" data-icon="mdi-telephone"></span> {{ $item->voice_minutes }} minutes<br>
+                        @endif
+                        @if (! empty($item->sms_nbr))
+                            <span class="iconify" data-icon="mdi-message-processing"></span> {{ $item->sms_nbr }} sms
+                        @endif
+                    </td>
+                    <td>
+                        @if ($item->validity_length)
+                            {{ $item->validity_length }} jours
+                        @endif
+                    </td>
                     <td>{{ $item->price }}</td>
-                    <td>{!! $item->is_highlighted ? '<span class="iconify" color="green" data-icon="mdi-thumb-up"></span>' : '<span class="iconify" color="red" data-icon="mdi-thumb-down"></span>' !!}</td>
+                    {{--<td>{!! $item->is_highlighted ? '<span class="iconify" color="green" data-icon="mdi-thumb-up"></span>' : '<span class="iconify" color="red" data-icon="mdi-thumb-down"></span>' !!}</td>--}}
                     <td>
                         <a href="{{ route('telecom_offer_feature.edit', $item) }}" class="btn btn-sm btn-primary">Edit</a>
                         <button wire:click="confirmDelete({{ $item->id }})" class="btn btn-sm btn-danger">Delete</button>

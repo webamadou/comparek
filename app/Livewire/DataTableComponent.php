@@ -13,7 +13,7 @@ abstract class DataTableComponent extends Component
     public $selected = [];
     public $sortField = 'id';
     public $sortDirection = 'asc';
-    public $perPage = 10;
+    public $perPage = 100;
 
     public $showDeleteModal = false;
     public $deleteId = null;

@@ -70,7 +70,8 @@ class TelecomOfferFeaturesTable extends Component
             ->with('offer')
             ->when($this->searchName, fn($q) => $q->where('name', 'like', '%' . $this->searchName . '%'))
             ->when($this->searchOffer, fn($q) => $q->whereHas('offer', fn($q2) => $q2->where('name', 'like', '%' . $this->searchOffer . '%')))
-            ->orderBy($this->sortField, $this->sortDirection);
+            ->orderBy($this->sortField, $this->sortDirection)
+        ;
 
         $items = $query->paginate($this->perPage);
 

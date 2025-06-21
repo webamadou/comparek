@@ -9,15 +9,7 @@ class TelecomOfferFeature extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'telecom_offer_id',
-        'name',
-        'capacity',
-        'value',
-        'unit',
-        'is_highlighted',
-        'price',
-    ];
+    protected $guarded = [];
 
     public function offer()
     {

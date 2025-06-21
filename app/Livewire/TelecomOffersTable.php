@@ -12,7 +12,7 @@ class TelecomOffersTable extends Component
 
     public $searchName = '';
     public $searchOperator = '';
-    public $perPage = 10;
+    public $perPage = 100;
     public $sortField = 'id';
     public $sortDirection = 'asc';
     public $selected = [];

@@ -27,10 +27,17 @@ class TelecomOfferFeatureController extends Controller
             'telecom_offer_id' => 'required|exists:telecom_offers,id',
             'name' => 'nullable|string|max:255',
             'capacity' => 'required|string|max:255',
-            'value' => 'required|string|max:255',
-            'unit' => 'required|string|max:50',
-            'price' => 'nullable',
+            'data_volume_value' => 'nullable|string|max:255',
+            'data_volume_unit' => 'nullable|string|max:50',
+            'price' => 'nullable|numeric|min:0',
             'is_highlighted' => 'boolean',
+            'voice_minutes' => 'nullable|integer|min:0',
+            'is_voice_unlimited' => 'boolean',
+            'sms_nbr' => 'nullable|integer|min:0',
+            'internet_speed_value' => 'nullable|numeric|min:0',
+            'internet_speed_unit' => 'nullable|string|max:50',
+            'nbr_tv' => 'nullable|integer|min:0',
+            'validity_length' => 'nullable|integer|min:0',
         ]);
 
         TelecomOfferFeature::create($validated);
@@ -52,10 +59,17 @@ class TelecomOfferFeatureController extends Controller
             'telecom_offer_id' => 'required|exists:telecom_offers,id',
             'name' => 'required|string|max:255',
             'capacity' => 'required|string|max:255',
-            'value' => 'required|string|max:255',
-            'unit' => 'required|string|max:50',
+            'data_volume_value' => 'nullable|string|max:255',
+            'data_volume_unit' => 'nullable|string|max:50',
             'price' => 'nullable',
             'is_highlighted' => 'boolean',
+            'voice_minutes' => 'nullable|integer|min:0',
+            'is_voice_unlimited' => 'boolean',
+            'sms_nbr' => 'nullable|integer|min:0',
+            'internet_speed_value' => 'nullable|numeric|min:0',
+            'internet_speed_unit' => 'nullable|string|max:50',
+            'nbr_tv' => 'nullable|integer|min:0',
+            'validity_length' => 'nullable|integer|min:0',
         ]);
 
         $telecom_offer_feature->update($validated);

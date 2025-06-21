@@ -32,7 +32,7 @@
                         <input type="text" name="name" value="{{ old('name', $feature->name) }}" class="form-control">
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3" style="display: none;">
                         <label>Capacité</label>
                         <select name="capacity" class="form-control" required>
                             @php
@@ -45,17 +45,45 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <strong>Volume de données</strong>
+                            <label>Valeur</label>
+                            <input type="text" name="data_volume_value" value="{{ old('data_volume_value', $feature->data_volume_value) }}" class="form-control">
 
-                    <div class="mb-3">
-                        <label>Valeur</label>
-                        <input type="text" name="value" value="{{ old('value', $feature->value) }}" class="form-control" required>
+                            <label>Unité</label>
+                            <input type="text" name="data_volume_unit" value="{{ old('data_volume_unit', $feature->data_volume_unit) }}" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <strong>Minutes d'appel</strong>
+                            <label>Minutes</label>
+                            <input type="text" name="voice_minutes" value="{{ old('voice_minutes', $feature->voice_minutes) }}" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <strong>SMS</strong><br>
+                            <label>Nbr SMS</label>
+                            <input type="text" name="sms_nbr" value="{{ old('sms_nbr', $feature->sms_nbr) }}" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <strong>Vitesse d'internet</strong>
+                            <label>Valeur</label>
+                            <input type="text" name="internet_speed_value" value="{{ old('internet_speed_value', $feature->internet_speed_value) }}" class="form-control">
+
+                            <label>Unité</label>
+                            <input type="text" name="internet_speed_unit" value="{{ old('internet_speed_unit', $feature->internet_speed_unit) }}" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <strong>Durée de validité</strong><br>
+                            <label>En jours</label>
+                            <input type="text" name="validity_length" value="{{ old('validity_length', $feature->validity_length) }}" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <strong>TV</strong><br>
+                            <label>Nbr Chaines TV</label>
+                            <input type="text" name="nbr_tv" value="{{ old('nbr_tv', $feature->nbr_tv) }}" class="form-control">
+                        </div>
                     </div>
-
-                    <div class="mb-3">
-                        <label>Unité</label>
-                        <input type="text" name="unit" value="{{ old('unit', $feature->unit) }}" class="form-control" required>
-                    </div>
-
+                    <div class="my-5"></div>
                     <div class="mb-3">
                         <label>Prix</label>
                         <input type="text" name="price" value="{{ old('price', $feature->price) }}" class="form-control">
