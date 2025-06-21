@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -48,5 +49,10 @@ class TelecomOffer extends Model
     public function serviceType(): BelongsTo
     {
         return $this->belongsTo(TelecomServiceType::class, 'telecom_service_type_id');
+    }
+
+    public function features(): HasMany
+    {
+        return $this->hasMany(TelecomOfferFeature::class);
     }
 }

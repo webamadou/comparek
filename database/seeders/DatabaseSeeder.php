@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             TelecomOperatorSeeder::class,
             TelecomServiceTypeSeeder::class,
             TelecomOfferSeeder::class,
+            TelecomOfferFeatureSeeder::class,
         ]);
 
 

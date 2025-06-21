@@ -24,6 +24,7 @@ Route::middleware('auth')
     Route::resource('telecom_operator', TelecomOperatorController::class);
     Route::resource('telecom_service_type', TelecomServiceTypeController::class);
     Route::resource('telecom_offer', \App\Http\Controllers\TelecomOfferController::class);
+    Route::resource('telecom_offer_feature', \App\Http\Controllers\TelecomOfferFeatureController::class);
 });
 
 require __DIR__.'/auth.php';

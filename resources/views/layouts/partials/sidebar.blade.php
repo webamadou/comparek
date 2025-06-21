@@ -15,6 +15,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('telecom_operator.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Opérateurs télécom</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('telecom_service_type.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Type de services</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('telecom_offer.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Les Offres </a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('telecom_offer_feature.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Params des Offres </a></li>
             </ul>
         </li>
         <!-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
