@@ -20,6 +20,8 @@
         <!-- Main styles for this application-->
         <link href="{{ asset('css/dashboard_style.css') }}" rel="stylesheet">
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     </head>
     <body class="font-sans antialiased">

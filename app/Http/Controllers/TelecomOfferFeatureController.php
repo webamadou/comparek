@@ -38,6 +38,7 @@ class TelecomOfferFeatureController extends Controller
             'internet_speed_unit' => 'nullable|string|max:50',
             'nbr_tv' => 'nullable|integer|min:0',
             'validity_length' => 'nullable|integer|min:0',
+            'phone_credit' =>  'nullable|integer|min:0',
         ]);
 
         TelecomOfferFeature::create($validated);
@@ -70,6 +71,7 @@ class TelecomOfferFeatureController extends Controller
             'internet_speed_unit' => 'nullable|string|max:50',
             'nbr_tv' => 'nullable|integer|min:0',
             'validity_length' => 'nullable|integer|min:0',
+            'phone_credit' =>  'nullable|integer|min:0',
         ]);
 
         $telecom_offer_feature->update($validated);

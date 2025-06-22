@@ -5,7 +5,7 @@
                 <th wire:click="sortBy('name')" style="cursor:pointer;">Name @if($sortField == 'name') ({{ $sortDirection }}) @endif</th>
                 <th wire:click="sortBy('feature')" style="cursor:pointer;">Feature</th>
                 <th>Volume</th>
-                <th>Appels & SMS</th>
+                <th>Appels - SMS - Credits</th>
                 <th>Valable Jusqu'a</th>
                 <th>Prix</th>
                 <th>Actions</th>
@@ -27,6 +27,9 @@
                         @if (! empty($item->sms_nbr))
                             <span class="iconify" data-icon="mdi-message-processing"></span> {{ $item->sms_nbr }} sms
                         @endif
+                        @if (! empty($item->phone_credit))
+                            <span class="iconify" data-icon="mdi-stack-overflow"></span> {{ $item->phone_credit }}F de crédits
+                        @endif
                     </td>
                     <td>
                         @if ($item->validity_length)
@@ -44,7 +47,9 @@
         </tbody>
     </table>
 
-    {{ $items->links() }}
+    <div class="d-flex justify-content-center">
+        {{ $items->links() }}
+    </div>
 
     @if ($showDeleteModal)
         <div class="modal show d-block" style="background: rgba(0,0,0,0.5)">

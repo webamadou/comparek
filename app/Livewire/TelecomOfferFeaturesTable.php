@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\TelecomOfferFeature;
+    use App\Models\TelecomOfferFeature;
 
 class TelecomOfferFeaturesTable extends Component
 {

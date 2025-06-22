@@ -65,6 +65,11 @@
                             <input type="text" name="sms_nbr" value="{{ old('sms_nbr', $feature->sms_nbr) }}" class="form-control">
                         </div>
                         <div class="col-2">
+                            <strong>Credit Téléphonique</strong><br>
+                            <label>&nbsp;</label>
+                            <input type="text" name="phone_credit" value="{{ old('phone_credit', $feature->phone_credit) }}" class="form-control">
+                        </div>
+                        <div class="col-2">
                             <strong>Vitesse d'internet</strong>
                             <label>Valeur</label>
                             <input type="text" name="internet_speed_value" value="{{ old('internet_speed_value', $feature->internet_speed_value) }}" class="form-control">
@@ -77,11 +82,11 @@
                             <label>En jours</label>
                             <input type="text" name="validity_length" value="{{ old('validity_length', $feature->validity_length) }}" class="form-control">
                         </div>
-                        <div class="col-2">
+                        {{--<div class="col-2">
                             <strong>TV</strong><br>
                             <label>Nbr Chaines TV</label>
                             <input type="text" name="nbr_tv" value="{{ old('nbr_tv', $feature->nbr_tv) }}" class="form-control">
-                        </div>
+                        </div>--}}
                     </div>
                     <div class="my-5"></div>
                     <div class="mb-3">
