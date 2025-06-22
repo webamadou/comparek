@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\TelecomOfferFeature;
+use App\Http\Controllers\Controller;
 use App\Models\TelecomOffer;
+use App\Models\TelecomOfferFeature;
 use Illuminate\Http\Request;
 
 class TelecomOfferFeatureController extends Controller
