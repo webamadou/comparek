@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\TelecomOfferController;
+use App\Http\Controllers\Admin\TelecomOfferFeatureController;
 use App\Http\Controllers\Admin\TelecomOperatorController;
 use App\Http\Controllers\Admin\TelecomServiceTypeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ScoreCriteriaController;
+use App\Http\Controllers\ScoreValueController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -25,9 +29,10 @@ Route::middleware('auth')
 
     Route::resource('telecom_operator', TelecomOperatorController::class);
     Route::resource('telecom_service_type', TelecomServiceTypeController::class);
-    Route::resource('telecom_offer', \App\Http\Controllers\Admin\TelecomOfferController::class);
-    Route::resource('telecom_offer_feature', \App\Http\Controllers\Admin\TelecomOfferFeatureController::class);
-    Route::resource('criteria', \App\Http\Controllers\Admin\ComparekScoreCriteriaController::class);
+    Route::resource('telecom_offer', TelecomOfferController::class);
+    Route::resource('telecom_offer_feature', TelecomOfferFeatureController::class);
+    Route::resource('score_criteria', ScoreCriteriaController::class);
+    Route::resource('score_value', ScoreValueController::class);
 });
 
 require __DIR__.'/auth.php';
