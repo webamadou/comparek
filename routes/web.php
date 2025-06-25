@@ -23,11 +23,11 @@ Route::middleware('auth')
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Route::resource('serviceTypes', ServiceTypeController::class);
     Route::resource('telecom_operator', TelecomOperatorController::class);
     Route::resource('telecom_service_type', TelecomServiceTypeController::class);
     Route::resource('telecom_offer', \App\Http\Controllers\Admin\TelecomOfferController::class);
     Route::resource('telecom_offer_feature', \App\Http\Controllers\Admin\TelecomOfferFeatureController::class);
+    Route::resource('criteria', \App\Http\Controllers\Admin\ComparekScoreCriteriaController::class);
 });
 
 require __DIR__.'/auth.php';

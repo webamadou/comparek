@@ -6,7 +6,6 @@
         <button class="btn-close d-lg-none" type="button" data-coreui-theme="dark" aria-label="Close" onclick="coreui.Sidebar.getInstance(document.querySelector(&quot;#sidebar&quot;)).toggle()"></button>
     </div>
     <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
-        <li class="nav-title">Configs</li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon">
                     <span class="iconify" data-icon="mdi-wifi-check"></span> &nbsp;
@@ -18,12 +17,12 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('telecom_offer_feature.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Params des Offres </a></li>
             </ul>
         </li>
-        <!-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon">
-                    <span class="iconify" data-icon="mdi-dots-grid"></span> &nbsp;
-                </svg> Buttons</a>
+                    <span class="iconify" data-icon="mdi-alphabetical-variant"></span> &nbsp;
+                </svg> ComparekScore</a>
             <ul class="nav-group-items compact">
-                <li class="nav-item"><a class="nav-link" href="buttons/buttons.html"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Buttons</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('criteria.index')}}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Criterias</a></li>
                 <li class="nav-item"><a class="nav-link" href="buttons/button-group.html"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Buttons Group</a></li>
                 <li class="nav-item"><a class="nav-link" href="buttons/dropdowns.html"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Dropdowns</a></li>
                 <li class="nav-item"><a class="nav-link" href="https://coreui.io/bootstrap/docs/components/loading-buttons/" target="_blank"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Loading Buttons
@@ -32,7 +31,7 @@
                         </svg><span class="badge badge-sm bg-danger ms-auto">PRO</span></a></li>
             </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="charts.html">
+        <!-- <li class="nav-item"><a class="nav-link" href="charts.html">
                 <svg class="nav-icon">
                     <span class="iconify" data-icon="mdi-dots-grid"></span> &nbsp;
                 </svg> Charts</a></li>
