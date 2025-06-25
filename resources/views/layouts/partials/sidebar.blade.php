@@ -23,7 +23,7 @@
                 </svg> ComparekScore</a>
             <ul class="nav-group-items compact" style="height: 10vh; height: auto; background: #5c5b5b; font-size: x-small; padding: 0.1rem;">
                 <li class="nav-item"><a class="nav-link" href="{{route('score_criteria.index')}}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Criterias</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('score_value.index')}}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Criterias</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('score_value.index')}}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. des scores</a></li>
                 <!-- <li class="nav-item"><a class="nav-link" href="buttons/dropdowns.html"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Dropdowns</a></li>
                 <li class="nav-item"><a class="nav-link" href="https://coreui.io/bootstrap/docs/components/loading-buttons/" target="_blank"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Loading Buttons
                         <svg class="icon icon-sm ms-2">

@@ -39,8 +39,9 @@
                     <td>{{ $item->price }}</td>
                     {{--<td>{!! $item->is_highlighted ? '<span class="iconify" color="green" data-icon="mdi-thumb-up"></span>' : '<span class="iconify" color="red" data-icon="mdi-thumb-down"></span>' !!}</td>--}}
                     <td>
-                        <a href="{{ route('telecom_offer_feature.edit', $item) }}" class="btn btn-sm btn-primary">Edit</a>
-                        <button wire:click="confirmDelete({{ $item->id }})" class="btn btn-sm btn-danger">Delete</button>
+                        <a href="{{ route('telecom_offer_feature.edit', $item) }}" class="btn btn-sm btn-primary mx-1">Edit</a>
+                        <button wire:click="confirmDelete({{ $item->id }})" class="btn btn-sm btn-danger mx-1">Delete</button>
+                        <a href="btn btn-success">score</a>
                     </td>
                 </tr>
             @endforeach
