@@ -2,15 +2,13 @@
 
 namespace App\Models;
 
+use App\ComparekEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
 
 class ScoreCriteria extends Model
 {
     use HasFactory;
-    use HasSlug;
 
     protected $fillable = [
         'vertical',
@@ -18,12 +16,7 @@ class ScoreCriteria extends Model
         'weight',
     ];
 
-    public function getSlugOptions(): SlugOptions
-    {
-        return SlugOptions::create()
-            ->generateSlugsFrom('name')
-            ->saveSlugsTo('slug')
-            ->usingSeparator('_')
-            ->doNotGenerateSlugsOnUpdate();
-    }
+    protected $casts = [
+        'vertical' => ComparekEnum::class,
+    ];
 }

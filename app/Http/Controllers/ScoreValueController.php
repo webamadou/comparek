@@ -12,7 +12,7 @@ class ScoreValueController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
