@@ -16033,8 +16033,17 @@ fieldset:disabled .btn {
   font-size: 1rem;
 }
 
-
 span.relative.inline-flex.items-center.px-2.py-2.-ml-px.text-sm.font-medium.text-gray-500.bg-white.border.border-gray-300.cursor-default.rounded-r-md.leading-5.dark\:bg-gray-800.dark\:border-gray-600,
 .hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between {
   display: none;
+}
+
+ul.compact li {
+  list-style: none;
+}
+
+.sidebar-nav .nav-group-toggle {
+  cursor: pointer;
+  background: #313c56;
+  border-radius: 0;
 }

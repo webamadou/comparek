@@ -25,7 +25,7 @@
         <tbody>
             @foreach ($items as $item)
                 <tr>
-                    <td>{{ $item->criteria?->name ?? '-' }}</td>
+                    <td>{{ $item->criteria?->name ? $item->criteria?->name . '     (' .$item->criteria?->weight . '%)' : '-' }}</td>
                     <td>{{ class_basename($item->vertical_entity_type) }}</td>
                     <td>{{ $item->vertical_entity_id }}</td>
                     <td>{{ $item->value }}</td>

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\ComparekEnum;
+use App\Http\Controllers\Controller;
 use App\Models\ScoreCriteria;
 use Illuminate\Http\Request;
 

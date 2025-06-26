@@ -10,7 +10,7 @@
                 <svg class="nav-icon">
                     <span class="iconify" data-icon="mdi-wifi-check"></span> &nbsp;
                 </svg> Opérateurs télécom</a>
-            <ul class="nav-group-items compact" style="height: 10vh; height: auto; background: #5c5b5b; font-size: x-small; padding: 0.1rem;">
+            <ul class="compact">
                 <li class="nav-item"><a class="nav-link" href="{{ route('telecom_operator.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Opérateurs télécom</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('telecom_service_type.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Type de services</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('telecom_offer.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Les Offres </a></li>
@@ -21,7 +21,7 @@
                 <svg class="nav-icon">
                     <span class="iconify" data-icon="mdi-alphabetical-variant"></span> &nbsp;
                 </svg> ComparekScore</a>
-            <ul class="nav-group-items compact" style="height: 10vh; height: auto; background: #5c5b5b; font-size: x-small; padding: 0.1rem;">
+            <ul class="compact">
                 <li class="nav-item"><a class="nav-link" href="{{route('score_criteria.index')}}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Criterias</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('score_value.index')}}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. des scores</a></li>
                 <!-- <li class="nav-item"><a class="nav-link" href="buttons/dropdowns.html"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Dropdowns</a></li>

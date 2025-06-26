@@ -32,8 +32,9 @@
                     <td>{!! $item->is_postpaid ? '<span class="iconify" color="green" data-icon="mdi-thumb-up"></span>' : '<span class="iconify" color="red" data-icon="mdi-thumb-down"></span>' !!}</td>
                     <td>{!! $item->available_online ? '<span class="iconify" color="green" data-icon="mdi-thumb-up"></span>' : '<span class="iconify" color="red" data-icon="mdi-thumb-down"></span>' !!}</td>
                     <td>
-                        <a href="{{ route('telecom_offer.edit', $item) }}" class="btn btn-sm btn-primary">Edit</a>
-                        <button wire:click="confirmDelete({{ $item->id }})" class="btn btn-sm btn-danger">Delete</button>
+                        <a href="{{ route('telecom_offer.edit', $item) }}" class="btn btn-sm btn-primary mx-1">Edit</a>
+                        <button wire:click="confirmDelete({{ $item->id }})" class="btn btn-sm btn-danger mx-1">Delete</button>
+                        <a href="{{ route('telecom_offer.show', $item) }}" class="btn btn-sm btn-success m-1">{{ $item->currentScore() }}</a>
                     </td>
                 </tr>
             @endforeach

@@ -1,13 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\OfferScoresController;
+use App\Http\Controllers\Admin\ScoreCriteriaController;
+use App\Http\Controllers\Admin\ScoreValueController;
 use App\Http\Controllers\Admin\TelecomOfferController;
 use App\Http\Controllers\Admin\TelecomOfferFeatureController;
 use App\Http\Controllers\Admin\TelecomOperatorController;
 use App\Http\Controllers\Admin\TelecomServiceTypeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ScoreCriteriaController;
-use App\Http\Controllers\ScoreValueController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -33,6 +34,8 @@ Route::middleware('auth')
     Route::resource('telecom_offer_feature', TelecomOfferFeatureController::class);
     Route::resource('score_criteria', ScoreCriteriaController::class);
     Route::resource('score_value', ScoreValueController::class);
+    Route::get('offer_scores/{offer}', [OfferScoresController::class, 'edit'])->name('offer_scores.edit');
+    Route::put('offer_scores/{offer}', [OfferScoresController::class, 'update'])->name('offer_scores.update');
 });
 
 require __DIR__.'/auth.php';

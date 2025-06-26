@@ -83,4 +83,14 @@ class TelecomOfferController extends Controller
 
         return redirect()->route('telecom_offer.index')->with('success', 'Offer deleted.');
     }
+
+    public function score(TelecomOffer $telecomOffer)
+    {
+        dd($telecomOffer->currentScore());
+    }
+
+    public function show(TelecomOffer $telecomOffer)
+    {
+        return view('dashboard.telecom_offers.show', compact('telecomOffer'));
+    }
 }

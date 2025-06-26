@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\ScoreCriteria;
 use App\Models\ScoreValue;
 use Illuminate\Http\Request;
@@ -21,7 +22,6 @@ class ScoreValueController extends Controller
      */
     public function create()
     {
-        
         return view('dashboard.score_value.form', [
             'score' => new ScoreValue(),
             'criteria' =>  ScoreCriteria::all(),
@@ -34,15 +34,15 @@ class ScoreValueController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'score_criteria_id' => ['required', 'exists:score_criteria,id'],
+            'score_criteria_id' => ['required', 'exists:score_criterias,id'],
             'vertical_entity_type' => ['required', 'string', 'max:255'],
             'vertical_entity_id' => ['required', 'integer'],
-            'value' => ['required', 'numeric'],
+            'value' => ['required', 'numeric', 'max:10'],
         ]);
 
         ScoreValue::create($validated);
 
-        return redirect()->route('dashboard.score_value.index')->with('success', 'Score créé.');
+        return redirect()->route('score_value.index')->with('success', 'Score créé.');
     }
 
     /**
@@ -50,7 +50,7 @@ class ScoreValueController extends Controller
      */
     public function show(ScoreValue $scoreValue)
     {
-        //
+        dd($scoreValue);
     }
 
     /**
@@ -58,7 +58,10 @@ class ScoreValueController extends Controller
      */
     public function edit(ScoreValue $scoreValue)
     {
-        //
+        return view('dashboard.score_value.form', [
+            'score' => $scoreValue,
+            'criteria' => ScoreCriteria::all(),
+        ]);
     }
 
     /**
@@ -66,7 +69,16 @@ class ScoreValueController extends Controller
      */
     public function update(Request $request, ScoreValue $scoreValue)
     {
-        //
+        $validated = $request->validate([
+            'score_criteria_id' => ['required', 'exists:score_criterias,id'],
+            'vertical_entity_type' => ['required', 'string', 'max:255'],
+            'vertical_entity_id' => ['required', 'integer'],
+            'value' => ['required', 'numeric',  'max:10'],
+        ]);
+
+        $scoreValue->update($validated);
+
+        return redirect()->route('score_value.index')->with('success', 'Score mis à jour.');
     }
 
     /**
@@ -74,6 +86,8 @@ class ScoreValueController extends Controller
      */
     public function destroy(ScoreValue $scoreValue)
     {
-        //
+        $scoreValue->delete();
+
+        return redirect()->route('dashboard.score_value.index')->with('success', 'Score supprimé avec succès !');
     }
 }
