@@ -19,8 +19,10 @@
                         </div>
                     @endforeach
                     </div>
-<h1>{{ $offer->currentScore() }}</h1>
-                    <div class="float-end"><button type="submit" class="btn btn-primary mt-3">Enregistrer</button></div>
+                        <span class="score-badge" style="background-color: {{ $offer->currentScoreGrade()->color() }}; color: #fff">
+                            {{ $offer->currentScoreGrade() }}<br>{{ $offer->currentScore() }}
+                        </span>
+                        <div class="float-end"><button type="submit" class="btn btn-primary mt-3">Enregistrer</button></div>
                 </form>
             </div>
         </div>

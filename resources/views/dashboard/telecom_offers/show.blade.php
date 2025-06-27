@@ -20,6 +20,7 @@
                         <a href="{{ route('offer_scores.edit', $telecomOffer) }}" class="btn btn-outline-primary">
                             <span class="iconify" data-icon="mdi-numeric-8-box-multiple-outline"></span> Editer les scores
                         </a>
+
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\ScoreGrade;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -90,12 +91,9 @@ class TelecomOffer extends Model
 
     public function currentScore(): float
     {
-        // Step 1: Get all relevant criteria for this vertical
         $criteriaList = ScoreCriteria::where('vertical', 'telecom')->get();
 
-        // Step 2: For each criteria, get the latest value for this offer
         $total = 0;
-        // $maxTotal = 0;
 
         foreach ($criteriaList as $criteria) {
             $scoreValue = ScoreValue::where('score_criteria_id', $criteria->id)
@@ -106,15 +104,14 @@ class TelecomOffer extends Model
 
             if ($scoreValue) {
                 $total += ($scoreValue->value * ($criteria->weight / 100));
-                // $maxTotal += $criteria->weight; // assuming max value per criteria = 10
             }
         }
 
-       /* if ($maxTotal === 0) {
-            return 0;
-        }*/
-        // Normalize between 0 and 10
-        // return round(($total / $maxTotal) * 10, 2);
         return $total;
+    }
+
+    public function currentScoreGrade(): ScoreGrade
+    {
+        return ScoreGrade::fromScore($this->currentScore());
     }
 }

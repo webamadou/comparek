@@ -16047,3 +16047,15 @@ ul.compact li {
   background: #313c56;
   border-radius: 0;
 }
+
+.score-badge {
+  min-width: 50px;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: .1rem .5rem;
+  border-radius: 13px 13px 0 0;
+  box-shadow: 3px 4px 2px #ddd;
+}
