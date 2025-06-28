@@ -17,6 +17,8 @@ cache:
 build:
   stage: build
   image: php:8.3-cli
+  variables:
+    NPM_CONFIG_PRODUCTION: "false"
   before_script:
     # bring in apt tools + Node 18
     - apt-get update && apt-get install -y curl git unzip gnupg2
