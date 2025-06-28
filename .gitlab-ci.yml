@@ -20,15 +20,12 @@ build:
   variables:
     NPM_CONFIG_PRODUCTION: "false"
   before_script:
-    # bring in apt tools + Node 18
     - apt-get update && apt-get install -y curl git unzip gnupg2
     - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
     - apt-get install -y nodejs
-    # install Composer
     - curl -sS https://getcomposer.org/installer | php
     - mv composer.phar /usr/local/bin/composer
-    # sanity checks
-    - php -v        # → 8.3.x
+    - php -v
     - composer --version
     - node --version
     - npm --version
