@@ -19,18 +19,13 @@ build:
   image: php:8.3-cli
   variables:
     NPM_CONFIG_PRODUCTION: "false"
-    NPM_CONFIG_OPTIONAL: "false"
-    NPM_CONFIG_OMIT: ""
+    NPM_CONFIG_OPTIONAL: "true"
   before_script:
     - apt-get update && apt-get install -y curl git unzip gnupg2
     - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
     - apt-get install -y nodejs
     - curl -sS https://getcomposer.org/installer | php
     - mv composer.phar /usr/local/bin/composer
-    - php -v
-    - composer --version
-    - node --version
-    - npm --version
   script:
     - composer install --no-dev --optimize-autoloader
     - npm ci
