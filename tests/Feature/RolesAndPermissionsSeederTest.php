@@ -109,7 +109,7 @@ class RolesAndPermissionsSeederTest extends TestCase
         Artisan::call('db:seed', ['--class' => 'RolesAndPermissionsSeeder']);
 
         // Check if the super admin user exists
-        $user = User::where('email', 'superadmin@example.com')->first();
+        $user = User::where('email', 'superadmin@comparek.sn')->first();
 
         $this->assertNotNull($user);
         $this->assertTrue($user->hasRole('super admin'));
