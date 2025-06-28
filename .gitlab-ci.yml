@@ -14,31 +14,23 @@ cache:
     - vendor/
     - node_modules/
 
-before_script:
-  - php -v
-  - composer --version
-  - node --version
-  - npm --version
-
 build:
   stage: build
-  image: node:18
+  image: php:8.3-cli
   before_script:
-    # install PHP CLI + extensions for Composer
-    - apt-get update
-    - apt-get install -y curl git unzip php-cli php-mbstring php-xml php-zip php-curl
+    # bring in apt tools + Node 18
+    - apt-get update && apt-get install -y curl git unzip gnupg2
+    - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+    - apt-get install -y nodejs
     # install Composer
     - curl -sS https://getcomposer.org/installer | php
     - mv composer.phar /usr/local/bin/composer
+    # sanity checks
+    - php -v        # → 8.3.x
     - composer --version
-    # verify Node & npm
     - node --version
     - npm --version
-  services:
-    - name: docker:dind
   script:
-    - apt-get update && apt-get install -y curl git unzip
-    - curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
     - composer install --no-dev --optimize-autoloader
     - npm ci
     - npm run build
@@ -50,18 +42,19 @@ build:
 
 test:
   stage: test
-  image: php:8.3
-  script:
-    - apt-get update && apt-get install -y git unzip
-    - curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+  image: php:8.3-cli
+  before_script:
+    - apt-get update && apt-get install -y curl git unzip
+    - curl -sS https://getcomposer.org/installer | php
+    - mv composer.phar /usr/local/bin/composer
     - composer install --no-dev --optimize-autoloader
+  script:
     - php artisan test --verbose
 
 deploy:
   stage: deploy
   image: alpine:latest
   before_script:
-    # prepare SSH
     - apk add --no-cache openssh-client git
     - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
@@ -84,4 +77,3 @@ deploy:
   only:
     refs:
       - main
-
