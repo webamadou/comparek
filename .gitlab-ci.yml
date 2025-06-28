@@ -19,6 +19,7 @@ build:
   image: php:8.3-cli
   variables:
     NPM_CONFIG_PRODUCTION: "false"
+    NPM_CONFIG_OPTIONAL: "false"
   before_script:
     - apt-get update && apt-get install -y curl git unzip gnupg2
     - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
@@ -31,7 +32,7 @@ build:
     - npm --version
   script:
     - composer install --no-dev --optimize-autoloader
-    - npm ci
+    - npm ci --no-optional
     - npm run build
   artifacts:
     paths:
@@ -65,7 +66,7 @@ deploy:
         git fetch --all &&
         git reset --hard $CI_COMMIT_SHA &&
         composer install --no-dev --optimize-autoloader &&
-        npm ci &&
+        npm ci --no-optional &&
         npm run build &&
         php artisan migrate --force &&
         php artisan config:cache &&
