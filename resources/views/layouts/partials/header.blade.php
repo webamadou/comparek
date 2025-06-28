@@ -46,7 +46,7 @@
     <div class="container-fluid px-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0">
-                <li class="breadcrumb-item"><a href="#">Accueil</a>
+                <li class="breadcrumb-item"><a href="{{ config('app.url') }}">Accueil</a>
                 </li>
                 <li class="breadcrumb-item active"><span>Backoffice</span>
                 </li>
