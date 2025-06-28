@@ -23,6 +23,17 @@ before_script:
 build:
   stage: build
   image: node:18
+  before_script:
+    # install PHP CLI + extensions for Composer
+    - apt-get update
+    - apt-get install -y curl git unzip php-cli php-mbstring php-xml php-zip php-curl
+    # install Composer
+    - curl -sS https://getcomposer.org/installer | php
+    - mv composer.phar /usr/local/bin/composer
+    - composer --version
+    # verify Node & npm
+    - node --version
+    - npm --version
   services:
     - name: docker:dind
   script:
