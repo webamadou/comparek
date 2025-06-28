@@ -34,7 +34,7 @@ build:
   script:
     - composer install --no-dev --optimize-autoloader
     - npm ci
-    - npm install --no-save @rollup/rollup-linux-x64-gnu
+    - npm install --save-dev sass-embedded
     - npm run build
   artifacts:
     paths:
@@ -69,7 +69,7 @@ deploy:
         git reset --hard $CI_COMMIT_SHA &&
         composer install --no-dev --optimize-autoloader &&
         npm ci &&
-        npm install --no-save @rollup/rollup-linux-x64-gnu &&
+        npm install --save-dev sass-embedded &&
         npm run build &&
         php artisan migrate --force &&
         php artisan config:cache &&
