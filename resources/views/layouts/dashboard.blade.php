@@ -70,6 +70,6 @@
         <!-- CoreUI JS -->
         <script src="{{ asset('coreui/js/coreui.bundle.min.js') }}"></script>
         <script src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
-        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+        
     </body>
 </html>
