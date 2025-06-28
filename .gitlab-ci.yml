@@ -1,0 +1,76 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  GIT_STRATEGY: fetch
+  NODE_ENV: production
+  DEPLOY_SSH_ARGS: "-o StrictHostKeyChecking=no"
+
+cache:
+  key: "${CI_COMMIT_REF_SLUG}"
+  paths:
+    - vendor/
+    - node_modules/
+
+before_script:
+  - php -v
+  - composer --version
+  - node --version
+  - npm --version
+
+build:
+  stage: build
+  image: node:18
+  services:
+    - name: docker:dind
+  script:
+    - apt-get update && apt-get install -y curl git unzip
+    - curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+    - composer install --no-dev --optimize-autoloader
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - vendor/
+      - node_modules/
+      - public/build/
+
+test:
+  stage: test
+  image: php:8.3
+  script:
+    - apt-get update && apt-get install -y git unzip
+    - curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+    - composer install --no-dev --optimize-autoloader
+    - php artisan test --verbose
+
+deploy:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    # prepare SSH
+    - apk add --no-cache openssh-client git
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+    - chmod 600 ~/.ssh/id_ed25519
+    - ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+  script:
+    - ssh "$DEPLOY_USER@$DEPLOY_HOST" $DEPLOY_SSH_ARGS "
+        cd $DEPLOY_PATH &&
+        git fetch --all &&
+        git reset --hard $CI_COMMIT_SHA &&
+        composer install --no-dev --optimize-autoloader &&
+        npm ci &&
+        npm run build &&
+        php artisan migrate --force &&
+        php artisan config:cache &&
+        php artisan route:cache &&
+        php artisan view:cache &&
+        sudo systemctl reload apache2
+      "
+  only:
+    refs:
+      - main
+
