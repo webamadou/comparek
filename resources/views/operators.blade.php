@@ -10,7 +10,7 @@
                         <div class="card card-lift--hover shadow border-0 px-2">
                             <p class="operator-title">{{ $operator->name }}</p>
                             <p>{!! $operator->description !!}</p>
-                            <img src="{{asset('assets/' . $operator->logo_path)}}" class="card-img">
+                            <img src="{{ Storage::disk('public')->url($operator->images->path) }}" width="100" alt="{{ $operator->images->path }}">
                             <a href="#" class="btn btn-primary btn-block active" type="button"> Plus d'info </a>
                         </div>
                     </div>

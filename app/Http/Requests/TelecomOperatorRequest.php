@@ -26,7 +26,7 @@ class TelecomOperatorRequest extends FormRequest
 
         return [
             'name' => 'required|string|max:255|' . Rule::unique('telecom_operators')->ignore($tlcOp),
-            'logo_path' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo_path' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'website_url' => 'nullable|url|max:255',
             'description' => 'nullable|string',
             'headquarters_location' => 'nullable|string|max:255',

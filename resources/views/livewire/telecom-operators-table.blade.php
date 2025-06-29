@@ -50,7 +50,7 @@
                     <td>{{ $operator->is_active ? '✅' : '❌' }}</td>
                     <td>{{ $operator->created_at?->format('Y-m-d') }}</td>
                     <td>
-                        <a href="{{ route('telecom_operator.edit', $operator) }}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{ route('telecom_operator.edit', $operator) }}" class="btn btn-sm btn-primary">Editer</a>
                         <button wire:click="confirmDelete({{ $operator->id }})" class="btn btn-sm btn-danger">Delete</button>
                     </td>
                 </tr>
