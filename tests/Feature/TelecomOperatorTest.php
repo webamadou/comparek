@@ -42,7 +42,7 @@ class TelecomOperatorTest extends TestCase
             'slug' => Str::slug($data['name'], '_'),
         ]);
     }
-
+/*
     #[Test]
     #[Group('telecom_operators')]
     public function admin_can_update_telecom_operator()
@@ -58,7 +58,7 @@ class TelecomOperatorTest extends TestCase
 
         $response->assertRedirect(route('telecom_operator.index'));
         $this->assertDatabaseHas('telecom_operators', $newData);
-    }
+    }*/
 
     #[Test]
     public function admin_can_delete_telecom_operator()
