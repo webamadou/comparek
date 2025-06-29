@@ -7,6 +7,16 @@
           action="{{ $operator->exists ? route('telecom_operator.update', $operator) : route('telecom_operator.store') }}">
             @csrf
             @if($operator->exists) @method('PUT') @endif
+            {{-- Display error messages --}}
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         <div class="container-lg px-4">
             <div class="col-12">
                 <div class="card mb-4">
@@ -25,6 +35,10 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleFormControlTextarea1">Description</label>
                                     <textarea  name="description" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ old('description', $operator->description) }}</textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="logo">Logo</label>
+                                    <input class="form-control"  type="file" name="logo_path">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleFormControlInput1">Siege social</label>

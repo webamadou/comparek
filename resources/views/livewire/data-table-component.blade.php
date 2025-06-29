@@ -20,6 +20,7 @@
         <thead>
             <tr>
                 <th><input type="checkbox" wire:model="selectAll"></th>
+                <th>-</th>
                 @foreach ($columns as $field => $label)
                     <th wire:click="sortBy('{{ $field }}')" style="cursor:pointer;">
                         {{ $label }} @if($sortField == $field) ({{ $sortDirection }}) @endif
@@ -32,6 +33,11 @@
             @foreach ($items as $item)
                 <tr>
                     <td><input type="checkbox" wire:model="selected" value="{{ $item->id }}"></td>
+                    <td>
+                        @if($item->images)
+                            <img src="{{ Storage::disk('public')->url($item->images->path) }}" width="100" alt="{{ $item->images->path }}">
+                        @endif
+                    </td>
                     @foreach ($columns as $field => $label)
                         <td>{{ data_get($item, $field) }}</td>
                     @endforeach
