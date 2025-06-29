@@ -85,8 +85,10 @@ class TelecomOperatorController extends Controller
                     'sort_order' => 1,
                 ]
             );
-            // $telecom_operator->images()->create(['path' => $path, 'is_primary' => true]);
+
         }
+
+        $telecom_operator->update($data);
 
         return redirect()->route('telecom_operator.index')->with('success', 'Operator updated.');
     }

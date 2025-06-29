@@ -52,7 +52,7 @@ class TelecomOperatorTest extends TestCase
         ];
 
         $response = $this->actingAs($this->admin)
-            ->put(route('telecom_operator.update', $operator), $newData);
+            ->put(route('telecom_operator.update', $operator), $newData, []);
 
         $response->assertRedirect(route('telecom_operator.index'));
         $this->assertDatabaseHas('telecom_operators', $newData);
