@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Str;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use App\Models\User;
@@ -43,6 +44,7 @@ class TelecomOperatorTest extends TestCase
     }
 
     #[Test]
+    #[Group('telecom_operators')]
     public function admin_can_update_telecom_operator()
     {
         $operator = TelecomOperator::factory()->create();
