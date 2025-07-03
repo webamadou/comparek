@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $illus = collect([2, 3, 5])->random();
+        return view('home',  compact('illus'));
     }
 
     public function operators()

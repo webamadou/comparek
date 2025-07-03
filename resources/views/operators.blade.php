@@ -1,4 +1,4 @@
-@extends('layouts.argon')
+@extends('layouts.frontv1')
 
 @section('content')
     <h1 class="page-title">Liste des fournisseurs internet et des opérateurs mobiles au Sénégal en 2025</h1>
@@ -12,6 +12,32 @@
                             <p>{!! $operator->description !!}</p>
                             <img src="{{ Storage::disk('public')->url($operator->images->path) }}" width="100" alt="{{ $operator->images->path }}">
                             <a href="#" class="btn btn-primary btn-block active" type="button"> Plus d'info </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <section id="pricing" class="pricing section light-background">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Liste des fournisseurs internet et des opérateurs mobiles au Sénégal en 2025</h2>
+        </div><!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row g-4 justify-content-center">
+                @foreach($operators as $key => $operator)
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="pricing-card">
+                            <h3>{{ $operator->name }}</h3>
+                            <p>{!! $operator->description !!}</p>
+                            <img
+                                src="{{ Storage::disk('public')->url($operator->images->thumb_path) }}"
+                                class="card-img">
+                            <a href="#" class="btn btn-primary">
+                                Buy Now
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 @endforeach
