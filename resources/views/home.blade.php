@@ -1,5 +1,17 @@
 @extends('layouts.frontv1')
-
+@push('styles')
+    @foreach([2,3,5] as $i)
+        <link rel="preload" href="{{ asset('frontv1/img/illustration/illust' . $i . '.svg') }}" as="image">
+    @endforeach
+    <style>
+        #hero-illustration {
+            transition: opacity .5s ease-in-out;
+        }
+        #hero-illustration.fade {
+            opacity: 0;
+        }
+    </style>
+@endpush
 @section('content')
     <!-- Hero Section -->
     <section id="hero" class="hero section">
@@ -30,7 +42,7 @@
 
                 <div class="col-lg-6">
                     <div class="hero-image">
-                        <img src="{{ asset('frontv1/img/illustration/illust5.svg') }}" alt="Business Growth" class="img-fluid" loading="lazy">
+                        <img id="hero-illustration" src="{{ asset('frontv1/img/illustration/illust' . $illus . '.svg') }}" alt="Business Growth" class="img-fluid" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -301,12 +313,9 @@
     </section>
     <!-- /Services Section -->
 
-
     <!-- Contact Section -->
     <section class="contact section" id="pre-footer">
-
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4 mb-5">
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="info-card">
@@ -336,9 +345,9 @@
                 </div>
                     <h3>Réseaux sociaux</h3>
                     <div class="pre-footer">
-                        <a href="https://linkedin.com" class="btn" target="_blank"><span class="bi bi-linkedin"></span></a>
-                        <a href="https://tiktok.com" class="btn" target="_blank"><span class="bi bi-tiktok"></span></a>
-                        <a href="https://instagram.com" class="btn" target="_blank"><span class="bi bi-instagram"></span></a>
+                        <a href="https://www.linkedin.com/company/comparek" class="btn" target="_blank"><span class="bi bi-linkedin"></span></a>
+                        <a href="https://tiktok.com/comparek" class="btn" target="_blank"><span class="bi bi-tiktok"></span></a>
+                        <a href="https://instagram.com/comparek_sn" class="btn" target="_blank"><span class="bi bi-instagram"></span></a>
                     </div>
                 </div>
             </div>
@@ -346,3 +355,29 @@
       </div>
     </section><!-- /Contact Section -->
 @endsection
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1️⃣ List all your possible indices here
+            const images = [2, 3, 5];
+            // 2️⃣ Track the current so you don’t repeat immediately
+            let current = Number("{{ $illus }}");
+
+            function changeIllustration() {
+                let next;
+                do {
+                    // pick a random element from the array
+                    next = images[Math.floor(Math.random() * images.length)];
+                } while (next === current);
+
+                current = next;
+                // 3️⃣ Build the new src and swap it
+                const img = document.getElementById('hero-illustration');
+                img.src = `{{ asset('frontv1/img/illustration/illust') }}` + current + '.svg';
+            }
+
+            // run it every 15 000ms = 15 s
+            setInterval(changeIllustration, 10000);
+        });
+    </script>
+@endpush
