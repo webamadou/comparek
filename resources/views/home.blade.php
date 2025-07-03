@@ -312,48 +312,6 @@
         </div>
     </section>
     <!-- /Services Section -->
-
-    <!-- Contact Section -->
-    <section class="contact section" id="pre-footer">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4 mb-5">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="info-card">
-              <div class="icon-box">
-                <i class="bi bi-geo-alt"></i>
-              </div>
-              <h3>Notre adresse</h3>
-              <p>Ouakam Aeroport, Lot N 76, Dakar, Senegal</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="info-card">
-              <div class="icon-box">
-                <i class="bi bi-telephone"></i>
-              </div>
-              <h3>Contactez - Nous</h3>
-              <p>Mobile: +221 77 269 35 16<br>
-                Email: contact@comparek.sn</p>
-            </div>
-          </div>
-
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="info-card">
-                <div class="icon-box">
-                    <i class="bi bi-clock"></i>
-                </div>
-                    <h3>Réseaux sociaux</h3>
-                    <div class="pre-footer">
-                        <a href="https://www.linkedin.com/company/comparek" class="btn" target="_blank"><span class="bi bi-linkedin"></span></a>
-                        <a href="https://tiktok.com/comparek" class="btn" target="_blank"><span class="bi bi-tiktok"></span></a>
-                        <a href="https://instagram.com/comparek_sn" class="btn" target="_blank"><span class="bi bi-instagram"></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-    </section><!-- /Contact Section -->
 @endsection
 @push('scripts')
     <script>
