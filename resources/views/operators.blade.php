@@ -1,4 +1,4 @@
-@extends('layouts.argon')
+@extends('layouts.frontv1')
 
 @section('content')
     <h1 class="page-title">Liste des fournisseurs internet et des opérateurs mobiles au Sénégal en 2025</h1>
