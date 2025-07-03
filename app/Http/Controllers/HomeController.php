@@ -18,4 +18,10 @@ class HomeController extends Controller
         $operators = TelecomOperator::orderBy('name')->get();
         return view('operators', compact('operators'));
     }
+
+    public function operator(TelecomOperator $operator)
+    {
+        $operators = TelecomOperator::all()->reject(fn ($ope) => $ope == $operator);
+        return view('operator', compact('operator',  'operators'));
+    }
 }

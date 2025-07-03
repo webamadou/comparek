@@ -15,6 +15,7 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/accueil', [HomeController::class, 'index'])->name('accueil');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/telecom/fournisseurs', [HomeController::class, 'operators'])->name('list_operators');
+Route::get('/telecom/fournisseur/{operator}', [HomeController::class, 'operator'])->name('operator_page');
 
 
 Route::get('/dashboard', function () {

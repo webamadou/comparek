@@ -335,7 +335,7 @@
             }
 
             // run it every 15 000ms = 15 s
-            setInterval(changeIllustration, 10000);
+            setInterval(changeIllustration, 6000);
         });
     </script>
 @endpush
