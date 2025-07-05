@@ -10,7 +10,6 @@
                     <span class="iconify" data-icon="mdi-playlist-plus"></span>
                     Ajouter
                 </a>
-
                 @livewire('score-criteria-table')
             </div>
         </div>

@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\TelecomOffer;
 use App\Models\TelecomOperator;
 use App\Models\TelecomServiceType;
+use App\TechnologyEnum;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class TelecomOfferController extends Controller
 {
@@ -39,6 +41,9 @@ class TelecomOfferController extends Controller
             'activation_fee' => 'nullable|numeric|min:0',
             'image_path' => 'nullable|string',
             'available_online' => 'boolean',
+            'debit' =>  'nullable|numeric|min:1',
+            'debit_unit' => 'required_with:debit|' . Rule::in(['Mo', 'Go']),
+            'technology' => 'nullable|string|' . Rule::in(TechnologyEnum::cases()),
         ]);
 
         TelecomOffer::create($validated);
@@ -70,6 +75,9 @@ class TelecomOfferController extends Controller
             'activation_fee' => 'nullable|numeric|min:0',
             'image_path' => 'nullable|string',
             'available_online' => 'boolean',
+            'debit' =>  'nullable|numeric|min:1',
+            'debit_unit' => 'required_with:debit|' . Rule::in(['mo', 'go']),
+            'technology' => 'nullable|string|' . Rule::in(TechnologyEnum::cases()),
         ]);
 
         $telecom_offer->update($validated);
