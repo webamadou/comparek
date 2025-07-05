@@ -41,6 +41,8 @@
         <!-- Main CSS File -->
         <link href="{{ asset('frontv1/css/main.css') }}" rel="stylesheet">
         @stack('styles')
+        @livewireStyles
+        @vite('resources/js/app.js')
     </head>
     <body class="index-page">
 
@@ -57,7 +59,7 @@
                                 class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
                             <li><a href="{{ route('list_operators') }}">Liste des opérateurs</a></li>
-                            <li><a href="{{ route('list_operators') }}">Comparateur des offres box & mobile</a></li>
+                            <li><a href="{{ route('telecom_comparison') }}">Comparateur des offres box & mobile</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#"><span><strong class="bi bi-bank2"></strong> Banques</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -155,5 +157,6 @@
     <!-- Main JS File -->
     <script src="{{ asset('frontv1/js/main.js') }}"></script>
     @stack('scripts')
+    @livewireScripts
     </body>
 </html>

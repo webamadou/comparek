@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TelecomOperator;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,17 +10,5 @@ class HomeController extends Controller
     {
         $illus = collect([2, 3, 5])->random();
         return view('home',  compact('illus'));
-    }
-
-    public function operators()
-    {
-        $operators = TelecomOperator::orderBy('name')->get();
-        return view('operators', compact('operators'));
-    }
-
-    public function operator(TelecomOperator $operator)
-    {
-        $operators = TelecomOperator::all()->reject(fn ($ope) => $ope == $operator);
-        return view('operator', compact('operator',  'operators'));
     }
 }

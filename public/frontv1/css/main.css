@@ -149,6 +149,7 @@ h6 {
 
 .header .logo {
   line-height: 1;
+  text-decoration: none;
 }
 
 .header .logo img {
@@ -246,6 +247,7 @@ h6 {
     justify-content: space-between;
     white-space: nowrap;
     transition: 0.3s;
+    text-decoration: none;
   }
 
   .navmenu a i,
@@ -2998,4 +3000,54 @@ section,
   line-height: 1.8;
   color: #fff;
   text-shadow: 1px 1px 1px #957e7e;
+}
+
+.offer-row {
+  border: 1px solid #d1d1d1;
+  border-radius: 10px
+}
+
+.offer-row:hover {
+  box-shadow: 1px 1px 8px #d4d4d4;
+}
+
+.offers-list .operator {
+  font-size: x-small;
+  font-weight: bold;
+  margin-right: 2rem;
+}
+ul.opertors-details {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+ul.opertors-details li {
+  font-size: 0.7rem;
+  margin: 0 1rem;
+}
+
+.filter-form-wrapper {
+  border: 1px solid #dad3d3;
+  border-radius: 4px;
+  padding: 2rem;
+  margin-top: 1rem;
+  box-shadow: 1px 1px 4px #847f7f;
+  height: 51vh;
+  overflow-x: hidden;
+}
+.filter-form-wrapper h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+}
+.filter-form-wrapper h1:after {
+  content: '';
+  width: 200%;
+  height: 0px;
+  border-bottom: 4px solid #ff5600;
+  position: absolute;
+  left: -33px;
+  bottom: -8px;
 }
