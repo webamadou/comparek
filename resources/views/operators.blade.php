@@ -49,7 +49,7 @@
     <section id="services-alt" class="services-alt section">
         <div class="container" data-aos="fade-up" data-aos-delay="100">
             <div class="row">
-                <div class="col-5 offset-4" style="    border: 3px solid #461082; border-radius: 31px; padding: 2rem 2rem 0;">
+                <div class="col-md-5 offset-md-4 col-sm-12 call-advizer"">
                     <div class="services-list">
                         <div class="service-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
                             <div class="service-icon">

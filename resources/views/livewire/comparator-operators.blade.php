@@ -44,9 +44,9 @@
     <section id="list-operators">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-md-4">
+                <div class="col-sm-12 col-md-4">
                     <div class="form-wrapper filter-form-wrapper">
-                        <h1><span class="bi bi-sliders"></span> Filtrer les offres</h1>
+                        <h1><span class="bi bi-sliders"></span>{{ __('') }}</h1>
                         <div if="filter-wrapper" class="php-email-form">
                             <div class="row">
                                 <div class="col-md-12 my-4 form-group">
@@ -114,7 +114,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-8 col-md-8">
+                <div class="col-sm-12 col-md-8">
                     @foreach($telecomOffers as $offer)
                         <div class="col-lg-12 col-md-12 row my-3 offer-row">
                             <div class="offers-list">
