@@ -149,5 +149,6 @@
     <!-- Main JS File -->
     <script src="{{ asset('frontv1/js/main.js') }}"></script>
     @stack('scripts')
+    @livewireScripts
     </body>
 </html>
