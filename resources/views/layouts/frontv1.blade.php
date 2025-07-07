@@ -9,19 +9,11 @@
         <title>{{ config('app.name', 'Comparek') }}</title>
 
         <!-- Favicons -->
-        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicons/apple-icon-57x57.png') }}">
-        <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('favicons/apple-icon-60x60.png') }}">
-        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('favicons/apple-icon-72x72.png') }}">
-        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicons/apple-icon-76x76.png') }}">
-        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('favicons/apple-icon-114x114.png') }}">
-        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('favicons/apple-icon-120x120.png') }}">
-        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('favicons/apple-icon-144x144.png') }}">
-        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('favicons/apple-icon-152x152.png') }}">
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-icon-180x180.png') }}">
-        <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('favicons/android-icon-192x192.png') }}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png') }}">
-        <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicons/favicon-96x96.png') }}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png') }}">
+        <link rel="icon" type="image/png" href="{{asset('assets/logo/front-favicons/android-icon-96x96.png')}}" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="{{asset('assets/logo/front-favicons/apple-icon.png')}}" />
+        <link rel="shortcut icon" href="{{asset('assets/logo/front-favicons/favicon.ico')}}" />
+        <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/logo/front-favicons/apple-icon-60x60.png')}}" />
+
         <meta name="msapplication-TileColor" content="#ff5600">
         <meta name="msapplication-TileImage" content="{{ asset('frontv1/favicons/apple-icon-57x57.png') }}">
         <meta name="theme-color" content="#323232">
@@ -41,6 +33,7 @@
         <!-- Main CSS File -->
         <link href="{{ asset('frontv1/css/main.css') }}" rel="stylesheet">
         @stack('styles')
+        @vite('resources/js/app.js')
     </head>
     <body class="index-page">
 
@@ -57,7 +50,8 @@
                                 class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
                             <li><a href="{{ route('list_operators') }}">Liste des opérateurs</a></li>
-                            <li><a href="{{ route('list_operators') }}">Comparateur des offres box & mobile</a></li>
+                            <li><a href="{{ route('telecom_comparison') }}">Comparateur d'offres internet</a></li>
+                            <li><a href="{{ route('telecom_comparison') }}">Comparateur d'offres mobile</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#"><span><strong class="bi bi-bank2"></strong> Banques</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -72,7 +66,7 @@
                             <li><a href="#"> .... </a></li>
                         </ul>
                     </li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#pre-footer">Contact</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -85,6 +79,47 @@
 
     <footer id="footer" class="footer light-background">
 
+        <!-- Contact Section -->
+        <section  class="contact section" id="pre-footer">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4 mb-5">
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="info-card">
+                            <div class="icon-box">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <h3>Notre adresse</h3>
+                            <p>Ouakam Aeroport, Lot N 76, Dakar, Senegal</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="info-card">
+                            <div class="icon-box">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <h3>Contactez - Nous</h3>
+                            <p>Mobile: +221 77 269 35 16<br>
+                                Email: contact@comparek.sn</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="info-card">
+                            <div class="icon-box">
+                                <i class="bi bi-clock"></i>
+                            </div>
+                            <h3>Réseaux sociaux</h3>
+                            <div class="pre-footer">
+                                <a href="https://www.linkedin.com/company/comparek" class="btn" target="_blank"><span class="bi bi-linkedin"></span></a>
+                                <a href="https://tiktok.com/comparek" class="btn" target="_blank"><span class="bi bi-tiktok"></span></a>
+                                <a href="https://instagram.com/comparek_sn" class="btn" target="_blank"><span class="bi bi-instagram"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Contact Section -->
 
         <div class="container copyright text-center mt-4">
             <p>© <span>Copyright</span> <strong class="px-1 sitename">Comparek</strong></p>
@@ -114,5 +149,6 @@
     <!-- Main JS File -->
     <script src="{{ asset('frontv1/js/main.js') }}"></script>
     @stack('scripts')
+    @livewireScripts
     </body>
 </html>

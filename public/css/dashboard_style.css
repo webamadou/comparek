@@ -519,6 +519,9 @@ th {
 
 label {
   display: inline-block;
+  font-weight: bold;
+  color: #461082;
+  line-height: 1.5;
 }
 
 button {
@@ -16059,3 +16062,4 @@ ul.compact li {
   border-radius: 13px 13px 0 0;
   box-shadow: 3px 4px 2px #ddd;
 }
+ 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\ScoreGrade;
+use App\TechnologyEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,19 +17,10 @@ class TelecomOffer extends Model
     use HasFactory;
     use HasSlug;
 
-    protected $fillable = [
-        'telecom_operator_id',
-        'telecom_service_type_id',
-        'name',
-        'short_description',
-        'detailed_description',
-        'price_per_month',
-        'is_postpaid',
-        'has_commitment',
-        'commitment_duration_months',
-        'activation_fee',
-        'image_path',
-        'available_online',
+    protected $guarded = [];
+
+    protected $casts = [
+        'technology' => TechnologyEnum::class,
     ];
 
     /**

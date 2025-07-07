@@ -16,6 +16,7 @@
                         ({{ $sortDirection }})
                     @endif
                 </th>
+                <th>Details</th>
                 <th>Postpaid</th>
                 <th>En Ligne</th>
                 <th> &nbsp;</th>
@@ -29,6 +30,7 @@
                     <td>{{ $item->operator?->name }}</td>
                     <td>{{ $item->serviceType?->name }}</td>
                     <td>{{ $item->price_per_month }} CFA</td>
+                    <td>{{ $item->debit . $item->debit_unit }} <br> {{ $item->technology }}</td>
                     <td>{!! $item->is_postpaid ? '<span class="iconify" color="green" data-icon="mdi-thumb-up"></span>' : '<span class="iconify" color="red" data-icon="mdi-thumb-down"></span>' !!}</td>
                     <td>{!! $item->available_online ? '<span class="iconify" color="green" data-icon="mdi-thumb-up"></span>' : '<span class="iconify" color="red" data-icon="mdi-thumb-down"></span>' !!}</td>
                     <td>
