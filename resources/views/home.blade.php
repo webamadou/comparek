@@ -30,8 +30,8 @@
 
                     <p class="hero-description mb-4">
                         Fini les doutes, les arnaques et les mauvaises surprises. Comparek vous aide à comparer les meilleures
-                        offres d’opérateurs, banques, écoles et services au Sénégal, en toute transparence. Comparez, choisissez,
-                        gagnez.
+                        offres d’opérateurs, banques, écoles et services au Sénégal, en toute transparence. <br>
+                        <strong>Comparez, choisissez, gagnez.</strong>
                     </p>
 
                     <div class="cta-wrapper">

@@ -39,13 +39,16 @@
 
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container position-relative d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+            <a href="{{ route('home') }}" class="logo d-flex align-items-center me-auto me-xl-0">
                 <h1 class="sitename">Comparek</h1>
             </a>
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="{{ route('home') }}" class="active">Accueil</a></li>
+                    <li class="dropdown">
+                        <a href="{{ route('home') }}" class="active">
+                            <span><strong class="bi bi-bullseye"></strong> {{ __('commons.home') }}</span></a>
+                    </li>
                     <li class="dropdown"><a href="#"><span><strong class="bi bi-wifi"></strong> Box & Mobile</span> <i
                                 class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
@@ -66,7 +69,7 @@
                             <li><a href="#"> .... </a></li>
                         </ul>
                     </li>
-                    <li><a href="#pre-footer">Contact</a></li>
+                    <li class="dropdown"><a href="#pre-footer"><span><strong class="bi bi-envelope-at-fill"></strong> Contact</span></a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
