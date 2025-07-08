@@ -23,6 +23,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <!-- Place the first <script> tag in your HTML's <head> -->
+        <script src="https://cdn.tiny.cloud/1/81puvyoink3jh3lq92ay58tevsqqmzggczglnm6ov1bw6w0a/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     </head>
     <body class="font-sans antialiased">
         @include('layouts.partials.sidebar')
@@ -80,6 +82,13 @@
         <!-- CoreUI JS -->
         <script src="{{ asset('coreui/js/coreui.bundle.min.js') }}"></script>
         <script src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
-
+        <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+        <script>
+            tinymce.init({
+                selector: 'textarea',
+                plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+            });
+        </script>
     </body>
 </html>

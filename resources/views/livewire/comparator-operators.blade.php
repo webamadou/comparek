@@ -1,52 +1,10 @@
 <div>
-    <section id="opertors-offers-list" class="py-0" style="display: none;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mx-5">
-                    <div class="form-wrapper">
-                        <div if="filter-wrapper" class="php-email-form">
-                            <div class="row">
-                                <div class="col-md-2 form-group">
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="bi bi-filter"></i></span>
-                                        <select name="operators" id="operators" class="form-control" wire:model.change="operator">
-                                            <option value=""> - </option>
-                                            @foreach($operators as $op)
-                                                <option value="{{ $op->id }}">{{ $op->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 form-group">
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="bi bi-filter"></i></span>
-                                        <select name="serviceTypes" id="serviceTypes" class="form-control" wire:model.change="serviceType">
-                                            <option value=""> - </option>
-                                            @foreach($serviceTypes as $st)
-                                                <option value="{{ $st->id }}">{{ $st->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 form-group">
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="bi bi-filter"></i></span>
-                                        <input type="email" class="form-control" name="offer_type" placeholder="Type d’offre">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="list-operators">
+    <section id="list-operators py-0">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-4">
                     <div class="form-wrapper filter-form-wrapper">
-                        <h1><span class="bi bi-sliders"></span>{{ __('') }}</h1>
+                        <h1><span class="bi bi-sliders"> </span>{{ __('offers.filter') }}</h1>
                         <div if="filter-wrapper" class="php-email-form">
                             <div class="row">
                                 <div class="col-md-12 my-4 form-group">
@@ -110,6 +68,19 @@
                                         @endforeach
                                     </div>
                                 </div>
+                                <div class="col-md-12 my-2 form-group sorting">
+                                    <div class="custom-checkbox-group">
+                                        <h3><span class="bi bi-filter"></span> {{ __('commons.sort') }}</h3>
+                                        <label for="sort_price" class="custom-checkbox">
+                                            <input id="sort_price" type="radio" name="sortBy" value="price_per_month" wire:model.change="sortBy">
+                                            <span>{{ __('offers.monthly_price') }}</span>
+                                        </label>
+                                        <label for="sort_note" class="custom-checkbox">
+                                            <input id="sort_note" type="radio" name="sortBy" value="sort_note" wire:model.change="sortBy">
+                                            <span>{{ __('commons.notes') }}</span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -117,10 +88,12 @@
                 <div class="col-sm-12 col-md-8">
                     @foreach($telecomOffers as $offer)
                         <x-offer-row :offer="$offer">
-                            {!! $offer->detailed_descrition !!}
+                            <div class="mb-4">
+                                {!! $offer->detailed_description !!}
+                            </div>
                             <ul>
                                 <li>
-                                    <strong>{{__('offers.subscription_fee')}}</strong> {{ $offer->activation_fee }}
+                                    <strong>{{__('offers.subscription_fee')}}</strong> {!! number_format($offer->activation_fee, 0, '', ' ') . '<sup>FCFA</sup>' !!}
                                 </li>
                                 <li>
                                     <strong>{{ __('offers.commitment') }}</strong>

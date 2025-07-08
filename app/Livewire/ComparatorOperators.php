@@ -25,6 +25,8 @@ class ComparatorOperators extends Component
     public $technology = [];
     public $debit = 1000;
     public $debit_unit = '';
+    public $sortBy = '';
+    public $orderDirection = 'desc';
 
     public function updating($property)
     {
@@ -35,7 +37,6 @@ class ComparatorOperators extends Component
 
     public function updated()
     {
-        //;
     }
 
     public function mount()
@@ -54,7 +55,9 @@ class ComparatorOperators extends Component
             ->when($this->serviceType, fn ($query) => $query->whereIn('telecom_service_type_id', $this->serviceType))
             ->when($this->pricePerMonthMin < $this->maxPrice, fn ($query) => $query->where('price_per_month', '<', $this->pricePerMonthMin))
             ->when(! empty($this->technology), fn ($query) => $query->whereIn('technology', $this->technology))
-            ->orderBy('name')
+            ->orderBy(
+                $this->sortBy === 'price_per_month' ? $this->sortBy : 'name', $this->sortBy === 'price_per_month' ? 'asc' : $this->orderDirection
+            )
             ->get()
             ->filter(function ($offer) {
                 if (! empty($this->score)) {
@@ -62,8 +65,13 @@ class ComparatorOperators extends Component
                 }
 
                 return $offer;
-            });
-            ;
+            })
+            ->sortByDesc(function ($offer) {
+                    if ($this->sortBy === 'sort_note') {
+                        return $offer->currentScore();
+                    };
+                }
+            );
 
         return view('livewire.comparator-operators', compact('telecomOffers'));
     }

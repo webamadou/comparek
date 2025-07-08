@@ -24,5 +24,6 @@ return [
     'without_commitment' => 'Sans engagement',
     'with_commitment' => 'Avec engagement',
     'commitment' => 'Engagement',
-    'subscription_fee' => 'Frais de subscription'
+    'subscription_fee' => 'Frais de subscription',
+    'filter' => 'Filtrer les offres'
 ];

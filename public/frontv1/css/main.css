@@ -2657,9 +2657,9 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .custom-checkbox-group label {
-  font-size: large;
+  font-size: small;
   border: 1px solid #d04e0b;
-  margin: 3px 0;
+  margin: 1px 0;
   padding: 7px 11px;
   border-radius: 9px;
   line-height: 1.1;
@@ -2683,8 +2683,8 @@ a.show-more {
 .custom-checkbox input+span::before {
   content: "";
   display: inline-block;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: .8rem;
+  height: .8rem;
   border: 1px solid var(--accent-color);
   border-radius: 10px;
   vertical-align: middle;
@@ -3283,7 +3283,7 @@ a.show-more {
   .call-to-action-2 .cta-action .btn {
     width: 100%;
   }
-.portfolio .portfolio-filters li {
+  .portfolio .portfolio-filters li {
     font-size: 14px;
     padding: 6px 15px;
   }
