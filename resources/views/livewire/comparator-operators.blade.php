@@ -116,57 +116,19 @@
                 </div>
                 <div class="col-sm-12 col-md-8">
                     @foreach($telecomOffers as $offer)
-                        <div class="col-lg-12 col-md-12 row my-3 offer-row">
-                            <div class="offers-list">
-                                <div class="d-flex align-items-center offer-wrapper justify-content-between">
-                                    <div class="offer-column offer-operator text-center">
-                                        {{ $offer->operator->name }} <br>
-                                        <img src="{{ Storage::disk('public')->url($offer->operator->images->thumb_path) }}" alt="{{ $offer->operator->name }}" width="55px" height="55px">
-                                    </div>
-                                    <div class="offer-column offer-name-column">
-                                        <p>
-                                            <strong>{{ $offer->name }}</strong><br>
-                                            <span class="meta-debit">
-                                                <span class="bi bi-speedometer"></span> {{ $offer->debit }} <span style="text-transform:capitalize ">{{ $offer->debit_unit }}</span>
-                                            </span>
-                                            <br>
-                                            <span class="meta-techno"><span class="bi bi-wifi"></span> {{ $offer->technology?->label() ?? '' }}</span>
-                                        </p>
-                                    </div>
-                                    @if (! empty($offer->serviceType))
-                                        <div class="offer-column service_type">
-                                            <span class="bi bi-list-nested"></span>{{ $offer->serviceType->name }}
-                                        </div>
-                                    @endif
-                                    <div class="offer-column offer-price">
-                                        @if ((int) $offer->price_per_month > 0)
-                                            <span class="price">{!! number_format($offer->price_per_month, 0, '', ' ') . '<sup> FCFA</sup>' !!}</span>
-                                        @endif
+                        <x-offer-row :offer="$offer">
+                            {!! $offer->detailed_descrition !!}
+                            <ul>
+                                <li>
+                                    <strong>{{__('offers.subscription_fee')}}</strong> {{ $offer->activation_fee }}
+                                </li>
+                                <li>
+                                    <strong>{{ __('offers.commitment') }}</strong>
+                                    {{ $offer->has_commitment ? __('offers.with_commitment') : __('offers.without_commitment')}}
 
-                                        @if (! empty($offer->features))
-                                            @foreach($offer->features as $feature)
-                                                {{ $feature->price }}<br>
-                                            @endforeach
-                                        @endif
-
-                                        <span class="offer-commitment">
-                                            {!!  $offer->has_commitment === true ? '<span class="bi bi-lock-fill"></span> ' . __('offers.with_commitment') : '<span class="bi bi-unlock-fill"></span> ' . __('offers.without_commitment') !!}
-                                        </span>
-                                    </div>
-                                    <div class="offer-column has_commitment">
-                                        <x-comparek-score-badge :grade="$offer->currentScoreGrade()" :size="'small'" />
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="show-more" data-bs-toggle="collapse" href="#{{ "{$offer->id}_collapse" }}" role="button" aria-expanded="false" aria-controls="{{ "{$offer->id}_collapse" }}">
-                                {{ __('commons.more_details') }}
-                            </a>
-                            <div class="collapse" id="{{ "{$offer->id}_collapse" }}">
-                                <div class="card card-body">
-                                    details here
-                                </div>
-                            </div>
-                        </div>
+                                </li>
+                            </ul>
+                        </x-offer-row>
                     @endforeach
                 </div>
 

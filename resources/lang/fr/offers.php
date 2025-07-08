@@ -23,4 +23,6 @@ return [
     'operator' => 'Operator',
     'without_commitment' => 'Sans engagement',
     'with_commitment' => 'Avec engagement',
+    'commitment' => 'Engagement',
+    'subscription_fee' => 'Frais de subscription'
 ];

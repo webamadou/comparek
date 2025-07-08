@@ -15,7 +15,7 @@
             'icon' => '0.3rem',
             'border' => '1px',
             'barHeight' => '8px',
-            'inner-radius' => '10px'
+            'inner-radius' => '5px'
         ],
         'medium' => [
             'padding' => '10px',
