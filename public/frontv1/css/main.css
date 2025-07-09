@@ -15,6 +15,7 @@
   --nav-dropdown-color: #3a3939;
   --nav-dropdown-hover-color: #461082;
   scroll-behavior: smooth;
+  --bs-body-font-size: 1.2rem;
 }
 
 
@@ -38,7 +39,7 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
   line-height: 1.6;
 }
 
@@ -65,7 +66,25 @@ h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
 }
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid;
+    border-color: var(--accent-color) transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
 
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
@@ -423,7 +442,12 @@ h6 {
   padding-right: 10px;
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
-
+.page-bilboard-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.page-bilboard-img {}
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/
@@ -1118,7 +1142,7 @@ section,
 
 /*--------------------------------------------------------------
 # Portfolio Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*
 .portfolio .portfolio-filters-container {
   margin-bottom: 40px;
 }
@@ -2669,8 +2693,9 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 a.show-more {
   display: block;
+  margin-top: 3px;
   width: 100%;
-  border: 1px dashed;
+  border: .1px dashed;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -2699,6 +2724,20 @@ a.show-more {
   background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'><polyline points='1 5.5 4 9 11 1' stroke='white' stroke-width='2' fill='none'/></svg>");
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.reset-filter-wrapper {
+  border-top: 1px solid var(--accent-color);
+  padding-top: 1rem;
+  justify-content: center;
+}
+button.reset-filter {
+  border: none;
+  background: var(--heading-color);
+  color: #fff;
+  padding: .5rem 2rem;
+  font-size: small;
+  text-transform: uppercase;
 }
 /* Mobile menu */
 

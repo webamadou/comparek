@@ -8,5 +8,6 @@ return [
     'more_details' => "Plus d'infos",
     'home' => 'Accueil',
     'sort' => 'Trier',
-    'notes' => 'Score'
+    'notes' => 'Score',
+    'reset-filter' => 'Réinitialiser le filtre'
 ];

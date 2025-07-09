@@ -5,7 +5,7 @@
                 <div class="col-sm-12 col-md-4">
                     <div class="form-wrapper filter-form-wrapper">
                         <h1><span class="bi bi-sliders"> </span>{{ __('offers.filter') }}</h1>
-                        <div if="filter-wrapper" class="php-email-form">
+                        <div id="filter-wrapper" class="php-email-form">
                             <div class="row">
                                 <div class="col-md-12 my-4 form-group">
                                     <h3><span class="bi bi-filter"></span> {{__('offers.operators')}}</h3>
@@ -81,6 +81,9 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="col-md-12 form-group reset-filter-wrapper d-flex justify-content-center align-content-center">
+                                    <button type="button" wire:click="resetFilter" class="reset-filter">{{ __('commons.reset-filter') }}</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -98,7 +101,6 @@
                                 <li>
                                     <strong>{{ __('offers.commitment') }}</strong>
                                     {{ $offer->has_commitment ? __('offers.with_commitment') : __('offers.without_commitment')}}
-
                                 </li>
                             </ul>
                         </x-offer-row>

@@ -136,7 +136,7 @@
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
-
+    <span style="display: none"><a href="https://storyset.com/education">Education illustrations by Storyset</a></span>
     <!-- Preloader -->
     <div id="preloader"></div>
 

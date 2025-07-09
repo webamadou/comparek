@@ -26,7 +26,7 @@ class ComparatorOperators extends Component
     public $debit = 1000;
     public $debit_unit = '';
     public $sortBy = '';
-    public $orderDirection = 'desc';
+    public $orderDirection = 'asc';
 
     public function updating($property)
     {
@@ -37,6 +37,22 @@ class ComparatorOperators extends Component
 
     public function updated()
     {
+    }
+
+    public function resetFilter()
+    {
+        $this->reset([
+            'operator',
+            'serviceType',
+            'maxPrice',
+            'pricePerMonthMin',
+            'pricePerMonthMax',
+            'technology',
+            'debit',
+            'debit_unit',
+            'sortBy',
+        ]);
+        $this->js('window.location.reload()');
     }
 
     public function mount()
@@ -56,7 +72,8 @@ class ComparatorOperators extends Component
             ->when($this->pricePerMonthMin < $this->maxPrice, fn ($query) => $query->where('price_per_month', '<', $this->pricePerMonthMin))
             ->when(! empty($this->technology), fn ($query) => $query->whereIn('technology', $this->technology))
             ->orderBy(
-                $this->sortBy === 'price_per_month' ? $this->sortBy : 'name', $this->sortBy === 'price_per_month' ? 'asc' : $this->orderDirection
+                $this->sortBy === 'price_per_month' ? $this->sortBy : 'name',
+                $this->sortBy === 'price_per_month' ? 'asc' : $this->orderDirection
             )
             ->get()
             ->filter(function ($offer) {
