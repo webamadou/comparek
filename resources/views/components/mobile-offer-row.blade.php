@@ -17,17 +17,17 @@
                 @endif
                 @if(!empty($feature->voice_minutes))
                 <li>
-                    <span class="bi bi-stopwatch-fill"></span> {!! $feature->voice_minutes . ' ' .__('offers-features.call_minutes')  !!}
+                    <span class="bi bi-stopwatch-fill"></span> {!! number_format($feature->voice_minutes, 0, '', ' ') . ' ' .__('offers-features.call_minutes')  !!}
                 </li>
                 @endif
-                @if(!empty($feature->nbr_sms))
+                @if(!empty($feature->sms_nbr))
                 <li>
-                    <span class="bi bi-chat-left-text-fill"></span> {!! $feature->nbr_sms . ' ' . __('offers-features.nbr_sms') !!}
+                    <span class="bi bi-chat-left-text-fill"></span> {!! number_format($feature->sms_nbr, 0, '', ' ') . ' ' . __('offers-features.nbr_sms') !!}
                 </li>
                 @endif
                 @if(!empty($feature->phone_credit))
                 <li>
-                    <span class="bi bi-phone-fill"></span> {!! $feature->phone_credit . ' ' . __('offers-features.phone_credit') !!}
+                    <span class="bi bi-phone-fill"></span> {!! number_format($feature->phone_credit, 0, '', ' ') . ' ' . __('offers-features.phone_credit') !!}
                 </li>
                 @endif
                 @if(!empty($feature->validity_length))
@@ -51,5 +51,8 @@
                 <x-comparek-score-badge :grade="$feature->offer->currentScoreGrade()" size="small"/>
             </div>
         </div>
+    </div>
+    <div class="col-12">
+        <p class="feature-offer-name">{!! '<small> ' . $feature->offer?->name . '</small>' !!}</p>
     </div>
 </div>

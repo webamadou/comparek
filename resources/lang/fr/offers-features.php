@@ -7,5 +7,6 @@ return [
     'call_minutes' => "Minutes d'appel",
     'nbr_sms' => 'Nombre de SMS',
     'phone_credit' => 'Crédit téléphonique',
-    'valid' => 'Valable'
+    'valid' => 'Valable',
+    'and_more' => 'et +'
 ];

@@ -2394,13 +2394,13 @@ ul.opertors-details li {
 .filter-form-wrapper {
   border: 1px solid #dad3d3;
   border-radius: 4px;
-  padding: 2rem;
+  padding: .4rem 2rem;
   margin-top: 1rem;
   box-shadow: 1px 1px 4px #847f7f;
   height: auto;
   overflow-x: hidden;
   position: sticky;
-  top: 120px;
+  top: 70px;
   z-index: 100;
 }
 .filter-form-wrapper h1 {
@@ -2682,13 +2682,13 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .custom-checkbox-group label {
-  font-size: small;
+  font-size: .7rem;
   border: 1px solid #d04e0b;
   margin: 1px 0;
-  padding: 7px 11px;
-  border-radius: 9px;
+  padding: 3px 11px;
+  border-radius: 5px;
   line-height: 1.1;
-  box-shadow: 1px 1px 3px #cbc8c8;
+  box-shadow: 1px 1px 0px #767070;
   background: #fff;
   color: var(--accent-color);
 }
@@ -2728,6 +2728,7 @@ a.show-more {
 }
 
 .reset-filter-wrapper {
+  margin-top: 4px;
   border-top: 1px solid var(--accent-color);
   padding-top: 1rem;
   justify-content: center;
@@ -2762,6 +2763,13 @@ button.reset-filter {
 .mobile-offer-details-wrapper ul .bi {
   color: var(--heading-color);
   font-size: medium;
+}
+.feature-offer-name {
+  padding: 0;
+  margin: 0;
+  font-size: small;
+  font-weight: bold;
+  color: var(--heading-color);
 }
 /* Mobile menu */
 
@@ -3301,6 +3309,28 @@ button.reset-filter {
 
   .services .service-link {
     justify-content: center;
+  }
+  .mobile-offer-price {
+    font-weight: bold;
+    font-size: 2.3rem;
+    color: var(--accent-color);
+  }
+  .offer-row,
+  .mobile-offer-row {
+    border: 3px solid #9b5fde;
+    border-radius: 4px;
+    box-shadow: 1px 2px 1px var(--heading-color);
+  }
+  .mobile-offer-details-wrapper {
+    font-size: .8rem;
+    font-weight: bold;
+    padding: 0 !important;
+  }
+  .mobile-offer-details-wrapper ul {
+    list-style: none;
+    font-size: 1.1rem;
+    color: var(--heading-color);
+    padding: 0;
   }
 }
 

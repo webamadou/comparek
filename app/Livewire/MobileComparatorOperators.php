@@ -11,7 +11,7 @@ class MobileComparatorOperators extends Component
 {
     public $operator = [];
     public $operators = '';
-    public $validityLength = 0;
+    public $validityLength = [];
     public $validityOptions = [];
     public $score = [];
     public $scores = '';
@@ -41,7 +41,6 @@ class MobileComparatorOperators extends Component
 
     public function updated()
     {
-        dd($this->validityLength);
     }
 
     public function resetFilter()
@@ -55,8 +54,64 @@ class MobileComparatorOperators extends Component
             ->with('offer')
             ->with('offer.operator')
             ->when($this->operator, fn ($query) => $query->whereHas('offer', fn ($q) => $q->whereIn('telecom_operator_id', $this->operator)))
-            ->when($this->validityLength > 0, fn ($query) => $query->where('validity_length', $this->validityLength))
-            ->get();
+            ->when(! empty($this->validityLength), fn ($query) => $query->whereIn('validity_length', $this->validityLength))
+            ->when($this->data > 0, function ($query) {
+                if ($this->data < 1024) {
+                    return $query
+                        ->where('data_volume_value', '<=', $this->data)
+                        ->where('data_volume_unit', 'Mo');
+                } else {
+                    return $query
+                        ->where('data_volume_value', '>=', $this->data)
+                        ->where('data_volume_unit', 'Go');
+                }
+            })
+            ->when($this->voiceMinutes > 0, function ($query) {
+                if ($this->voiceMinutes < 1000) {
+                    return $query->where('voice_minutes', '<=', $this->voiceMinutes);
+                } else {
+                    return $query->where('voice_minutes', '>=', $this->voiceMinutes);
+                }
+            })
+            ->when($this->sms_nbr > 0, function ($query) {
+                if ($this->sms_nbr < 1000) {
+                    return $query->where('sms_nbr', '<=', $this->sms_nbr);
+                } else {
+                    return $query->where('sms_nbr', '>=', $this->sms_nbr);
+                }
+            })
+            ->when($this->phoneCredit > 0, function ($query) {
+                if ($this->phoneCredit < 1000) {
+                    return $query->where('phone_credit', '<=', $this->phoneCredit);
+                } else {
+                    return $query->where('phone_credit', '>=', $this->phoneCredit);
+                }
+            })
+            ->when($this->price > 0, function ($query) {
+                if ($this->price < 5000) {
+                    return $query->where('price', '<=', $this->price);
+                } else {
+                    return $query->where('price', '>=', $this->price);
+                }
+            })
+            ->orderBy(
+                (! empty($this->sortBy) && $this->sortBy !== 'sort_note') ? $this->sortBy : 'name',
+                $this->sortBy !== 'sort_note' ? 'asc' : $this->orderDirection
+            )
+            ->get()
+            ->filter(function ($feature) {
+                if (! empty($this->score)) {
+                    return in_array($feature->offer->currentScoreGrade()->name, $this->score);
+                }
+
+                return $feature;
+            })
+            ->sortByDesc(function ($feature) {
+                if ($this->sortBy === 'sort_note') {
+                    return $feature->offer->currentScore();
+                };
+            }
+            );
         return view('livewire.mobile-comparator-operators', compact('telecomOffers'));
     }
 }
