@@ -25,4 +25,9 @@ enum TechnologyEnum: string
             self::FIVE_G => '5G',
         };
     }
+
+    public static function values(): array
+    {
+        return array_column(self::cases(), 'value');
+    }
 }

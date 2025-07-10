@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TelecomOfferFeature;
 use App\Models\TelecomOperator;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -40,5 +41,14 @@ class TelecomOperatorController extends Controller
     {
         $operators = TelecomOperator::all();
         return view('telecoms_comparison', compact('operators'));
+    }
+
+    /**
+     *
+     */
+    public function passComparison()
+    {
+        $operators = TelecomOfferFeature::all();
+        return view('pass_comparison', compact('operators'));
     }
 }

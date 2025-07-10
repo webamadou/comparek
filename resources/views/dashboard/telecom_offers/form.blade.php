@@ -64,7 +64,7 @@
                             <label class="mb-3">{{__('offers.debit_unit')}}</label><br>
                             <label for="go">Go
                                 <input type="radio" name="debit_unit" value="go" id="go" {{ $offer->debit_unit == 'go' ? 'checked="checked"' : '' }}>
-                            </label> - 
+                            </label> -
                             <label for="mo">Mo
                                 <input type="radio" name="debit_unit" value="mo" id="mo" {{ $offer->debit_unit == 'mo' ? 'checked="checked"' : '' }}>
                             </label>
@@ -74,7 +74,7 @@
                             <select name="technology" class="form-control">
                                 <option value=""> - </option>
                                 @foreach(\App\TechnologyEnum::cases() as $tech)
-                                    <option value="{{ $tech->name }}" {{ $offer->telecom_operator_id == $op->id ? 'selected' : '' }}>
+                                    <option value="{{ $tech->value }}" {{ $offer->telecom_operator_id == $op->id ? 'selected' : '' }}>
                                         {{ $tech->label() }}
                                     </option>
                                 @endforeach

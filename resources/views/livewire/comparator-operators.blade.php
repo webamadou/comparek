@@ -43,7 +43,7 @@
                                 <div class="col-md-12 my-2 form-group">
                                     <div class="input-group">
                                         <label class="d-flex justify-content-between font-weight-bold">
-                                            <span>MAX :</span>
+                                            <span> {{ __('commons.price') }} :</span>
                                             <span class="">
                                                 {{ $pricePerMonthMin >= 100000 ? '100 000 CFA et +' : number_format($pricePerMonthMin, 0, '', ' ') . 'CFA' }}
                                             </span>

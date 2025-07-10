@@ -54,7 +54,7 @@
                         <ul>
                             <li><a href="{{ route('list_operators') }}">Liste des opérateurs</a></li>
                             <li><a href="{{ route('telecom_comparison') }}">Comparateur d'offres internet</a></li>
-                            <li><a href="{{ route('telecom_comparison') }}">Comparateur d'offres mobile</a></li>
+                            <li><a href="{{ route('telecom_pass_comparison') }}">Comparateur d'offres mobile</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#"><span><strong class="bi bi-bank2"></strong> Banques</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>

@@ -2369,12 +2369,13 @@ section,
   text-shadow: 1px 1px 1px #957e7e;
 }
 
-.offer-row {
+.offer-row, .mobile-offer-row {
   border: 1px solid #d1d1d1;
   border-radius: 4px
 }
 
-.offer-row:hover {
+.offer-row:hover,
+.mobile-offer-row:hover {
   box-shadow: 1px 1px 8px #d4d4d4;
 }
 
@@ -2738,6 +2739,29 @@ button.reset-filter {
   padding: .5rem 2rem;
   font-size: small;
   text-transform: uppercase;
+}
+.mobile-offer-details-wrapper {
+  font-size: .8rem;
+  font-weight: bold;
+}
+.mobile-offer-details-wrapper ul {
+  list-style: none;
+  font-size: 1.1rem;
+  color: var(--heading-color)
+}
+.mobile-offer-price-badge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-offer-price {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--accent-color);
+}
+.mobile-offer-details-wrapper ul .bi {
+  color: var(--heading-color);
+  font-size: medium;
 }
 /* Mobile menu */
 

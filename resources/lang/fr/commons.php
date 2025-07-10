@@ -9,5 +9,8 @@ return [
     'home' => 'Accueil',
     'sort' => 'Trier',
     'notes' => 'Score',
-    'reset-filter' => 'Réinitialiser le filtre'
+    'price' => 'Prix',
+    'cfa_and_more' => ' CFA et +',
+    'cfa' => 'CFA',
+    'reset-filter' => 'Réinitialiser le filtre',
 ];

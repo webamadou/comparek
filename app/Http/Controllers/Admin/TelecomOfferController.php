@@ -77,7 +77,7 @@ class TelecomOfferController extends Controller
             'available_online' => 'boolean',
             'debit' =>  'nullable|numeric|min:1',
             'debit_unit' => 'required_with:debit|' . Rule::in(['mo', 'go']),
-            'technology' => 'nullable|string|' . Rule::in(TechnologyEnum::cases()),
+            'technology' => 'nullable|string|' . Rule::in(TechnologyEnum::values()),
         ]);
 
         $telecom_offer->update($validated);
