@@ -2771,6 +2771,7 @@ button.reset-filter {
   font-weight: bold;
   color: var(--heading-color);
 }
+#spinner.hidden
 /* Mobile menu */
 
 /* Media Queries Consolidated */

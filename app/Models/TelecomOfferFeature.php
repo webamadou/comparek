@@ -11,6 +11,10 @@ class TelecomOfferFeature extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'data_volume_value' => 'float',
+    ];
+
     public function offer()
     {
         return $this->belongsTo(TelecomOffer::class, 'telecom_offer_id');

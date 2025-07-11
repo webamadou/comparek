@@ -20,3 +20,10 @@
     </div>
     @livewire('mobile-comparator-operators')
 @endsection
+@push('scripts')
+    <script>
+        window.addEventListener('filter-applied', event => {
+            // TODO: might need to use this as a work arround to have a spinner on filter
+        });
+    </script>
+@endpush

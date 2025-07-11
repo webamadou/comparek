@@ -32,7 +32,7 @@
                 @endif
                 @if(!empty($feature->validity_length))
                 <li>
-                    <span class="bi bi-chat-left-text-fill"></span> {!! $feature->validity_length . ' ' . trans_choice('offers-features.day', $feature->validity_length) !!}
+                    <span class="bi bi-calendar-range"></span> {!! $feature->validity_length . ' ' . trans_choice('offers-features.day', $feature->validity_length) !!}
                 </li>
                 @endif
             </ul>
