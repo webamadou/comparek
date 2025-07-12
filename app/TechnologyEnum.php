@@ -7,7 +7,7 @@ enum TechnologyEnum: string
     case ADSL      = 'adsl';
     case CABLE     = 'cable';
     case FIBER     = 'fiber';
-    // case WIRELESS  = 'wireless';
+    case BOX       = 'box';
     case FOUR_G = '4g';
     case FIVE_G = '5g';
 
@@ -20,7 +20,7 @@ enum TechnologyEnum: string
             self::ADSL      => 'ADSL',
             self::CABLE     => 'Câble',
             self::FIBER     => 'Fibre optique',
-            /* self::WIRELESS  => 'Sans-fil', */
+            self::BOX       => 'Solution Box',
             self::FOUR_G => '4G',
             self::FIVE_G => '5G',
         };

@@ -2,10 +2,10 @@
 
     <div class="row mb-3">
         <div class="col-md-4">
-            <input type="text" wire:model.debounce.500ms="searchCriteria" class="form-control" placeholder="Search Criteria Name">
+            <input type="text" wire:model.change.debounce.500ms="searchCriteria" class="form-control" placeholder="Search Criteria Name">
         </div>
         <div class="col-md-4">
-            <input type="text" wire:model.debounce.500ms="searchEntityType" class="form-control" placeholder="Search Entity Type (e.g. TelecomOffer)">
+            <input type="text" wire:model.change="searchEntityType" class="form-control" placeholder="Search Entity Type (e.g. TelecomOffer)">
         </div>
     </div>
 
