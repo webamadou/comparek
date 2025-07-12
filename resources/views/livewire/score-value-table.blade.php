@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{ $item->criteria?->name ? $item->criteria?->name . '     (' .$item->criteria?->weight . '%)' : '-' }}</td>
                     <td>{{ class_basename($item->vertical_entity_type) }}</td>
-                    <td>{{ $item->vertical_entity_id }}</td>
+                    <td>{{ $item->entity->name }}</td>
                     <td>{{ $item->value }}</td>
                     <td>
                         <a href="{{ route('score_value.edit', $item) }}" class="btn btn-sm btn-primary">Editer</a>

@@ -14,12 +14,14 @@
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #3a3939;
   --nav-dropdown-hover-color: #461082;
+  --score-a: #087311;
+  --score-b: #20B31B;
+  --score-c: #FFE600;
+  --score-d: #F77205;
+  --score-e: #E80707;
   scroll-behavior: smooth;
   --bs-body-font-size: 1.2rem;
 }
-
-
-
 
 .light-background {
   --background-color: #f4f4f9;
@@ -2771,9 +2773,90 @@ button.reset-filter {
   font-weight: bold;
   color: var(--heading-color);
 }
-#spinner.hidden
-/* Mobile menu */
-
+.page-description {
+  overflow-y: hidden;
+  height: 22vh;
+  padding: 0;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+.page-description.active {
+  height: auto;
+}
+.read-more-wrapper {
+  padding: .1rem .5rem;
+  background: #efefef;
+  text-align: center;
+  border: 1px solid #f1f1f1;
+}
+.read-more-wrapper a.read-more, .read-more-wrapper a.read-more:hover {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--heading-color);
+  text-decoration: none;
+  letter-spacing: 1px;
+  background: transparent;
+  display: block;
+}
+.read-more-wrapper a.read-more .bi.closed {
+  display: none;
+}
+.score {
+  background: #c3bfbf;
+  padding: 2px 5px;
+  border-radius: 100%;
+  font-size: .8rem;
+}
+.score-a {
+  color: var(--score-a);
+  border: 2px solid;
+  background: #fff !important;
+}
+.score-b {
+  color: var(--score-b);
+  border: 2px solid;
+  background: #fff !important;
+}
+.score-c {
+  color: var(--score-c);
+  border: 2px solid;
+  background: #fff !important;
+}
+.score-d {
+  color: var(--score-d);
+  border: 2px solid;
+  background: #fff !important;
+}
+.score-e {
+  color: var(--score-e);
+  border: 2px solid;
+  background: #fff !important;
+}
+.row.telecom-scores {
+  padding: 0;
+  margin: 0;
+  font-size: small;
+  color: var(--heading-color);
+}
+.row.telecom-scores ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.scores .progress-bar {
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--bs-progress-bar-color);
+    text-align: center;
+    white-space: nowrap;
+    background-color: var(--heading-color) !important;
+    transition: var(--bs-progress-bar-transition);
+}
+.scores .progress {
+  height: 4px;
+}
 /* Media Queries Consolidated */
 @media (max-width: 1200px) {
 .header .logo {

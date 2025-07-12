@@ -55,6 +55,7 @@
                             <li><a href="{{ route('list_operators') }}">Liste des opérateurs</a></li>
                             <li><a href="{{ route('telecom_comparison') }}">Comparateur d'offres internet</a></li>
                             <li><a href="{{ route('telecom_pass_comparison') }}">Comparateur d'offres mobile</a></li>
+                            <li><a href="{{ route('telecom_scores') }}">Scores des offres</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#"><span><strong class="bi bi-bank2"></strong> Banques</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -139,7 +140,7 @@
     <span style="display: none"><a href="https://storyset.com/education">Education illustrations by Storyset</a></span>
     <!-- Preloader -->
     <div id="preloader"></div>
-
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Vendor JS Files -->
     <script src="{{ asset('frontv1/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontv1/vendor/php-email-form/validate.js') }}"></script>
@@ -150,8 +151,9 @@
     <script src="{{ asset('frontv1/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
     <!-- Main JS File -->
+    <script src="{{ asset('frontv1/js/jquery.min.js') }}"></script>
     <script src="{{ asset('frontv1/js/main.js') }}"></script>
     @stack('scripts')
-    @livewireScripts
+
     </body>
 </html>

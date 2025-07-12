@@ -6,6 +6,8 @@ return [
     'available_online?' => 'Disponible en ligne ?',
     'save' => 'Enregistrer',
     'more_details' => "Plus d'infos",
+    'read-more' => "En savoir plus",
+    'close' => "Fermer",
     'home' => 'Accueil',
     'sort' => 'Trier',
     'notes' => 'Score',

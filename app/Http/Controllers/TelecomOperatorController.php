@@ -51,4 +51,9 @@ class TelecomOperatorController extends Controller
         $operators = TelecomOfferFeature::all();
         return view('pass_comparison', compact('operators'));
     }
+
+    public function scores()
+    {
+        return view('scores');
+    }
 }

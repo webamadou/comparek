@@ -23,7 +23,7 @@
             'icon' => '0.5rem',
             'border' => '2px',
             'barHeight' => '10px',
-            'inner-radius' => '20px'
+            'inner-radius' => '12px'
         ],
         'large' => [
             'padding' => '14px',
