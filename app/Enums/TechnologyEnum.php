@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Enums;
 
 enum TechnologyEnum: string
 {
@@ -8,8 +8,8 @@ enum TechnologyEnum: string
     case CABLE     = 'cable';
     case FIBER     = 'fiber';
     case BOX       = 'box';
-    case FOUR_G = '4g';
-    case FIVE_G = '5g';
+    case FOUR_G    = '4g';
+    case FIVE_G    = '5g';
 
     /**
      * Libellés humains (utile en vue)

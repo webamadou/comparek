@@ -12,7 +12,8 @@
                                     <div class="custom-checkbox-group">
                                         @foreach($operators as $op)
                                             <label class="custom-checkbox">
-                                                <input type="checkbox" name="operator" wire:model.change="operator" value="{{ $op->id }}">
+                                                <input type="checkbox" name="operator" wire:model.change="operator"
+                                                       value="{{ $op->id }}">
                                                 <span>{{ $op->name }}</span>
                                             </label>
                                         @endforeach
@@ -23,7 +24,9 @@
                                         <h3><span class="bi bi-filter"></span> {{ __('offers.service_types') }}</h3>
                                         @foreach($serviceTypes as $st)
                                             <label class="custom-checkbox" for="{{ "service_{$st->id}" }}">
-                                                <input type="checkbox" name="serviceTypes" id="{{ "service_{$st->id}" }}" value="{{ $st->id }}" wire:model.change="serviceType">
+                                                <input type="checkbox" name="serviceTypes"
+                                                       id="{{ "service_{$st->id}" }}" value="{{ $st->id }}"
+                                                       wire:model.change="serviceType">
                                                 <span>{{ $st->name }}</span>
                                             </label>
                                         @endforeach
@@ -32,9 +35,10 @@
                                 <div class="col-md-12 my-2 form-group">
                                     <div class="custom-checkbox-group">
                                         <h3><span class="bi bi-filter"></span> Comparek Score</h3>
-                                         @foreach($scores as $score)
+                                        @foreach($scores as $score)
                                             <label for="{{ "score_{$score->value}" }}" class="custom-checkbox">
-                                                <input id="{{ "score_{$score->value}" }}" type="checkbox" name="score" value="{{ $score->value }}" wire:model.change="score">
+                                                <input id="{{ "score_{$score->value}" }}" type="checkbox" name="score"
+                                                       value="{{ $score->value }}" wire:model.change="score">
                                                 <span>{{ $score->name }}</span>
                                             </label>
                                         @endforeach
@@ -60,9 +64,10 @@
                                 <div class="col-md-12 my-2 form-group">
                                     <div class="custom-checkbox-group">
                                         <h3><span class="bi bi-filter"></span> {{ __('offers.technologies') }}</h3>
-                                        @foreach(\App\TechnologyEnum::cases() as $techno)
+                                        @foreach(\App\Enums\TechnologyEnum::cases() as $techno)
                                             <label for="{{ $techno->value }}" class="custom-checkbox">
-                                                <input id="{{ $techno->value }}" type="checkbox" name="technology" value="{{ $techno->value }}" wire:model.change="technology">
+                                                <input id="{{ $techno->value }}" type="checkbox" name="technology"
+                                                       value="{{ $techno->value }}" wire:model.change="technology">
                                                 <span>{{ $techno->label() }}</span>
                                             </label>
                                         @endforeach
@@ -72,17 +77,21 @@
                                     <div class="custom-checkbox-group">
                                         <h3><span class="bi bi-filter"></span> {{ __('commons.sort') }}</h3>
                                         <label for="sort_price" class="custom-checkbox">
-                                            <input id="sort_price" type="radio" name="sortBy" value="price_per_month" wire:model.change="sortBy">
+                                            <input id="sort_price" type="radio" name="sortBy" value="price_per_month"
+                                                   wire:model.change="sortBy">
                                             <span>{{ __('offers.monthly_price') }}</span>
                                         </label>
                                         <label for="sort_note" class="custom-checkbox">
-                                            <input id="sort_note" type="radio" name="sortBy" value="sort_note" wire:model.change="sortBy">
+                                            <input id="sort_note" type="radio" name="sortBy" value="sort_note"
+                                                   wire:model.change="sortBy">
                                             <span>{{ __('commons.notes') }}</span>
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-md-12 form-group reset-filter-wrapper d-flex justify-content-center align-content-center">
-                                    <button type="button" wire:click="resetFilter" class="reset-filter">{{ __('commons.reset-filter') }}</button>
+                                <div
+                                    class="col-md-12 form-group reset-filter-wrapper d-flex justify-content-center align-content-center">
+                                    <button type="button" wire:click="resetFilter"
+                                            class="reset-filter">{{ __('commons.reset-filter') }}</button>
                                 </div>
                             </div>
                         </div>

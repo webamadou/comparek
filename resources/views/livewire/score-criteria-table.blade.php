@@ -7,7 +7,7 @@
         <div class="col-md-4">
             <select wire:model="searchVertical" class="form-control">
                 <option value="">All Verticals</option>
-                @foreach (\App\ComparekEnum::cases() as $vertical)
+                @foreach (\App\Enums\ComparekEnum::cases() as $vertical)
                     <option value="{{ $vertical->value }}">{{ $vertical->label() }}</option>
                 @endforeach
             </select>
@@ -22,28 +22,34 @@
 
     <table class="table table-bordered table-hover">
         <thead>
-            <tr>
-                <th><input type="checkbox" wire:model="selectAll"></th>
-                <th wire:click="sortBy('vertical')" style="cursor:pointer;">Domaine @if($sortField == 'vertical') ({{ $sortDirection }}) @endif</th>
-                <th wire:click="sortBy('name')" style="cursor:pointer;">Nom @if($sortField == 'name') ({{ $sortDirection }}) @endif</th>
-                <th wire:click="sortBy('weight')" style="cursor:pointer;">Ponderation @if($sortField == 'weight') ({{ $sortDirection }}) @endif</th>
-                <th>-</th>
-            </tr>
+        <tr>
+            <th><input type="checkbox" wire:model="selectAll"></th>
+            <th wire:click="sortBy('vertical')" style="cursor:pointer;">Domaine @if($sortField == 'vertical')
+                    ({{ $sortDirection }})
+                @endif</th>
+            <th wire:click="sortBy('name')" style="cursor:pointer;">Nom @if($sortField == 'name')
+                    ({{ $sortDirection }})
+                @endif</th>
+            <th wire:click="sortBy('weight')" style="cursor:pointer;">Ponderation @if($sortField == 'weight')
+                    ({{ $sortDirection }})
+                @endif</th>
+            <th>-</th>
+        </tr>
         </thead>
 
         <tbody>
-            @foreach ($items as $item)
-                <tr>
-                    <td><input type="checkbox" wire:model="selected" value="{{ $item->id }}"></td>
-                    <td>{{ $item->vertical->label() }}</td>
-                    <td>{{ $item->name }}</td>
-                    <td>{{ $item->weight }} %</td>
-                    <td>
-                        <a href="{{ route('score_criteria.edit', $item) }}" class="btn btn-sm btn-primary">Editer</a>
-                        <button wire:click="confirmDelete({{ $item->id }})" class="btn btn-sm btn-danger">Supprimer</button>
-                    </td>
-                </tr>
-            @endforeach
+        @foreach ($items as $item)
+            <tr>
+                <td><input type="checkbox" wire:model="selected" value="{{ $item->id }}"></td>
+                <td>{{ $item->vertical->label() }}</td>
+                <td>{{ $item->name }}</td>
+                <td>{{ $item->weight }} %</td>
+                <td>
+                    <a href="{{ route('score_criteria.edit', $item) }}" class="btn btn-sm btn-primary">Editer</a>
+                    <button wire:click="confirmDelete({{ $item->id }})" class="btn btn-sm btn-danger">Supprimer</button>
+                </td>
+            </tr>
+        @endforeach
         </tbody>
     </table>
 

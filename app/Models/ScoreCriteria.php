@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\ComparekEnum;
+use App\Enums\ComparekEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;

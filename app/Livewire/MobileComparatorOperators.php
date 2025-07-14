@@ -2,9 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Enums\ScoreGrade;
 use App\Models\TelecomOfferFeature;
 use App\Models\TelecomOperator;
-use App\ScoreGrade;
 use Livewire\Component;
 
 class MobileComparatorOperators extends Component

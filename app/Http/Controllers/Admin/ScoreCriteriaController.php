@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\ComparekEnum;
+use App\Enums\ComparekEnum;
 use App\Http\Controllers\Controller;
 use App\Models\ScoreCriteria;
 use Illuminate\Http\Request;

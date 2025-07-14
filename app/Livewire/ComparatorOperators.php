@@ -2,10 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Enums\ScoreGrade;
 use App\Models\TelecomOffer;
 use App\Models\TelecomOperator;
 use App\Models\TelecomServiceType;
-use App\ScoreGrade;
 use Livewire\Component;
 use Livewire\WithPagination;
 

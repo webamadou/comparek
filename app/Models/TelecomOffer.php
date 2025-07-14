@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use App\ScoreGrade;
-use App\TechnologyEnum;
+use App\Enums\ScoreGrade;
+use App\Enums\TechnologyEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

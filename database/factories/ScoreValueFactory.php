@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\ComparekEnum;
+use App\Enums\ComparekEnum;
 use App\Models\ScoreCriteria;
 use App\Models\ScoreValue;
 use App\Models\TelecomOffer;
