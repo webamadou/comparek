@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\ScoreCriteria;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,7 +20,9 @@ class DatabaseSeeder extends Seeder
             TelecomServiceTypeSeeder::class,
             TelecomOfferSeeder::class,
             TelecomOfferFeatureSeeder::class,
-            ScoreCriteriaSeeder::class
+            ScoreCriteriaSeeder::class,
+            SchoolSeeder::class,
+            ProgramDomainSeeder::class,
         ]);
 
 
