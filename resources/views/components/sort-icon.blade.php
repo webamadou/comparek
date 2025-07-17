@@ -1,0 +1,1 @@
+<span class="iconify" data-icon="{{$direction === 'desc' ? 'mdi-chevron-down' : 'mdi-chevron-up'}}"></span>

@@ -19,6 +19,14 @@
         </li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon">
+                    <span class="iconify" data-icon="mdi-school"></span> &nbsp;
+                </svg> Écoles</a>
+            <ul class="compact">
+                <li class="nav-item"><a class="nav-link" href="{{ route('schools.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Écoles</a></li>
+            </ul>
+        </li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+                <svg class="nav-icon">
                     <span class="iconify" data-icon="mdi-alphabetical-variant"></span> &nbsp;
                 </svg> ComparekScore</a>
             <ul class="compact">

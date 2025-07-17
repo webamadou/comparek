@@ -17,10 +17,10 @@
         </div>
         <div class="col-md-3">
             <select wire:model="perPage" class="form-control">
-                <option value="10">10 rows</option>
-                <option value="25">25 rows</option>
-                <option value="50">50 rows</option>
-                <option value="100">100 rows</option>
+                <option value="10">10 lignes</option>
+                <option value="25">25 lignes</option>
+                <option value="50">50 lignes</option>
+                <option value="100">100 lignes</option>
             </select>
         </div>
     </div>

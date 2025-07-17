@@ -1,0 +1,31 @@
+<?php
+
+return [
+    'schools' => 'Grandes écoles et Université',
+    'criteria_name' => 'Nom de l\'école',
+    'criteria_deleted' => 'École supprimée',
+    'criteria_updated' => 'École mise à jour',
+    'confirm_criterion_delete' => 'Êtes-vous sûr de vouloir supprimer cette école ?',
+    'école_deleted' => 'ÉCOLE supprimé avec succès !',
+    'confirm_école_delete' => 'Êtes-vous sûr de vouloir supprimer ce école ?',
+    'école_created' => 'école créé',
+    'no_école_yet' => 'Les écoles ne sont pas encore enregistrés pour cette offre',
+    'social_network' => 'Réseau social',
+    'detailed_description' => 'Description détaillée',
+    'activation_fee' => 'Frais d\'activation',
+    'has_engagement' => 'Avec engagement',
+    'commitment_duration' => "Durée de l'engagement (mois)",
+    'monthly_price' => 'Prix par mois',
+    'debit' => 'Débit',
+    'debit_unit' => 'Giga ou Mega',
+    'technology' => 'Technologie',
+    'technologies' => 'Technologies',
+    'service_types' => 'Types de service',
+    'operators' => 'Operators',
+    'operator' => 'Operator',
+    'without_commitment' => 'Sans engagement',
+    'with_commitment' => 'Avec engagement',
+    'commitment' => 'Engagement',
+    'subscription_fee' => 'Frais de souscription',
+    'filter' => 'Filtrer les offres'
+];

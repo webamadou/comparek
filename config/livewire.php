@@ -1,6 +1,19 @@
 <?php
 
 return [
+ /*
+    |---------------------------------------------------------------------------
+    | Alpine.js
+    |---------------------------------------------------------------------------
+    |
+    | Livewire uses Alpine internally. If you are including Alpine separately
+    | (for example, via Vite or CDN), you can disable Livewire’s Alpine loading.
+    |
+    */
+
+    'alpine' => [
+        'version' => 'none', // ✅ prevent Livewire from injecting Alpine
+    ],
 
     /*
     |---------------------------------------------------------------------------

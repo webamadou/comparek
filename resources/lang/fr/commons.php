@@ -1,5 +1,6 @@
 <?php
 return [
+    'add' => 'Ajouter',
     'delete' => 'Supprimer',
     'comparison' => 'Comparaison',
     'is_postpaid' => 'Est-ce postpayé?',
@@ -15,4 +16,6 @@ return [
     'cfa_and_more' => ' CFA et +',
     'cfa' => 'CFA',
     'reset-filter' => 'Réinitialiser le filtre',
+    'are_u_sure' => 'Êtes vous sûre?',
+    'error_occurred' => "Il s'est produit une erreur!"
 ];
