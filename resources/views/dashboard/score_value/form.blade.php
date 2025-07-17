@@ -7,7 +7,7 @@
             <div class="card-body">
 
                 <h1 class="display-4">
-                    {{ $score->exists ? 'Editer' : 'Ajouer' }} Comparek Score
+                    {{ $score->exists ? 'Editer' : 'Ajouter' }} Comparek Score
                 </h1>
 
                 <form method="POST"

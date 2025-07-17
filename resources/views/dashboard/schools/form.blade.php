@@ -6,7 +6,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <h1 class="display-4">
-                    {{ $school->exists ? 'Modification ' : 'Ajouer' }} 
+                    {{ $school->exists ? 'Modification ' : 'Ajouter' }} 
                 </h1>
                 <form action="{{ $school->exists ? route('schools.update', $school) : route('schools.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf

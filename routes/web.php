@@ -39,6 +39,7 @@ Route::middleware('auth')
     Route::resource('telecom_offer', TelecomOfferController::class);
     Route::resource('telecom_offer_feature', TelecomOfferFeatureController::class);
     Route::resource('schools', \App\Http\Controllers\Admin\SchoolController::class);
+    Route::resource('school_programs', \App\Http\Controllers\Admin\SchoolProgramController::class);
     Route::resource('score_criteria', ScoreCriteriaController::class);
     Route::resource('score_value', ScoreValueController::class);
     Route::get('offer_scores/{offer}', [OfferScoresController::class, 'edit'])->name('offer_scores.edit');

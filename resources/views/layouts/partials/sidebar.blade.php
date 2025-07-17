@@ -23,6 +23,8 @@
                 </svg> Écoles</a>
             <ul class="compact">
                 <li class="nav-item"><a class="nav-link" href="{{ route('schools.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Écoles</a></li>
+                <li class="nav-item"> - </li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('school_programs.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. des Programmes</a></li>
             </ul>
         </li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             ScoreCriteriaSeeder::class,
             SchoolSeeder::class,
             ProgramDomainSeeder::class,
+            AccreditationBodySeeder::class
         ]);
 
 

@@ -1,7 +1,14 @@
 <?php
 return [
+    'yes' => 'Oui',
+    'no' => 'Non',
+    'name' => 'Nom',
+    'select' => 'Selectioner',
     'add' => 'Ajouter',
+    'edit' => 'Editer',
     'delete' => 'Supprimer',
+    'confirm_deletion' => 'Confirmer la suppression',
+    'no_record_found' => 'Aucun enregistrement trouvé',
     'comparison' => 'Comparaison',
     'is_postpaid' => 'Est-ce postpayé?',
     'available_online?' => 'Disponible en ligne ?',
@@ -17,5 +24,8 @@ return [
     'cfa' => 'CFA',
     'reset-filter' => 'Réinitialiser le filtre',
     'are_u_sure' => 'Êtes vous sûre?',
-    'error_occurred' => "Il s'est produit une erreur!"
+    'error_occurred' => "Il s'est produit une erreur!",
+    'duration' => 'Durée',
+    'year' => 'An',
+    'currency' => 'Devise',
 ];
