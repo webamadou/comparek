@@ -56,7 +56,7 @@
 
                         <div class="col-md-3 mb-3">
                             <label class="form-label">{{ __('schools.duration') . ' (' . __('commons.year') .')' }}</label>
-                            <input type="number" name="duration_years" class="form-control" min="1" max="6" value="{{ old('duration_years', $school_program->duration_years) }}">
+                            <input type="number" name="duration_years" class="form-control" min="1" max="10" value="{{ old('duration_years', $school_program->duration_years) }}">
                         </div>
 
                         <div class="col-md-3 mb-3">
@@ -118,11 +118,21 @@
                         </div>
                     </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">Program Features</label>
+                        <div class="d-flex flex-wrap gap-2" role="group" aria-label="Basic checkbox toggle button group">
+                            @foreach ($features as $id => $feature)
+                                <input type="checkbox" name="feature_ids[]" value="{{ $id }}" id="feature{{ $id }}" class="btn-check"
+                                    {{ in_array($id, old('feature_ids', $school_program->features?->pluck('id')->toArray() ?? [])) ? 'checked' : '' }}>
+                                <label class="btn btn-outline-success" for="feature{{ $id }}">{{ $feature }}</label>
+                            @endforeach
+                        </div>
+                    </div>
                     <div class="row my-4">
                         <label for="">Accreditation (Selection multiple possible)</label>
-                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                        <div class="d-flex flex-wrap gap-2" role="group" aria-label="Basic checkbox toggle button group">
                             @foreach($accreditations as $id => $accred)
-                                <input type="checkbox" name="accreditation_ids[]" value="{{ $id }}" class="btn-check" id="accred{{ $id }}" autocomplete="off" {{ in_array($id, old('accreditation_ids', $school_program->accreditationBodies->pluck('id')->toArray() ?? [])) ? 'checked' : '' }}>
+                                <input type="checkbox" name="accreditation_ids[]" value="{{ $id }}" class="btn-check" id="accred{{ $id }}" autocomplete="off" {{ in_array($id, old('accreditation_ids', $school_program->accreditationBodies?->pluck('id')->toArray() ?? [])) ? 'checked' : '' }}>
                                 <label class="btn btn-outline-primary" for="accred{{$id}}">{{ $accred }}</label>
                             @endforeach
                         </div>

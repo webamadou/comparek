@@ -50,4 +50,9 @@ class SchoolProgram extends Model
             ->withPivot('status', 'accreditation_date', 'expiration_date', 'notes')
             ->withTimestamps();
     }
+
+    public function features()
+    {
+        return $this->belongsToMany(ProgramFeature::class);
+    }
 }

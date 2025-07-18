@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SchoolProgramRequest;
 use App\Models\AccreditationBody;
 use App\Models\ProgramDomain;
+use App\Models\ProgramFeature;
 use App\Models\School;
 use App\Models\SchoolProgram;
 
@@ -18,18 +19,20 @@ class SchoolProgramController extends Controller
 
     public function create()
     {
-        $schoolProgram = new ProgramDomain();
+        $school_program = new ProgramDomain();
         $schools = School::orderBy('name')->where('is_active', true)->pluck('name', 'id')->toArray();
         $domains = ProgramDomain::orderBy('name')->pluck('name', 'id')->toArray();
         $accreditations = AccreditationBody::orderBy('name')->where('is_active', true)->pluck('name', 'id')->toArray();
+        $features = ProgramFeature::orderBy('name')->pluck('name', 'id')->toArray();
 
-        return view('dashboard.school_program.form', compact('schoolProgram', 'schools', 'domains', 'accreditations'));
+        return view('dashboard.school_program.form', compact('school_program', 'schools', 'domains', 'accreditations', 'features'));
     }
 
     public function store(SchoolProgramRequest $request)
     {
-        $program = SchoolProgram::create(collect($request->validated())->except('accreditation_ids')->toArray());
+        $program = SchoolProgram::create(collect($request->validated())->except(['accreditation_ids', 'feature_ids'])->toArray());
         $program->accreditationBodies()->sync($request->input('accreditation_ids', []));
+        $program->features()->sync($request->input('feature_ids', []));
 
         return redirect()->route('school_programs.index')->with('success', __('schools.created'));
     }
@@ -39,14 +42,16 @@ class SchoolProgramController extends Controller
         $schools = School::orderBy('name')->where('is_active', true)->pluck('name', 'id')->toArray();
         $domains = ProgramDomain::orderBy('name')->pluck('name', 'id')->toArray();
         $accreditations = AccreditationBody::orderBy('name')->where('is_active', true)->pluck('name', 'id')->toArray();
+        $features = ProgramFeature::orderBy('name')->pluck('name', 'id')->toArray();
 
-        return view('dashboard.school_program.form', compact('school_program', 'schools', 'domains', 'accreditations'));
+        return view('dashboard.school_program.form', compact('school_program', 'schools', 'domains', 'accreditations', 'features'));
     }
 
     public function update(SchoolProgramRequest $request, SchoolProgram $schoolProgram)
     {
-        $schoolProgram->update(collect($request->validated())->except('accreditation_ids')->toArray());
+        $schoolProgram->update(collect($request->validated())->except(['accreditation_ids', 'feature_ids'])->toArray());
         $schoolProgram->accreditationBodies()->sync($request->input('accreditation_ids', []));
+        $schoolProgram->features()->sync($request->input('feature_ids', []));
 
         return redirect()->route('school_programs.index')->with('success', __('schools.updated'));
     }

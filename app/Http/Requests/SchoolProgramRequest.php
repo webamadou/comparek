@@ -39,6 +39,8 @@ class SchoolProgramRequest extends FormRequest
             'tuition_description' => ['nullable', 'string', 'max:255'],
             'accreditation_ids' => ['nullable', 'array'],
             'accreditation_ids.*' => ['integer', 'exists:accreditation_bodies,id'],
+            'feature_ids' => ['nullable', 'array'],
+            'feature_ids.*' => ['integer', 'exists:program_features,id'],
         ];
     }
 }
