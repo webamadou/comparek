@@ -11,9 +11,9 @@
                                 <div class="col-md-12 mt-2 form-group">
                                     <div class="input-group">
                                         <label class="d-flex justify-content-between font-weight-bold">
-                                            <span> {{__('commons.price')}} :</span>
+                                            <span> {{__('commons.price')}} </span>
                                             <span class="">
-                                                {!! $price >= 5000 ? '5000 <sup>' . __('commons.cfa_and_more') . '</sup>': number_format($price, 0, '', ' ') . ' <sup>' . __('commons.cfa') . '</sup>' !!}
+                                                {!! $price >= 5000 ? ' : 5000 <sup>' . __('commons.cfa_and_more') . '</sup>': ($price > 0 ? ' : ' . number_format($price, 0, '', ' ') . ' <sup>' . __('commons.cfa') . '</sup>' : '') !!}
                                             </span>
                                         </label>
                                         <input type="range"
@@ -39,9 +39,9 @@
                                 <div class="col-md-12 mt-2 form-group">
                                     <div class="input-group">
                                         <label class="d-flex justify-content-between font-weight-bold">
-                                            <span class="bi bi-filter"> {{ __('offers-features.data') }} :</span>
+                                            <span class="bi bi-filter"> {{ __('offers-features.data') }} </span>
                                             <span class="">
-                                                {!! $data >= 1024 ? '1<sup>Go</sup> ' . __('offers-features.and_more') : number_format($data, 0, '', ' ') . '<sup>Mo</sup>' !!}
+                                                {!! $data >= 1024 ? ' : 1<sup>Go</sup> ' . __('offers-features.and_more') : ($data > 0 ? ' : ' . number_format($data, 0, '', ' ') . '<sup>Mo</sup>' : '') !!}
                                             </span>
                                         </label>
                                         <input type="range"
@@ -56,9 +56,9 @@
                                 <div class="col-md-12 mt-2 form-group">
                                     <div class="input-group">
                                         <label class="d-flex justify-content-between font-weight-bold">
-                                            <span class="bi bi-filter"> {{ __('offers-features.call_minutes') }} :</span>
+                                            <span class="bi bi-filter"> {{ __('offers-features.call_minutes') }} </span>
                                             <span class="">
-                                                {{ $voiceMinutes >= 1000 ? '1 000 minutes et +' : number_format($voiceMinutes, 0, '', ' ') . 'minutes' }}
+                                                {{ $voiceMinutes >= 1000 ? ' : 1 000 min et +' : ( $voiceMinutes > 0 ? ' : ' . number_format($voiceMinutes, 0, '', ' ') . 'min' : '')}}
                                             </span>
                                         </label>
                                         <input type="range"
@@ -73,9 +73,9 @@
                                 <div class="col-md-12 mt-2 form-group">
                                     <div class="input-group">
                                         <label class="d-flex justify-content-between font-weight-bold">
-                                            <span class="bi bi-filter"> {{ __('offers-features.nbr_sms') }} :</span>
+                                            <span class="bi bi-filter"> {{ __('offers-features.nbr_sms') }} </span>
                                             <span class="">
-                                                {{ $sms_nbr >= 1000 ? '1 000 et +' : number_format($sms_nbr, 0, '', ' ')  }}
+                                                {{ $sms_nbr >= 1000 ? ' : 1 000 et +' : ($sms_nbr > 0 ? ' : ' . number_format($sms_nbr, 0, '', ' ') : '') }}
                                             </span>
                                         </label>
                                         <input type="range"
@@ -90,9 +90,9 @@
                                 <div class="col-md-12 mt-2 form-group">
                                     <div class="input-group">
                                         <label class="d-flex justify-content-between font-weight-bold">
-                                            <span class="bi bi-filter"> {{ __('offers-features.phone_credit') }} :</span>
+                                            <span class="bi bi-filter"> {{ __('offers-features.phone_credit') }} </span>
                                             <span class="">
-                                                {{ $phoneCredit >= 10000 ? '10 000 et +' : number_format($phoneCredit, 0, '', ' ')  }}
+                                                {{ $phoneCredit >= 10000 ? ' : 10 000 et +' : ($phoneCredit > 0 ? ' : ' . number_format($phoneCredit, 0, '', ' ') : '')  }}
                                             </span>
                                         </label>
                                         <input type="range"
@@ -109,7 +109,7 @@
                                     <div class="custom-checkbox-group">
                                         @foreach($operators as $op)
                                             <label class="custom-checkbox">
-                                                <input type="checkbox" name="operator" wire:model.change="operator" value="{{ $op->id }}">
+                                                <input type="radio" name="operator" wire:model.change="operator" value="{{ $op->id }}">
                                                 <span>{{ $op->name }}</span>
                                             </label>
                                         @endforeach
@@ -120,7 +120,7 @@
                                         <h3 class="m-0"><span class="bi bi-filter"></span> Comparek Score</h3>
                                         @foreach($scores as $score)
                                             <label for="{{ "score_{$score->value}" }}" class="custom-checkbox">
-                                                <input id="{{ "score_{$score->value}" }}" type="checkbox" name="score" value="{{ $score->value }}" wire:model.change="score">
+                                                <input id="{{ "score_{$score->value}" }}" type="radio" name="score" value="{{ $score->value }}" wire:model.change="score">
                                                 <span>{{ $score->name }}</span>
                                             </label>
                                         @endforeach

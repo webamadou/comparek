@@ -51,6 +51,12 @@
                         <input type="number" name="weight" value="{{ old('weight', $criteria->weight) }}" class="form-control" required>
                     </div>
 
+                    <div class="mb-3">
+                        <label>Nom des classes CSS pour l'icon</label><br>
+                        <span>Se referer à <a target="_blank" href="https://icons.getbootstrap.com/#install">https://icons.getbootstrap.com/#install</a> pour les nom des classes</span>
+                        <input type="text" name="icon_class" value="{{ old('icon_class', $criteria->icon_class) }}" class="form-control" required>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Enregistrer</button>
                 </form>
             </div>

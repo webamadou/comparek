@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 d-none d-md-block page-bilboard-img">
-                        <img src="{{ asset('frontv1/img/illustration/illust13.svg') }}" alt="comparek" style="width: 20vw;">
+                        <img src="{{ asset('frontv1/img/illustration/illust13.svg') }}" alt="comparek" class="img-fluid">
                     </div>
                 </div>
             </div>

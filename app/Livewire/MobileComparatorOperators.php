@@ -9,11 +9,11 @@ use Livewire\Component;
 
 class MobileComparatorOperators extends Component
 {
-    public $operator = [];
+    public $operator = '';
     public $operators = '';
     public $validityLength = 0;
     public $validityOptions = [];
-    public $score = [];
+    public $score = '';
     public $scores = '';
     public $price = 0;
     public $technology = [];
@@ -59,7 +59,7 @@ class MobileComparatorOperators extends Component
         $telecomOffers = TelecomOfferFeature::query()
             ->with('offer')
             ->with('offer.operator')
-            ->when($this->operator, fn ($query) => $query->whereHas('offer', fn ($q) => $q->whereIn('telecom_operator_id', $this->operator)))
+            ->when($this->operator, fn ($query) => $query->whereHas('offer', fn ($q) => $q->where('telecom_operator_id', $this->operator)))
             ->when($this->validityLength > 0 && $this->validityLength < 30, fn ($query) => $query->where('validity_length', $this->validityLength))
             ->when($this->validityLength >= 30, fn ($query) => $query->where('validity_length', '>=', $this->validityLength))
             ->when($this->data > 0 && $this->data < 1024, function ($query) {
@@ -129,7 +129,7 @@ class MobileComparatorOperators extends Component
             ->get()
             ->filter(function ($feature) {
                 if (!empty($this->score)) {
-                    return in_array($feature->offer->currentScoreGrade()->name, $this->score);
+                    return $feature->offer->currentScoreGrade()->name === $this->score;
                 }
                 return $feature;
             })

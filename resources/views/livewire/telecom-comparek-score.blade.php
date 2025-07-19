@@ -61,13 +61,22 @@
                                     <ul>
                                         @foreach($scoreCriterias as $name => $id)
                                             @php
-                                            $note = $offer->scoreValues()->where('score_criteria_id', $id)?->first()?->value;
+                                            // $note = $offer->scoreValues()->where('score_criteria_id', $id)?->first()?->value;
+                                            $score = $offer->scoreValues()->where('score_criteria_id', $id)?->first();
+                                            $note = $score->value ?? 0;
+                                            $icon = $score->criteria->icon_class ?? ''
                                             @endphp
-                                            <li class="my-2">
-                                                {!! "<strong>{$name}</strong> : {$note}" !!}
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" aria-label="Segment one" style="width: {{$note*10}}%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <li class="my-2 note-progress-wrapper">
+                                                <div class="note-name">
+                                                    <span class="{{ $icon }}"></span>
+                                                    {!! "<strong>{$name}</strong>" !!}
                                                 </div>
+                                                <div class="progress-wrapper">
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" aria-label="Segment one" style="width: {{$note*10}}%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="note-note">{{ $note }}</div>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -76,6 +85,8 @@
                             <div class="col-sm-12 col-md-2 col-lg- telecom-score-badge">
                                 <div class="offer-score">
                                     <x-comparek-score-badge :grade="$offer->currentScoreGrade()" size="medium"/>
+                                    <br>
+                                    <strong style="color: var(--heading-color)">{{ $offer->currentScore() . '/ 10' }}</strong>
                                 </div>
                             </div>
                         </div>

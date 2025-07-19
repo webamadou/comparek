@@ -15,6 +15,7 @@ class ScoreCriteria extends Model
         'vertical',
         'name',
         'weight',
+        'icon_class',
     ];
 
     protected $casts = [

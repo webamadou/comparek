@@ -28,6 +28,7 @@ class ScoreCriteriaController extends Controller
             'vertical' => ['required', 'in:' . implode(',', ComparekEnum::values())],
             'name' => 'required|string|max:255',
             'weight' => 'required|numeric|min:0|max:100',
+            'icon_class' => 'nullable|string|max:255',
         ]);
 
         ScoreCriteria::create($validated);
@@ -49,7 +50,8 @@ class ScoreCriteriaController extends Controller
         $validated = $request->validate([
             'vertical' => ['required', 'in:' . implode(',', ComparekEnum::values())],
             'name' => 'required|string|max:255',
-            'weight' => 'required|numeric|min:0|max:100',
+            'weight' => 'required|numeric|min:0|max:255',
+            'icon_class' => 'nullable|string|max:255',
         ]);
         $score_criteria = ScoreCriteria::find($score_criteria);
 
