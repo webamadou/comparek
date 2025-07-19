@@ -3,6 +3,7 @@ return [
     'yes' => 'Oui',
     'no' => 'Non',
     'name' => 'Nom',
+    'description' => 'Description',
     'city' => 'Ville',
     'country' => 'Pays',
     'select' => 'Selectioner',

@@ -17,6 +17,11 @@
                         <input type="text" name="name" class="form-control" value="{{ old('name', $school_program->name) }}" required>
                     </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">{{ __('commons.description') }}</label>
+                        <textarea name="description">{{ old('description', $school_program->description) }}</textarea>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label">{{ __('schools.school') }}</label>

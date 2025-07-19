@@ -27,6 +27,7 @@ class SchoolProgramRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string', 'max:255'],
             'school_id' => ['required', 'exists:schools,id'],
             'program_domain_id' => ['required', 'exists:program_domains,id'],
             'level' => ['required', new Enum(ProgramLevelEnum::class)],
