@@ -5,13 +5,13 @@
         <div class="heading" style="padding: 0;">
             <div class="container">
                 <div class="row d-flex justify-content-center text-center">
-                    <div class="col-sm-8 mt-5">
+                    <div class="col-sm-6 col-md-8 mt-5">
                         <h1 class="heading-title">
                             Liste des fournisseurs internet et des opérateurs mobiles au Sénégal en 2025
                         </h1>
                     </div>
-                    <div class="col-sm-4">
-                        <img src="{{ asset('frontv1/img/illustration/illust15.svg') }}" alt="comparek" style="width: 230px;">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="{{ asset('frontv1/img/illustration/illust15.svg') }}" alt="comparek" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -43,8 +43,8 @@
         </div>
     </section>
     <section>
-        <div style="width: 76vw; height: 280px; border: 1px solid #dcdcdc; margin: 0 auto; line-height: 1.4">
-            <h1 class="text-center" style="color: #cdcdcd">pub</h1>
+        <div class="adds-placeholed">
+            <span class="text-center">pub</span>
         </div>
     </section>
     <section id="services-alt" class="services-alt section">

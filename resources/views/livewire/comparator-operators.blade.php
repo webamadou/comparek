@@ -12,7 +12,7 @@
                                     <div class="custom-checkbox-group">
                                         @foreach($operators as $op)
                                             <label class="custom-checkbox">
-                                                <input type="checkbox" name="operator" wire:model.change="operator"
+                                                <input type="radio" name="operator" wire:model.change="operator"
                                                        value="{{ $op->id }}">
                                                 <span>{{ $op->name }}</span>
                                             </label>
@@ -24,7 +24,7 @@
                                         <h3><span class="bi bi-filter"></span> {{ __('offers.service_types') }}</h3>
                                         @foreach($serviceTypes as $st)
                                             <label class="custom-checkbox" for="{{ "service_{$st->id}" }}">
-                                                <input type="checkbox" name="serviceTypes"
+                                                <input type="radio" name="serviceTypes"
                                                        id="{{ "service_{$st->id}" }}" value="{{ $st->id }}"
                                                        wire:model.change="serviceType">
                                                 <span>{{ $st->name }}</span>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="col-md-12 my-2 form-group">
                                     <div class="input-group">
-                                        <label class="d-flex justify-content-between font-weight-bold">
+                                        <label class="d-flex slider-label">
                                             <span> {{ __('commons.price') }} :</span>
                                             <span class="">
                                                 {{ $pricePerMonthMin >= 100000 ? '100 000 CFA et +' : number_format($pricePerMonthMin, 0, '', ' ') . 'CFA' }}

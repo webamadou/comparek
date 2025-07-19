@@ -13,9 +13,9 @@ class ComparatorOperators extends Component
 {
     use WithPagination;
 
-    public $operator = [];
+    public $operator = '';
     public $operators = '';
-    public $serviceType = [];
+    public $serviceType = '';
     public $serviceTypes = '';
     public $score = [];
     public $scores = '';
@@ -67,8 +67,8 @@ class ComparatorOperators extends Component
         $telecomOffers = TelecomOffer::query()
             ->with(['operator', 'serviceType', 'features'])
             ->withWhereHas('serviceType', fn ($query) => $query->whereIn('id', [2,5]))
-            ->when($this->operator, fn ($query) => $query->whereIn('telecom_operator_id', $this->operator))
-            ->when($this->serviceType, fn ($query) => $query->whereIn('telecom_service_type_id', $this->serviceType))
+            ->when($this->operator, fn ($query) => $query->where('telecom_operator_id', $this->operator))
+            ->when($this->serviceType, fn ($query) => $query->where('telecom_service_type_id', $this->serviceType))
             ->when($this->pricePerMonthMin < $this->maxPrice, fn ($query) => $query->where('price_per_month', '<', $this->pricePerMonthMin))
             ->when(! empty($this->technology), fn ($query) => $query->whereIn('technology', $this->technology))
             ->orderBy(

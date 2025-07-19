@@ -2,6 +2,9 @@
 
 return [
     'name' => 'Nom de l\'école',
+    'operator' => 'Operateur',
+    'operators' => 'Operateurs',
+    'technologies' => 'Technologies',
     'deleted' => 'École supprimée',
     'updated' => 'École mise à jour',
     'confirm_criterion_delete' => 'Êtes-vous sûr de vouloir supprimer cette école ?',
