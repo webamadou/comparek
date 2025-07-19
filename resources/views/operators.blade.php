@@ -5,11 +5,13 @@
         <div class="heading" style="padding: 0;">
             <div class="container">
                 <div class="row d-flex justify-content-center text-center">
-                    <div class="col-lg-8">
-                        <h1>
+                    <div class="col-sm-8 mt-5">
+                        <h1 class="heading-title">
                             Liste des fournisseurs internet et des opérateurs mobiles au Sénégal en 2025
-                            <img src="{{ asset('frontv1/img/illustration/illust10.svg') }}" alt="comparek" style="width: 230px;">
                         </h1>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="{{ asset('frontv1/img/illustration/illust15.svg') }}" alt="comparek" style="width: 230px;">
                     </div>
                 </div>
             </div>
@@ -21,9 +23,8 @@
                 @foreach($operators as $key => $operator)
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="pricing-card">
-                            <h1 class="text-center" style="background: #f0f0f0; font-weight: bold; border-bottom: 1px solid #ff5600;">{{ $operator->name }}</h1>
-                                    <p class="d-flex justify-center mt-5"
-                                       style="margin: 2rem auto;
+                            <h1 class="text-center operator-title">{{ $operator->name }}</h1>
+                            <p class="d-flex justify-center mt-5" style="margin: 2rem auto;
                                         width: 200px;
                                         height: 200px;
                                         background: url({{ Storage::disk('public')->url($operator->images->path) }});

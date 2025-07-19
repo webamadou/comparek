@@ -464,7 +464,7 @@ h6 {
 section,
 .section {
   color: var(--default-color);
-  background-color: var(--background-color);
+  /*background-color: var(--background-color);*/
   padding: 60px 0;
   scroll-margin-top: 98px;
   overflow: clip;
@@ -2523,7 +2523,6 @@ h2.offer-name {
 }
 
 .offer-name-column {
-  /*background: #46108230;*/
   color: #461082;
   display: flex;
   justify-content: center;
@@ -2915,11 +2914,13 @@ button.reset-filter {
   background-color: var(--heading-color) !important;
   transition: var(--bs-progress-bar-transition);
 }
-
 .scores .progress {
   height: 4px;
 }
-
+.operator-title {
+    border-bottom: 1px solid #ff5600;
+    margin-bottom: 4px;
+}
 /* Media Queries Consolidated */
 @media (max-width: 1200px) {
   .header .logo {
@@ -3822,15 +3823,15 @@ button.reset-filter {
   }
 
   /* TELECOM OPERATOR */
-  .logo-n-name-wrapper {
-    display: flex;
-    align-items: center;
-    padding-bottom: 1rem !important;
-    margin-bottom: 1rem !important;
-    position: relative;
-  }
+    .logo-n-name-wrapper {
+        display: flex;
+        align-items: center;
+        padding-bottom: 1rem !important;
+        margin-bottom: 1rem !important;
+        position: relative;
+    }
 
-  .logo-n-name-wrapper:after {
+    .logo-n-name-wrapper:after {
     content: '';
     display: block;
     border-bottom: 1px solid #e7e5e4;
@@ -3838,21 +3839,21 @@ button.reset-filter {
     position: absolute;
     bottom: -6px;
     left: 10%;
-  }
+    }
 
-  .offer-name {
+    .offer-name {
     font-size: 1.8rem;
     font-weight: bold;
     color: #461082;
     width: 100%;
     padding-left: 1rem;
-  }
+    }
 
-  .offer-column.offer-operator {
+    .offer-column.offer-operator {
     width: auto;
     background: #f3f4f5;
     padding: .5rem .5rem;
-  }
+    }
 }
 
 @media (max-width: 575px) {
