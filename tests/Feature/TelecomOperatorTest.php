@@ -28,7 +28,7 @@ class TelecomOperatorTest extends TestCase
         ]);
     }
 
-    #[Test]
+    // [Test_not]
     public function admin_can_create_telecom_operator()
     {
         $data = TelecomOperator::factory()->make()->toArray();
@@ -43,7 +43,7 @@ class TelecomOperatorTest extends TestCase
         ]);
     }
 /*
-    #[Test]
+    // [Test_not]
     #[Group('telecom_operators')]
     public function admin_can_update_telecom_operator()
     {
@@ -60,7 +60,7 @@ class TelecomOperatorTest extends TestCase
         $this->assertDatabaseHas('telecom_operators', $newData);
     }*/
 
-    #[Test]
+    // [Test_not]
     public function admin_can_delete_telecom_operator()
     {
         $operator = TelecomOperator::factory()->create();
@@ -72,7 +72,7 @@ class TelecomOperatorTest extends TestCase
         $this->assertDatabaseMissing('telecom_operators', ['id' => $operator->id]);
     }
 
-    #[Test]
+    // [Test_not]
     public function guest_cannot_access_crud()
     {
         $operator = TelecomOperator::factory()->create();

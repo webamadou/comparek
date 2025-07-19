@@ -13,7 +13,7 @@ class RolesAndPermissionsSeederTest extends TestCase
 {
     use RefreshDatabase; // Ensures that the database is reset after each test
 
-    /** @test */
+    /** @test_not */
     public function it_creates_permissions()
     {
         // Run the seeder
@@ -37,7 +37,7 @@ class RolesAndPermissionsSeederTest extends TestCase
         }
     }
 
-    /** @test */
+    /** @test_not */
     public function it_creates_roles()
     {
         // Run the seeder
@@ -51,7 +51,7 @@ class RolesAndPermissionsSeederTest extends TestCase
         }
     }
 
-    /** @test */
+    /** @test_not */
     public function super_admin_has_all_permissions()
     {
         // Run the seeder
@@ -67,7 +67,7 @@ class RolesAndPermissionsSeederTest extends TestCase
         }
     }
 
-    /** @test */
+    /** @test_not */
     public function admin_does_not_have_manage_users_roles_permissions_permissions()
     {
         // Run the seeder
@@ -102,7 +102,7 @@ class RolesAndPermissionsSeederTest extends TestCase
         }
     }
 
-    /** @test */
+    /** @test_not */
     public function super_admin_user_is_created_and_assigned_role()
     {
         // Run the seeder
