@@ -16,6 +16,7 @@ class SchoolController extends Controller
         $schools = School::latest()->paginate(10);
         return view('dashboard/schools/index', compact('schools'));
     }
+
     public function create()
     {
         $school = new School();

@@ -1,7 +1,7 @@
 <div>
     <div class="row mb-3">
         <div class="col-md-4">
-            <input type="text" wire:model.change.debounce.300ms="search" class="form-control" placeholder="Search by name or city">
+            <input type="text" wire:model.change.debounce.300ms="search" class="form-control" placeholder="Rechercher">
         </div>
 
         <div class="col-md-2">
@@ -34,17 +34,17 @@
         <thead>
             <tr>
                 <th wire:click="sortBy('name')" style="cursor:pointer">
-                    Name @if($sortField === 'name') <x-sort-icon :direction="$sortDirection" /> @endif
+                    {{ __('commons.name') }} @if($sortField === 'name') <x-sort-icon :direction="$sortDirection" /> @endif
                 </th>
                 <th wire:click="sortBy('city')" style="cursor:pointer">
-                    // City @if($sortField === 'city') <x-sort-icon :direction="$sortDirection" /> @endif
+                    {{ __('commons.city') }} @if($sortField === 'city') <x-sort-icon :direction="$sortDirection" /> @endif
                 </th>
                 <th wire:click="sortBy('country')" style="cursor:pointer">
-                    //cCountry @if($sortField === 'country') <x-sort-icon :direction="$sortDirection" /> @endif
+                    {{ __('commons.country') }} @if($sortField === 'country') <x-sort-icon :direction="$sortDirection" /> @endif
                 </th>
-                <th>Accredited</th>
-                <th>Foreign Students</th>
-                <th>Actions</th>
+                <th>{{ __('schools.accredited') }} </th>
+                <th>{{ __('schools.foreign_students') }}</th>
+                <th>{{ __('commons.actions') }}</th>
             </tr>
         </thead>
 
@@ -61,22 +61,22 @@
                     <td>{{ $school->country }}</td>
                     <td>
                         <span class="badge {{ $school->is_accredited ? 'bg-success' : 'bg-secondary' }}">
-                            {{ $school->is_accredited ? 'Yes' : 'No' }}
+                            {{ $school->is_accredited ? __('commons.yes') : __('commons.no') }}
                         </span>
                     </td>
                     <td>
                         <span class="badge {{ $school->accepts_foreign_students ? 'bg-primary' : 'bg-light text-dark' }}">
-                            {{ $school->accepts_foreign_students ? 'Yes' : 'No' }}
+                            {{ $school->accepts_foreign_students ? __('commons.yes') : __('commons.no') }}
                         </span>
                     </td>
                     <td>
-                        <a href="{{ route('schools.edit', $school) }}" class="btn btn-sm btn-primary mx-1">Editer</a>
-                        <button wire:click="confirmDelete({{ $school->id }})" class="btn btn-sm btn-danger mx-1">Supprimer</button>
+                    <a href="{{ route('schools.edit', $school) }}" class="btn btn-sm btn-primary mx-1">{{ __('commons.edit') }}</a>
+                        <button wire:click="confirmDelete({{ $school->id }})" class="btn btn-sm btn-danger mx-1">{{ __('commons.delete') }}</button>
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="7" class="text-center text-muted">No schools found.</td>
+                    <td colspan="7" class="text-center text-muted">{{ __('commons.no_record_found') }}</td>
                 </tr>
             @endforelse
         </tbody>

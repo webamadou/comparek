@@ -15,6 +15,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('telecom_service_type.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Type de services</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('telecom_offer.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Les Offres </a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('telecom_offer_feature.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Params des Offres </a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('score_criteria.index')}}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Critères des scores </a></li>
             </ul>
         </li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
@@ -25,22 +26,25 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('schools.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Écoles</a></li>
                 <li class="nav-item"> - </li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('school_programs.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. des Programmes</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('program_features.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span>Options Programmes</a>
+                </li>
             </ul>
         </li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <!--<li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon">
                     <span class="iconify" data-icon="mdi-alphabetical-variant"></span> &nbsp;
                 </svg> ComparekScore</a>
             <ul class="compact">
-                <li class="nav-item"><a class="nav-link" href="{{route('score_criteria.index')}}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Criterias</a></li>
+                
                 <li class="nav-item"><a class="nav-link" href="{{route('score_value.index')}}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. des scores</a></li>
-                <!-- <li class="nav-item"><a class="nav-link" href="buttons/dropdowns.html"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Dropdowns</a></li>
+                < !-- <li class="nav-item"><a class="nav-link" href="buttons/dropdowns.html"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Dropdowns</a></li>
                 <li class="nav-item"><a class="nav-link" href="https://coreui.io/bootstrap/docs/components/loading-buttons/" target="_blank"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Loading Buttons
                         <svg class="icon icon-sm ms-2">
                             <span class="iconify" data-icon="mdi-dots-grid"></span> &nbsp;
-                        </svg><span class="badge badge-sm bg-danger ms-auto">PRO</span></a></li> -->
+                        </svg><span class="badge badge-sm bg-danger ms-auto">PRO</span></a></li> --
             </ul>
-        </li>
+        </li>-->
         <!-- <li class="nav-item"><a class="nav-link" href="charts.html">
                 <svg class="nav-icon">
                     <span class="iconify" data-icon="mdi-dots-grid"></span> &nbsp;

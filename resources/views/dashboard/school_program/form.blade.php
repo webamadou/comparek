@@ -119,7 +119,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Program Features</label>
+                        <label class="form-label">{{ __('schools.program_features') }} (Selection multiple possible)</label>
                         <div class="d-flex flex-wrap gap-2" role="group" aria-label="Basic checkbox toggle button group">
                             @foreach ($features as $id => $feature)
                                 <input type="checkbox" name="feature_ids[]" value="{{ $id }}" id="feature{{ $id }}" class="btn-check"

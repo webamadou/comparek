@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 class ProgramFeature extends Model
 {
     /** @use HasFactory<\Database\Factories\ProgramFeatureFactory> */
     use HasFactory;
-    use HasFactory;
+    use HasSlug;
 
     protected $guarded = [];
 
