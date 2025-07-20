@@ -4,6 +4,7 @@ namespace App\Enums;
 
 enum ProgramLevelEnum: string
 {
+    case BAC = 'BAC';
     case BTS = 'BTS';
     case LICENCE = 'Licence';
     case MASTER = 'Master';
@@ -14,6 +15,7 @@ enum ProgramLevelEnum: string
     public static function labels(): array
     {
         return [
+            self::BAC->value => 'BAC',
             self::BTS->value => 'BTS',
             self::LICENCE->value => 'Licence',
             self::MASTER->value => 'Master',
