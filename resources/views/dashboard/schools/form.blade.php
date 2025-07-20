@@ -6,7 +6,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <h1 class="display-4">
-                    {{ $school->exists ? 'Modification ' : 'Ajouter' }} 
+                    {{ $school->exists ? 'Modification ' : 'Ajouter' }}
                 </h1>
                 <form action="{{ $school->exists ? route('schools.update', $school) : route('schools.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -42,21 +42,19 @@
                             <label for="founding_year" class="form-label">Existe depuis:</label>
                             <input type="text" name="founding_year" class="form-control" value="{{ old('founding_year', $school->founding_year) }}">
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label for="website_url" class="form-label">Sit web:</label>
                             <input type="url" name="website_url" class="form-control" value="{{ old('website_url', $school->website_url) }}">
                         </div>
-                        <!-- <div class="col-md-4 mb-3">
-                            <label class="form-label">Accreditée?</label>
-                            <select name="is_accredited" class="form-select">
-                                <option value="1" {{ old('is_accredited', $school->is_accredited) ? 'selected' : '' }}>Yes</option>
-                                <option value="0" {{ old('is_accredited', !$school->is_accredited) ? 'selected' : '' }}>No</option>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">{{ __('schools.is_private') }}</label>
+                            <select name="is_private" class="form-select">
+                                <option value=""> --- </option>
+                                <option value="1" {{ old('is_private', $school->is_private == 1) ? 'selected' : '' }}>{{ __('commons.yes') }}</option>
+                                <option value="2" {{ old('is_rivate', $school->is_private == 2) ? 'selected' : '' }}>
+                                    {{ __('commons.no') }}</option>
                             </select>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="accreditation_body" class="form-label">Accreditation Body</label>
-                            <input type="text" name="accreditation_body" class="form-control" value="{{ old('accreditation_body', $school->accreditation_body) }}">
-                        </div> -->
                     </div>
 
                     <!-- <div class="mb-3">

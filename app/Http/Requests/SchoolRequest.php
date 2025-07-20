@@ -30,6 +30,7 @@ class SchoolRequest extends FormRequest
             'full_description' => 'nullable|string',
             'founding_year' => 'nullable|digits:4|integer|min:1800|max:'.date('Y'),
             'is_accredited' => 'boolean',
+            'is_private' => 'integer|nullable|max:2|in:1,2',
             'accreditation_body' => 'nullable|string|max:255',
             'website_url' => 'nullable|url',
             'email' => 'nullable|email',

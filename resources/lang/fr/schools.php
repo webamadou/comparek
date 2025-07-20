@@ -31,5 +31,6 @@ return [
     'program_features' => "Caractéristiques du programme",
     'program_feature_created' => 'Fonctionnalité du programme créée avec succès',
     'program_feature_updated' => 'Fonctionnalité du programme mise à jour avec succès',
-    'foreign_students' => 'Étudiants étrangers'
+    'foreign_students' => 'Étudiants étrangers',
+    'is_private' => 'École privée?',
 ];
