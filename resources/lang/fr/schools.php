@@ -32,5 +32,8 @@ return [
     'program_feature_created' => 'Fonctionnalité du programme créée avec succès',
     'program_feature_updated' => 'Fonctionnalité du programme mise à jour avec succès',
     'foreign_students' => 'Étudiants étrangers',
+    'accept_foreign_students' => 'Accept étudiants étrangers',
     'is_private' => 'École privée?',
+    'is_a_private' => 'École privée',
+    'is_a_public' => 'École publique',
 ];

@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'cities' => 'Filtrer par ville',
+    'private_school' => 'Ecole privée',
+    'foreign_students' => 'Acceptation des étudiants étrangers',
+    'accreditations' => 'Accreditations',
+    'accreditations_national' => 'Accreditations nationales',
+    'accreditations_regional' => 'Accreditations regionales',
+    'accreditations_international' => 'Accreditations internationales',
+    'certification' => 'Certification',
+    'school_type' => 'Type d\'établissement',
+    'level' => 'Niveau',
+    'levels' => 'Niveaux',
+    'school_level' => 'Niveau scolaire',
+    'school_levels' => 'Niveaux scolaires',
+    'domain' => 'Domaine',
+    'domains' => 'Domaines',
+    'domain_education' => 'Domaine de l\'éducation',
+    'language' => 'Langue',
+    'languages' => 'Langues',
+    'modality' => 'Modalité',
+    'modalities' => 'Modalités',
+    'double_degree_exchange' => 'Double diplôme / Échanges internationaux',
+    'has_internship' => 'Garanti de stage',
+];

@@ -58,13 +58,13 @@
                             <li><a href="{{ route('telecom_scores') }}">Scores des offres</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#"><span><strong class="bi bi-bank2"></strong> Banques</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <li class="dropdown"><a href="#"><span><strong class="bi bi-mortarboard-fill"></strong>  Écoles</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
-                            <li><a href="#"> .... </a></li>
-                            <li><a href="#"> .... </a></li>
+                            <li><a href="{{ route('index_schools') }}">Grandes Écoles & Université</a></li>
+                            <li><a href="{{ route('index_schools') }}">Grandes Écoles & Université</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#"><span><strong class="bi bi-mortarboard-fill"></strong>  Écoles</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <li class="dropdown"><a href="#"><span><strong class="bi bi-bank2"></strong> Banques</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
                             <li><a href="#"> .... </a></li>
                             <li><a href="#"> .... </a></li>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\OfferScoresController;
 use App\Http\Controllers\Admin\ScoreCriteriaController;
 use App\Http\Controllers\Admin\ScoreValueController;
+use App\Http\Controllers\SchoolAjaxController;
 use App\Http\Controllers\Admin\TelecomOfferController;
 use App\Http\Controllers\Admin\TelecomOfferFeatureController;
 use App\Http\Controllers\Admin\TelecomOperatorController;
@@ -21,6 +22,10 @@ Route::get('/telecom/comparateur/internet', [TelecomOperatorControllerFront::cla
 Route::get('/telecom/comparateur/pass_mobile', [TelecomOperatorControllerFront::class, 'passComparison'])->name('telecom_pass_comparison');
 Route::get('/telecom/comparateur/pass_mobile', [TelecomOperatorControllerFront::class, 'passComparison'])->name('telecom_pass_comparison');
 Route::get('/telecom/scores', [TelecomOperatorControllerFront::class, 'scores'])->name('telecom_scores');
+Route::get('/ecoles', [\App\Http\Controllers\SchoolsController::class, 'index'])->name('index_schools');
+
+/* === AJAX CALLS === */
+Route::get('/ecoles/ajax', [SchoolAjaxController::class, 'index'])->name('ecoles.ajax');
 
 
 Route::get('/dashboard', function () {

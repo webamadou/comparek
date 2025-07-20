@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\AccreditationBody;
+use App\Models\ProgramDomain;
+use App\Models\School;
+use Illuminate\Http\Request;
+
+class SchoolsController extends Controller
+{
+    public function index()
+    {
+        $accreditations = AccreditationBody::whereNotIn('id', [1,2,3])->orderBy('name')->pluck('name', 'id')->toArray();
+        $domains = ProgramDomain::orderBy('name')->pluck('name', 'id')->toArray();
+        $schools = School::orderBy('name')->get();
+        return view('list_schools',  compact('accreditations',  'schools',  'domains'));
+    }
+}
