@@ -13,7 +13,8 @@ class SchoolsController extends Controller
     {
         $accreditations = AccreditationBody::whereNotIn('id', [1,2,3])->orderBy('name')->pluck('name', 'id')->toArray();
         $domains = ProgramDomain::orderBy('name')->pluck('name', 'id')->toArray();
-        $schools = School::orderBy('name')->get();
+        $schools = School::where('is_active', 1)->orderBy('name')->get();
+
         return view('list_schools',  compact('accreditations',  'schools',  'domains'));
     }
 }
