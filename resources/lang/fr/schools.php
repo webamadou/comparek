@@ -36,4 +36,6 @@ return [
     'is_private' => 'École privée?',
     'is_a_private' => 'École privée',
     'is_a_public' => 'École publique',
+    'double_diplomes' => 'Double diplômes',
+    'has_internership' => 'Avec garantie de stages',
 ];

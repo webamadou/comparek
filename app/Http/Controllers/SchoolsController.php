@@ -17,4 +17,13 @@ class SchoolsController extends Controller
 
         return view('list_schools',  compact('accreditations',  'schools',  'domains'));
     }
+
+    public function view(School $school)
+    {
+        $accreditations = AccreditationBody::whereNotIn('id', [1,2,3])->orderBy('name')->pluck('name', 'id')->toArray();
+        $domains = ProgramDomain::orderBy('name')->pluck('name', 'id')->toArray();
+        $programs = $school->programs;
+
+        return view('view_school', compact('school',  'accreditations', 'domains', 'programs'));
+    }
 }

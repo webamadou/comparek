@@ -1,8 +1,10 @@
 @foreach($schools as $school)
-    <div class="row mb-0 school-row p-0">
+    <div class="row mb-0 school-row p-0 school-row-wrapper">
         <div class="school-logo col-sm-2 col-md-2">
             @if($school->images)
-                <img src="{{ Storage::disk('public')->url($school->images->path) }}" width="100%" alt="{{ $school->images->path }}">
+                <a href="{{ route('view_school', $school) }}">
+                    <img src="{{ Storage::disk('public')->url($school->images->path) }}" width="100%" alt="{{ $school->images->path }}">
+                </a>
             @else
                 no image
             @endif

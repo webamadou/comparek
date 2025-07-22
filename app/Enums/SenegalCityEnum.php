@@ -10,7 +10,7 @@ enum SenegalCityEnum: string
     case KAOLACK = 'Kaolack';
     case ZIGUINCHOR = 'Ziguinchor';
     case DIOURBEL = 'Diourbel';
-    case TOUBA = 'Touba';
+    /*case TOUBA = 'Touba';
     case TAMBACOUNDA = 'Tambacounda';
     case KOLDA = 'Kolda';
     case FATICK = 'Fatick';
@@ -23,7 +23,7 @@ enum SenegalCityEnum: string
     case MBOUR = 'Mbour';
     case BIGNONA = 'Bignona';
     case GUEDIAWAYE = 'Guédiawaye';
-    case PIKINE = 'Pikine';
+    case PIKINE = 'Pikine';*/
 
     public function label(): string
     {

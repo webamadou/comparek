@@ -3137,6 +3137,31 @@ button.reset-filter {
   }
 }
 
+.school-row-wrapper {
+  cursor: pointer;
+}
+
+ul.program-list {
+  list-style: none;
+  margin: 0;
+  padding: 11px 0;
+  font-size: small;
+  color: #421082;
+  line-height: 1.9;
+}
+
+.program-tuition {
+  font-size: medium;
+  line-height: 1;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.program-tuition h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;

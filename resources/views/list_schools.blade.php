@@ -232,6 +232,16 @@
                 $('#double_diplomes').on('change', fetchSchools);
                 $('#has_internership').on('change', fetchSchools);
             });
+
+            $('.school-row-wrapper').click(function() {
+                var firstLink = $(this).find('a').first();
+                if (firstLink.length > 0) {
+                    var href = firstLink.attr('href');
+                    if (href) {
+                        window.location.href = href;
+                    }
+                }
+            });
         </script>
     @endpush
 

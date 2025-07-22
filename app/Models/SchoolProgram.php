@@ -29,7 +29,7 @@ class SchoolProgram extends Model
 
     public function domain(): BelongsTo
     {
-        return $this->belongsTo(ProgramDomain::class);
+        return $this->belongsTo(ProgramDomain::class,  'program_domain_id');
     }
 
     /**
