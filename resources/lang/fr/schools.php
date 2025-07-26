@@ -38,4 +38,6 @@ return [
     'is_a_public' => 'École publique',
     'double_diplomes' => 'Double diplômes',
     'has_internership' => 'Avec garantie de stages',
+    'domain' => 'Domaine',
+    'tuition_fee_not_available' => 'Frais de scolarité non disponible',
 ];

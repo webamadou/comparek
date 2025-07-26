@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\School;
+use App\Models\SchoolProgram;
 use Illuminate\Http\Request;
 
 class SchoolAjaxController
@@ -71,5 +72,57 @@ class SchoolAjaxController
             ->get();
 
         return view('partials.schools-list', compact('schools'));
+    }
+
+    public function schoolProgramFilter(Request $request)
+    {
+        $query = SchoolProgram::query();
+        $schoolId = $request->schoolId;
+        if ($request->has('level') && ! empty($request->level)) {
+            $query->where('level', $request->level);
+                /*->whereHas('programs', function ($q) use ($request) {
+                $q->where('level', $request->level);
+            });*/
+        }
+
+        if ($request->has('language') && ! empty($request->language)) {
+            $query->where('language', $request->language);
+                /*->whereHas('programs', function ($q) use ($request) {
+                $q->where('language', $request->language);
+            });*/
+        }
+
+        if ($request->has('modalite') && ! empty($request->modalite)) {
+            $query->where('modality', $request->modalite);
+                /*->whereHas('programs', function ($q) use ($request) {
+                $q->where('modality', $request->modalite);
+            });*/
+        }
+
+        if ($request->has('domain') && ! empty($request->domain)) {
+            $query->where('program_domain_id', $request->domain);
+                /*->whereHas('programs', function ($q) use ($request) {
+                $q->where('program_domain_id', $request->domain);
+            });*/
+        }
+
+        if ($request->has('double_diplomes') && ! empty($request->double_diplomes)) {
+            $query->whereHas('features', function ($q) use ($request) {
+                $q->whereIn('program_features.id', [2]);
+            });
+        }
+
+        if ($request->has('accreditations')) {
+            $query->whereHas('accreditationBodies', function ($q) use ($request) {
+                $q->whereIn('accreditation_bodies.id', $request->accreditations);
+            });
+        }
+
+        $programs = $query
+            ->where('school_id', $schoolId)
+            ->with('features')
+            ->get();
+
+        return view('partials.school-programs-list', compact('programs'));
     }
 }

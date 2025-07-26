@@ -1,9 +1,9 @@
 @foreach($programs as $program)
     <div class="row mb-0 school-row p-0 school-row-wrapper">
         <div class="school-logo col-sm-2 col-md-2">
-            @if($school->images)
-                <a href="{{ route('view_school', $school) }}">
-                    <img src="{{ Storage::disk('public')->url($school->images->path) }}" width="100%" alt="{{ $school->images->path }}">
+            @if($program->school->images)
+                <a href="{{ route('view_school', $program->school) }}">
+                    <img src="{{ Storage::disk('public')->url($program->school->images->path) }}" width="100%" alt="{{ $program->school->images->path }}">
                 </a>
             @endif
         </div>
@@ -19,8 +19,13 @@
                     </ul>
                 </div>
                 <div class="col-sm-6 col-md-7 program-tuition">
-                    <h3 class="card-text">{{ $program->tuition_fee . ' ' . $program->tuition_currency }}</h3>
-                    <p class="card-text">{{ $program->tuition_description }}</p>
+                    <div>
+                        <strong><span class="bi bi-currency-exchange"></span> {{__('schools.tuition') }}</strong> :
+                        {!! $program->tuition_fee
+                            ? '<h3>' . number_format($program->tuition_fee, 0, ',', ' ') . ' ' . $program->tuition_currency . '</h3>'
+                            : '<p><small>' . __('schools.tuition_fee_not_available') . '</small></p>' !!}
+                    </div>
+                    <a href="{{ route('view_program', $program) }}" class="btn btn-primary btn-comparek">{{ __('commons.read_more') }} <span class="bi bi-chevron-right"></span></a>
                 </div>
             </div>
         </div>

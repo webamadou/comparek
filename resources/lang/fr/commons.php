@@ -18,7 +18,7 @@ return [
     'is_postpaid' => 'Est-ce postpayé?',
     'available_online?' => 'Disponible en ligne ?',
     'more_details' => "Plus d'infos",
-    'read-more' => "En savoir plus",
+    'read_more' => "En savoir plus",
     'close' => "Fermer",
     'home' => 'Accueil',
     'sort' => 'Trier',

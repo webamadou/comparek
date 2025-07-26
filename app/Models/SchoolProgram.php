@@ -51,8 +51,13 @@ class SchoolProgram extends Model
             ->withTimestamps();
     }
 
-    public function features()
+    public function features(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(ProgramFeature::class);
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }

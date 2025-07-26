@@ -3096,15 +3096,6 @@ button.reset-filter {
   color: var(--heading-color);
 }
 
-.school-row .school-logo:after {
-  content: '';
-  width: 2px;
-  height: 100%;
-  background: var(--accent-color);
-  position: absolute;
-  right: 0;
-}
-
 .school-row .school-logo {
   display: flex;
   justify-content: center;
@@ -3118,6 +3109,33 @@ button.reset-filter {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+}
+
+.school-row .school-text:before {
+  content: '';
+  width: 2px;
+  height: 100%;
+  background: var(--accent-color);
+  position: absolute;
+  left: 0;
+}
+
+.btn-primary.btn-comparek {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #ff5600;
+  --bs-btn-border-color: #dc3545;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #ff5600;
+  --bs-btn-hover-border-color: #dc3545;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #ff5600;
+  --bs-btn-active-border-color: #dc3545;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #ff5600;
+  --bs-btn-disabled-border-color: #dc3545;
 }
 
 /* Media Queries Consolidated */

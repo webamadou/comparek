@@ -52,4 +52,9 @@ class School extends Model
     {
         return $this->hasMany(SchoolProgram::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
