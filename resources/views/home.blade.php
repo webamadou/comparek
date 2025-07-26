@@ -15,15 +15,21 @@
 @section('content')
     <!-- Hero Section -->
     <section id="hero" class="hero section">
+
         <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div id="hero-advertisement">
+                <div>
+                    <h3>Votre annonce ici!</h3>
+                </div>
+            </div>
             <div class="row align-items-center mb-5">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="badge-wrapper mb-3">
                         <div class="d-inline-flex align-items-center rounded-pill border border-accent-light">
                             <div class="icon-circle me-2">
-                                <i class="bi bi-bell"></i>
+                                <i class="bi bi-trophy-fill"></i>
                             </div>
-                            <span class="badge-text me-3">Solutions Innovatives</span>
+                            <span class="badge-text me-3">Comparez. Choisissez. Gagnez.</span>
                         </div>
                     </div>
                     <h1 class="hero-title mb-4">Comparek : Ne Choisissez Plus à l’Aveugle.</h1>
@@ -202,116 +208,123 @@
         </div>
     </section><!-- /How We Work Section -->
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
+    <!-- Articles Section -->
+    <section id="latest-posts" class="services section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Articles</h2>
+            <h2>{{ __('Articles') }}</h2>
         </div><!-- End Section Title -->
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-            <div class="row justify-content-center g-5">
-                <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <i class="bi bi-code-slash"></i>
+        <div class="container mb-2">
+            <div class="row">
+                <!-- big grid -->
+                <div class="col-lg-6 mb-4  big-grid" data-aos="fade-right" data-aos-delay="300">
+                    <!-- main grid -->
+                    <div class="card h-100 shadow">
+                        <div class="image-wrapper position-relative">
+                             <a href="#">
+                                 <img src="https://picsum.photos/300/200?random=1" alt="">
+                                 <span class="badge mb-2">Ecoles</span>
+                             </a>
                         </div>
-                        <div class="service-content">
-                            <h3>Custom Web Development</h3>
-                            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla quis lorem ut libero malesuada
-                                feugiat. Curabitur non nulla sit amet nisl tempus convallis. Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.</p>
-                            <a href="#" class="service-link">
-                                <span>Learn More</span>
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div><!-- End Service Item -->
-                <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <i class="bi bi-phone-fill"></i>
-                        </div>
-                        <div class="service-content">
-                            <h3>Mobile App Solutions</h3>
-                            <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vivamus magna justo, lacinia
-                                eget consectetur sed. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum
-                                congue leo eget malesuada.</p>
-                            <a href="#" class="service-link">
-                                <span>Learn More</span>
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="#">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolores ea quo.
+                                </a>
+                            </h5>
+                            <p class="card-text small">A small personal moment that quietly stood out to me...</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 text-muted small metas">
+                                <span><a href="#">par Admin</a></span>
+                                <span>5 min read</span>
+                            </div>
                         </div>
                     </div>
-                </div><!-- End Service Item -->
-                <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <i class="bi bi-palette2"></i>
+                </div>
+                <!-- 4 petites cartes à droite -->
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="row">
+                        <!-- Carte 1 -->
+                        <div class="col-sm-6 mb-4 small-grid">
+                            <div class="card h-100 shadow">
+                                <div class="image-wrapper position-relative">
+                                    <a class="img-link">
+                                        <img src="https://picsum.photos/300/200?random=2" alt="">
+                                        <span class="badge mb-2">Banques</span>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="fw-bold">
+                                        <a href="#">What Competitive Cycling Gave Me That Daily Training Never Could</a>
+                                    </h6>
+                                    <div class="text-muted small mt-2">
+                                        • 3 Mar 2025 •
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="service-content">
-                            <h3>UI/UX Design</h3>
-                            <p>Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus suscipit tortor eget
-                                felis porttitor volutpat. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</p>
-                            <a href="#" class="service-link">
-                                <span>Learn More</span>
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
+
+                        <!-- Carte 2 -->
+                        <div class="col-sm-6 mb-4 small-grid">
+                            <div class="card h-100 shadow">
+                                <div class="image-wrapper position-relative">
+                                    <a class="img-link" style="background: url('https://picsum.photos/300/200?random=3'); background-position: center; background-size: cover; background-repeat: no-repeat">
+                                        <span class="badge mb-2">Telecoms</span>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="fw-bold">
+                                        <a href="#">What Competitive Cycling Gave Me That Daily Training Never Could</a>
+                                    </h6>
+                                    <div class="text-muted small mt-2">
+                                        • 14 Avr 2025 •
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div><!-- End Service Item -->
-                <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <i class="bi bi-bar-chart-line"></i>
+
+                        <!-- Carte 3 -->
+                        <div class="col-sm-6 mb-4 small-grid">
+                            <div class="card h-100 shadow">
+                                <div class="image-wrapper position-relative">
+                                    <a class="img-link" style="background: url('https://picsum.photos/300/200?random=4'); background-position: center; background-size: cover; background-repeat: no-repeat">
+                                        <span class="badge mb-2">Ecoles</span>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="fw-bold">
+                                        <a href="#">What Competitive Cycling Gave Me That Daily Training Never Could</a>
+                                    </h6>
+                                    <div class="text-muted small mt-2">
+                                        • 12 Juin 2025 •
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="service-content">
-                            <h3>Digital Marketing</h3>
-                            <p>Donec rutrum congue leo eget malesuada. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                                Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.</p>
-                            <a href="#" class="service-link">
-                                <span>Learn More</span>
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
+
+                        <!-- Carte 4 -->
+                        <div class="col-sm-6 mb-4 small-grid">
+                            <div class="card h-100 shadow">
+                                <div class="image-wrapper position-relative">
+                                    <a class="img-link" style="background: url('https://picsum.photos/300/200?random=5'); background-position: center; background-size: cover; background-repeat: no-repeat">
+                                        <span class="badge mb-2">Banques</span>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="fw-bold">
+                                        <a href="#">What Competitive Cycling Gave Me That Daily Training Never Could</a>
+                                    </h6>
+                                    <div class="text-muted small mt-2">
+                                        • 3 Julliet 2025 •
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div><!-- End Service Item -->
-                <div class="col-md-6" data-aos="fade-right" data-aos-delay="300">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <i class="bi bi-cloud-check"></i>
-                        </div>
-                        <div class="service-content">
-                            <h3>Cloud Computing</h3>
-                            <p>Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Vivamus magna justo,
-                                lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</p>
-                            <a href="#" class="service-link">
-                                <span>Learn More</span>
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div><!-- End Service Item -->
-                <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <i class="bi bi-shield-lock"></i>
-                        </div>
-                        <div class="service-content">
-                            <h3>Cybersecurity Solutions</h3>
-                            <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec sollicitudin molestie
-                                malesuada. Curabitur arcu erat, accumsan id imperdiet et. Proin eget tortor risus.</p>
-                            <a href="#" class="service-link">
-                                <span>Learn More</span>
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div><!-- End Service Item -->
-            </div>
-        </div>
+                    </div> <!-- /.row -->
+                </div> <!-- /.col-lg-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
     </section>
-    <!-- /Services Section -->
+    <!-- /Articles Section -->
 @endsection
 @push('scripts')
     <script>

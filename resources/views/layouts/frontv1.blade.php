@@ -61,7 +61,7 @@
                     <li class="dropdown"><a href="#"><span><strong class="bi bi-mortarboard-fill"></strong>  Écoles</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
                             <li><a href="{{ route('index_schools') }}">Grandes Écoles & Université</a></li>
-                            <li><a href="{{ route('index_schools') }}">Grandes Écoles & Université</a></li>
+                            <li><a href="{{ route('index_schools') }}"></a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#"><span><strong class="bi bi-bank2"></strong> Banques</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -111,7 +111,7 @@
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="info-card">
                             <div class="icon-box">
-                                <i class="bi bi-clock"></i>
+                                <i class="bi bi-chat-dots"></i>
                             </div>
                             <h3>Réseaux sociaux</h3>
                             <div class="pre-footer">
