@@ -48,4 +48,6 @@ return [
     'accreditation_deleted' => 'Accréditation supprimée avec succès',
     'confirm_accreditation_delete' => 'Êtes-vous sûr de vouloir supprimer cette accréditation ?',
     'accreditation_description' => 'Description de l\'accréditation',
+    'double_diplomes_students' => 'Double diplômes',
+    'has_internership_students' => 'Garantie de stages',
 ];

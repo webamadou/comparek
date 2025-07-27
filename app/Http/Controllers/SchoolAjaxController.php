@@ -174,7 +174,7 @@ class SchoolAjaxController
         }
 
         if ($request->has('double_diplomes') && ! empty($request->double_diplomes)) {
-            $query->whereHas('features', function ($q) use ($request) {
+            $query->whereHas('programs.features', function ($q) use ($request) {
                 $q->whereIn('program_features.id', [2]);
             });
         }
