@@ -30,7 +30,7 @@ Route::get('/programme/{program}', [\App\Http\Controllers\SchoolsController::cla
 /* === AJAX CALLS === */
 Route::get('/ecoles/ajax', [SchoolAjaxController::class, 'index'])->name('ecoles.ajax');
 Route::get('/programs-filter/ajax', [SchoolAjaxController::class, 'schoolProgramFilter'])->name('ecoles-filter.ajax');
-Route::get('/accredited_ecoles/ajax', [SchoolAjaxController::class, 'accredSchoolProgramFilter'])->name('ecoles-filter.ajax');
+Route::get('/accredited_ecoles/ajax', [SchoolAjaxController::class, 'accredSchoolProgramFilter']);
 
 Route::get('/dashboard', function () {
     return view('dashboard.index');
