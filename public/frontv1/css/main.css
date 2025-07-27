@@ -3138,6 +3138,25 @@ button.reset-filter {
   left: 0;
 }
 
+.school-text ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.school-text ul li {
+  margin: 0 1rem;
+}
+
+.school-text ul .badge {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  background: var(--heading-color);
+  margin: 0;
+}
+
 .btn-primary.btn-comparek {
   --bs-btn-color: #fff;
   --bs-btn-bg: #ff5600;

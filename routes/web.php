@@ -24,12 +24,13 @@ Route::get('/telecom/comparateur/pass_mobile', [TelecomOperatorControllerFront::
 Route::get('/telecom/scores', [TelecomOperatorControllerFront::class, 'scores'])->name('telecom_scores');
 Route::get('/ecoles', [\App\Http\Controllers\SchoolsController::class, 'index'])->name('index_schools');
 Route::get('/ecole/{school}', [\App\Http\Controllers\SchoolsController::class, 'view'])->name('view_school');
+Route::get('/ecoles/accreditees', [\App\Http\Controllers\SchoolsController::class, 'accredited'])->name('accreds_schools');
 Route::get('/programme/{program}', [\App\Http\Controllers\SchoolsController::class, 'view'])->name('view_program');
 
 /* === AJAX CALLS === */
 Route::get('/ecoles/ajax', [SchoolAjaxController::class, 'index'])->name('ecoles.ajax');
 Route::get('/programs-filter/ajax', [SchoolAjaxController::class, 'schoolProgramFilter'])->name('ecoles-filter.ajax');
-
+Route::get('/accredited_ecoles/ajax', [SchoolAjaxController::class, 'accredSchoolProgramFilter'])->name('ecoles-filter.ajax');
 
 Route::get('/dashboard', function () {
     return view('dashboard.index');

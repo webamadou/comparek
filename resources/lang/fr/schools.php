@@ -40,4 +40,12 @@ return [
     'has_internership' => 'Avec garantie de stages',
     'domain' => 'Domaine',
     'tuition_fee_not_available' => 'Frais de scolarité non disponible',
+    'accredited_schools' => 'Écoles accréditées',
+    'accreditations' => 'Accréditations',
+    'accreditation' => 'Accréditation',
+    'accreditation_created' => 'Accréditation créée avec succès',
+    'accreditation_updated' => 'Accréditation mise à jour avec succès',
+    'accreditation_deleted' => 'Accréditation supprimée avec succès',
+    'confirm_accreditation_delete' => 'Êtes-vous sûr de vouloir supprimer cette accréditation ?',
+    'accreditation_description' => 'Description de l\'accréditation',
 ];
