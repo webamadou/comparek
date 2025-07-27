@@ -19,6 +19,7 @@ return [
     'available_online?' => 'Disponible en ligne ?',
     'more_details' => "Plus d'infos",
     'read_more' => "En savoir plus",
+    'read-more' => "En savoir plus",
     'close' => "Fermer",
     'home' => 'Accueil',
     'sort' => 'Trier',
