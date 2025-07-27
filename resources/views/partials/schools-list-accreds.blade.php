@@ -25,7 +25,7 @@
         <div class="school-text col-sm-10 col-md-10">
             <h3 class="card-title">{{ $school->name }}</h3>
             {!! $school->description !!}
-            <ul>
+            <ul class="accreditation-list">
                 @foreach($accreditations as $accred)
                     <li> <span class="badge"> 
                         <span class="bi bi-award-fill"></span>
