@@ -26,6 +26,7 @@ Route::get('/ecoles', [\App\Http\Controllers\SchoolsController::class, 'index'])
 Route::get('/ecole/{school}', [\App\Http\Controllers\SchoolsController::class, 'view'])->name('view_school');
 Route::get('/ecoles/accreditees', [\App\Http\Controllers\SchoolsController::class, 'accredited'])->name('accreds_schools');
 Route::get('/programme/{program}', [\App\Http\Controllers\SchoolsController::class, 'view'])->name('view_program');
+Route::get('schools/comparison', [\App\Http\Controllers\SchoolsController::class, 'comparison'])->name('schools_comparison');
 
 /* === AJAX CALLS === */
 Route::get('/ecoles/ajax', [SchoolAjaxController::class, 'index'])->name('ecoles.ajax');

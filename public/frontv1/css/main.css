@@ -71,6 +71,15 @@ h6 {
   font-family: var(--heading-font);
 }
 
+select:focus,
+a:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: inherit;
+  border: none;
+  /* optionnel si tu veux garder le style de base */
+}
+
 .loader {
   width: 48px;
   height: 48px;
@@ -3051,13 +3060,20 @@ button.reset-filter {
   justify-content: center;
 }
 
+.school-comparison-bilboard {
+  background-image: url(../img/illustration/illust20.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 21vh;
+}
+
 .school-bilboard h1 {
   font-size: 4.1rem !important;
   color: var(--heading-color);
-}
-
-.school-filter-wrapper {
-  background: red;
 }
 
 .school-filter-wrapper .nav-tabs {
@@ -3084,6 +3100,7 @@ button.reset-filter {
   background: #f7fcfe;
   padding: 1rem;
   border: 3px solid var(--accent-color);
+  background: #fff !important;
 }
 
 .filter-bottom-row {
@@ -3102,6 +3119,8 @@ button.reset-filter {
 
 .school-row {
   border: 3px solid var(--accent-color);
+  border-right: none;
+  border-left: none;
   background: #fefbfb;
   width: 100%;
   margin: 0 auto !important;
@@ -3301,6 +3320,139 @@ ul.program-list {
   font-weight: bold;
 }
 
+#schoolComparison {
+  position: relative;
+  font-size: .9rem;
+  line-height: 1;
+  background: #ff56001c;
+  border: 3px solid #e0c4b6;
+  margin-bottom: 2rem;
+}
+
+#schoolComparison select {
+  border: none;
+  border-bottom: 3px solid var(--accent-color);
+  padding: 2px 4px;
+  border-radius: 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background: #f5f5f5;
+}
+
+#schoolComparison .address {
+  font-size: 1rem;
+  font-style: italic;
+  color: #cb835f;
+}
+
+.comparison-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 1.3rem;
+  border-right: 1px solid;
+  padding: 1rem 0;
+}
+
+.comparison-wrapper {
+  margin-top: 2rem !important;
+  position: relative;
+  border: 1px solid #d1d1d1;
+}
+
+.comparison-header.criteria {
+  font-weight: bold;
+  border-radius: 8px 0 0 0;
+}
+
+.comparison-header.schoola {
+  border-radius: 0;
+}
+
+.comparison-header.schoolb {
+  border-radius: 0 8px 0 0;
+}
+
+.comparison-row .badge {
+  background: var(--heading-color);
+  margin: 1px;
+  border-radius: 6px;
+}
+
+.comparison-row.criteria {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 1rem .4rem;
+  background: #ff56005e;
+  color: var(--heading-color);
+  border-bottom: .01rem solid;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.comparison-row.schoola {
+  font-size: .8rem;
+  color: #2f2c32;
+  line-height: 1;
+  position: relative;
+  background: #eeeceb;
+  border-top: .01rem solid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: normal;
+  align-items: center;
+}
+
+span.round-yes {
+  font-size: .9rem;
+  font-weight: bold;
+  color: #fff;
+  background: var(--heading-color);
+  border: 2px solid #184b06;
+  line-height: 1.5;
+  padding: .2rem 1rem;
+  margin: 2px 0;
+  border-radius: 13px;
+}
+
+span.round-no {
+  font-size: .9rem;
+  font-weight: bold;
+  color: #fff;
+  background: var(--accent-color);
+  border: 2px solid #5c1f00;
+  line-height: 1.5;
+  padding: .2rem 1rem;
+  margin: 2px 0;
+  border-radius: 13px;
+}
+
+.comparison-row.schoolb {
+  font-size: .8rem;
+  color: #2f2c32;
+  line-height: 1;
+  position: relative;
+  background: #e6e0ed;
+  border-top: .01rem solid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: normal;
+  align-items: center;
+  padding: 1rem inherit;
+}
+
+.badge.program {
+  font-size: .9rem;
+  font-weight: 100;
+  text-align: left;
+  line-height: 1.5;
+}
+
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
@@ -3405,6 +3557,16 @@ ul.program-list {
     top: 0;
     left: -100%;
     visibility: visible;
+  }
+
+  .school-filter-wrapper {
+    background: #f7fcfe;
+    padding: 1rem;
+    border: 3px solid var(--accent-color);
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+    background: #fff !important;
   }
 }
 

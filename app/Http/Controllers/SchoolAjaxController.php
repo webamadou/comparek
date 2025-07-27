@@ -161,12 +161,6 @@ class SchoolAjaxController
             });
         }
 
-        if ($request->has('modalite') && ! empty($request->modalite)) {
-            $query->whereHas('programs', function ($q) use ($request) {
-                $q->where('modality', $request->modalite);
-            });
-        }
-
         if ($request->has('domain') && ! empty($request->domain)) {
             $query->whereHas('programs', function ($q) use ($request) {
                 $q->where('program_domain_id', $request->domain);

@@ -40,6 +40,7 @@ class SchoolRequest extends FormRequest
             'country' => 'nullable|string',
             'accepts_foreign_students' => 'boolean',
             'is_active' => 'boolean',
+            'has_incubator' => 'integer|nullable',
         ];
     }
 }

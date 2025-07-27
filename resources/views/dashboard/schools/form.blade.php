@@ -51,9 +51,16 @@
                             <select name="is_private" class="form-select">
                                 <option value=""> --- </option>
                                 <option value="1" {{ old('is_private', $school->is_private == 1) ? 'selected' : '' }}>{{ __('commons.yes') }}</option>
-                                <option value="2" {{ old('is_rivate', $school->is_private == 2) ? 'selected' : '' }}>
+                                <option value="2" {{ old('is_private', $school->is_private == 2) ? 'selected' : '' }}>
                                     {{ __('commons.no') }}</option>
                             </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">{{ __('schools.include_an_incubator') }}</label>
+                            <select name="has_incubator" class="form-select">
+                                <option value=""> --- </option>
+                                <option value="1" {{ old('has_incubator', $school->has_incubator == 1) ? 'selected' : '' }}>{{ __('commons.yes') }}</option>
+                                <option value="2" {{ old('has_incubator', $school->has_incubator == 2) ? 'selected' : '' }}>{{ __('commons.no') }}</option></select>
                         </div>
                     </div>
 

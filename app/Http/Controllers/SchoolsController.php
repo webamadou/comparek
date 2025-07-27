@@ -36,4 +36,9 @@ class SchoolsController extends Controller
 
         return view('list_schools_accreds',  compact('accreditations',  'schools',  'domains'));
     }
+
+    public function comparison()
+    {
+        return view('comparison_schools');
+    }
 }
