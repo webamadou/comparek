@@ -49,8 +49,13 @@
                     <td>{{ $program->duration_years ?? '-' }} year(s)</td>
                     <td>{{ $program->modality ?? '-' }}</td>
                     <td>
+                        @if ($program->registration_fee)
+                            <p>{!! __('schools.registration_fee') . ' <strong>' . number_format($program->registration_fee, 0, ',', ' ') . '</strong> ' . $program->tuition_currency !!}</p>
+                        @else
+                            —
+                        @endif
                         @if ($program->tuition_fee)
-                            {{ number_format($program->tuition_fee) }} {{ $program->tuition_currency }}
+                            <p>{!! __('schools.tuition_fee') . ' <strong>' . number_format($program->tuition_fee, 0, ',', ' ') . '</strong> ' . $program->tuition_currency !!}</p>
                         @else
                             —
                         @endif

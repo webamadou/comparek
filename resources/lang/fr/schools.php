@@ -55,6 +55,8 @@ return [
     'include_an_incubator' => 'Inclut un incubateur',
     'incubator' => 'Incubateur',
     'tuition_fee_not_available' => 'Frais de scolarité non disponible',
+    'tuition_fee' => 'Frais de scolarité',
+    'registration_fee' => 'Frais d\'inscription',
     'accredited_schools' => 'Écoles accréditées',
     'accredited_programs' => 'Programmes accrédités',
     'accreditations' => 'Accréditations',

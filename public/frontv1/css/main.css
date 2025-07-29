@@ -3396,7 +3396,7 @@ ul.program-list {
 }
 
 .comparison-row.schoola {
-  font-size: .8rem;
+  font-size: 1rem;
   color: #2f2c32;
   line-height: 1;
   position: relative;
@@ -3433,7 +3433,7 @@ span.round-no {
 }
 
 .comparison-row.schoolb {
-  font-size: .8rem;
+  font-size: 1rem;
   color: #2f2c32;
   line-height: 1;
   position: relative;

@@ -99,14 +99,17 @@
                             </select>
                         </div>
                     </div>
-
+                    <div class="col-12"><hr></div>
                     <div class="row">
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">{{ __('schools.registration_fee') }}</label>
+                            <input type="number" name="registration_fee" class="form-control" value="{{ old('registration_fee', $school_program->registration_fee) }}">
+                        </div>
+                        <div class="col-md-3 mb-3">
                             <label class="form-label">{{ __('schools.tuition_fee') }}</label>
                             <input type="number" name="tuition_fee" class="form-control" value="{{ old('tuition_fee', $school_program->tuition_fee) }}">
                         </div>
-
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-1 mb-3">
                             <label class="form-label">{{ __('commons.currency') }}</label>
                             <select name="tuition_currency" class="form-select">
                                 @foreach (['FCFA', 'EUR', 'USD'] as $currency)
@@ -116,13 +119,12 @@
                                 @endforeach
                             </select>
                         </div>
-
-                        <div class="col-md-4 offset-md-2 mb-3">
+                        <div class="col-md-5 mb-3">
                             <label class="form-label">{{ __('schools.tuition_description') }}</label>
                             <input type="text" name="tuition_description" class="form-control" value="{{ old('tuition_description', $school_program->tuition_description) }}">
                         </div>
                     </div>
-
+                    <div class="col-12"><hr></div>
                     <div class="mb-3">
                         <label class="form-label">{{ __('schools.program_features') }} (Selection multiple possible)</label>
                         <div class="d-flex flex-wrap gap-2" role="group" aria-label="Basic checkbox toggle button group">

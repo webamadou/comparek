@@ -36,6 +36,7 @@ class SchoolProgramRequest extends FormRequest
             'language' => ['nullable', new Enum(LanguageEnum::class)],
             'is_accredited' => ['nullable', 'boolean'],
             'tuition_fee' => ['nullable', 'integer', 'min:0'],
+            'registration_fee' => ['nullable', 'integer', 'min:0'],
             'tuition_currency' => ['nullable', 'in:FCFA,EUR,USD'],
             'tuition_description' => ['nullable', 'string', 'max:255'],
             'accreditation_ids' => ['nullable', 'array'],
