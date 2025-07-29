@@ -41,6 +41,10 @@ class SchoolRequest extends FormRequest
             'accepts_foreign_students' => 'boolean',
             'is_active' => 'boolean',
             'has_incubator' => 'integer|nullable',
+            'meta_title' => ['nullable', 'string', 'max:255'],
+            'meta_description' => ['nullable', 'string', 'max:1000'],
+            'seo_keywords' => ['nullable', 'string'],
+
         ];
     }
 }

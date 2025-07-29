@@ -111,6 +111,34 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <hr class="my-4">
+                        <h5>Référencement (SEO)</h5>
+
+                        <div class="mb-3">
+                            <label for="meta_title" class="form-label">Meta Title</label>
+                            <input type="text" name="meta_title" id="meta_title" class="form-control"
+                                   value="{{ old('meta_title', $school->meta_title) }}" maxlength="255"
+                                   placeholder="Ex: ISM - École supérieure de gestion à Dakar">
+                            <div class="form-text">Max 60 caractères recommandés</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="meta_description" class="form-label">Meta Description</label>
+                            <textarea name="meta_description" id="meta_description" class="form-control no-tinymce" rows="2"
+                                      maxlength="160">{{ old('meta_description', $school->meta_description) }}</textarea>
+                            <div class="form-text">Max 160 caractères. Résumé visible dans les résultats Google.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="seo_keywords" class="form-label">Mots-clés (SEO Keywords)</label>
+                            <input type="text" name="seo_keywords" id="seo_keywords" class="form-control"
+                                   value="{{ old('seo_keywords', $school->seo_keywords) }}"
+                                   placeholder="Ex: école privée Dakar, master gestion, licence informatique">
+                            <div class="form-text">Séparer les mots-clés par des virgules.</div>
+                        </div>
+                    </div>
+
                     <button type="submit" class="btn btn-success"><span class="iconify" data-icon="mdi-content-save"></span> Enregistrer</button>
                     <a href="{{ route('schools.index') }}" class="btn btn-secondary"><span class="iconify" data-icon="mdi-step-backward"></span> Retour</a>
                 </form>

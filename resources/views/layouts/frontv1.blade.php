@@ -6,7 +6,9 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Comparek') }}</title>
+        <title>@yield('title', 'Comparek') - Comparek</title>
+        <meta name="description" content="@yield('meta_description', '')">
+        <meta name="keywords" content="@yield('meta_keywords', '')">
 
         <!-- Favicons -->
         <link rel="icon" type="image/png" href="{{asset('assets/logo/front-favicons/android-icon-96x96.png')}}" sizes="96x96" />

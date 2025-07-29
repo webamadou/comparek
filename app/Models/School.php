@@ -124,15 +124,4 @@ class School extends Model
             }
         );
     }
-/*
-    public function hasIncubator(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                return $this->programs()->whereHas('features', function ($query) {
-                    $query->where('name', "Dispose d'un incubateur");
-                })->exists();
-            }
-        );
-    }*/
 }

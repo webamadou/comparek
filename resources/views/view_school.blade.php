@@ -1,5 +1,9 @@
 @extends('layouts.frontv1')
 
+@section('title', $school->meta_title ?? $school->name)
+@section('meta_description', $school->meta_description)
+@section('meta_keywords', $school->seo_keywords)
+
 @section('content')
     <div class="page-title">
         <div class="heading pb-0">
