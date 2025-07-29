@@ -30,9 +30,10 @@ class SchoolProgramController extends Controller
 
     public function store(SchoolProgramRequest $request)
     {
-        $program = SchoolProgram::create(collect($request->validated())->except(['accreditation_ids', 'feature_ids'])->toArray());
+        $program = SchoolProgram::create(collect($request->validated())->except(['accreditation_ids', 'feature_ids', 'domain_ids'])->toArray());
         $program->accreditationBodies()->sync($request->input('accreditation_ids', []));
         $program->features()->sync($request->input('feature_ids', []));
+        $program->domains()->sync($request->input('domain_ids', []));
 
         return redirect()->route('school_programs.index')->with('success', __('schools.created'));
     }
@@ -49,9 +50,10 @@ class SchoolProgramController extends Controller
 
     public function update(SchoolProgramRequest $request, SchoolProgram $schoolProgram)
     {
-        $schoolProgram->update(collect($request->validated())->except(['accreditation_ids', 'feature_ids'])->toArray());
+        $schoolProgram->update(collect($request->validated())->except(['accreditation_ids', 'feature_ids', 'domain_ids'])->toArray());
         $schoolProgram->accreditationBodies()->sync($request->input('accreditation_ids', []));
         $schoolProgram->features()->sync($request->input('feature_ids', []));
+        $schoolProgram->domains()->sync($request->input('domain_ids', []));
 
         return redirect()->route('school_programs.index')->with('success', __('schools.updated'));
     }

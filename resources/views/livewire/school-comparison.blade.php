@@ -60,14 +60,14 @@
             <div class="col-5 comparison-row schoola">
                 @foreach($schoolAData->programs as $program)
                     @if($program->has('accreditationBodies'))
-                        <h6><span class="badge text-wrap bi bi-bookmark program"> {{ $program->name . ' - [' . $program->domain->name . ']' }}</span></h6>
+                        <h6><span class="badge text-wrap bi bi-bookmark program"> &nbsp;{{ $program->name }}</span></h6>
                     @endif
                 @endforeach
             </div>
             <div class="col-5 comparison-row schoolb">
                 @foreach($schoolBData->programs as $program)
                     @if($program->has('accreditationBodies'))
-                        <h6><span class="badge text-wrap bi bi-bookmark program">{{ $program->name . ' - [' . $program->domain->name . ']' }}</span></h6>
+                        <h6><span class="badge text-wrap bi bi-bookmark program"> &nbsp;{{ $program->name }}</span></h6>
                     @endif
                 @endforeach
             </div>

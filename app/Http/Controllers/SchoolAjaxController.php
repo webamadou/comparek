@@ -43,8 +43,8 @@ class SchoolAjaxController
         }
 
         if ($request->has('domain') && ! empty($request->domain)) {
-            $query->whereHas('programs', function ($q) use ($request) {
-                $q->where('program_domain_id', $request->domain);
+            $query->whereHas('programs.domains', function ($q) use ($request) {
+                return $q->where('program_domains.id', $request->domain);
             });
         }
 
@@ -100,10 +100,9 @@ class SchoolAjaxController
         }
 
         if ($request->has('domain') && ! empty($request->domain)) {
-            $query->where('program_domain_id', $request->domain);
-                /*->whereHas('programs', function ($q) use ($request) {
-                $q->where('program_domain_id', $request->domain);
-            });*/
+            $query->whereHas('domains', function ($q) use ($request) {
+                return $q->where('program_domains.id', $request->domain);
+            });
         }
 
         if ($request->has('double_diplomes') && ! empty($request->double_diplomes)) {
@@ -162,8 +161,8 @@ class SchoolAjaxController
         }
 
         if ($request->has('domain') && ! empty($request->domain)) {
-            $query->whereHas('programs', function ($q) use ($request) {
-                $q->where('program_domain_id', $request->domain);
+            $query->whereHas('programs.domains', function ($q) use ($request) {
+                return $q->where('program_domains.id', $request->domain);
             });
         }
 

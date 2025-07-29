@@ -27,8 +27,8 @@ class ProgramDomain extends Model
             ->doNotGenerateSlugsOnUpdate();
     }
 
-    public function programs(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function programs(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->hasMany(SchoolProgram::class);
+        return $this->belongsToMany(SchoolProgram::class);
     }
 }

@@ -53,13 +53,13 @@ class SchoolProgramsTable extends Component
 
     public function render()
     {
-        $query = SchoolProgram::with(['school', 'domain'])
+        $query = SchoolProgram::with(['school', 'domains'])
             ->when($this->search, fn($q) =>
                 $q->where('name', 'like', "%{$this->search}%")
                   ->orWhereHas('school', fn($sq) => $sq->where('name', 'like', "%{$this->search}%"))
             )
             ->when($this->filterSchool, fn($q) => $q->where('school_id', $this->filterSchool))
-            ->when($this->filterDomain, fn($q) => $q->where('program_domain_id', $this->filterDomain))
+            ->when($this->filterDomain, fn($q) => $q->whereHas('domains', fn ($query) => $query->whereIn('id', $this->filterDomain)))
             ->orderBy($this->sortField, $this->sortDirection);
 
         return view('livewire.school-programs-table', [

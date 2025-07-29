@@ -37,8 +37,8 @@ class SchoolComparison extends Component
         return view('livewire.school-comparison', [
                 'schoolsAList' => $this->schoolsAList,
                 'schoolsBList' => $this->schoolsBList,
-                'schoolAData' => $this->schoolA ? School::with('programs.accreditationBodies', 'programs.domain')->find($this->schoolA) : null,
-                'schoolBData' => $this->schoolB ? School::with('programs.accreditationBodies', 'programs.domain')->find($this->schoolB) : null,
+                'schoolAData' => $this->schoolA ? School::with('programs.accreditationBodies', 'programs.domains')->find($this->schoolA) : null,
+                'schoolBData' => $this->schoolB ? School::with('programs.accreditationBodies', 'programs.domains')->find($this->schoolB) : null,
             ]
         );
     }

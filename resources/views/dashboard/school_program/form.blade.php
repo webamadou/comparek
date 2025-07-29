@@ -35,15 +35,14 @@
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Domain</label>
-                            <select name="program_domain_id" class="form-select" required>
-                                <option value="">-- Select Domain --</option>
+                            <label class="form-label">{{ __('schools.domains') }}</label>
+                            <div class="d-flex flex-wrap gap-2">
                                 @foreach ($domains as $id => $domain)
-                                    <option value="{{ $id }}" {{ old('domain_id', $school_program->program_domain_id) == $id ? 'selected' : '' }}>
-                                        {{ $domain }}
-                                    </option>
+                                    <input type="checkbox" name="domain_ids[]" value="{{ $id }}" id="domain{{ $id }}" class="btn-check"
+                                        {{ in_array($id, old('domain_ids', $school_program->domains->pluck('id')->toArray() ?? [])) ? 'checked' : '' }}>
+                                    <label class="btn btn-outline-primary" for="domain{{ $id }}">{{ $domain }}</label>
                                 @endforeach
-                            </select>
+                            </div>
                         </div>
                     </div>
 

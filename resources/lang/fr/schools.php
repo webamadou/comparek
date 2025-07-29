@@ -52,6 +52,7 @@ return [
     'study_abroad' => 'Études à l\'étranger',
     'double_skills' => 'Double compétences',
     'domain' => 'Domaine',
+    'domains' => 'Domaines',
     'include_an_incubator' => 'Inclut un incubateur',
     'incubator' => 'Incubateur',
     'tuition_fee_not_available' => 'Frais de scolarité non disponible',

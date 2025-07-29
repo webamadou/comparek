@@ -27,9 +27,9 @@ class SchoolProgram extends Model
         return $this->belongsTo(School::class);
     }
 
-    public function domain(): BelongsTo
+    public function domains(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsTo(ProgramDomain::class,  'program_domain_id');
+        return $this->belongsToMany(ProgramDomain::class);
     }
 
     /**
