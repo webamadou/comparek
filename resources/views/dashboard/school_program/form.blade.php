@@ -39,7 +39,7 @@
                             <div class="d-flex flex-wrap gap-2">
                                 @foreach ($domains as $id => $domain)
                                     <input type="checkbox" name="domain_ids[]" value="{{ $id }}" id="domain{{ $id }}" class="btn-check"
-                                        {{ in_array($id, old('domain_ids', $school_program->domains->pluck('id')->toArray() ?? [])) ? 'checked' : '' }}>
+                                        {{ in_array($id, old('domain_ids', $school_program->domains?->pluck('id')->toArray() ?? [])) ? 'checked' : '' }}>
                                     <label class="btn btn-outline-primary" for="domain{{ $id }}">{{ $domain }}</label>
                                 @endforeach
                             </div>
