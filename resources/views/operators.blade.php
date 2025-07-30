@@ -4,10 +4,10 @@
     <div class="page-title">
         <div class="heading" style="padding: 0;">
             <div class="container">
-                <div class="row d-flex justify-content-center text-center">
+                <div class="row d-flex justify-content-center text-center telecom-bilboard">
                     <div class="col-sm-6 col-md-8 mt-5">
-                        <h1 class="heading-title">
-                            Liste des fournisseurs internet et des opérateurs mobiles au Sénégal en 2025
+                        <h1>
+                            Liste des fournisseurs internet et opérateurs mobiles
                         </h1>
                     </div>
                     <div class="col-sm-6 col-md-4">

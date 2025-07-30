@@ -3050,6 +3050,16 @@ button.reset-filter {
   letter-spacing: 3px;
 }
 
+.telecom-bilboard {
+  background-image: url(../img/illustration/illust22.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .school-bilboard {
   background-image: url(../img/illustration/illust16.png);
   background-size: cover;
@@ -3072,6 +3082,11 @@ button.reset-filter {
 }
 
 .school-bilboard h1 {
+  font-size: 4.1rem !important;
+  color: var(--heading-color);
+}
+
+.telecom-bilboard h1 {
   font-size: 4.1rem !important;
   color: var(--heading-color);
 }

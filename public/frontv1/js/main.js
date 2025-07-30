@@ -41,9 +41,9 @@
    */
   document.querySelectorAll('#navmenu a').forEach(navmenu => {
     navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
+      /* if (document.querySelector('.mobile-nav-active')) {
         mobileNavToogle();
-      }
+      } */
     });
 
   });
