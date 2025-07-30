@@ -41,8 +41,7 @@
                     </p>
 
                     <div class="cta-wrapper">
-                        <a href="#" class="btn btn-primary"><span class="iconify" data-icon="mdi-account"></span>+221 78 786 56
-                            03</a>
+                        <a href="#" class="btn btn-primary"><span class="iconify" data-icon="mdi-account"></span>+221 33 868 62 00</a>
                     </div>
                 </div>
 
@@ -68,8 +67,25 @@
                             <h3>Box & Mobile</h3>
                             <p>Payez moins pour plus de data, d'appels et de services. Comparez les forfaits mobiles et box Internet
                                 des opérateurs au Sénégal.</p>
-                            <a href="#" class="service-link">
+                            <a href="{{ route('telecom_comparison') }}" class="service-link">
                                 <span>Comparez web & mobile</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-md-4" data-aos="fade-left" data-aos-delay="100">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="bi bi-mortarboard-fill"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Écoles & Universités</h3>
+                            <p>Comparez les écoles supérieures : programmes, diplômes, insertion, coûts… <br>Votre avenir mérite
+                                mieux qu’un choix au hasard.</p>
+                            <a href="{{ route('schools_comparison') }}" class="service-link">
+                                <span>Comparez les écoles</span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
@@ -87,23 +103,6 @@
                                 Comparez les banques au Sénégal : frais, services, accessibilité… tout est clair.</p>
                             <a href="#" class="service-link">
                                 <span>Comparez les banques</span>
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div><!-- End Service Item -->
-
-                <div class="col-md-4" data-aos="fade-left" data-aos-delay="100">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <i class="bi bi-mortarboard-fill"></i>
-                        </div>
-                        <div class="service-content">
-                            <h3>Écoles & Universités</h3>
-                            <p>Comparez les écoles supérieures : programmes, diplômes, insertion, coûts… <br>Votre avenir mérite
-                                mieux qu’un choix au hasard.</p>
-                            <a href="#" class="service-link">
-                                <span>Comparez les écoles</span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>

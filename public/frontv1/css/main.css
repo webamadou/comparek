@@ -3324,9 +3324,15 @@ ul.program-list {
   position: relative;
   font-size: .9rem;
   line-height: 1;
-  background: #ff56001c;
-  border: 3px solid #e0c4b6;
+  /* background: #ff56001c;
+  border: 3px solid #e0c4b6; */
   margin-bottom: 2rem;
+}
+
+#schoolComparison .fields {
+  background: #ff560017;
+  border: 3px solid #ff560054;
+  padding: 2rem 0;
 }
 
 #schoolComparison select {
@@ -3348,13 +3354,16 @@ ul.program-list {
 
 .comparison-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  background: var(--accent-color);
-  color: #fff;
-  font-size: 1.3rem;
-  border-right: 1px solid;
+  background: #fff;
+  color: var(--heading-color);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.1;
+  border-right: 0.1px solid;
   padding: 1rem 0;
 }
 
@@ -3362,6 +3371,8 @@ ul.program-list {
   margin-top: 2rem !important;
   position: relative;
   border: 1px solid #d1d1d1;
+  background: #ff56001c;
+  border: 3px solid #e0c4b6;
 }
 
 .comparison-header.criteria {
@@ -3374,7 +3385,7 @@ ul.program-list {
 }
 
 .comparison-header.schoolb {
-  border-radius: 0 8px 0 0;
+  border: none;
 }
 
 .comparison-row .badge {
@@ -3386,6 +3397,7 @@ ul.program-list {
 .comparison-row.criteria {
   font-size: 1.1rem;
   font-weight: bold;
+  word-break: break-word;
   padding: 1rem .4rem;
   background: #ff56005e;
   color: var(--heading-color);
@@ -4439,13 +4451,15 @@ span.round-no {
 
   .navmenu ul li {
     padding: .4rem 0;
-    background: #ff560033;
-    border-bottom: 1px solid #461082;
+    background: #fff;
+    border-bottom: 0.1px solid var(--heading-color);
   }
 
   .navmenu ul li a {
     text-decoration: none;
     font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--heading-color);
   }
 
   /* telecom comporator */
@@ -4479,5 +4493,16 @@ span.round-no {
     width: auto;
     background: #f3f4f5;
     padding: .5rem .5rem;
+  }
+
+  .comparison-row.criteria span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+    white-space: nowrap;
+    padding: 0.5rem;
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: var(--heading-color);
   }
 }

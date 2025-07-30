@@ -26,12 +26,12 @@
         </div>
     </div>
     <section class="p-0">
-        <div class="container" style="height: 1292px">
+        <div class="container">
             <div class="row justify-content-between gy-4">
                 <div id="schoolComparison" class="px-1">
                     @livewire('school-comparison')
                 </div>
-
+                <div style="height: 300px">&nbsp;</div>
             </div>
         </div>
     </section>

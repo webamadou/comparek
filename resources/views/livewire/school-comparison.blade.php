@@ -4,7 +4,7 @@
         {{ __('schools.compare_schools_description') }}
     </p>
 
-    <div class="row">
+    <div class="row fields">
         <div class="col-6">
             {{--<label for="schoolA" class="block mb-1 font-medium">École 1</label>--}}
             <select wire:model.change="schoolA" id="schoolA" class="form-select w-full">
@@ -46,7 +46,7 @@
                 {{ $schoolBData->name }}
             </div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-body-text"></span> {{ __('schools.description') }}</div>
+            <div class="col-2 comparison-row criteria"><span class="bi bi-body-text"> {{ __('schools.description') }}</span></div>
             <div class="col-5 comparison-row schoola">
                 {!! $schoolAData->description ?? '—' !!}
                 <p><a href="{{ route('view_school', $schoolAData->slug) }}"></a></p>
@@ -56,7 +56,7 @@
                 <p><a href="{{ route('view_school', $schoolBData->slug) }}"></a></p>
             </div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-textarea"></span> {{ __('schools.accredited_programs') }}</div>
+            <div class="col-2 comparison-row criteria"><span class="bi bi-textarea"> {{ __('schools.accredited_programs') }}</span></div>
             <div class="col-5 comparison-row schoola">
                 @foreach($schoolAData->programs as $program)
                     @if($program->has('accreditationBodies'))
@@ -72,11 +72,11 @@
                 @endforeach
             </div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-signpost-split-fill"></span> {{ __('schools.school_type') }}</div>
+            <div class="col-2 comparison-row criteria"><span class="bi bi-signpost-split-fill"> {{ __('schools.school_type') }}</span></div>
             <div class="col-5 comparison-row schoola">{!! $schoolAData->is_private ? '<span class="round-private">' . __('schools.is_a_private') . '</span>' : '<span class="round-no-private">' . __('schools.is_a_public') . '</span>' !!}</div>
             <div class="col-5 comparison-row schoolb">{!! $schoolBData->is_private ? '<span class="round-private">' . __('schools.is_a_private') . '</span>' : '<span class="round-no-private">' . __('schools.is_a_public') . '</span>' !!}</div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-award-fill"></span> {{ __('schools.accreditations') }}</div>
+            <div class="col-2 comparison-row criteria"><span class="bi bi-award-fill"> {{ __('schools.accreditations') }}</span></div>
             <div class="col-5 comparison-row schoola">
                 @foreach($schoolAData->programs->map(fn($p) => $p->accreditationBodies->map(fn($a) => $a->name))
                     ->flatten()
@@ -94,35 +94,35 @@
                 @endforeach
             </div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-mortarboard-fill"></span><span class="bi bi-mortarboard-fill"></span> {{ __('schools.double_diplomes') }}</div>
+            <div class="col-2 comparison-row criteria"><span class="bi bi-mortarboard-fill"> {{ __('schools.double_diplomes') }}</span></div>
             <div class="col-5 comparison-row schoola">{!! $schoolAData->hasDoubleDiplome ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
             <div class="col-5 comparison-row schoolb">{!! $schoolBData->hasDoubleDiplome ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-mortarboard-fill"></span><span class="bi bi-buildings-fill"></span> {{ __('schools.has_internership') }}</div>
+            <div class="col-2 comparison-row criteria"></span><span class="bi bi-buildings-fill"> {{ __('schools.has_internership') }}</span></div>
             <div class="col-5 comparison-row schoola">{!! $schoolAData->guarantiesInternship ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
             <div class="col-5 comparison-row schoolb">{!! $schoolBData->guarantiesInternship ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-buildings-fill"></span>&nbsp;  {{ __('schools.job_guarantee') }}</div>
+            <div class="col-2 comparison-row criteria"><span class="bi bi-buildings-fill">&nbsp;  {{ __('schools.job_guarantee') }}</span></div>
             <div class="col-5 comparison-row schoola">{!! $schoolAData->jobGuarantee ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
             <div class="col-5 comparison-row schoolb">{!! $schoolBData->jobGuarantee ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-patch-check-fill"></span>&nbsp;  {{ __('schools.miage') }}</div>
+            <div class="col-2 comparison-row criteria"><span class="bi bi-patch-check-fill">&nbsp;  {{ __('schools.miage') }}</span></div>
             <div class="col-5 comparison-row schoola">{!! $schoolAData->miageOption ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
             <div class="col-5 comparison-row schoolb">{!! $schoolBData->miageOption ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-globe-europe-africa-fill"></span>&nbsp;  {{ __('schools.study_abroad') }}</div>
+            <div class="col-2 comparison-row criteria"><span class="bi bi-globe-europe-africa-fill">&nbsp;  {{ __('schools.study_abroad') }}</span></div>
             <div class="col-5 comparison-row schoola">{!! $schoolAData->studyAbroad ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
             <div class="col-5 comparison-row schoolb">{!! $schoolBData->studyAbroad ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-tools"></span><span class="bi bi-tools"></span>&nbsp; {{ __('schools.double_skills') }}</div>
+            <div class="col-2 comparison-row criteria"><span class="bi bi-tools">&nbsp; {{ __('schools.double_skills') }}</span></div>
             <div class="col-5 comparison-row schoola">{!! $schoolAData->doubleSkills ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
             <div class="col-5 comparison-row schoolb">{!! $schoolBData->doubleSkills ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-rocket-takeoff-fill"></span>&nbsp; {{ __('schools.include_an_incubator') }}</div>
+            <div class="col-2 comparison-row criteria"><span class="bi bi-rocket-takeoff-fill">&nbsp; {{ __('schools.include_an_incubator') }}</span></div>
             <div class="col-5 comparison-row schoola">{!! $schoolAData->has_incubator === 1 ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
             <div class="col-5 comparison-row schoolb">{!! $schoolBData->has_incubator === 1 ? '<span class="round-yes">' . __('commons.yes') . '</span>' : '<span class="round-no">' . __('commons.no') . '</span>' !!}</div>
 
-            <div class="col-2 comparison-row criteria"><span class="bi bi-pin-map"></span>&nbsp;{{ __('schools.address') }}</div>
+            <div class="col-2 comparison-row criteria"><span class="bi bi-pin-map">&nbsp;{{ __('schools.address') }}</span></div>
             <div class="col-5 comparison-row schoola address">{{ $schoolAData->address . ' ' . $schoolAData?->city . ' (' . $schoolAData?->country . ')' }}</div>
             <div class="col-5 comparison-row schoolb address">{{ $schoolBData->address . ' ' . $schoolBData?->city . ' (' . $schoolBData?->country . ')' }}</div>
         </div>

@@ -11,6 +11,8 @@ return [
     'school_deleted' => 'École supprimé avec succès !',
     'confirm_school_delete' => 'Êtes-vous sûr de vouloir supprimer cet école ?',
     'school_created' => 'École créé',
+    'created' => 'École créé avec succès',
+    'school_updated' => 'École mis à jour avec succès',
     'no_school_yet' => 'Les écoles ne sont pas encore enregistrés pour ce programme',
     'social_network' => 'Réseau social',
     'detailed_description' => 'Description détaillée',
