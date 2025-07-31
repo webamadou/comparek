@@ -95,6 +95,7 @@ a:focus {
   display: none;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 #spinner.active {
@@ -3082,12 +3083,12 @@ button.reset-filter {
 }
 
 .school-bilboard h1 {
-  font-size: 2.1rem !important;
+  font-size: 4.1rem !important;
   color: var(--heading-color);
 }
 
 .telecom-bilboard h1 {
-  font-size: 2.1rem !important;
+  font-size: 4.1rem !important;
   color: var(--heading-color);
 }
 
@@ -3291,6 +3292,20 @@ button.reset-filter {
   padding: 0;
   border-radius: 6x;
   overflow: hidden;
+}
+
+.metas ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.offer-price .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  height: 100%;
+  display: flex;
 }
 
 /* Media Queries Consolidated */
@@ -4011,13 +4026,15 @@ span.round-no {
 
   .navmenu ul li {
     padding: .4rem 0;
-    background: #ff560033;
-    border-bottom: 1px solid #461082;
+    background: #fff;
+    border-bottom: 1.1px solid #461082;
+    color: red;
   }
 
   .navmenu ul li a {
     text-decoration: none;
     font-size: 1.3rem;
+    font-weight: bold;
   }
 
   .services-alt .content-block {
@@ -4282,85 +4299,6 @@ span.round-no {
 
 @media (max-width: 767px) {
 
-  /*.faq .faq-item .faq-header {
-    padding: 15px 20px;
-  }
-
-  .faq .faq-item .faq-header h3 {
-    font-size: 16px;
-  }
-
-  .faq .faq-item .faq-content p {
-    padding: 0 20px 15px;
-    font-size: 14px;
-  }
-
-  .faq .faq-contact-card {
-    padding: 30px 20px;
-  }
-
-  .faq .faq-contact-card .card-icon i {
-    font-size: 40px;
-  }
-
-  .faq .faq-contact-card .card-content h3 {
-    font-size: 24px;
-  }
-
-  .faq .faq-contact-card .card-content p {
-    font-size: 15px;
-  }
-
-  .faq .faq-contact-card .contact-options .contact-option {
-    padding: 12px 15px;
-  }
-
-  .faq .faq-contact-card .contact-options .contact-option i {
-    font-size: 18px;
-  }
-
-  .faq .faq-contact-card .contact-options .contact-option span {
-    font-size: 15px;
-  }
-.testimonials .testimonial-content {
-    padding: 30px 20px 20px;
-  }
-
-  .testimonials .testimonial-content p {
-    font-size: 15px;
-  }
-
-  .testimonials .testimonial-content .quote-icon {
-    font-size: 36px;
-    left: 20px;
-  }
-
-  .testimonials .testimonial-profile {
-    padding: 15px 20px;
-  }
-
-  .testimonials .profile-info img {
-    width: 45px;
-    height: 45px;
-  }
-.service-details .service-testimonial .testimonial-card .client-info img {
-    margin: 0 auto 20px;
-  }
-.service-details .service-cta {
-    padding: 40px 20px;
-  }
-
-  .service-details .service-cta h3 {
-    font-size: 26px;
-  }
-.service-details .client-info {
-    flex-direction: column;
-    margin-bottom: 30px;
-  }
-
-  .service-details .service-tabs .tab-content {
-    padding: 30px 20px;
-  }*/
   /* mobile menu */
   .portfolio-details .swiper-button-prev,
   .portfolio-details .swiper-button-next {
@@ -4448,6 +4386,16 @@ span.round-no {
     width: auto;
     background: #f3f4f5;
     padding: .5rem .5rem;
+  }
+
+  .school-bilboard h1 {
+    font-size: 2.1rem !important;
+    color: var(--heading-color);
+  }
+
+  .telecom-bilboard h1 {
+    font-size: 2.1rem !important;
+    color: var(--heading-color);
   }
 }
 

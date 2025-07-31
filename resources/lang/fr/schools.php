@@ -3,7 +3,7 @@
 return [
     'school' => 'École',
     'schools' => 'Écoles',
-    'schools_university' => 'Grandes écoles et Université',
+    'schools_university' => 'Grandes écoles et Universités',
     'criteria_name' => 'Nom de l\'école',
     'criteria_deleted' => 'École supprimée',
     'updated' => 'École mise à jour',
