@@ -5,6 +5,8 @@ namespace App\Livewire;
 use App\Enums\ScoreGrade;
 use App\Models\TelecomOfferFeature;
 use App\Models\TelecomOperator;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
 use Livewire\Component;
 
 class MobileComparatorOperators extends Component
@@ -54,11 +56,29 @@ class MobileComparatorOperators extends Component
         $this->js('window.location.reload()');
     }
 
-    public function render()
+    protected function generateCacheKey(): string
     {
-        $telecomOffers = TelecomOfferFeature::query()
-            ->with('offer')
-            ->with('offer.operator')
+        return 'mobile_comparator_' . md5(json_encode([
+                'operator' => $this->operator,
+                'validityLength' => $this->validityLength,
+                'data' => $this->data,
+                'voiceMinutes' => $this->voiceMinutes,
+                'sms_nbr' => $this->sms_nbr,
+                'phoneCredit' => $this->phoneCredit,
+                'price' => $this->price,
+                'score' => $this->score,
+                'sortBy' => $this->sortBy,
+                'orderDirection' => $this->orderDirection,
+            ]));
+    }
+
+    protected function buildQuery()
+    {
+        return TelecomOfferFeature::query()
+            ->with([
+                'offer:id,telecom_operator_id',
+                'offer.operator:id,name'
+            ])
             ->when($this->operator, fn ($query) => $query->whereHas('offer', fn ($q) => $q->where('telecom_operator_id', $this->operator)))
             ->when($this->validityLength > 0 && $this->validityLength < 30, fn ($query) => $query->where('validity_length', $this->validityLength))
             ->when($this->validityLength >= 30, fn ($query) => $query->where('validity_length', '>=', $this->validityLength))
@@ -138,6 +158,17 @@ class MobileComparatorOperators extends Component
                     return $feature->offer->currentScore();
                 }
             });
+
+    }
+
+    public function render()
+    {
+        $cacheKey = $this->generateCacheKey();
+
+        $telecomOffers = Cache::remember($cacheKey, Config::get('cache.duration'), function () {
+            return $this->buildQuery()->all();
+        });
+
 
         return view('livewire.mobile-comparator-operators', compact('telecomOffers'));
     }
