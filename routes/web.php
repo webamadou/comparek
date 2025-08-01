@@ -3,14 +3,14 @@
 use App\Http\Controllers\Admin\OfferScoresController;
 use App\Http\Controllers\Admin\ScoreCriteriaController;
 use App\Http\Controllers\Admin\ScoreValueController;
-use App\Http\Controllers\SchoolAjaxController;
 use App\Http\Controllers\Admin\TelecomOfferController;
 use App\Http\Controllers\Admin\TelecomOfferFeatureController;
 use App\Http\Controllers\Admin\TelecomOperatorController;
-use App\Http\Controllers\TelecomOperatorController as TelecomOperatorControllerFront;
 use App\Http\Controllers\Admin\TelecomServiceTypeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SchoolAjaxController;
+use App\Http\Controllers\TelecomOperatorController as TelecomOperatorControllerFront;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -55,6 +55,8 @@ Route::middleware('auth')
     Route::resource('score_value', ScoreValueController::class);
     Route::get('offer_scores/{offer}', [OfferScoresController::class, 'edit'])->name('offer_scores.edit');
     Route::put('offer_scores/{offer}', [OfferScoresController::class, 'update'])->name('offer_scores.update');
+    Route::resource('post', \App\Http\Controllers\Admin\PostController::class);
+    Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class);
 });
 
 require __DIR__.'/auth.php';
