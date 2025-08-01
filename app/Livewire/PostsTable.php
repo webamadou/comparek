@@ -11,6 +11,12 @@ class PostsTable extends Component
     public bool $showDeleteModal = false;
     public $deleteId;
 
+    public function confirmDelete($id)
+    {
+        $this->deleteId = $id;
+        $this->showDeleteModal = true;
+    }
+
     public function delete()
     {
         Post::find($this->deleteId)?->delete();

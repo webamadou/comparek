@@ -4,6 +4,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>-</th>
                 <th>Titre</th>
                 <th>Catégorie</th>
                 <th>Publié</th>
@@ -14,6 +15,13 @@
         <tbody>
             @foreach ($posts as $post)
                 <tr>
+                    <td>
+                        @if($post->images)
+                            <img src="{{ Storage::url($post->images->path) }}" alt="Logo" height="60" class="mt-2">
+                        @else
+                            <img src="{{ asset('frontv1/img/illustration/default-img.png') }}" width="25%" alt="Default school image">
+                        @endif
+                    </td>
                     <td>{{ $post->name }}</td>
                     <td>{{ $post->category->name ?? '—' }}</td>
                     <td>{{ $post->is_published ? 'Oui' : 'Non' }}</td>
