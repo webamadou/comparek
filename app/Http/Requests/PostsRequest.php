@@ -22,8 +22,7 @@ class PostsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:posts,slug,' . $this->route('post'),
+            'name' => 'required|string|max:255',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
             'meta_keywords' => 'nullable|string|max:255',

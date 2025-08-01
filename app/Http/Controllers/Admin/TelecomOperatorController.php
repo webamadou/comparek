@@ -85,7 +85,6 @@ class TelecomOperatorController extends Controller
                     'sort_order' => 1,
                 ]
             );
-
         }
 
         $telecom_operator->update($data);

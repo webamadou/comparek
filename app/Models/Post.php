@@ -26,14 +26,7 @@ class Post extends Model
     /**
      * Get the options for generating the slug.
      */
-    public function getSlugOptions() : SlugOptions
-    {
-        return SlugOptions::create()
-            ->generateSlugsFrom('name')
-            ->saveSlugsTo('slug')
-            ->usingSeparator('_')
-            ->doNotGenerateSlugsOnUpdate();
-    }
+
 
     public function images(): \Illuminate\Database\Eloquent\Relations\MorphOne
     {
@@ -48,5 +41,14 @@ class Post extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug')
+            ->usingSeparator('_')
+            ->doNotGenerateSlugsOnUpdate();
     }
 }

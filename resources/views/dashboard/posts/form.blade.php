@@ -8,7 +8,7 @@
                     <h1 class="display-4">{{ $post->exists ? __('commons.edit') : __('commons.create') }} Article</h1>
 
                     <form method="POST"
-                          action="{{ $post->exists ? route('post.update', $post) : route('post.store') }}">
+                          action="{{ $post->exists ? route('post.update', $post) : route('post.store') }}" enctype="multipart/form-data">
                         @csrf
                         @if($post->exists)
                             @method('PUT')
@@ -18,16 +18,16 @@
 
                         <div class="mb-3">
                             <label for="title" class="form-label">Titre</label>
-                            <input type="text" name="title" id="title" value="{{ old('title', $post->title ?? '') }}" class="form-control" required>
+                            <input type="text" name="name" id="name" value="{{ old('name', $post->name ?? '') }}" class="form-control" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="category_id" class="form-label">Catégorie</label>
                             <select name="category_id" id="category_id" class="form-select">
                                 <option value="">— Aucune —</option>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" @selected(old('category_id', $post->category_id ?? '') == $category->id)>
-                                        {{ $category->name }}
+                                @foreach ($categories as $id => $name)
+                                    <option value="{{ $id }}" @selected(old('category_id', $post->category_id ?? '') == $id)>
+                                        {{ $name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -42,9 +42,15 @@
                             <label for="content" class="form-label">Contenu</label>
                             <textarea name="content" id="content" rows="10" class="form-control">{{ old('content', $post->content ?? '') }}</textarea>
                         </div>
-
+                        <div class="mb-3">
+                            <label for="feature_image" class="form-label">{{ __('commons.feature_image') }}</label>
+                            <small>{{ __('commons.feature_image_help') }}</small>
+                            <input type="file" class="form-control" name="feature_image">
+                            @if($post->images)
+                                <img src="{{ Storage::url($post->images->path) }}" alt="Logo" height="60" class="mt-2">
+                            @endif
+                        </div>
                         <hr>
-
                         <h5 class="mt-4">🔍 SEO</h5>
 
                         <div class="mb-3">
@@ -62,10 +68,10 @@
                             <input type="text" name="meta_keywords" id="meta_keywords" value="{{ old('meta_keywords', $post->meta_keywords ?? '') }}" class="form-control">
                         </div>
 
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="canonical_url" class="form-label">URL Canonique</label>
                             <input type="url" name="canonical_url" id="canonical_url" value="{{ old('canonical_url', $post->canonical_url ?? '') }}" class="form-control">
-                        </div>
+                        </div> -->
 
                         <div class="mb-3">
                             <label for="robots_directives" class="form-label">Robots directives</label>
@@ -92,7 +98,7 @@
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
-                                
+
                             </div>
                         </div>
 

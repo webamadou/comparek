@@ -8,11 +8,20 @@ use Livewire\Component;
 class PostsTable extends Component
 {
     public $search = '';
+    public bool $showDeleteModal = false;
+    public $deleteId;
+
+    public function delete()
+    {
+        Post::find($this->deleteId)?->delete();
+        $this->showDeleteModal = false;
+        session()->flash('success', 'Enregistrement supprim<UNK>!');
+    }
 
     public function render()
     {
         $posts = Post::with('category','images')
-            ->when($this->search, fn($q) => $q->where('title', 'like', "%{$this->search}%"))
+            ->when($this->search, fn($q) => $q->where('name', 'like', "%{$this->search}%"))
             ->latest()
             ->paginate(10);
 

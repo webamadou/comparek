@@ -33,5 +33,7 @@ return [
     'duration' => 'Durée',
     'year' => 'An',
     'currency' => 'Devise',
-    'actions' => 'Actions'
+    'actions' => 'Actions',
+    'feature_image' => 'Image de l\'article',
+    'feature_image_help' => 'L\'image de l\'article est utilisée pour représenter l\'article dans les listes et les aperçus.',
 ];
