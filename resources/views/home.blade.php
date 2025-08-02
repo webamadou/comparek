@@ -255,7 +255,7 @@
                                             <a href="{{ route('view_article', $post) }}">{{ $post->name }}</a>
                                         </h6>
                                         <div class="text-muted small mt-2">
-                                            • {{ $post->published_at->format('d M Y') }} •
+                                            • {{ $post->published_at?->format('d M Y') }} •
                                         </div>
                                     </div>
                                 </div>
