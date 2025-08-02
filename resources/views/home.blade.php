@@ -218,6 +218,7 @@
                 <!-- big grid -->
                 <div class="col-lg-6 mb-4  big-grid" data-aos="fade-right" data-aos-delay="300">
                     <!-- main grid -->
+                    @if ($latestPost)
                     <div class="card h-auto shadow">
                         <div class="image-wrapper position-relative">
                              <a href="{{ route('view_article', $latestPost) }}">
@@ -235,6 +236,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
                 <!-- 4 petites cartes à droite -->
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
