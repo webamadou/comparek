@@ -55,7 +55,7 @@ class Post extends Model
 
     public function imageUrl(): string
     {
-        return ! empty($this->images->path) ? Storage::url($this->images->path) : Image()::make()->defaultUrl;
+        return ! empty($this->images->path) ? Storage::url($this->images->path) : Image::make()->defaultUrl;
     }
 
     public function getRouteKeyName()
