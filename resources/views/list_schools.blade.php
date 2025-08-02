@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row justify-content-between gy-4">
                 <div class="col-lg-12 school-filter-wrapper">
-                    <div id="spinner" class="justify-content-center"><span class="loader"></span></div>
+                    <div id="spinner" wire:loading class="justify-content-center"><span class="loader"></span></div>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#schools-filters" type="button" role="tab" aria-controls="schools-filters" aria-selected="true">Filtrer par établissement</button>

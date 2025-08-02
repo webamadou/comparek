@@ -3,10 +3,10 @@
     {{-- Filters --}}
     <div class="row mb-3">
         <div class="col-md-3">
-            <input wire:model.debounce.500ms="searchName" type="text" class="form-control" placeholder="Search Name">{{$searchName}}
+            <input wire:model.live.debounce.500ms="searchName" type="text" class="form-control" placeholder="Search Name">{{$searchName}}
         </div>
         <div class="col-md-3">
-            <input wire:model.debounce.500ms="searchSlug" type="text" class="form-control" placeholder="Search Slug">
+            <input wire:model.live.debounce.500ms="searchSlug" type="text" class="form-control" placeholder="Search Slug">
         </div>
         <div class="col-md-3">
             <select wire:model="searchActive" class="form-control">

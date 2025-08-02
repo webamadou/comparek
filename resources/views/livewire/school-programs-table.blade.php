@@ -1,10 +1,10 @@
 <div>
     <div class="row mb-3">
         <div class="col-md-4">
-            <input type="text" wire:model.change.debounce.300ms="search" class="form-control" placeholder="Recherche...">
+            <input type="text" wire:model.live.debounce.300ms="search" class="form-control" placeholder="Recherche...">
         </div>
         <div class="col-md-3">
-            <select wire:model.change="filterSchool" class="form-select">
+            <select wire:model.live="filterSchool" class="form-select">
                 <option value="">Tous les écoles</option>
                 @foreach ($schools as $school)
                     <option value="{{ $school->id }}">{{ $school->name }}</option>
@@ -12,7 +12,7 @@
             </select>
         </div>
         <div class="col-md-3">
-            <select wire:model.change="filterDomain" class="form-select">
+            <select wire:model.live="filterDomain" class="form-select">
                 <option value="">Tous les domaines</option>
                 @foreach ($domains as $domain)
                     <option value="{{ $domain->id }}">{{ $domain->name }}</option>
@@ -20,7 +20,7 @@
             </select>
         </div>
         <div class="col-md-2">
-            <select wire:model.change="perPage" class="form-select">
+            <select wire:model.live="perPage" class="form-select">
                 @foreach ([10, 25, 50] as $n)
                     <option value="{{ $n }}">{{ $n }} par page</option>
                 @endforeach

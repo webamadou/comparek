@@ -12,7 +12,7 @@
                                     <div class="custom-checkbox-group">
                                         @foreach($operators as $op)
                                             <label class="custom-checkbox">
-                                                <input type="radio" name="operator" wire:model.change="operator"
+                                                <input type="radio" name="operator" wire:model.live="operator"
                                                        value="{{ $op->id }}">
                                                 <span>{{ $op->name }}</span>
                                             </label>
@@ -26,7 +26,7 @@
                                             <label class="custom-checkbox" for="{{ "service_{$st->id}" }}">
                                                 <input type="radio" name="serviceTypes"
                                                        id="{{ "service_{$st->id}" }}" value="{{ $st->id }}"
-                                                       wire:model.change="serviceType">
+                                                       wire:model.live="serviceType">
                                                 <span>{{ $st->name }}</span>
                                             </label>
                                         @endforeach
@@ -38,7 +38,7 @@
                                         @foreach($scores as $score)
                                             <label for="{{ "score_{$score->value}" }}" class="custom-checkbox">
                                                 <input id="{{ "score_{$score->value}" }}" type="checkbox" name="score"
-                                                       value="{{ $score->value }}" wire:model.change="score">
+                                                       value="{{ $score->value }}" wire:model.live="score">
                                                 <span>{{ $score->name }}</span>
                                             </label>
                                         @endforeach
@@ -56,7 +56,7 @@
                                                min="100"
                                                max="100000"
                                                step="100"
-                                               wire:model.change.200ms="pricePerMonthMin"
+                                               wire:model.live.200ms="pricePerMonthMin"
                                                class="form-range w-100"
                                         >
                                     </div>
@@ -67,7 +67,7 @@
                                         @foreach(\App\Enums\TechnologyEnum::cases() as $techno)
                                             <label for="{{ $techno->value }}" class="custom-checkbox">
                                                 <input id="{{ $techno->value }}" type="checkbox" name="technology"
-                                                       value="{{ $techno->value }}" wire:model.change="technology">
+                                                       value="{{ $techno->value }}" wire:model.live="technology">
                                                 <span>{{ $techno->label() }}</span>
                                             </label>
                                         @endforeach
@@ -78,12 +78,12 @@
                                         <h3><span class="bi bi-filter"></span> {{ __('commons.sort') }}</h3>
                                         <label for="sort_price" class="custom-checkbox">
                                             <input id="sort_price" type="radio" name="sortBy" value="price_per_month"
-                                                   wire:model.change="sortBy">
+                                                   wire:model.live="sortBy">
                                             <span>{{ __('offers.monthly_price') }}</span>
                                         </label>
                                         <label for="sort_note" class="custom-checkbox">
                                             <input id="sort_note" type="radio" name="sortBy" value="sort_note"
-                                                   wire:model.change="sortBy">
+                                                   wire:model.live="sortBy">
                                             <span>{{ __('commons.notes') }}</span>
                                         </label>
                                     </div>

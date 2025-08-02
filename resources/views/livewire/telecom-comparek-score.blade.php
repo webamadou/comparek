@@ -12,7 +12,7 @@
                                     <div class="custom-checkbox-group">
                                         @foreach($operators as $op)
                                             <label class="custom-checkbox">
-                                                <input type="radio" name="operator" wire:model.change="operator" value="{{ $op->id }}">
+                                                <input type="radio" name="operator" wire:model.live="operator" value="{{ $op->id }}">
                                                 <span>{{ $op->name }}</span>
                                             </label>
                                         @endforeach
@@ -23,7 +23,7 @@
                                         <h3 class="m-0"><span class="bi bi-filter"></span> Comparek Score</h3>
                                         @foreach($scores as $score)
                                             <label for="{{ "score_{$score->value}" }}" class="custom-checkbox">
-                                                <input id="{{ "score_{$score->value}" }}" type="radio" name="score" value="{{ $score->value }}" wire:model.change="score">
+                                                <input id="{{ "score_{$score->value}" }}" type="radio" name="score" value="{{ $score->value }}" wire:model.live="score">
                                                 <span>{{ $score->name }}</span>
                                             </label>
                                         @endforeach
@@ -33,7 +33,7 @@
                                     <div class="custom-checkbox-group">
                                         <h3 class="m-0"><span class="bi bi-filter"></span> {{ __('commons.sort') }}</h3>
                                         <label for="sort_note" class="custom-checkbox">
-                                            <input id="sort_note" type="radio" name="sortBy" value="sort_note" wire:model.change="sortBy">
+                                            <input id="sort_note" type="radio" name="sortBy" value="sort_note" wire:model.live="sortBy">
                                             <span>{{ __('commons.sort') }}</span>
                                         </label>
                                     </div>

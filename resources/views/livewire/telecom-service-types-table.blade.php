@@ -1,6 +1,6 @@
 <div>
     <div class="col-md-3">
-        <input wire:model.debounce.500ms="searchName" type="text" class="form-control" placeholder="Search Name">{{$searchName}}
+        <input wire:model.live.debounce.500ms="searchName" type="text" class="form-control" placeholder="Search Name">{{$searchName}}
     </div>
     <table class="table table-bordered table-hover">
         <thead>

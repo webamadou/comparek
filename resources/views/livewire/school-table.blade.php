@@ -1,11 +1,11 @@
 <div>
     <div class="row mb-3">
         <div class="col-md-4">
-            <input type="text" wire:model.change.debounce.300ms="search" class="form-control" placeholder="Rechercher">
+            <input type="text" wire:model.live.debounce.300ms="search" class="form-control" placeholder="Rechercher">
         </div>
 
         <div class="col-md-2">
-            <select wire:model.change="filterAccredited" class="form-select">
+            <select wire:model.live="filterAccredited" class="form-select">
                 <option value="">Tout</option>
                 <option value="1">Accredited</option>
                 <option value="0">Not Accredited</option>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="col-md-2">
-            <select wire:model.change="filterForeignStudents" class="form-select">
+            <select wire:model.live="filterForeignStudents" class="form-select">
                 <option value="">Tout</option>
                 <option value="1">Accepts Foreign Students</option>
                 <option value="0">Does Not Accept</option>
@@ -21,7 +21,7 @@
         </div>
 
         <div class="col-md-2">
-            <select wire:model.change="perPage" class="form-select">
+            <select wire:model.live="perPage" class="form-select">
                 <option value="5">5 lignes</option>
                 <option value="10">10 lignes</option>
                 <option value="25">25 lignes</option>

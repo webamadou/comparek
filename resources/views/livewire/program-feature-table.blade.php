@@ -1,7 +1,7 @@
 <div>
     <div class="row mb-3">
         <div class="col-md-4">
-            <input type="text" wire:model.change.debounce.300ms="search" class="form-control" placeholder="Rechercher">
+            <input type="text" wire:model.live.debounce.300ms="search" class="form-control" placeholder="Rechercher">
         </div>
     </div>
 

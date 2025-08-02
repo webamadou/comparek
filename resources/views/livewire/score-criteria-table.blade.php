@@ -2,7 +2,7 @@
 
     <div class="row mb-3">
         <div class="col-md-4">
-            <input type="text" wire:model.debounce.500ms="searchName" class="form-control" placeholder="Search Name">
+            <input type="text" wire:model.live.debounce.500ms="searchName" class="form-control" placeholder="Search Name">
         </div>
         <div class="col-md-4">
             <select wire:model="searchVertical" class="form-control">

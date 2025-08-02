@@ -19,7 +19,7 @@
                             <div class="col-2 my-4 form-group">
                                 <h3><span class="bi bi-filter"></span> {{__('filters.cities')}}</h3>
                                 <div class="custom-checkbox-group">
-                                    <select name="city" class="form-select" wire:model.change="city">
+                                    <select name="city" class="form-select" wire:model.live="city">
                                         <option value=""> --- </option>
                                         @foreach(\App\Enums\SenegalCityEnum::cases() as $city)
                                             <option value="{{ $city->value }}">{{ $city->label() }}</option>
@@ -31,7 +31,7 @@
                                 {{--<h3><span class="bi bi-filter"></span> {{ __('filters.private_school') }}</h3>--}}
                                 <div class="d-flex">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="accept_foreign" wire:model.change="accept_foreign">
+                                        <input class="form-check-input" type="checkbox" value="" id="accept_foreign" wire:model.live="accept_foreign">
                                         <label class="form-check-label" for="accept_foreign">{{ __('schools.accept_foreign_students') }}</label>
                                     </div>
                                 </div>
@@ -40,11 +40,11 @@
                                 {{--<h3><span class="bi bi-filter"></span> {{ __('filters.private_school') }}</h3>--}}
                                 <div class="d-flex">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="is_private" id="is_private1" value="1" wire:model.change="is_private">
+                                        <input class="form-check-input" type="radio" name="is_private" id="is_private1" value="1" wire:model.live="is_private">
                                         <label class="form-check-label" for="is_private1">{{ __('schools.is_a_private') }}</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="is_private" id="is_private2" value="2" wire:model.change="is_private">
+                                        <input class="form-check-input" type="radio" name="is_private" id="is_private2" value="2" wire:model.live="is_private">
                                         <label class="form-check-label" for="is_private2">{{ __('schools.is_a_public') }}</label>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                 <div class="d-flex justify-content-between">
                                     @foreach($accreditations as $id => $name)
                                         <div class="form-check">
-                                            <input class="form-check-input" name="accreditations" type="checkbox" value="{{$id}}" id="{{ "accred{$id}" }}" wire:model.change="picked_accreds">
+                                            <input class="form-check-input" name="accreditations" type="checkbox" value="{{$id}}" id="{{ "accred{$id}" }}" wire:model.live="picked_accreds">
                                             <label class="form-check-label" for="{{ "accred{$id}" }}">{{ $name }}</label>
                                         </div>
                                     @endforeach

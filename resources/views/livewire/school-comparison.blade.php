@@ -7,7 +7,7 @@
     <div class="row fields">
         <div class="col-6">
             {{--<label for="schoolA" class="block mb-1 font-medium">École 1</label>--}}
-            <select wire:model.change="schoolA" id="schoolA" class="form-select w-full">
+            <select wire:model.live="schoolA" id="schoolA" class="form-select w-full">
                 <option value="">{{ __('schools.pick_a_school') }}</option>
                 @foreach($schoolsAList as $school)
                     <option value="{{ $school->id }}">{{ $school->name }}</option>
@@ -17,7 +17,7 @@
 
         <div class="col-6">
             {{--<label for="schoolB" class="block mb-1 font-medium">École 2</label>--}}
-            <select wire:model.change="schoolB" id="schoolB" class="form-select w-full">
+            <select wire:model.live="schoolB" id="schoolB" class="form-select w-full">
                 <option value="">{{ __('schools.pick_a_school') }}</option>
                 @foreach($schoolsBList as $school)
                     <option value="{{ $school->id }}">{{ $school->name }}</option>
