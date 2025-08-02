@@ -218,23 +218,23 @@
                 <!-- big grid -->
                 <div class="col-lg-6 mb-4  big-grid" data-aos="fade-right" data-aos-delay="300">
                     <!-- main grid -->
-                    <div class="card h-100 shadow">
+                    <div class="card h-auto shadow">
                         <div class="image-wrapper position-relative">
                              <a href="#">
-                                 <img src="https://picsum.photos/300/200?random=1" alt="">
-                                 <span class="badge mb-2">Ecoles</span>
+                                 
+                                <img src="{{ $latestPost->imageUrl() }}" alt="{{ $latestPost->name }}" height="60" class="mt-2">
+                                <span class="badge mb-2">{{$latestPost->category->name}}</span>
                              </a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="#">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolores ea quo.
+                                    {{ $latestPost->name }}
                                 </a>
                             </h5>
-                            <p class="card-text small">A small personal moment that quietly stood out to me...</p>
+                            <p class="card-text small">{!! Str::words($latestPost->excerpt, 25, '...') !!}</p>
                             <div class="d-flex justify-content-between align-items-center mt-3 text-muted small metas">
-                                <span><a href="#">par Admin</a></span>
-                                <span>5 min read</span>
+                                <span><a href="#">{{__('posts.written_by') . ' ' . $latestPost->user?->name}}</a></span>
                             </div>
                         </div>
                     </div>
@@ -242,82 +242,46 @@
                 <!-- 4 petites cartes à droite -->
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
                     <div class="row">
-                        <!-- Carte 1 -->
-                        <div class="col-sm-6 mb-4 small-grid">
-                            <div class="card h-100 shadow">
-                                <div class="image-wrapper position-relative">
-                                    <a class="img-link">
-                                        <img src="https://picsum.photos/300/200?random=2" alt="">
-                                        <span class="badge mb-2">Banques</span>
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="fw-bold">
-                                        <a href="#">What Competitive Cycling Gave Me That Daily Training Never Could</a>
-                                    </h6>
-                                    <div class="text-muted small mt-2">
-                                        • 3 Mar 2025 •
+                        @foreach($articles as $post)
+                            <div class="col-sm-6 mb-4 small-grid">
+                                <div class="card h-100 shadow">
+                                    <div class="image-wrapper position-relative">
+                                        <a class="img-link">
+                                            <img src="{{ $post->imageUrl() }}" alt="">
+                                            <span class="badge mb-2">{{ $post->category->name }}</span>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="fw-bold">
+                                            <a href="#">{{ $post->name }}</a>
+                                        </h6>
+                                        <div class="text-muted small mt-2">
+                                            • {{ $post->published_at->format('d M Y') }} •
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Carte 2 -->
-                        <div class="col-sm-6 mb-4 small-grid">
-                            <div class="card h-100 shadow">
-                                <div class="image-wrapper position-relative">
-                                    <a class="img-link" style="background: url('https://picsum.photos/300/200?random=3'); background-position: center; background-size: cover; background-repeat: no-repeat">
-                                        <span class="badge mb-2">Telecoms</span>
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="fw-bold">
-                                        <a href="#">What Competitive Cycling Gave Me That Daily Training Never Could</a>
-                                    </h6>
-                                    <div class="text-muted small mt-2">
-                                        • 14 Avr 2025 •
+                        @endforeach
+                        @foreach($articles as $post)
+                            <div class="col-sm-6 mb-4 small-grid">
+                                <div class="card h-100 shadow">
+                                    <div class="image-wrapper position-relative">
+                                        <a class="img-link">
+                                            <img src="{{ $post->imageUrl() }}" alt="">
+                                            <span class="badge mb-2">{{ $post->category->name }}</span>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="fw-bold">
+                                            <a href="#">{{ $post->name }}</a>
+                                        </h6>
+                                        <div class="text-muted small mt-2">
+                                            • {{ $post->published_at->format('d M Y') }} •
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Carte 3 -->
-                        <div class="col-sm-6 mb-4 small-grid">
-                            <div class="card h-100 shadow">
-                                <div class="image-wrapper position-relative">
-                                    <a class="img-link" style="background: url('https://picsum.photos/300/200?random=4'); background-position: center; background-size: cover; background-repeat: no-repeat">
-                                        <span class="badge mb-2">Ecoles</span>
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="fw-bold">
-                                        <a href="#">What Competitive Cycling Gave Me That Daily Training Never Could</a>
-                                    </h6>
-                                    <div class="text-muted small mt-2">
-                                        • 12 Juin 2025 •
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Carte 4 -->
-                        <div class="col-sm-6 mb-4 small-grid">
-                            <div class="card h-100 shadow">
-                                <div class="image-wrapper position-relative">
-                                    <a class="img-link" style="background: url('https://picsum.photos/300/200?random=5'); background-position: center; background-size: cover; background-repeat: no-repeat">
-                                        <span class="badge mb-2">Banques</span>
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="fw-bold">
-                                        <a href="#">What Competitive Cycling Gave Me That Daily Training Never Could</a>
-                                    </h6>
-                                    <div class="text-muted small mt-2">
-                                        • 3 Julliet 2025 •
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div> <!-- /.row -->
                 </div> <!-- /.col-lg-6 -->
             </div> <!-- /.row -->

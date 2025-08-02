@@ -39,7 +39,7 @@
     </div>
     <x-delete-modal
         :showDeleteModal="$showDeleteModal"
-        title="Supprimer la catégorie"
-        message="Êtes-vous sûr de vouloir supprimer cette catégorie ?"
+        title="{{ __('posts.delete_category}}"
+        message="{{ __('posts.confirm_delete_category') }}"
     />
 </div>

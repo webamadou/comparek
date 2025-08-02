@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -50,5 +51,12 @@ class Post extends Model
             ->saveSlugsTo('slug')
             ->usingSeparator('_')
             ->doNotGenerateSlugsOnUpdate();
+    }
+
+    public function imageUrl(): string
+    {
+        return ! empty($this->images->path)
+            ? Storage::url($this->images->path)
+            : asset('frontv1/img/illustration/default-img.png');
     }
 }

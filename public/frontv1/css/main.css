@@ -3216,8 +3216,10 @@ button.reset-filter {
 
 
 #latest-posts .big-grid .image-wrapper {
-  height: 60%;
+  height: 50vh;
   position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 
 #latest-posts .image-wrapper img {

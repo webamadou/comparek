@@ -5,7 +5,7 @@
         <div class="container-lg px-4">
             <div class="card mb-4">
                 <div class="card-body">
-                    <h1 class="display-4">{{ $post->exists ? __('commons.edit') : __('commons.create') }} Article</h1>
+                    <h1 class="display-4">{{ $post->exists ? __('posts.edit') : __('posts.add_new') }}</h1>
 
                     <form method="POST"
                           action="{{ $post->exists ? route('post.update', $post) : route('post.store') }}" enctype="multipart/form-data">
