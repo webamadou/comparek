@@ -14,6 +14,7 @@ return [
     'back' => 'Retour',
     'confirm_deletion' => 'Confirmer la suppression!',
     'no_record_found' => 'Aucun enregistrement trouvé.',
+    'record_deleted' => 'Enregistrement supprimé!',
     'comparison' => 'Comparaison',
     'is_postpaid' => 'Est-ce postpayé?',
     'available_online?' => 'Disponible en ligne ?',
