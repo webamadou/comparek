@@ -42,6 +42,7 @@
                   </h2>
                 </div>
                 {!! $post->excerpt !!}
+                <a href="{{ route('view_article', $post) }}">{{ __('posts.read_more')}} <span class="bi bi-chevron-double-right"></span></a>
               </div>
             </div>
 

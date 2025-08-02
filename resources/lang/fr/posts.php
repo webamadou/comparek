@@ -31,4 +31,5 @@ return [
     'content' => 'Contenu',
     'category' => 'Catégorie',
     'image' => 'Image',
+    'read_more' => 'Lire la suite'
 ];
