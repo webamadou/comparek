@@ -55,8 +55,11 @@ class Post extends Model
 
     public function imageUrl(): string
     {
-        return ! empty($this->images->path)
-            ? Storage::url($this->images->path)
-            : asset('frontv1/img/illustration/default-img.png');
+        return ! empty($this->images->path) ? Storage::url($this->images->path) : $this->images->defaultUrl;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

@@ -60,7 +60,7 @@
 
                         <div class="mb-3">
                             <label for="meta_description" class="form-label">Meta Description</label>
-                            <textarea name="meta_description" id="meta_description" rows="2" class="form-control">{{ old('meta_description', $post->meta_description ?? '') }}</textarea>
+                            <textarea name="meta_description" id="meta_description" rows="2" class="form-control no-tinymce">{{ old('meta_description', $post->meta_description ?? '') }}</textarea>
                         </div>
 
                         <div class="mb-3">

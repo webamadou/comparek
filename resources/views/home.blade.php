@@ -211,7 +211,7 @@
     <section id="latest-posts" class="services section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>{{ __('Articles') }}</h2>
+            <h2>{{ __('posts.posts') }}</h2>
         </div><!-- End Section Title -->
         <div class="container mb-2">
             <div class="row">
@@ -220,17 +220,14 @@
                     <!-- main grid -->
                     <div class="card h-auto shadow">
                         <div class="image-wrapper position-relative">
-                             <a href="#">
-                                 
+                             <a href="{{ route('view_article', $latestPost) }}">
                                 <img src="{{ $latestPost->imageUrl() }}" alt="{{ $latestPost->name }}" height="60" class="mt-2">
                                 <span class="badge mb-2">{{$latestPost->category->name}}</span>
                              </a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a href="#">
-                                    {{ $latestPost->name }}
-                                </a>
+                                <a href="{{ route('view_article', $latestPost) }}"> {{ $latestPost->name }} </a>
                             </h5>
                             <p class="card-text small">{!! Str::words($latestPost->excerpt, 25, '...') !!}</p>
                             <div class="d-flex justify-content-between align-items-center mt-3 text-muted small metas">
@@ -246,34 +243,14 @@
                             <div class="col-sm-6 mb-4 small-grid">
                                 <div class="card h-100 shadow">
                                     <div class="image-wrapper position-relative">
-                                        <a class="img-link">
+                                        <a class="img-link" href="{{ route('view_article', $post) }}">
                                             <img src="{{ $post->imageUrl() }}" alt="">
                                             <span class="badge mb-2">{{ $post->category->name }}</span>
                                         </a>
                                     </div>
                                     <div class="card-body">
                                         <h6 class="fw-bold">
-                                            <a href="#">{{ $post->name }}</a>
-                                        </h6>
-                                        <div class="text-muted small mt-2">
-                                            • {{ $post->published_at->format('d M Y') }} •
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        @foreach($articles as $post)
-                            <div class="col-sm-6 mb-4 small-grid">
-                                <div class="card h-100 shadow">
-                                    <div class="image-wrapper position-relative">
-                                        <a class="img-link">
-                                            <img src="{{ $post->imageUrl() }}" alt="">
-                                            <span class="badge mb-2">{{ $post->category->name }}</span>
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="fw-bold">
-                                            <a href="#">{{ $post->name }}</a>
+                                            <a href="{{ route('view_article', $post) }}">{{ $post->name }}</a>
                                         </h6>
                                         <div class="text-muted small mt-2">
                                             • {{ $post->published_at->format('d M Y') }} •

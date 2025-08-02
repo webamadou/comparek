@@ -2,6 +2,7 @@
 
 return [
     'posts' => 'Articles',
+    'post' => 'Article',
     'categories' => 'Catégories',
     'add' => 'Ajouter',
     'add_new' => 'Ajouter un nouvel article',

@@ -68,7 +68,7 @@ class PostController extends Controller
         }
 
         $post->update($request->validated());
-        return redirect()->route('post.index')->with('success', 'Post mis à jour.');
+        return redirect()->back()->with('success', 'Post mis à jour.');
     }
 
     public function destroy(Post $post)

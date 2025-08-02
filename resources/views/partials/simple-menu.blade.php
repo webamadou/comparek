@@ -1,7 +1,7 @@
 <nav id="navmenu" class="navmenu">
     <ul>
-        <li class="dropdown">
-            <a href="{{ route('home') }}" class="active">
+        <li>
+            <a href="{{ route('home') }}">
                 <span><strong class="bi bi-bullseye"></strong> {{ __('commons.home') }}</span></a>
         </li>
         <li class="dropdown"><a href="#"><span><strong class="bi bi-wifi"></strong> Box & Mobile</span> <i
