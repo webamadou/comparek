@@ -3,6 +3,12 @@
 return [
     'posts' => 'Articles',
     'post' => 'Article',
+    'the_posts_of' => 'Les articles de la catégorie ":category"',
+    'all_posts' => 'Tous les articles',
+    'view_post' => 'Voir l\'article',
+    'view_posts' => 'Voir les articles',
+    'view_all_posts' => 'Voir tous les articles',
+    'view_all_posts_in_category' => 'Voir tous les articles de la catégorie :category',
     'categories' => 'Catégories',
     'add' => 'Ajouter',
     'add_new' => 'Ajouter un nouvel article',
