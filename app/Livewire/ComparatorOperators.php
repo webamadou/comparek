@@ -37,6 +37,7 @@ class ComparatorOperators extends Component
 
     public function updated()
     {
+        $this->dispatch('scroll-to-filters');
     }
 
     public function resetFilter()

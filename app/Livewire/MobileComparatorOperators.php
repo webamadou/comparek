@@ -43,7 +43,7 @@ class MobileComparatorOperators extends Component
 
     public function updated()
     {
-        $this->dispatch('filter-applied', []);
+        $this->dispatch('scroll-to-filters');
     }
 
     public function resetField($field)

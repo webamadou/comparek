@@ -20,5 +20,11 @@ return [
     'monthly_price' => 'Prix par mois',
     'service_types' => 'Types de service',
     'subscription_fee' => 'Frais de souscription',
-    'filter' => 'Filtrer les offres'
+    'filter' => 'Filtrer les offres',
+    'commitment' => 'Engagement',
+    'commitment_duration' => 'Durée de l\'engagement',
+    'without_commitment' => 'Sans engagement',
+    'with_commitment' => 'Avec engagement',
+    'all' => 'Tous',
+    'search' => 'Rechercher',
 ];

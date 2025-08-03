@@ -3,9 +3,12 @@
         <div class="container">
             <div class="row">
                 <div id="spinner" wire:loading class="justify-content-center"><span class="loader"></span></div>
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-4 outter-filter-wrapper">
                     <div class="form-wrapper filter-form-wrapper">
-                        <h1><span class="bi bi-sliders"> </span>{{ __('offers.filter') }}</h1>
+                        <h1 class="d-flex justify-content-between">
+                            <span class="bi bi-sliders">&nbsp;{{ __('offers.filter') }}</span>
+                            <span class="d-md-none d-sm-inline-block bi bi-chevron-double-down toggle-filter"></span>
+                        </h1>
                         <div id="filter-wrapper" class="php-email-form">
                             <div class="row">
                                 <div class="col-md-12 mt-2 form-group">

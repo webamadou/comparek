@@ -22,6 +22,11 @@ class TelecomComparekScore extends Component
         $this->scores = ScoreGrade::cases();
     }
 
+    public function updated()
+    {
+        $this->dispatch('scroll-to-filters');
+    }
+
     public function resetFilter()
     {
         $this->js('window.location.reload()');
