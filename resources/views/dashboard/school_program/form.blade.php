@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <label class="form-label">{{ __('schools.school') }}</label>
                             <select name="school_id" class="form-select" required>
                                 <option value="">-- {{ __('commons.select') }} --</option>
@@ -34,7 +34,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <label class="form-label">{{ __('schools.domains') }}</label>
                             <div class="d-flex flex-wrap gap-2">
                                 @foreach ($domains as $id => $domain)
