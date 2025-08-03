@@ -31,5 +31,11 @@ return [
     'content' => 'Contenu',
     'category' => 'Catégorie',
     'image' => 'Image',
-    'read_more' => 'Lire la suite'
+    'read_more' => 'Lire la suite',
+    'similar_posts' => 'Articles similaires',
+    'no_similar_posts' => 'Aucun article similaire trouvé',
+    'written_by' => 'Écrit par',
+    'published_on' => 'Publié le',
+    'updated_on' => 'Mis à jour le',
+    'tags' => 'Tags',
 ];

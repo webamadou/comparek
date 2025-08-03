@@ -3275,7 +3275,7 @@ button.reset-filter {
   margin: 0;
 }
 
-#latest-posts .image-wrapper .badge {
+.image-wrapper .badge {
   position: absolute;
   top: 1rem;
   left: 2rem;

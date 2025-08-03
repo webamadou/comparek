@@ -24,6 +24,12 @@ class PostController extends Controller
     public function view($post)
     {
         $post = Post::where('slug', $post)->with('category')->first();
-        return view('view_article', compact('post'));
+        $similarPosts = Post::where('is_published', 1)
+            ->where('category_id', $post->category_id)
+            ->where('id', '!=', $post->id)
+            ->take(3)
+            ->orderBy('is_published', 'desc')
+            ->get();
+        return view('view_article', compact('post', 'similarPosts'));
     }
 }

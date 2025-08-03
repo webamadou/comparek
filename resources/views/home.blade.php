@@ -242,23 +242,8 @@
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
                     <div class="row">
                         @foreach($articles as $post)
-                            <div class="col-sm-6 mb-4 small-grid">
-                                <div class="card h-100 shadow">
-                                    <div class="image-wrapper position-relative">
-                                        <a class="img-link" href="{{ route('view_article', $post) }}">
-                                            <img src="{{ $post->imageUrl() }}" alt="">
-                                            <span class="badge mb-2">{{ $post->category->name }}</span>
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="fw-bold">
-                                            <a href="{{ route('view_article', $post) }}">{{ $post->name }}</a>
-                                        </h6>
-                                        <div class="text-muted small mt-2">
-                                            • {{ $post->published_at?->format('d M Y') }} •
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col-sm-6 mb-4">
+                                <x-post-brick :post="$post" />
                             </div>
                         @endforeach
                     </div> <!-- /.row -->
