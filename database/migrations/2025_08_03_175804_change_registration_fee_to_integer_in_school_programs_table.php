@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('school_programs', function (Blueprint $table) {
-            $table->unsignedBigInteger('registration_fee_tmp')->default(0);
+            $table->unsignedBigInteger('registration_fee_tmp')->default(0)->nullable(true);
         });
 
         // Copy data to temp column as cents
