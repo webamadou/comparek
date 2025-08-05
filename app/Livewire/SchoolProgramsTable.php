@@ -59,7 +59,7 @@ class SchoolProgramsTable extends Component
                   ->orWhereHas('school', fn($sq) => $sq->where('name', 'like', "%{$this->search}%"))
             )
             ->when($this->filterSchool, fn($q) => $q->where('school_id', $this->filterSchool))
-            ->when($this->filterDomain, fn($q) => $q->whereHas('domains', fn ($query) => $query->whereIn('id', $this->filterDomain)))
+            ->when($this->filterDomain, fn($q) => $q->whereHas('domains', fn ($query) => $query->whereIn('program_domains.id', [$this->filterDomain])))
             ->orderBy($this->sortField, $this->sortDirection);
 
         return view('livewire.school-programs-table', [
