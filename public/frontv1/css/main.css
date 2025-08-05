@@ -3505,6 +3505,8 @@ ul.program-list {
   flex-wrap: wrap;
   justify-content: normal;
   align-items: center;
+  max-height: 45vw;
+  overflow-y: auto;
 }
 
 span.round-yes {
@@ -3543,6 +3545,8 @@ span.round-no {
   justify-content: normal;
   align-items: center;
   padding: 1rem inherit;
+  max-height: 45vw;
+  overflow-y: auto;
 }
 
 .badge.program {
@@ -3663,7 +3667,7 @@ span.round-no {
     padding: 1rem;
     border: 3px solid var(--accent-color);
     position: sticky;
-    top: 80px;
+    top: 30px;
     z-index: 100;
     background: #fff !important;
   }
