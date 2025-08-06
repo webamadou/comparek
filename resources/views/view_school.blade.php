@@ -29,7 +29,7 @@
             <h1>{{ __('schools.programs') }}</h1>
             <div class="row justify-content-between gy-4">
                 <div class="col-lg-12 school-filter-wrapper">
-                    <h1>{{ __('filters.filter') }}</h1>
+                    <h3>{{ __('filters.filter') }}</h3>
                     <div id="spinner" wire:loading class="justify-content-center"><span class="loader"></span></div>
                     <div class="" id="filterTabsContent">
                         <div class="" id="programs-filter" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
