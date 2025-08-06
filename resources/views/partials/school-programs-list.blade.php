@@ -12,10 +12,10 @@
                 <div class="col-12"><h3 class="card-title">{{ $program->name }}</h3></div>
                 <div class="col-sm-6 col-md-5">
                     <ul class="program-list">
-                        <li><strong><span class="bi bi-stack"></span> {{__('schools.domain') }}</strong> : {{ $program->domain?->name }}</li>
-                        <li><strong><span class="bi bi-flag-fill"></span> {{__('schools.level') }}</strong> : {{ $program->level }}</li>
-                        <li><strong><span class="bi bi-clock-fill"></span> {{__('schools.duration') }}</strong> : {{ $program->duration_years }}</li>
-                        <li><strong><span class="bi bi-book-fill"></span> {{__('schools.modality') }}</strong> : {{ $program->modality }}</li>
+                        <li> <strong><span class="bi bi-stack"></span> {{__('schools.domains') }}</strong> : {{ $program->domains->pluck('name')->implode(',') }} </li>
+                        <li> <strong><span class="bi bi-flag-fill"></span> {{__('schools.level') }}</strong> : {{ $program->level }} </li>
+                        <li> <strong><span class="bi bi-clock-fill"></span> {{__('schools.duration') }}</strong> : {{ $program->duration_years }} </li>
+                        <li> <strong><span class="bi bi-book-fill"></span> {{__('schools.modality') }}</strong> : {{ $program->modality }} </li>
                     </ul>
                 </div>
                 <div class="col-sm-6 col-md-7 program-tuition">
