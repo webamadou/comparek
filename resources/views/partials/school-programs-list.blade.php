@@ -24,9 +24,9 @@
                 <div class="col-sm-6 col-md-7 program-tuition">
                     <div>
                         <strong><span class="bi bi-currency-exchange"></span> {{__('schools.tuition') }}</strong> :
-                        {!! $program->tuition_fee
-                            ? '<h3>' . number_format($program->tuition_fee, 0, ',', ' ') . ' ' . $program->tuition_currency . '</h3>'
-                            : '<p><small>' . __('schools.tuition_fee_not_available') . '</small></p>' !!}
+                        {!! $program->registration_fee
+                            ? '<h3>' . number_format($program->registration_fee, 0, ',', ' ') . ' ' . $program->tuition_currency . '</h3><small> <strong>' . __('schools.tuition_fee') . '</strong> : '  . number_format($program->tuition_fee, 0, ',', ' ') . ' ' . $program->tuition_currency . '</small>'
+                            : '<p><small>' . __('schools.registration_fee_not_available') . '</small></p>' !!}
                     </div>
                     <a href="{{ route('view_program', $program) }}" class="btn btn-primary btn-comparek">{{ __('commons.read_more') }} <span class="bi bi-chevron-right"></span></a>
                 </div>
