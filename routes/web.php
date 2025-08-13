@@ -25,7 +25,7 @@ Route::get('/telecom/scores', [TelecomOperatorControllerFront::class, 'scores'])
 Route::get('/ecoles', [\App\Http\Controllers\SchoolsController::class, 'index'])->name('index_schools');
 Route::get('/ecole/{school}', [\App\Http\Controllers\SchoolsController::class, 'view'])->name('view_school');
 Route::get('/ecoles/accreditees', [\App\Http\Controllers\SchoolsController::class, 'accredited'])->name('accreds_schools');
-Route::get('/programme/{program}', [\App\Http\Controllers\SchoolsController::class, 'view'])->name('view_program');
+Route::get('/programme/{program:slug}', [\App\Http\Controllers\ProgramsController::class, 'show'])->name('view_program');
 Route::get('schools/comparison', [\App\Http\Controllers\SchoolsController::class, 'comparison'])->name('schools_comparison');
 Route::get('/article/{article}', [\App\Http\Controllers\PostController::class, 'view'])->name('view_article');
 Route::get('/articles/{category:slug?}', [\App\Http\Controllers\PostController::class, 'index'])->name('articles');

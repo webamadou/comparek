@@ -46,8 +46,8 @@ body {
 }
 
 a {
-  color: var(--accent-color);
-  text-decoration: none;
+  color: var(--heading-color);
+  text-decoration: none !important;
   transition: 0.3s;
 }
 
@@ -3556,6 +3556,113 @@ span.round-no {
   font-weight: 100;
   text-align: left;
   line-height: 1.5;
+}
+
+.program-details {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 600;
+}
+
+.program-details p {
+  background: #edf0f1;
+  padding: .6rem 1.9rem;
+  border-radius: 5px;
+  color: var(--accent-color);
+}
+
+.program-domains h3,
+.program-accred h3 {
+  font-size: large;
+  font-weight: 600;
+}
+
+.program-domains {
+  display: flex;
+  position: relative;
+  margin: 1.2rem 0;
+  background: #f3f0f0;
+  padding: 1rem;
+}
+
+.program-domains ul {
+  padding: 0;
+  margin: 0;
+  margin-left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  list-style: none;
+}
+
+.program-domains ul li {
+  border: 1px solid #4f089e;
+  border-radius: 4px;
+  padding: .2rem 1rem;
+  margin-right: .5rem;
+  font-size: small;
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.program-accred {
+  display: flex;
+  position: relative;
+  margin: 1.2rem 0;
+  background: #f3f0f0;
+  padding: 1rem;
+}
+
+.program-accred ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  list-style: none;
+}
+
+.program-accred ul li {
+  border: 1px solid #4f089e;
+  border-radius: 4px;
+  padding: .2rem 1rem;
+  font-size: small;
+  background: var(--heading-color);
+  color: #fff;
+}
+
+.program-description {
+  background: rgba(255, 255, 255, 0.83);
+}
+
+.similar-programs .similar {
+  border: 1px solid #d1d1d1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.similar-programs .program-name a {
+  text-decoration: none;
+  font-size: xx-large;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  padding: 0 .4rem;
+  width: 100%;
+}
+
+.similar-programs .program-school {
+  font-size: small;
+  text-align: center;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+  color: var(--accent-color);
 }
 
 @media (min-width: 1200px) {

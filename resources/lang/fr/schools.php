@@ -77,4 +77,5 @@ return [
     'compare_schools_description' => 'Sélectionnez deux établissements pour les comparer côte à côte. Comparek vous aide à faire le meilleur choix.',
     'criteria' => 'Critères',
     'pick_a_school' => 'Choisissez une école',
+    'similar_programs' => 'Programmes similaires',
 ];

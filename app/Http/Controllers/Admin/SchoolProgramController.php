@@ -55,7 +55,7 @@ class SchoolProgramController extends Controller
         $schoolProgram->features()->sync($request->input('feature_ids', []));
         $schoolProgram->domains()->sync($request->input('domain_ids', []));
 
-        return redirect()->route('school_programs.index')->with('success', __('schools.updated'));
+        return redirect()->back()->with('success', __('schools.updated'));
     }
 
     public function destroy(SchoolProgram $school_program)
