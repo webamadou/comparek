@@ -3590,7 +3590,6 @@ span.round-no {
   margin: 0;
   margin-left: 1rem;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
   list-style: none;
