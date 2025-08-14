@@ -2615,14 +2615,6 @@ h2.offer-name {
   color: var(--accent-color);
 }
 
-.offer-price .price {
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: var(--accent-color);
-  height: 100%;
-  text-shadow: 0px 1px 1px #b43d00;
-}
-
 .offer-name-column {
   color: #461082;
   display: flex;
@@ -3360,7 +3352,7 @@ p.post-category .section-subtitle {
 }
 
 .offer-price .price {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: var(--accent-color);
   height: 100%;
@@ -4157,7 +4149,7 @@ span.round-no {
     }
 
     .offer-price .price {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       font-weight: 700;
       color: var(--accent-color);
       height: 100%;

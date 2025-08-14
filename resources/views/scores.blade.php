@@ -21,7 +21,7 @@
                                 <li>Service après-vente : disponibilité du support et qualité de l’assistance</li>
                             </ul>
                             <h3>2.	Pondération personnalisée</h3>
-                            Chaque critère reçoit un poids (par exemple 30 % pour le prix, 25 % pour les services, etc.), déterminé à la fois par des études de marché et par les retours d’utilisateurs. Vous avez également la possibilité de réajuster ces pondérations selon vos besoins (par exemple : plus de data ou un budget serré).
+                            Chaque critère reçoit un poids (par exemple 30 % pour le prix, 25 % pour les services, etc.), déterminé à la fois par des études de marché et par les retours d’utilisateurs.
                             <h3>3.	Normalisation et agrégation</h3>
                             Les données brutes (prix, volume, tests de débit, indices de couverture) sont d’abord converties sur une échelle commune (0–10). Le score final est ensuite obtenu en agrégeant ces sous-scores pondérés, afin de refléter une évaluation globale et équilibrée.
                             <h2>Interpréter le Comparek Score</h2>
@@ -42,7 +42,7 @@
                             <p>
                                 <h3>Votre avis façonne Comparek !</h3>
                                 Vous êtes utilisateur, opérateur ou partenaire ? Si vous avez des idées, des remarques ou des suggestions pour affiner nos critères et améliorer le Comparek Score, n’hésitez pas !<br>
-                                👉 Écrivez-nous à contact@comparek.sn, et participez à rendre Comparek toujours plus juste et pertinent.
+                                👉 Écrivez-nous à <a href="mailto:contact@comparek.sn">contact@comparek.sn</a>, et participez à rendre Comparek toujours plus juste et pertinent.
                             </p>
                         </div>
                         <div class="read-more-wrapper">
