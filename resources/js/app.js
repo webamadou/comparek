@@ -18,3 +18,9 @@ window.addEventListener('scroll-to-filters', () => {
 $('.toggle-filter').on('click', function (e) {
     $('#filter-wrapper').toggleClass('hide-form')
 })
+
+// The following is used to toggle the filter form in the school pages
+$('.collapse-trigger').on('click', function () {
+    $('.school-filter-wrapper').toggleClass('collapsed');
+    $(this).toggleClass('bi-chevron-double-down bi-chevron-double-up');
+});

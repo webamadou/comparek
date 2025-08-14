@@ -26,7 +26,8 @@
     <section class="p-0">
         <div class="container">
             <div class="row justify-content-between gy-4">
-                <div class="col-lg-12 school-filter-wrapper">
+                <div class="col-lg-12 school-filter-wrapper sticky-element collapsed">
+                    <span class="collapse-trigger bi bi-chevron-double-up"></span>
                     <div id="spinner" wire:loading class="justify-content-center"><span class="loader"></span></div>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -235,10 +236,43 @@
                     $('#spinner').removeClass('active');
                 }
 
+                // Object to store manual overrides
+                const manualOverrides = new WeakMap();
+
+                function handleSticky() {
+                    $('.sticky-element').each(function() {
+                        // If this element has a manual override, skip the sticky logic
+                        if (manualOverrides.get(this)) return;
+
+                        const $el = $(this);
+                        const top = parseInt($el.css('top')) || 0; // get the top offset of sticky
+                        const elOffset = $el.offset().top; // element's top relative to document
+                        const scrollTop = $(window).scrollTop();
+
+                        if (scrollTop + top >= elOffset) {
+                            if (!$el.hasClass('collapsed')) {
+                                $el.addClass('collapsed');
+                            }
+                        }/*  else {
+                            $el.removeClass('collapsed');
+                        } */
+                    });
+                }
+
                 $('.school-filter').on('change', fetchSchools);
                 $('.accred-filter').on('change', fetchSchools);
                 $('#double_diplomes').on('change', fetchSchools);
                 $('#has_internership').on('change', fetchSchools);
+
+                /* // Initial check
+                handleSticky();
+
+                // Check on scroll
+                $(window).on('scroll', handleSticky);
+
+                // Optional: also check on resize
+                $(window).on('resize', handleSticky); */
+
             });
 
             $('.school-row-wrapper').click(function() {

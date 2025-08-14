@@ -3132,7 +3132,28 @@ button.reset-filter {
   background: #f7fcfe;
   padding: 1rem;
   border: 3px solid var(--accent-color);
-  background: #fff !important;
+  background: #fff1ea;
+  transition: all ease-in-out .9s;
+  position: sticky;
+  top: 12vh;
+  z-index: 100;
+}
+
+.collapse-trigger {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 1.2rem;
+  background: var(--accent-color);
+  color: #fff;
+  padding: 1px 5px;
+  border-radius: 0 0 4px 4px;
+  line-height: 1.5;
+}
+
+.school-filter-wrapper.collapsed {
+  height: 50px;
+  overflow-y: hidden;
 }
 
 .filter-bottom-row {
@@ -3760,16 +3781,6 @@ span.round-no {
     top: 0;
     left: -100%;
     visibility: visible;
-  }
-
-  .school-filter-wrapper {
-    background: #f7fcfe;
-    padding: 1rem;
-    border: 3px solid var(--accent-color);
-    position: sticky;
-    top: 80px;
-    z-index: 100;
-    background: #fff !important;
   }
 }
 
