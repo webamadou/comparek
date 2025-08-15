@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row justify-content-between gy-4">
                 <div class="col-lg-12 school-filter-wrapper sticky-element collapsed">
-                    <span class="collapse-trigger bi bi-chevron-double-up"></span>
+                    <span class="collapse-trigger bi bi-chevron-double-down"></span>
                     <div id="spinner" wire:loading class="justify-content-center"><span class="loader"></span></div>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">

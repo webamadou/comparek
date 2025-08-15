@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-between gy-4">
             <div class="col-lg-12 school-filter-wrapper sticky-element collapsed">
-                <span class="collapse-trigger bi bi-chevron-double-up"></span>
+                <span class="collapse-trigger bi bi-chevron-double-down"></span>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#schools-filters" type="button" role="tab" aria-controls="schools-filters" aria-selected="true">Filtres par l’établissement</button>

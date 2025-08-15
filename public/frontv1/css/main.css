@@ -3615,7 +3615,6 @@ span.round-no {
 }
 
 .program-domains ul li {
-  border: 1px solid #4f089e;
   border-radius: 4px;
   padding: .2rem 1rem;
   margin-right: .5rem;
@@ -3636,7 +3635,6 @@ span.round-no {
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
   list-style: none;
@@ -3649,6 +3647,7 @@ span.round-no {
   font-size: small;
   background: var(--heading-color);
   color: #fff;
+  margin-left: 1rem;
 }
 
 .program-description {
@@ -3657,30 +3656,38 @@ span.round-no {
 
 .similar-programs .similar {
   border: 1px solid #d1d1d1;
+  border-radius: 12px 0 12px 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: start;
   height: 100%;
+  width: 95%;
+  margin: 0 auto;
+  background: #ffffff;
 }
 
 .similar-programs .program-name a {
   text-decoration: none;
-  font-size: xx-large;
-  font-weight: 600;
-  text-align: center;
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-align: left;
   display: inline-block;
   padding: 0 .4rem;
   width: 100%;
+  color: var(--heading-color);
 }
 
 .similar-programs .program-school {
-  font-size: small;
+  font-size: .7rem;
   text-align: center;
-  font-weight: 600;
-  padding: 0;
+  font-weight: 300;
+  padding: 0 2rem;
   margin: 0;
-  color: var(--accent-color);
+  color: #fff;
+  background: var(--heading-color);
+  width: 100%;
+  border-radius: 0 0 12px;
 }
 
 @media (min-width: 1200px) {

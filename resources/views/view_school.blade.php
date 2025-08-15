@@ -29,7 +29,7 @@
             <h1>{{ __('schools.programs') }}</h1>
             <div class="row justify-content-between gy-4">
                 <div class="col-lg-12 school-filter-wrapper sticky-element collapsed">
-                    <span class="collapse-trigger bi bi-chevron-double-up"></span>
+                    <span class="collapse-trigger bi bi-chevron-double-down"></span>
                     <h3>{{ __('filters.filter') }}</h3>
                     <div id="spinner" wire:loading class="justify-content-center"><span class="loader"></span></div>
                     <div class="" id="filterTabsContent">

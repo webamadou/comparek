@@ -53,7 +53,7 @@
                     <h3>{{ __('schools.similar_programs') }}:</h3>
                     <div class="row similar-programs my-4">
                         @foreach ($similarPrograms as $similarProgram)
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-6 col-md-3 p-0">
                                 <div class="similar">
                                     <p class="program-name">
                                         <a href="{{ route('view_program', $similarProgram) }}">

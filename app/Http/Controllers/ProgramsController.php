@@ -43,6 +43,7 @@ class ProgramsController extends Controller
             ->whereHas('domains', function ($query) use ($domains) {
                 $query->whereIn('name', $domains->toArray());
             })
+            ->inRandomOrder()
             ->take(4)
             ->get();
 
