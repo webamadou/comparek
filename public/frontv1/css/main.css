@@ -485,6 +485,10 @@ a:focus {
   padding-top: 80px;
 }
 
+.page-title a {
+  color: var(--accent-color)
+}
+
 .page-title .heading {
   padding: 80px 0;
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
@@ -3587,15 +3591,17 @@ span.round-no {
 
 .program-details {
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   font-weight: 600;
 }
 
 .program-details p {
   background: #edf0f1;
-  padding: .6rem 1.9rem;
+  padding: .2rem 0.9rem;
+  margin-left: .3rem;
   border-radius: 5px;
-  color: var(--accent-color);
+  color: var(--heading-color);
+  font-size: 1.3rem;
 }
 
 .program-domains h3,

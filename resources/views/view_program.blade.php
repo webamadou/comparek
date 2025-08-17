@@ -13,11 +13,13 @@
                         <h1>{{ $program->name }}</h1>
                         <small><a href="{{ route('view_school', $program->school) }}"> <span class="bi bi-building"></span> {{ $program->school->name }}</a></small>
                         <div class="program-details">
-                            @if ($program->tuition_fee > 0)
+                            @if ($program->tuition_fee > 0 && $program->registration_fee > 0)
                             <p><span class="bi bi-currency-exchange"></span> {{ __('schools.registration_fee') }}: {{ number_format($program->registration_fee, 0, '', ' ') . ' ' . $program->tuition_currency }}</p>
-                            @endif
-                            @if ($program->registration_fee > 0)
-                                <p><span class="bi bi-currency-exchange"></span> {{ __('schools.tuition_fee') }}: {{ number_format($program->tuition_fee, 0, '', ' ') . ' ' . $program->tuition_currency }}</p>
+                            <p><span class="bi bi-currency-exchange"></span> {{ __('schools.tuition_fee') }}: {{ number_format($program->tuition_fee, 0, '', ' ') . ' ' . $program->tuition_currency }}</p>
+                            @elseif ($program->registration_fee > 0)
+                            <p><span class="bi bi-currency-exchange"></span> {{ __('schools.scholarship_fee') }}: {{ number_format($program->registration_fee, 0, '', ' ') . ' ' . $program->tuition_currency }}</p>
+                            @elseif ($program->tuition_fee > 0)
+                            <p><span class="bi bi-currency-exchange"></span> {{ __('schools.tuition_fee') }}: {{ number_format($program->tuition_fee, 0, '', ' ') . ' ' . $program->tuition_currency }}</p>
                             @endif
                         </div>
                         @if ($domains->isNotEmpty())
