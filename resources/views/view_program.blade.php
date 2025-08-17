@@ -8,7 +8,7 @@
     <div class="page-title">
         <div class="heading pb-0">
             <div class="container">
-                <div class="row d-flex justify-content-center text-center school-bilboard">
+                <div class="row d-flex justify-content-center school-bilboard">
                     <div class="col-md-8">
                         <h1>{{ $program->name }}</h1>
                         <small><a href="{{ route('view_school', $program->school) }}"> <span class="bi bi-building"></span> {{ $program->school->name }}</a></small>

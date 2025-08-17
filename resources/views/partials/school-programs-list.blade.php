@@ -19,14 +19,24 @@
                         <li> <strong><span class="bi bi-flag-fill"></span> {{__('schools.level') }}</strong> : {{ $program->level }} </li>
                         <li> <strong><span class="bi bi-clock-fill"></span> {{__('schools.duration') }}</strong> : {{ $program->duration_years }} </li>
                         <li> <strong><span class="bi bi-book-fill"></span> {{__('schools.modality') }}</strong> : {{ $program->modality }} </li>
+                        @if (! empty($accreds = $program->accreditationBodies->pluck('name')))
+                            <li> <strong><span class="bi bi-award-fill"></span> {{__('schools.accreditations') }}</strong> : {{ $accreds->implode(', ') }} </li>
+                        @endif
                     </ul>
                 </div>
                 <div class="col-sm-6 col-md-7 program-tuition">
                     <div>
-                        <strong><span class="bi bi-currency-exchange"></span> {{__('schools.tuition') }}</strong> :
-                        {!! $program->registration_fee
-                            ? '<h3>' . number_format($program->registration_fee, 0, ',', ' ') . ' ' . $program->tuition_currency . '</h3><small> <strong>' . __('schools.tuition_fee') . '</strong> : '  . number_format($program->tuition_fee, 0, ',', ' ') . ' ' . $program->tuition_currency . '</small>'
-                            : '<p><small>' . __('schools.registration_fee_not_available') . '</small></p>' !!}
+                        @if ($program->registration_fee && !$program->tuition_fee)
+                        <strong><span class="bi bi-currency-exchange"></span> {{__('schools.registration_fee') }}</strong> :
+                        <h3>{{ number_format($program->registration_fee, 0, ',', ' ') . ' ' . $program->tuition_currency }}</h3>
+                        @elseif ($program->registration_fee && $program->tuition_fee)
+                        <strong><span class="bi bi-currency-exchange"></span> {{__('schools.registration_fee') }}</strong> :
+                        <h3>{{ number_format($program->registration_fee, 0, ',', ' ') . ' ' . $program->tuition_currency }}</h3>
+                        <h4>{{ number_format($program->tuition_fee, 0, ',', ' ') . ' ' . $program->tuition_currency }} {{ __('schools.tuition_fee') }}</h4>
+                        @elseif ($program->tuition_fee)
+                        <strong><span class="bi bi-currency-exchange"></span> {{__('schools.tuition_fee') }}</strong> :
+                        <h3>{{ number_format($program->tuition_fee, 0, ',', ' ') . ' ' . $program->tuition_currency }}</h3>
+                        @endif
                     </div>
                     <a href="{{ route('view_program', $program) }}" class="btn btn-primary btn-comparek">{{ __('commons.read_more') }} <span class="bi bi-chevron-right"></span></a>
                 </div>

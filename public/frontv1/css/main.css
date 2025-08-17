@@ -3101,6 +3101,7 @@ button.reset-filter {
 .school-bilboard h1 {
   font-size: 4.1rem !important;
   color: var(--heading-color);
+  text-align: initial
 }
 
 .telecom-bilboard h1 {
@@ -3135,8 +3136,20 @@ button.reset-filter {
   background: #fff1ea;
   transition: all ease-in-out .9s;
   position: sticky;
-  top: 12vh;
+  top: 11.5vh;
   z-index: 100;
+}
+
+.school-filter-wrapper h3 {
+  transition: all ease-in-out .3s;
+}
+
+.sticky-element.collapsed h3 {
+  font-size: 1.3rem;
+}
+
+.sticky-element h3 {
+  font-size: 1.9rem;
 }
 
 .collapse-trigger {
@@ -3201,15 +3214,6 @@ button.reset-filter {
   flex-direction: column;
   justify-content: center;
   position: relative;
-}
-
-.school-row .school-text:before {
-  content: '';
-  width: 2px;
-  height: 100%;
-  background: var(--accent-color);
-  position: absolute;
-  left: 0;
 }
 
 .school-text ul.accreditation-list {
@@ -3403,9 +3407,6 @@ p.post-category .section-subtitle {
   }
 }
 
-.school-row-wrapper {
-  cursor: pointer;
-}
 
 ul.program-list {
   list-style: none;
@@ -3424,8 +3425,15 @@ ul.program-list {
 }
 
 .program-tuition h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: var(--heading-color);
+}
+
+.program-tuition h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-color);
 }
 
 #schoolComparison {
@@ -4596,6 +4604,7 @@ span.round-no {
     .school-bilboard h1 {
       font-size: 2.1rem !important;
       color: var(--heading-color);
+      text-align: initial;
     }
 
     .telecom-bilboard h1 {

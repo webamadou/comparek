@@ -8,7 +8,7 @@
     <div class="page-title">
         <div class="heading pb-0">
             <div class="container">
-                <div class="row d-flex justify-content-center text-center school-bilboard">
+                <div class="row d-flex justify-content-center school-bilboard">
                     <div class="col-md-8">
                         <h1>{{ $school->name }}</h1>
                     </div>
@@ -203,7 +203,7 @@
                 $('#has_internership').on('change', fetchSchools);
             });
 
-            $('.school-row-wrapper').click(function () {
+            /* $('.school-row-wrapper').click(function () {
                 var firstLink = $(this).find('a').first();
                 if (firstLink.length > 0) {
                     var href = firstLink.attr('href');
@@ -211,7 +211,7 @@
                         window.location.href = href;
                     }
                 }
-            });
+            }); */
         </script>
     @endpush
 
