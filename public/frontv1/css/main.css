@@ -3086,6 +3086,7 @@ button.reset-filter {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
+  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
