@@ -3,9 +3,8 @@
     <p class="text-sm text-gray-600 mb-4">
         {{ __('schools.compare_schools_description') }}
     </p>
-
     <div class="row fields">
-        <div class="col-6">
+        <div class="col-5 mb-4">
             {{--<label for="schoolA" class="block mb-1 font-medium">École 1</label>--}}
             <select wire:model.live="schoolA" id="schoolA" class="form-select w-full">
                 <option value="">{{ __('schools.pick_a_school') }}</option>
@@ -14,8 +13,8 @@
                 @endforeach
             </select>
         </div>
-
-        <div class="col-6">
+        <div class="col-2 row justify-content-evenly">VS</div>
+        <div class="col-5">
             {{--<label for="schoolB" class="block mb-1 font-medium">École 2</label>--}}
             <select wire:model.live="schoolB" id="schoolB" class="form-select w-full">
                 <option value="">{{ __('schools.pick_a_school') }}</option>
@@ -24,8 +23,17 @@
                 @endforeach
             </select>
         </div>
+        <div class="col-12">
+            <select wire:model.live="domain" id="domain" class="form-select w-full">
+                <option value="">{{ __('schools.filter_by_domain') }}</option>
+                @foreach($domains as $id => $name)
+                    <option value="{{ $id }}">{{ $name }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
 
+    <div id="spinner" wire:loading class="justify-content-center"><span class="loader"></span></div>
     @if($schoolAData && $schoolBData)
         <div class="overflow-x-auto row comparison-wrapper" >
             <div class="col-2 comparison-header criteria">{{ __('schools.criteria') }}</div>

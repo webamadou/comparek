@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\ProgramDomain;
 use App\Models\School;
 use Livewire\Component;
 use mysql_xdevapi\Collection;
@@ -13,12 +14,15 @@ class SchoolComparison extends Component
     public $schools = null;
     public $schoolsAList = null;
     public $schoolsBList = null;
+    public ?int $domain = 0;
+    public array $domains = [];
 
     public function mount()
     {
         $this->schools = School::where('is_active', true)->orderBy('name')->get();
         $this->schoolsAList = $this->schools;
         $this->schoolsBList = $this->schools;
+        $this->domains = ProgramDomain::orderBy('name')->pluck('name', 'id')->toArray();
     }
 
     public function updated()

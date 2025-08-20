@@ -3451,9 +3451,7 @@ ul.program-list {
 }
 
 #schoolComparison .fields {
-  background: #ff560017;
-  border: 3px solid #ff560054;
-  padding: 2rem 0;
+  position: relative;
 }
 
 #schoolComparison select {
