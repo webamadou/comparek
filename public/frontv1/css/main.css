@@ -3451,20 +3451,18 @@ ul.program-list {
 }
 
 #schoolComparison .fields {
-  background: #ff560017;
-  border: 3px solid #ff560054;
+  position: relative;
   padding: 2rem 0;
 }
 
 #schoolComparison select {
   border: none;
-  border-bottom: 3px solid var(--accent-color);
   padding: 2px 4px;
   border-radius: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  background: #f5f5f5;
+  text-align: center;
 }
 
 #schoolComparison .address {
@@ -3478,22 +3476,21 @@ ul.program-list {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  background: #fff;
   color: var(--heading-color);
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
   line-height: 1.1;
-  border-right: 0.1px solid;
+  border-bottom: 0.1px solid;
   padding: 1rem 0;
+  margin-bottom: 1rem;
+  height: 3%;
 }
 
 .comparison-wrapper {
   margin-top: 2rem !important;
   position: relative;
   border: 1px solid #d1d1d1;
-  background: #ff56001c;
-  border: 3px solid #e0c4b6;
 }
 
 .comparison-header.criteria {
@@ -3501,12 +3498,30 @@ ul.program-list {
   border-radius: 8px 0 0 0;
 }
 
-.comparison-header.schoola {
-  border-radius: 0;
+.comparison-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.comparison-header.schoolb {
-  border: none;
+.comparison-select .select-wrapper {
+  width: calc(50% - 3.5rem);
+}
+
+.comparison-select .andvs {
+  width: auto;
+  padding: .6rem .5rem;
+  border: 2px solid var(--heading-color);
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: #fff;
+  line-height: 1.1;
+  font-size: .7rem;
+  text-align: center;
+}
+
+.comparison-header.schoola {
+  border-radius: 0;
 }
 
 .comparison-row .badge {
@@ -3528,19 +3543,19 @@ ul.program-list {
   align-items: center;
 }
 
-.comparison-row.schoola {
+.comparison-row.schoola, 
+.comparison-row.schoolb {
   font-size: 1rem;
   color: #2f2c32;
-  line-height: 1;
+  line-height: 1.5;
   position: relative;
-  background: #eeeceb;
-  border-top: .01rem solid;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: normal;
-  align-items: center;
-  max-height: 45vw;
-  overflow-y: auto;
+}
+
+.comparison-wrapper .left-column, .comparison-wrapper .right-column {
+  width: 48%;
+  position: relative;
+  margin: 0 1%;
+  background: #f7fbfd;
 }
 
 span.round-yes {
@@ -3565,22 +3580,6 @@ span.round-no {
   padding: .2rem 1rem;
   margin: 2px 0;
   border-radius: 13px;
-}
-
-.comparison-row.schoolb {
-  font-size: 1rem;
-  color: #2f2c32;
-  line-height: 1;
-  position: relative;
-  background: #e6e0ed;
-  border-top: .01rem solid;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: normal;
-  align-items: center;
-  padding: 1rem inherit;
-  max-height: 45vw;
-  overflow-y: auto;
 }
 
 .badge.program {
