@@ -3552,10 +3552,17 @@ ul.program-list {
 }
 
 .comparison-wrapper .left-column, .comparison-wrapper .right-column {
-  width: 48%;
-  position: relative;
-  margin: 0 1%;
-  background: #f7fbfd;
+    width: 49%;
+    position: relative;
+    background: #f7fbfd;
+}
+
+.comparison-wrapper .right-column {
+    margin-left: 1%;
+}
+
+.comparison-wrapper .left-column {
+    margin-right: 1%;
 }
 
 span.round-yes {
