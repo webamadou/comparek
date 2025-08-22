@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             AccreditationBodySeeder::class,
             CategorySeeder::class,
             PostSeeder::class,
+            BankSeeder::class,
         ]);
 
 
