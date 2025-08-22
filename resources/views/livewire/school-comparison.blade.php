@@ -24,14 +24,6 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-12">
-            <select wire:model.live="domain" id="domain" class="form-select w-full">
-                <option value="">{{ __('schools.filter_by_domain') }}</option>
-                @foreach($domains as $id => $name)
-                    <option value="{{ $id }}">{{ $name }}</option>
-                @endforeach
-            </select>
-        </div>
     </div>
     @if(!empty($schoolA && $schoolB))
     <div class="row comparison-filter-wrapper">
