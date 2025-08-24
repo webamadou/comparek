@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'banks' => 'Banques',
+    'bank' => 'Banque',
+    'eme' => 'Émetteur de monnaie électronique',
+    'sfd' => 'Systèmes Financiers Décentralisés',
+    'sfdm' => 'Microfinance',
+    'add' => 'Ajouter une banque',
+    'edit' => 'Modifier',
+    'product_offers' => 'Offres de produits',
+    'bank_offers' => 'Offres bancaires',
+    'delete' => 'Supprimer',
+    'view' => 'Voir',
+    'bank_edit' => 'Modification d\'une banque',
+    'gest_banks' => 'Gest. des banques',
+    'gest_bank_products' => 'Gest. des produits',
+    'gest_bank_offers' => 'Gest. des offres',
+    'bank_products' => 'Produits bancaires',
+    'current_account' => 'Compte courant',
+    'savings_account' => 'Compte d\'épargne',
+    'fixed_deposit' => 'Dépôt à terme',
+    'business_account' => 'Compte professionnel',
+    'consumer_loan' => 'Prêt à la consommation',
+    'mortgage_loan' => 'Prêt hypothécaire',
+    'auto_loan' => 'Prêt automobile',
+    'sme_loan' => 'Prêt PME',
+    'debit_card' => 'Carte de débit',
+    'credit_card' => 'Carte de crédit',
+    'prepaid_card' => 'Carte prépayée',
+    'digital_banking' => 'Banque numérique'
+];

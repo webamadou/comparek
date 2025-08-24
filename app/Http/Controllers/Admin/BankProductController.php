@@ -2,27 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+
 use App\Http\Requests\BankProductStoreRequest;
 use App\Models\BankProduct;
 use Illuminate\Http\Request;
 
 class BankProductController extends Controller
 {
-    public function __construct()
-    {
-        $this->authorizeResource(BankProduct::class, 'bank_product');
-    }
-
     public function index(Request $request)
     {
-        $query = BankProduct::query()
-            ->with('bank:id,name,slug')
-            ->when($request->filled('bank_id'), fn($q) => $q->where('bank_id', $request->bank_id))
-            ->when($request->filled('product_type'), fn($q) => $q->where('product_type', $request->product_type))
-            ->when($request->filled('q'), fn($q) =>
-            $q->where('name', 'like', '%'.$request->q.'%')->orWhere('slug','like','%'.$request->q.'%'));
-
-        return $query->latest('id')->paginate($request->integer('per_page', 15));
+        return view('dashboard.bank_products.index');
     }
 
     public function store(BankProductStoreRequest $request)

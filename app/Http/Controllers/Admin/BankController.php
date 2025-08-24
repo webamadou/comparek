@@ -12,21 +12,12 @@ class BankController extends Controller
 {
     public function __construct()
     {
-        $this->authorizeResource(Bank::class, 'bank');
+        // $this->authorizeResource(Bank::class, 'bank');
     }
 
     public function index(Request $request)
     {
-        $query = Bank::query()
-            ->when($request->filled('q'), fn($q) =>
-            $q->where('name', 'like', '%'.$request->q.'%')
-                ->orWhere('slug', 'like', '%'.$request->q.'%'))
-            ->when($request->filled('category'), fn($q) =>
-            $q->where('category', $request->category))
-            ->when($request->filled('is_active'), fn($q) =>
-            $q->where('is_active', filter_var($request->is_active, FILTER_VALIDATE_BOOLEAN)));
-
-        return $query->latest('id')->paginate($request->integer('per_page', 15));
+        return view('dashboard.banks.index');
     }
 
     public function store(BankStoreRequest $request)

@@ -34,6 +34,19 @@
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon">
                     <span class="iconify" data-icon="mdi-school"></span> &nbsp;
+                </svg>
+            {{ __('banks.banks') }}</a>
+            <ul class="compact">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('bank.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> {{ __('banks.gest_banks') }} </a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('bank_product.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> {{ __('banks.gest_bank_products') }} </a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('bank_offer.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> {{ __('banks.gest_bank_offers') }} </a></li>
+            </ul>
+        </li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+                <svg class="nav-icon">
+                    <span class="iconify" data-icon="mdi-school"></span> &nbsp;
                 </svg> Articles</a>
             <ul class="compact">
                 <li class="nav-item"><a class="nav-link" href="{{ route('post.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Articles</a></li>
