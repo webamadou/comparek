@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Enums\BankCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -45,12 +47,20 @@ class Bank extends Model
     {
         return $this->hasMany(Branch::class);
     }
-    public function atms()
+
+    public function atms(): HasMany
     {
         return $this->hasMany(Atm::class);
     }
-    public function products()
+
+    public function products(): HasMany
     {
         return $this->hasMany(BankProduct::class);
     }
+
+    public function images(): MorphOne
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
 }

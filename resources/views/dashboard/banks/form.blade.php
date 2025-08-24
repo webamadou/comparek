@@ -1,146 +1,124 @@
 @extends('layouts.dashboard')
 
+@php
+    use App\Enums\BankCategory;
+    /** @var \App\Models\Bank|null $bank */
+    $isEdit = $bank->exists;
+@endphp
+
 @section('content')
 <div class="body flex-grow-1">
     <div class="container-lg px-4">
         <div class="card mb-4">
             <div class="card-body">
                 <h1 class="display-4">
-                    {{ $school->exists ? 'Modification ' : 'Ajouter' }}
+                    {{ $isEdit ? 'Modification ' : 'Ajouter' }}
                 </h1>
-                <form action="{{ $school->exists ? route('schools.update', $school) : route('schools.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ $isEdit ? route('bank.update', $bank->id) : route('bank.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @if($school->exists)
+                    @if($isEdit)
                         @method('PUT')
                     @endif
 
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nom de l'école</label>
-                        <input type="text" class="form-control" name="name" value="{{ old('name', $school->name) }}" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="logo_path" class="form-label">Logo</label>
-                        <input type="file" class="form-control" name="logo_path">
-                        @if($school->logo_path)
-                            <img src="{{ Storage::url($school->logo_path) }}" alt="Logo" height="60" class="mt-2">
-                        @endif
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Courte Description</label>
-                        <textarea name="description" class="form-control">{{ old('description', $school->description) }}</textarea>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="full_description" class="form-label">Longue Description</label>
-                        <textarea name="full_description" class="form-control" rows="5">{{ old('full_description', $school->full_description) }}</textarea>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label for="founding_year" class="form-label">Existe depuis:</label>
-                            <input type="text" name="founding_year" class="form-control" value="{{ old('founding_year', $school->founding_year) }}">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="website_url" class="form-label">Sit web:</label>
-                            <input type="url" name="website_url" class="form-control" value="{{ old('website_url', $school->website_url) }}">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label class="form-label">{{ __('schools.is_private') }}</label>
-                            <select name="is_private" class="form-select">
-                                <option value=""> --- </option>
-                                <option value="1" {{ old('is_private', $school->is_private == 1) ? 'selected' : '' }}>{{ __('commons.yes') }}</option>
-                                <option value="2" {{ old('is_private', $school->is_private == 2) ? 'selected' : '' }}>
-                                    {{ __('commons.no') }}</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label class="form-label">{{ __('schools.include_an_incubator') }}</label>
-                            <select name="has_incubator" class="form-select">
-                                <option value=""> --- </option>
-                                <option value="1" {{ old('has_incubator', $school->has_incubator == 1) ? 'selected' : '' }}>{{ __('commons.yes') }}</option>
-                                <option value="2" {{ old('has_incubator', $school->has_incubator == 2) ? 'selected' : '' }}>{{ __('commons.no') }}</option></select>
-                        </div>
-                    </div>
-
-                    <!-- <div class="mb-3">
-                        <label for="website_url" class="form-label">Website</label>
-                        <input type="url" name="website_url" class="form-control" value="{{ old('website_url', $school->website_url) }}">
-                    </div> -->
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" value="{{ old('email', $school->email) }}">
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label for="phone" class="form-label">Téléphone</label>
-                            <input type="text" name="phone" class="form-control" value="{{ old('phone', $school->phone) }}">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="address" class="form-label">Adresse</label>
-                            <input type="text" name="address" class="form-control" value="{{ old('address', $school->address) }}">
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="city" class="form-label">Ville</label>
-                            <input type="text" name="city" class="form-control" value="{{ old('city', $school->city) }}">
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="country" class="form-label">Pays</label>
-                            <input type="text" name="country" class="form-control" value="{{ old('country', $school->country ?? 'Sénégal') }}">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Accepte les étudiants étrangers ?</label>
-                            <select name="accepts_foreign_students" class="form-select">
-                                <option value="1" {{ old('accepts_foreign_students', $school->accepts_foreign_students) ? 'selected' : '' }}>Oui</option>
-                                <option value="0" {{ old('accepts_foreign_students', !$school->accepts_foreign_students) ? 'selected' : '' }}>Non</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Activée?</label>
-                            <select name="is_active" class="form-select">
-                                <option value="1" {{ old('is_active', $school->is_active) ? 'selected' : '' }}>Oui</option>
-                                <option value="0" {{ old('is_active', !$school->is_active) ? 'selected' : '' }}>Non</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <hr class="my-4">
-                        <h5>Référencement (SEO)</h5>
-
+                    <div class="space-y-5 row">
+                        {{-- Name --}}
                         <div class="mb-3">
-                            <label for="meta_title" class="form-label">Meta Title</label>
-                            <input type="text" name="meta_title" id="meta_title" class="form-control"
-                                   value="{{ old('meta_title', $school->meta_title) }}" maxlength="255"
-                                   placeholder="Ex: ISM - École supérieure de gestion à Dakar">
-                            <div class="form-text">Max 60 caractères recommandés</div>
+                            <label class="form-label">Nom de la banque *</label>
+                            <input type="text" name="name" value="{{ old('name', $bank->name ?? '') }}" class="mt-1 w-full border rounded px-3 py-2 form-control" required>
+                            @error('name') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
                         </div>
 
+                        {{-- Logo path (texte simple; tu peux remplacer par un upload plus tard) --}}
                         <div class="mb-3">
-                            <label for="meta_description" class="form-label">Meta Description</label>
-                            <textarea name="meta_description" id="meta_description" class="form-control no-tinymce" rows="2"
-                                      maxlength="160">{{ old('meta_description', $school->meta_description) }}</textarea>
-                            <div class="form-text">Max 160 caractères. Résumé visible dans les résultats Google.</div>
+                            <label for="logo_path" class="form-label">Logo</label>
+                            <input type="file" class="form-control" name="logo_path">
+                            @if($bank->logo_path)
+                                <img src="{{ Storage::url($bank->logo_path) }}" alt="Logo" height="60" class="mt-2">
+                            @endif
+                            @error('logo_path') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label for="seo_keywords" class="form-label">Mots-clés (SEO Keywords)</label>
-                            <input type="text" name="seo_keywords" id="seo_keywords" class="form-control"
-                                   value="{{ old('seo_keywords', $school->seo_keywords) }}"
-                                   placeholder="Ex: école privée Dakar, master gestion, licence informatique">
-                            <div class="form-text">Séparer les mots-clés par des virgules.</div>
+                        {{-- Website / Email / Phone --}}
+                        <div class="d-flex justify-content-between">
+                            <div class="col">
+                                <label class="block text-sm font-medium form-label">Site web</label>
+                                <input type="url" name="website_url" value="{{ old('website_url', $bank->website_url ?? '') }}" class="mt-1 w-full border rounded px-3 py-2 form-control">
+                                @error('website_url') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                            </div>
+                            <div class="col">
+                                <label class="block text-sm font-medium form-label">Email</label>
+                                <input type="email" name="email" value="{{ old('email', $bank->email ?? '') }}" class="mt-1 w-full border rounded px-3 py-2 form-control">
+                                @error('email') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium form-label">Téléphone</label>
+                                <input type="text" name="phone" value="{{ old('phone', $bank->phone ?? '') }}" class="mt-1 w-full border rounded px-3 py-2 form-control">
+                                @error('phone') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                            </div>
+                        </div>
+                        <div><hr></div>
+                        {{-- Country / BIC / Licence --}}
+                        <div class="d-flex justify-content-between">
+                            <div class="col">
+                                <label class="block text-sm font-medium form-label">Pays (code ISO 2) *</label>
+                                <input type="text" name="country_code" value="{{ old('country_code', $bank->country_code ?? 'SN') }}" class="mt-1 w-full border rounded px-3 py-2 form-control" required>
+                                @error('country_code') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                            </div>
+                            <div class="col">
+                                <label class="block text-sm font-medium form-label">SWIFT/BIC</label>
+                                <input type="text" name="swift_bic" value="{{ old('swift_bic', $bank->swift_bic ?? '') }}" class="mt-1 w-full border rounded px-3 py-2 form-control">
+                                @error('swift_bic') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                            </div>
+                            <div class="col">
+                                <label class="block text-sm font-medium form-label">N° d’agrément</label>
+                                <input type="text" name="regulatory_license" value="{{ old('regulatory_license', $bank->regulatory_license ?? '') }}" class="mt-1 w-full border rounded px-3 py-2 form-control">
+                                @error('regulatory_license') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                            </div>
+                        </div>
+
+                        <div class="mb-4"><hr></div>
+
+                        {{-- HQ / Year / Category / Active --}}
+                        <div class="d-flex justify-content-between">
+                            <div class="col">
+                                <label class="block text-sm font-medium form-label">Siège (ville / adresse)</label>
+                                <input type="text" name="headquarters_location" value="{{ old('headquarters_location', $bank->headquarters_location ?? '') }}" class="mt-1 w-full border rounded px-3 py-2 form-control">
+                                @error('headquarters_location') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                            </div>
+                            <div class="col">
+                                <label class="block text-sm font-medium form-label">Année de création</label>
+                                <input type="number" name="established_year" value="{{ old('established_year', $bank->established_year ?? '') }}" class="mt-1 w-full border rounded px-3 py-2 form-control" min="1800" max="{{ date('Y') }}">
+                                @error('established_year') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                            </div>
+                            <div class="col">
+                            <label class="block text-sm font-medium form-label">Catégorie *</label>
+                            <select name="category" class="mt-1 w-full border rounded px-3 py-2 form-control" required>
+                                @foreach(BankCategory::cases() as $case)
+                                <option value="{{ $case->value }}" @selected(old('category', $bank->category->value ?? 'bank') === $case->value)>{{ __('banks.' . $case->value) }}</option>
+                                @endforeach
+                            </select>
+                            @error('category') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                            </div>
+                        </div>
+
+                        <div class="my-4">
+                            <input id="is_active" type="checkbox" name="is_active" value="1" @checked(old('is_active', ($bank->is_active ?? true)) )>
+                            <label for="is_active" class="text-sm form-label">Active</label>
+                            @error('is_active') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                        </div>
+
+                        {{-- Description --}}
+                        <div>
+                            <label class="block text-sm font-medium form-label">Description</label>
+                            <textarea name="description" rows="4" class="mt-1 w-full border rounded px-3 py-2 form-control">{{ old('description', $bank->description ?? '') }}</textarea>
+                            @error('description') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                        </div>
+
+                        <div class="col my-4">
+                            <a href="{{ route('bank.index') }}" class="btn btn-success"><span class="iconify" data-icon="mdi-step-backward"></span> Retour</a>
+                            <button type="submit" class="btn btn-primary"><span class="iconify" data-icon="mdi-content-save"></span> Enregistrer</button>
                         </div>
                     </div>
-
-                    <button type="submit" class="btn btn-success"><span class="iconify" data-icon="mdi-content-save"></span> Enregistrer</button>
-                    <a href="{{ route('schools.index') }}" class="btn btn-secondary"><span class="iconify" data-icon="mdi-step-backward"></span> Retour</a>
                 </form>
             </div>
         </div>

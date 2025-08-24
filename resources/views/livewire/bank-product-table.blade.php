@@ -74,7 +74,7 @@
             </td>
             <td class="px-4 py-2">{{ $p->offers_count }}</td>
             <td class="px-4 py-2">
-              <a href="{{ route('bank_product.edit', $p) }}" class="underline btn btn-primary py-0"><span class="fa fa-pencil"></span>Éditer</a>
+              <a href="{{ route('bank_product.edit', $p) }}" class="underline btn btn-primary py-0">Éditer</a>
             </td>
           </tr>
         @empty

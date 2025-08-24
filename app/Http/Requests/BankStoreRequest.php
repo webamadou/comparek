@@ -11,24 +11,26 @@ class BankStoreRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return $this->user()?->can('bank.create') ?? false;
+        // return $this->user()?->can('bank.create') ?? false;
+        return true;
     }
 
     protected function prepareForValidation(): void
     {
-        if (!$this->filled('slug') && $this->filled('name')) {
+        /*if (!$this->filled('slug') && $this->filled('name')) {
             $this->merge(['slug' => Str::slug($this->input('name'))]);
         }
         if (!$this->filled('country_code')) {
             $this->merge(['country_code' => 'SN']);
-        }
+        }*/
     }
 
     public function rules(): array
     {
+        $bank = $this->bank ?? '';
+
         return [
-            'name'                 => ['required','string','max:255'],
-            'slug'                 => ['required','string','max:255','unique:banks,slug'],
+            'name'                 => ['required','string','max:255', Rule::unique('banks')->ignore($bank)],
             'logo_path'            => ['nullable','string','max:255'],
             'website_url'          => ['nullable','url','max:255'],
             'email'                => ['nullable','email','max:255'],

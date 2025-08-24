@@ -3571,7 +3571,7 @@ ul.program-list {
   color: #2f2c32;
   line-height: 1.5;
   position: relative;
-  max-height: 400px;
+  max-height: 1024px;
   overflow-y: scroll
 }
 
@@ -3597,11 +3597,14 @@ ul.program-list {
 
 .program-row {
   position: relative;
-  background: #fcfafa;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid var(--accent-color);
-  border-top: 2px solid var(--accent-color);
+  background: #f3e8e2;
+  margin-bottom: .9rem;
+  padding: 1rem 0.8rem;
   font-size: .8rem;
+}
+
+.program-row:hover {
+  box-shadow: 1px 1px 8px #d4d4d4;
 }
 
 .program-name a {
