@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'comparing_banks' => 'Comparez les banques',
+    'comparing_banks' => 'Comparaison des banques',
     'banks' => 'Banques',
     'bank' => 'Banque',
     'eme' => 'Émetteur de monnaie électronique',

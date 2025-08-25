@@ -27,5 +27,5 @@ return [
     'with_commitment' => 'Avec engagement',
     'all' => 'Tous',
     'search' => 'Rechercher',
-    'compare_telecom' => 'Comparez les offres télécoms'
+    'compare_telecom' => 'Comparaison des télécoms'
 ];

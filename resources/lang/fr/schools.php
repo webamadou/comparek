@@ -80,7 +80,7 @@ return [
     'comparison_schools' => 'Comparaison des écoles',
     '-- Choisir une école --' => '-- Choisir une école --',
     'compare_schools' => 'Comparer deux écoles',
-    'comparing_schools' => 'Comparez les écoles',
+    'comparing_schools' => 'Comparaison des écoles',
     'compare_schools_description' => 'Sélectionnez deux établissements pour les comparer côte à côte. Comparek vous aide à faire le meilleur choix.',
     'criteria' => 'Critères',
     'pick_a_school' => 'Choisissez une école',
