@@ -3649,6 +3649,11 @@ span.round-no {
   border-radius: 13px;
 }
 
+.home-phone-badge {
+  background: #fff;
+  font-size: 1.5rem;
+}
+
 .badge.badge-success {
   background: var(--accent-color);
 }

@@ -39,15 +39,40 @@
                         offres d’opérateurs, banques, écoles et services au Sénégal, en toute transparence. <br>
                         <strong>Comparez, choisissez, gagnez.</strong>
                     </p>
-
-                    <div class="cta-wrapper">
-                        <a href="#" class="btn btn-primary"><span class="iconify" data-icon="mdi-account"></span>+221 33 868 62 00</a>
+                    <div class="badge-wrapper mb-3">
+                        <div class="d-inline-flex align-items-center rounded-pill border border-accent-light home-phone-badge">
+                            <div class="icon-circle me-2">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                            <span class="me-3">+221 33 868 62 00</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-lg-6">
                     <div class="hero-image">
                         <img id="hero-illustration" src="{{ asset('frontv1/img/illustration/illust' . $illus . '.svg') }}" alt="Business Growth" class="img-fluid" loading="lazy">
+                    </div>
+                </div>
+
+
+                <div class="col-12 d-flex justify-content-between mt-5 pt-0">
+                    <div class="col-sm-12 col-md-4 aos-init aos-animate d-flex justify-content-start" data-aos="fade-up" data-aos-delay="100">
+                        <div class="cta-wrapper">
+                            <a href="{{ route('telecom_comparison') }}" class="btn btn-primary"><span class="iconify" data-icon="mdi-wifi"></span> {{ __('offers.compare_telecom') }}</a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 aos-init aos-animate d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="cta-wrapper">
+                            <a href="{{ route('schools_comparison') }}" class="btn btn-primary"><span class="iconify" data-icon="mdi-account-school"></span> {{ __('schools.comparing_schools') }}</a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 aos-init aos-animate d-flex justify-content-end" data-aos="fade-up" data-aos-delay="100">
+                        <div class="cta-wrapper">
+                            <a href="#" class="btn btn-primary"><span class="iconify" data-icon="mdi-bank"></span> {{ __('banks.comparing_banks') }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
