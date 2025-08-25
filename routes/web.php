@@ -39,7 +39,7 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')
+Route::middleware(['auth'])
     ->prefix('dashboard')
     ->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -59,6 +59,9 @@ Route::middleware('auth')
     Route::put('offer_scores/{offer}', [OfferScoresController::class, 'update'])->name('offer_scores.update');
     Route::resource('post', \App\Http\Controllers\Admin\PostController::class);
     Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('bank', \App\Http\Controllers\Admin\BankController::class);
+    Route::resource('bank_product', \App\Http\Controllers\Admin\BankProductController::class);
+    Route::resource('bank_offer', \App\Http\Controllers\Admin\ProductOfferController::class);
 });
 
 require __DIR__.'/auth.php';
