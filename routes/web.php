@@ -20,17 +20,17 @@ Route::get('/telecom/fournisseurs', [TelecomOperatorControllerFront::class, 'ope
 Route::get('/telecom/fournisseur/{operator}', [TelecomOperatorControllerFront::class, 'operator'])->name('operator_page');
 Route::get('/telecom/comparateur/internet', [TelecomOperatorControllerFront::class, 'telecomsComparison'])->name('telecom_comparison');
 Route::get('/telecom/comparateur/pass_mobile', [TelecomOperatorControllerFront::class, 'passComparison'])->name('telecom_pass_comparison');
-Route::get('/telecom/comparateur/pass_mobile', [TelecomOperatorControllerFront::class, 'passComparison'])->name('telecom_pass_comparison');
 Route::get('/telecom/scores', [TelecomOperatorControllerFront::class, 'scores'])->name('telecom_scores');
 Route::get('/ecoles', [\App\Http\Controllers\SchoolsController::class, 'index'])->name('index_schools');
 Route::get('/ecole/{school}', [\App\Http\Controllers\SchoolsController::class, 'view'])->name('view_school');
 Route::get('/ecoles/accreditees', [\App\Http\Controllers\SchoolsController::class, 'accredited'])->name('accreds_schools');
 Route::get('/programme/{program:slug}', [\App\Http\Controllers\ProgramsController::class, 'show'])->name('view_program');
-Route::get('schools/comparison', [\App\Http\Controllers\SchoolsController::class, 'comparison'])->name('schools_comparison');
+Route::get('/ecoles/comparateur', [\App\Http\Controllers\SchoolsController::class, 'comparison'])->name('schools_comparison');
 Route::get('/article/{article}', [\App\Http\Controllers\PostController::class, 'view'])->name('view_article');
 Route::get('/articles/{category:slug?}', [\App\Http\Controllers\PostController::class, 'index'])->name('articles');
-Route::get('/banks', [\App\Http\Controllers\BankController::class, 'index'])->name('banks');
-Route::get('/bank', [\App\Http\Controllers\BankController::class, 'show'])->name('banks');
+Route::get('/banques', [\App\Http\Controllers\BankController::class, 'index'])->name('banks');
+Route::get('/banques/{bank:slug}', [\App\Http\Controllers\BankController::class, 'show'])->name('view_banks');
+Route::get('/banques/comparateur', [\App\Http\Controllers\BankController::class, 'compare'])->name('compare_banks');
 
 /* === AJAX CALLS === */
 Route::get('/ecoles/ajax', [SchoolAjaxController::class, 'index'])->name('ecoles.ajax');

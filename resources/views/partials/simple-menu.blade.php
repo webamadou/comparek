@@ -22,8 +22,8 @@
         </li>
         <li class="dropdown"><a href="#"><span><strong class="bi bi-bank2"></strong> Banques</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-                <li><a href="#"> .... </a></li>
-                <li><a href="#"> .... </a></li>
+                <li><a href="{{ route('banks') }}">{{ __('banks.bank_listing_page') }}</a></li>
+                <li><a href="{{ route('compare_banks') }}"> {{ __('banks.comparator_page') }} </a></li>
             </ul>
         </li>
         <li class="dropdown"><a href="#pre-footer"><span><strong class="bi bi-envelope-at-fill"></strong> Contact</span></a></li>

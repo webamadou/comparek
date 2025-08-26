@@ -32,5 +32,7 @@ return [
     'debit_card' => 'Carte de débit',
     'credit_card' => 'Carte de crédit',
     'prepaid_card' => 'Carte prépayée',
-    'digital_banking' => 'Banque numérique'
+    'digital_banking' => 'Banque numérique',
+    'bank_listing_page' => 'Liste des banques',
+    'comparator_page' => 'Page de comparaison',
 ];

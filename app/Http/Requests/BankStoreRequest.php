@@ -30,8 +30,8 @@ class BankStoreRequest extends FormRequest
         $bank = $this->bank ?? '';
 
         return [
-            'name'                 => ['required','string','max:255', Rule::unique('banks')->ignore($bank)],
-            'logo_path'            => ['nullable','string','max:255'],
+            'name'                 => ['required','string','max:255', Rule::unique('banks')->ignore($bank?->id)],
+            /*'logo_path'            => ['nullable','string','max:255'],*/
             'website_url'          => ['nullable','url','max:255'],
             'email'                => ['nullable','email','max:255'],
             'phone'                => ['nullable','string','max:50'],
