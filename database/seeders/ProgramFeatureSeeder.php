@@ -51,7 +51,7 @@ class ProgramFeatureSeeder extends Seeder
         ];
 
         foreach ($features as $data) {
-            ProgramFeature::firstOrCreate(
+            ProgramFeature::updateOrCreate(
                 ['name' => $data['name']],
                 ['name' => $data['name'], 'is_active' => $data['is_active']]
             );

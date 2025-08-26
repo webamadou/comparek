@@ -29,6 +29,8 @@ Route::get('/programme/{program:slug}', [\App\Http\Controllers\ProgramsControlle
 Route::get('schools/comparison', [\App\Http\Controllers\SchoolsController::class, 'comparison'])->name('schools_comparison');
 Route::get('/article/{article}', [\App\Http\Controllers\PostController::class, 'view'])->name('view_article');
 Route::get('/articles/{category:slug?}', [\App\Http\Controllers\PostController::class, 'index'])->name('articles');
+Route::get('/banks', [\App\Http\Controllers\BankController::class, 'index'])->name('banks');
+Route::get('/bank', [\App\Http\Controllers\BankController::class, 'show'])->name('banks');
 
 /* === AJAX CALLS === */
 Route::get('/ecoles/ajax', [SchoolAjaxController::class, 'index'])->name('ecoles.ajax');
