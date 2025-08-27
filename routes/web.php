@@ -25,12 +25,12 @@ Route::get('/ecoles', [\App\Http\Controllers\SchoolsController::class, 'index'])
 Route::get('/ecole/{school}', [\App\Http\Controllers\SchoolsController::class, 'view'])->name('view_school');
 Route::get('/ecoles/accreditees', [\App\Http\Controllers\SchoolsController::class, 'accredited'])->name('accreds_schools');
 Route::get('/programme/{program:slug}', [\App\Http\Controllers\ProgramsController::class, 'show'])->name('view_program');
-Route::get('/ecoles/comparateur', [\App\Http\Controllers\SchoolsController::class, 'comparison'])->name('schools_comparison');
+Route::get('/comparateur/ecoles', [\App\Http\Controllers\SchoolsController::class, 'comparison'])->name('schools_comparison');
 Route::get('/article/{article}', [\App\Http\Controllers\PostController::class, 'view'])->name('view_article');
 Route::get('/articles/{category:slug?}', [\App\Http\Controllers\PostController::class, 'index'])->name('articles');
 Route::get('/banques', [\App\Http\Controllers\BankController::class, 'index'])->name('banks');
 Route::get('/banques/{bank:slug}', [\App\Http\Controllers\BankController::class, 'show'])->name('view_banks');
-Route::get('/banques/comparateur', [\App\Http\Controllers\BankController::class, 'compare'])->name('compare_banks');
+Route::get('/comparateur/banque', [\App\Http\Controllers\BankController::class, 'compare'])->name('compare_banks');
 
 /* === AJAX CALLS === */
 Route::get('/ecoles/ajax', [SchoolAjaxController::class, 'index'])->name('ecoles.ajax');

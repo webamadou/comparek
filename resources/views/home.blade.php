@@ -71,7 +71,7 @@
 
                     <div class="col-sm-12 col-md-4 aos-init aos-animate mb-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="cta-wrapper d-flex justify-content-center">
-                            <a href="#" class="btn btn-primary"><span class="iconify" data-icon="mdi-bank"></span> {{ __('banks.comparing_banks') }}</a>
+                            <a href="{{ route('compare_banks') }}" class="btn btn-primary"><span class="iconify" data-icon="mdi-bank"></span> {{ __('banks.comparing_banks') }}</a>
                         </div>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                             <h3>Banques</h3>
                             <p>Évitez les frais cachés. Trouvez le compte, la carte ou le crédit qui vous correspond vraiment.
                                 Comparez les banques au Sénégal : frais, services, accessibilité… tout est clair.</p>
-                            <a href="#" class="service-link">
+                            <a href="{{ route('compare_banks') }}" class="service-link">
                                 <span>Comparez les banques</span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
