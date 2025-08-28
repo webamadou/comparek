@@ -3387,7 +3387,6 @@ ul.program-list {
 .comparison-wrapper {
   margin-top: 2rem !important;
   position: relative;
-  border: 1px solid #d1d1d1;
 }
 
 .comparison-header.criteria {
@@ -3703,6 +3702,10 @@ span.round-no {
   flex: 1 1 auto;
   padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
   color: var(--bs-card-color);
+}
+
+.comparaison-description {
+  height: 146px;
 }
 
 @media (min-width: 1200px) {
@@ -4685,5 +4688,11 @@ span.round-no {
     font-weight: bold;
     font-size: 0.85rem;
     color: var(--heading-color);
+  }
+
+  .comparaison-description {
+    position: relative;
+    height: 320px !important;
+    overflow: hidden;
   }
 }
