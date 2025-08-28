@@ -53,6 +53,13 @@
                     <p><a href="{{ route('view_school', $schoolAData->slug) }}"></a></p>
                 </div>
                 <h4>{{ __('schools.programs') }}</h4>
+                <div class="comparison-row schoola mt-4 py-4">
+                    {!! $schoolAData->hasDoubleDiplome ? '<span class="badge badge-success bi bi-mortarboard-fill">&nbsp;' . __('schools.has_programs_with_double_diplomes') . '</span>' : '' !!}
+                    {!! $schoolAData->guarantiesInternship ? '<span class="badge badge-success bi bi-buildings">&nbsp;' . __('schools.has_programs_with_guaranties_internship') . '</span>' : '' !!}
+                    {!! $schoolAData->jobGuarantee ? '<span class="badge badge-success bi bi-building-fill">&nbsp;' . __('schools.has_programs_with_job_guarantee') . '</span>' : '' !!}
+                    {!! $schoolAData->studyAbroad ? '<span class="badge badge-success bi bi-globe-europe-africa-fill">&nbsp;' . __('schools.offers_study_abroad_programs') . '</span>' : '' !!}
+                    {!! $schoolAData->has_incubator ? '<span class="badge badge-success bi bi-rocket-takeoff-fill">&nbsp;' . __('schools.include_an_incubator') . '</span>' : '' !!}
+                </div>
                 <div class="comparison-row schoola">
                     @foreach($schoolAPrograms as $program)
                         <div class="program-row">
@@ -76,13 +83,6 @@
                     @endforeach
                 </div>
                 <div class="comparison-row schoola mt-4">
-                    {!! $schoolAData->hasDoubleDiplome ? '<span class="badge badge-success bi bi-mortarboard-fill">&nbsp;' . __('schools.has_programs_with_double_diplomes') . '</span>' : '' !!}
-                    {!! $schoolAData->guarantiesInternship ? '<span class="badge badge-success bi bi-buildings">&nbsp;' . __('schools.has_programs_with_guaranties_internship') . '</span>' : '' !!}
-                    {!! $schoolAData->jobGuarantee ? '<span class="badge badge-success bi bi-building-fill">&nbsp;' . __('schools.has_programs_with_job_guarantee') . '</span>' : '' !!}
-                    {!! $schoolAData->studyAbroad ? '<span class="badge badge-success bi bi-globe-europe-africa-fill">&nbsp;' . __('schools.offers_study_abroad_programs') . '</span>' : '' !!}
-                    {!! $schoolAData->has_incubator ? '<span class="badge badge-success bi bi-rocket-takeoff-fill">&nbsp;' . __('schools.include_an_incubator') . '</span>' : '' !!}
-                </div>
-                <div class="comparison-row schoola mt-4">
                     <p><strong class="bi bi-pin-map"> {{ __('schools.address') }}</strong></p>
                     {{ $schoolAData->address . ' ' . $schoolAData?->city . ' (' . $schoolAData?->country . ')' }}
                 </div>
@@ -101,6 +101,13 @@
                     <p><a href="{{ route('view_school', $schoolBData->slug) }}"></a></p>
                 </div>
                 <h4>{{ __('schools.programs') }}</h4>
+                <div class="comparison-row schoolb mt-4 py-3">
+                    {!! $schoolBData->hasDoubleDiplome ? '<span class="badge badge-success bi bi-mortarboard-fill">&nbsp;' . __('schools.has_programs_with_double_diplomes') . '</span>' : '' !!}
+                    {!! $schoolBData->guarantiesInternship ? '<span class="badge badge-success bi bi-buildings"> ' . __('schools.has_programs_with_guaranties_internship') . '</span>' : '' !!}
+                    {!! $schoolBData->jobGuarantee ? '<span class="badge badge-success bi bi-buildings-fill">&nbsp;' . __('schools.has_programs_with_job_guarantee') . '</span>' : '' !!}
+                    {!! $schoolBData->studyAbroad ? '<span class="badge badge-success bi bi-globe-europe-africa-fill">&nbsp;' . __('schools.offers_study_abroad_programs') . '</span>' : '' !!}
+                    {!! $schoolBData->has_incubator ? '<span class="badge badge-success bi bi-rocket-takeoff-fill">&nbsp;' . __('schools.include_an_incubator') . '</span>' : '' !!}
+                </div>
                 <div class="comparison-row schoolb">
                     @foreach($schoolBPrograms as $program)
                         <div class="program-row">
@@ -122,13 +129,6 @@
                             </div>
                         </div>
                     @endforeach
-                </div>
-                <div class="comparison-row schoolb mt-4">
-                    {!! $schoolBData->hasDoubleDiplome ? '<span class="badge badge-success bi bi-mortarboard-fill">&nbsp;' . __('schools.has_programs_with_double_diplomes') . '</span>' : '' !!}
-                    {!! $schoolBData->guarantiesInternship ? '<span class="badge badge-success bi bi-buildings"> ' . __('schools.has_programs_with_guaranties_internship') . '</span>' : '' !!}
-                    {!! $schoolBData->jobGuarantee ? '<span class="badge badge-success bi bi-buildings-fill">&nbsp;' . __('schools.has_programs_with_job_guarantee') . '</span>' : '' !!}
-                    {!! $schoolBData->studyAbroad ? '<span class="badge badge-success bi bi-globe-europe-africa-fill">&nbsp;' . __('schools.offers_study_abroad_programs') . '</span>' : '' !!}
-                    {!! $schoolBData->has_incubator ? '<span class="badge badge-success bi bi-rocket-takeoff-fill">&nbsp;' . __('schools.include_an_incubator') . '</span>' : '' !!}
                 </div>
                 <div class="comparison-row schoola mt-4">
                     <p><strong class="bi bi-pin-map"> {{ __('schools.address') }}</strong></p>

@@ -33,7 +33,7 @@
         </li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon">
-                    <span class="iconify" data-icon="mdi-school"></span> &nbsp;
+                    <span class="iconify" data-icon="mdi-bank"></span> &nbsp;
                 </svg>
             {{ __('banks.banks') }}</a>
             <ul class="compact">

@@ -14,51 +14,56 @@ class ProgramFeatureSeeder extends Seeder
     public function run(): void
     {
         $features = [
-            ['name' => "Double compétence",              'slug' => 'double-competence',               'is_active' => 1],
-            ['name' => "Double diplôme",                 'slug' => 'double-diplome',                  'is_active' => 1],
-            ['name' => "Études à l’étranger",            'slug' => 'etudes-a-letranger',              'is_active' => 1],
-            ['name' => "Garantie d’emploi",              'slug' => 'garantie-d-emploi',               'is_active' => 1],
-            ['name' => "Option MIAGE",                   'slug' => 'option-miage',                    'is_active' => 1],
-            ['name' => "Stage obligatoire",              'slug' => 'stage-obligatoire',               'is_active' => 1],
-            ['name' => "Semestre d’échange",             'slug' => 'semestre-dechange',               'is_active' => 1],
+            ['name' => "double-competence",              'slug' => 'double_competence',               'is_active' => 1, 'icon_class' => 'bi bi-person-badge'],
+            ['name' => "double-degree",                  'slug' => 'double_diplome',                  'is_active' => 1, 'icon_class' => 'bi bi-mortarboard'],
+            ['name' => "study-abroad",                   'slug' => 'etudes_a_letranger',              'is_active' => 1, 'icon_class' => 'bi bi-globe'],
+            ['name' => "job-guarantee",                  'slug' => 'garantie_demploi',               'is_active' => 1, 'icon_class' => 'bi bi-shield-check'],
+            ['name' => "miage-option",                   'slug' => 'option_miage',                    'is_active' => 1, 'icon_class' => 'bi bi-gear'],
+            ['name' => "mandatory-internship",           'slug' => 'stage_obligatoire',               'is_active' => 1, 'icon_class' => 'bi bi-briefcase'],
+            ['name' => "exchange-semester",              'slug' => 'semestre_dechange',               'is_active' => 1, 'icon_class' => 'bi bi-arrow-left-right'],
 
-            // Académiques
-            ['name' => "Cours en anglais",               'slug' => 'cours-en-anglais',                'is_active' => 1],
-            ['name' => "Programme en alternance",        'slug' => 'programme-en-alternance',         'is_active' => 1],
-            ['name' => "Parcours personnalisés / électifs",'slug'=> 'parcours-personnalises-electifs', 'is_active' => 1],
-            ['name' => "Partenariats internationaux",    'slug' => 'partenariats-internationaux',     'is_active' => 1],
-            ['name' => "Accréditations internationales", 'slug' => 'accreditations-internationales',  'is_active' => 1],
-            ['name' => "Diplôme reconnu par l’État",     'slug' => 'diplome-reconnu-par-letat',       'is_active' => 1],
-            ['name' => "Pédagogie par projet",           'slug' => 'pedagogie-par-projet',            'is_active' => 1],
-            ['name' => "Cours du soir / week‑end",       'slug' => 'cours-du-soir-weekend',           'is_active' => 1],
-            ['name' => "Format hybride (présentiel/online)", 'slug' => 'format-hybride',             'is_active' => 1],
-            ['name' => "Petites classes / encadrement",  'slug' => 'petites-classes-encadrement',     'is_active' => 1],
+            // Academic
+            ['name' => "english-courses",                'slug' => 'cours_en_anglais',                'is_active' => 1, 'icon_class' => 'bi bi-translate'],
+            ['name' => "work-study-program",             'slug' => 'programme_en_alternance',         'is_active' => 1, 'icon_class' => 'bi bi-calendar2-week'],
+            ['name' => "personalized-elective-paths",    'slug' => 'parcours_personnalises_electifs', 'is_active' => 1, 'icon_class' => 'bi bi-sliders'],
+            ['name' => "international-partnerships",     'slug' => 'partenariats_internationaux',     'is_active' => 1, 'icon_class' => 'bi bi-people'],
+            ['name' => "international-accreditations",   'slug' => 'accreditations_internationales',  'is_active' => 1, 'icon_class' => 'bi bi-award'],
+            ['name' => "state-recognized-degree",        'slug' => 'diplome_reconnu_par_letat',       'is_active' => 1, 'icon_class' => 'bi bi-patch-check'],
+            ['name' => "project-based-learning",         'slug' => 'pedagogie_par_projet',            'is_active' => 1, 'icon_class' => 'bi bi-kanban'],
+            ['name' => "evening-weekend-classes",        'slug' => 'cours_du_soir_weekend',           'is_active' => 1, 'icon_class' => 'bi bi-clock-history'],
+            ['name' => "hybrid-format",                  'slug' => 'format_hybride_presentielonline',                  'is_active' => 1, 'icon_class' => 'bi bi-laptop'],
+            ['name' => "small-classes-supervision",      'slug' => 'petites_classes_encadrement',     'is_active' => 1, 'icon_class' => 'bi bi-person-lines-fill'],
 
-            // Professionnalisation
-            ['name' => "Certifications incluses (Cisco, MS, CFA…)", 'slug' => 'certifications-incluses', 'is_active' => 1],
-            ['name' => "Incubateur / entrepreneuriat",   'slug' => 'incubateur-entrepreneuriat',      'is_active' => 1],
-            ['name' => "Entreprises partenaires",        'slug' => 'entreprises-partenaires',         'is_active' => 1],
-            ['name' => "Visites d’entreprises / learning trips", 'slug' => 'visites-d-entreprises',   'is_active' => 1],
-            ['name' => "Taux d’employabilité > 90%",     'slug' => 'taux-employabilite-90-plus',      'is_active' => 1],
+            // Professionalization
+            ['name' => "included-certifications",        'slug' => 'certifications_incluses_cisco_ms_cfa',         'is_active' => 1, 'icon_class' => 'bi bi-patch-check-fill'],
+            ['name' => "incubator-entrepreneurship",     'slug' => 'incubateur_entrepreneuriat',      'is_active' => 1, 'icon_class' => 'bi bi-lightbulb'],
+            ['name' => "partner-companies",              'slug' => 'entreprises_partenaires',         'is_active' => 1, 'icon_class' => 'bi bi-building'],
+            ['name' => "company-visits-learning-trips",  'slug' => 'visites_dentreprises_learning_trips',           'is_active' => 1, 'icon_class' => 'bi bi-bus-front'],
+            ['name' => "employment-rate-90-plus",        'slug' => 'taux_demployabilite_90',      'is_active' => 1, 'icon_class' => 'bi bi-graph-up'],
 
-            // Vie étudiante / infrastructures
-            ['name' => "Bourses d’études disponibles",   'slug' => 'bourses-detudes',                 'is_active' => 1],
-            ['name' => "Logement étudiant / internat",   'slug' => 'logement-etudiant',               'is_active' => 1],
-            ['name' => "Clubs & associations",           'slug' => 'clubs-et-associations',           'is_active' => 1],
-            ['name' => "Bibliothèque numérique",         'slug' => 'bibliotheque-numerique',          'is_active' => 1],
-            ['name' => "Laboratoires / équipements dédiés", 'slug' => 'laboratoires-equipes',        'is_active' => 1],
-            ['name' => "Campus moderne / wifi haut débit",'slug' => 'campus-moderne-wifi',            'is_active' => 1],
+            // Student life / infrastructure
+            ['name' => "available-scholarships",         'slug' => 'bourses_detudes_disponibles',                 'is_active' => 1, 'icon_class' => 'bi bi-cash'],
+            ['name' => "student-housing",                'slug' => 'logement_etudiant_internat',               'is_active' => 1, 'icon_class' => 'bi bi-house-door'],
+            ['name' => "clubs-associations",             'slug' => 'clubs_associations',           'is_active' => 1, 'icon_class' => 'bi bi-people-fill'],
+            ['name' => "digital-library",                'slug' => 'bibliotheque_numerique',          'is_active' => 1, 'icon_class' => 'bi bi-book'],
+            ['name' => "dedicated-labs-equipment",       'slug' => 'laboratoires_equipements_dedies',            'is_active' => 1, 'icon_class' => 'bi bi-cpu'],
+            ['name' => "modern-campus-high-speed-wifi",  'slug' => 'campus_moderne_wifi_haut_debit',             'is_active' => 1, 'icon_class' => 'bi bi-wifi'],
         ];
 
         foreach ($features as $data) {
-            ProgramFeature::updateOrCreate(
-                ['name' => $data['name']],
-                ['name' => $data['name'], 'is_active' => $data['is_active']]
-            );
+            $pf = ProgramFeature::where('slug', $data['slug'])->first();
+            if ($pf) {
+                $pf->update(['name' => $data['name'], 'is_active' => $data['is_active'], 'icon_class' => $data['icon_class']]);
+            } else {
+                dd($data['slug']);
+            }
+            /* ProgramFeature::updateOrCreate(
+                ['slug' => $data['slug']],
+                ['name' => $data['name'], 'is_active' => $data['is_active'], 'icon_class' => $data['icon_class']]
+            ); */
         }
         /*foreach ($features as $name => $slug) {
             \App\Models\ProgramFeature::firstOrCreate(['slug' => $slug], ['name' => $name]);
         }*/
-
     }
 }

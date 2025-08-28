@@ -130,7 +130,7 @@
                             @foreach ($features as $id => $feature)
                                 <input type="checkbox" name="feature_ids[]" value="{{ $id }}" id="feature{{ $id }}" class="btn-check"
                                     {{ in_array($id, old('feature_ids', $school_program->features?->pluck('id')->toArray() ?? [])) ? 'checked' : '' }}>
-                                <label class="btn btn-outline-success" for="feature{{ $id }}">{{ $feature }}</label>
+                                <label class="btn btn-outline-success" for="feature{{ $id }}">{{ __('schools.' . $feature) }}</label>
                             @endforeach
                         </div>
                     </div>

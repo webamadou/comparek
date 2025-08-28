@@ -28,10 +28,10 @@
                 @if($banks->count())
                     <div class="row g-3">
                     @foreach($banks as $bank)
-                        <div class="col-12 col-md-6 col-lg-4 bank-card-wrapper">
+                        <div class="col-12 col-md-6 col-lg-6 bank-card-wrapper">
                             <a href="{{ route('view_banks',$bank) }}" class="card h-100 text-decoration-none text-reset">
                                 <div class="card-body bank-card row">
-                                    <div class="d-flex align-items-center gap-2 card-logo col-3">
+                                    <div class="d-flex align-items-center gap-2 card-logo col-3 p-0">
                                         @if($bank->images)
                                             <img src="{{ Storage::disk('public')->url($bank->images->path) }}" alt="{{ $bank->name }}">
                                         @else
