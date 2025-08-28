@@ -11,7 +11,7 @@
                     <div class="col-md-8">
                         <h1 class="text-center">{{ __('schools.accredited_schools') }}</h1>
                     </div>
-                    <div class="col-12 text-left bg-white p-3">
+                    <div class="col-12 text-left px-3 page-description">
                         <p>
                             <h3><span class="bi bi-lightbulb"></span> Qu’est-ce qu’une école accréditée ?</h3>
                             <p>Une école accréditée est un établissement reconnu pour la qualité de son enseignement. Cela signifie que ses programmes ont été évalués et validés par un organisme officiel comme l’ANAQ-Sup (au Sénégal) ou le CAMES (à l’échelle africaine).</p>

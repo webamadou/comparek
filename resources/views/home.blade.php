@@ -140,7 +140,7 @@
     <!-- /Compares invitations section -->
 
     <!-- Services Section -->
-    <section id="services" class="services section" style="background: #461082">
+    <section id="comparek-score" class="services section" style="background: #461082">
         <div class="container" data-aos="fade-up" data-aos-delay="100">
             <div class="row justify-content-center g-5">
                 <div class="col-md-12" data-aos="fade-right" data-aos-delay="100">

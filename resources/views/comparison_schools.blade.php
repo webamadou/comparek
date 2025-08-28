@@ -11,7 +11,7 @@
                     <div class="col-sm-6 col-md-4 page-bilboard-img">
                         <img src="{{ asset('frontv1/img/illustration/illust21.svg') }}" alt="comparek" class="img-fluid">
                     </div>
-                    <div class="col-12 text-left bg-white p-3">
+                    <div class="col-12 text-left px-3 page-description">
                         <p>
                             <h3><span class="bi bi-lightbulb"></span>Comparez les écoles, en toute simplicité</h3>
                             <p>Choisir une école ou une université est une décision importante. Grâce à notre outil de comparaison, vous pouvez <strong>sélectionner deux établissements</strong> et voir instantanément leurs principales caractéristiques côte à côte : accréditations, programmes, frais de scolarité, durée des études, langues d’enseignement, et bien plus encore.</p>

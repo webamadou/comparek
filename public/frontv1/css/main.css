@@ -6,6 +6,7 @@
   --default-color: #1c1f22;
   --heading-color: #461082;
   --accent-color: #fe5600;
+  --second-color: #fff7f4;
   --surface-color: #ffffff;
   --contrast-color: #ffffff;
   --nav-color: #461082;
@@ -20,7 +21,7 @@
   --score-d: #F77205;
   --score-e: #E80707;
   scroll-behavior: smooth;
-  --bs-body-font-size: 1.2rem;
+  --global-font-size: 18px;
 }
 
 .light-background {
@@ -41,7 +42,7 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
-  font-size: 1.2rem !important;
+  font-size: var(--global-font-size) !important;
   line-height: 1.6;
 }
 
@@ -483,6 +484,15 @@ a:focus {
   background-color: var(--background-color);
   position: relative;
   padding-top: 80px;
+  background: var(--second-color);
+}
+
+.page-description {
+  padding: 0;
+  margin-bottom: 1rem;
+  text-align: justify;
+  position: relative;
+  background: var(--second-color);
 }
 
 .page-title a {
@@ -527,6 +537,15 @@ a:focus {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
+section,
+.section {
+  scroll-margin-top: 64px;
+}
+
+section#services {
+  background: #fff !important;
+}
+
 .page-bilboard-text {
   display: flex;
   flex-direction: column;
@@ -541,7 +560,7 @@ a:focus {
 section,
 .section {
   color: var(--default-color);
-  /*background-color: var(--background-color);*/
+  background-color: var(--second-color);
   padding: 60px 0;
   scroll-margin-top: 98px;
   overflow: clip;
@@ -661,7 +680,7 @@ section,
 
 
 .hero .hero-description {
-  font-size: 1.125rem;
+  font-size: inherit;
   line-height: 1.6;
   color: var(--default-color);
   margin-bottom: 2rem;
@@ -2794,14 +2813,6 @@ button.reset-filter {
   color: var(--heading-color);
 }
 
-.page-description {
-  overflow-y: hidden;
-  height: 20vh;
-  padding: 0;
-  margin-bottom: 1rem;
-  text-align: justify;
-}
-
 .page-description.active {
   height: auto;
 }
@@ -3442,6 +3453,7 @@ ul.program-list {
 .comparison-header img {
   max-height: 100%;
   width: auto;
+  max-width: 42%;
 }
 
 .comparison-wrapper .left-column,
@@ -3923,11 +3935,6 @@ span.round-no {
 
   .mobile-nav-active .navmenu>ul {
     display: block;
-  }
-
-  section,
-  .section {
-    scroll-margin-top: 64px;
   }
 
   /* mobile menu */

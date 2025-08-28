@@ -22,7 +22,7 @@ return [
     'duration' => 'Durrée',
     'tuition_description' => "Explication de l'inscription",
     'filter' => 'Filtrer',
-    'filter_by_domain' => 'Filtrer par domaine',
+    'filter_by_domain' => 'Vous pouvez filtrer par le domaine qui vous intéresse',
     'programs' => 'Programmes',
     'program' => 'Programme',
     'is_accredited' => 'Est accrédité?',
