@@ -54,8 +54,6 @@ class ProgramFeatureSeeder extends Seeder
             $pf = ProgramFeature::where('slug', $data['slug'])->first();
             if ($pf) {
                 $pf->update(['name' => $data['name'], 'is_active' => $data['is_active'], 'icon_class' => $data['icon_class']]);
-            } else {
-                dd($data['slug']);
             }
             /* ProgramFeature::updateOrCreate(
                 ['slug' => $data['slug']],

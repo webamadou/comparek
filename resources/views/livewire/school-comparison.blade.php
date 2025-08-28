@@ -48,18 +48,33 @@
                     @endif
                     {{ $schoolAData->name }}
                 </div>
-                <div class="comparison-row schoola">
+                <div class="comparison-row schoola comparaison-description">
                     {!! $schoolAData->description ?? '—' !!}
                     <p><a href="{{ route('view_school', $schoolAData->slug) }}"></a></p>
                 </div>
-                <h4>{{ __('schools.programs') }}</h4>
-                <div class="comparison-row schoola mt-4 py-4">
-                    {!! $schoolAData->hasDoubleDiplome ? '<span class="badge badge-success bi bi-mortarboard-fill">&nbsp;' . __('schools.has_programs_with_double_diplomes') . '</span>' : '' !!}
-                    {!! $schoolAData->guarantiesInternship ? '<span class="badge badge-success bi bi-buildings">&nbsp;' . __('schools.has_programs_with_guaranties_internship') . '</span>' : '' !!}
-                    {!! $schoolAData->jobGuarantee ? '<span class="badge badge-success bi bi-building-fill">&nbsp;' . __('schools.has_programs_with_job_guarantee') . '</span>' : '' !!}
-                    {!! $schoolAData->studyAbroad ? '<span class="badge badge-success bi bi-globe-europe-africa-fill">&nbsp;' . __('schools.offers_study_abroad_programs') . '</span>' : '' !!}
-                    {!! $schoolAData->has_incubator ? '<span class="badge badge-success bi bi-rocket-takeoff-fill">&nbsp;' . __('schools.include_an_incubator') . '</span>' : '' !!}
+                <div class="comparison-row schoola mt-4 py-4 school-caracteristics">
+                    <div class="mb-4">
+                        <h4 class="p-0">{{ __('schools.accreditations') }}</h4>
+                        @foreach($schoolAData->programs->map(fn($p) => $p->accreditationBodies->map(fn($a) => $a->name))
+                                ->flatten()
+                                ->unique()
+                                ->toArray() as $acc)
+                            <span class="badge"> <span class="bi bi-award"></span> {{ $acc }}</span>
+                        @endforeach
+                    </div>
+                    <div class="mb-4 school-caracteristics-features">
+                        <h4 class="p-0">{{ __('schools.features') }}</h4>
+                        @foreach($schoolAData->programs
+                                ->pluck('features')
+                                ->flatten()
+                                ->unique('id')
+                                ->sortBy('name')
+                                ->pluck('name','icon_class') as $class => $name)
+                                {!! '<span class="badge badge-success ' . $class . '">&nbsp;' . __('schools.' . $name) . '</span>' !!}
+                        @endforeach
+                    </div>
                 </div>
+                <h4>{{ __('schools.programs') }}</h4>
                 <div class="comparison-row schoola">
                     @foreach($schoolAPrograms as $program)
                         <div class="program-row">
@@ -96,18 +111,33 @@
                     @endif
                     {{ $schoolBData->name }}
                 </div>
-                <div class="comparison-row schoolb">
+                <div class="comparison-row schoolb comparaison-description">
                     {!! $schoolBData->description ?? '—' !!}
                     <p><a href="{{ route('view_school', $schoolBData->slug) }}"></a></p>
                 </div>
-                <h4>{{ __('schools.programs') }}</h4>
-                <div class="comparison-row schoolb mt-4 py-3">
-                    {!! $schoolBData->hasDoubleDiplome ? '<span class="badge badge-success bi bi-mortarboard-fill">&nbsp;' . __('schools.has_programs_with_double_diplomes') . '</span>' : '' !!}
-                    {!! $schoolBData->guarantiesInternship ? '<span class="badge badge-success bi bi-buildings"> ' . __('schools.has_programs_with_guaranties_internship') . '</span>' : '' !!}
-                    {!! $schoolBData->jobGuarantee ? '<span class="badge badge-success bi bi-buildings-fill">&nbsp;' . __('schools.has_programs_with_job_guarantee') . '</span>' : '' !!}
-                    {!! $schoolBData->studyAbroad ? '<span class="badge badge-success bi bi-globe-europe-africa-fill">&nbsp;' . __('schools.offers_study_abroad_programs') . '</span>' : '' !!}
-                    {!! $schoolBData->has_incubator ? '<span class="badge badge-success bi bi-rocket-takeoff-fill">&nbsp;' . __('schools.include_an_incubator') . '</span>' : '' !!}
+                <div class="comparison-row schoolb mt-4 py-3 school-caracteristics">
+                    <div class="mb-4">
+                        <h4 class="p-0">{{ __('schools.accreditations') }}</h4>
+                        @foreach($schoolBData->programs->map(fn($p) => $p->accreditationBodies->map(fn($a) => $a->name))
+                                ->flatten()
+                                ->unique()
+                                ->toArray() as $acc)
+                            <span class="badge"> <span class="bi bi-award"></span> {{ $acc }}</span>
+                        @endforeach
+                    </div>
+                    <div class="mb-4 school-caracteristics-features">
+                        <h4 class="p-0">{{ __('schools.features') }}</h4>
+                        @foreach($schoolBData->programs
+                                ->pluck('features')
+                                ->flatten()
+                                ->unique('id')
+                                ->sortBy('name')
+                                ->pluck('name','icon_class') as $class => $name)
+                                {!! '<span class="badge badge-success ' . $class . '">&nbsp;' . __('schools.' . $name) . '</span>' !!}
+                        @endforeach
+                    </div>
                 </div>
+                <h4>{{ __('schools.programs') }}</h4>
                 <div class="comparison-row schoolb">
                     @foreach($schoolBPrograms as $program)
                         <div class="program-row">
