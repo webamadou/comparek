@@ -11,7 +11,7 @@
                     <div class="col-sm-6 col-md-4 page-bilboard-img">
                         <img src="{{ asset('frontv1/img/illustration/illust24.svg') }}" alt="comparek" class="img-fluid">
                     </div>
-                    <div class="col-12" style="background: #fff">
+                    <div class="col-12 page-description">
                         <p>
                             Le secteur bancaire sénégalais est en constante évolution, avec des acteurs comme Ecobank, BOA, CBAO, Société Générale, UBA et bien d’autres, qui rivalisent d’innovations pour proposer des services modernes : banque en ligne, applications mobiles, paiement sans contact, transferts rapides.
                             <br><br>
