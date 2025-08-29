@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row d-flex justify-content-center bank-bilboard">
                     <div class="col-md-8">
-                        <h1>{{ __('banks.banks') }}</h1>
+                        <h1>{{ __('banks.title_banks') }}</h1>
                     </div>
                     <div class="col-sm-6 col-md-4 page-bilboard-img">
                         <img src="{{ asset('frontv1/img/illustration/illust24.svg') }}" alt="comparek" class="img-fluid">

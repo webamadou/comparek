@@ -3,6 +3,7 @@
 return [
     'comparing_banks' => 'Comparaison des banques',
     'banks' => 'Banques',
+    'title_banks' => 'Les grandes banques du Sénégal',
     'bank' => 'Banque',
     'eme' => 'Émetteur de monnaie électronique',
     'sfd' => 'Systèmes Financiers Décentralisés',

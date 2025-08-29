@@ -2980,7 +2980,8 @@ button.reset-filter {
   height: 21vh;
 }
 
-.school-bilboard h1 {
+.school-bilboard h1,
+.bank-bilboard h1 {
   font-size: 4.1rem !important;
   color: var(--heading-color);
   text-align: initial
