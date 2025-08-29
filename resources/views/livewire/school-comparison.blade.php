@@ -76,6 +76,7 @@
                 </div>
                 <h4>{{ __('schools.programs') }}</h4>
                 <div class="comparison-row schoola">
+                    <h4>{{ __('schools.programs') }}</h4>
                     @foreach($schoolAPrograms as $program)
                         <div class="program-row">
                             <div class="program-name">
@@ -139,6 +140,7 @@
                 </div>
                 <h4>{{ __('schools.programs') }}</h4>
                 <div class="comparison-row schoolb">
+                    <h4>{{ __('schools.programs') }}</h4>
                     @foreach($schoolBPrograms as $program)
                         <div class="program-row">
                             <div class="program-name">
