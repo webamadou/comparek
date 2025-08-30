@@ -78,6 +78,12 @@ return [
     'digital-library' => 'Bibliothèque numérique',
     'dedicated-labs-equipment' => 'Équipements de laboratoires dédiés',
     'modern-campus-high-speed-wifi' => 'Campus moderne avec Wi-Fi haut débit',
+    'soft_skills_development' => 'Développement des soft skills et leadership',
+    'professional_training' => 'Formation professionnalisante',
+    'integration_seminar' => 'Séminaire d’intégration',
+    'specialized_technical_seminars' => 'Séminaires techniques spécialisés',
+    'multidisciplinary_approach' => 'Approche pluridisciplinaire',
+    'continuing_education' => 'Formation continue adaptée aux professionnels',
 
     'has_programs_with_double_diplomes' => 'Propose des programmes avec doubles diplômes',
     'has_internership' => 'Garantie de stages',
