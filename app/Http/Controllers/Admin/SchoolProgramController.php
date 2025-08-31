@@ -43,7 +43,7 @@ class SchoolProgramController extends Controller
         $schools = School::orderBy('name')->where('is_active', true)->pluck('name', 'id')->toArray();
         $domains = ProgramDomain::orderBy('name')->pluck('name', 'id')->toArray();
         $accreditations = AccreditationBody::orderBy('name')->where('is_active', true)->pluck('name', 'id')->toArray();
-        $features = ProgramFeature::where('is_active', 1)->orderBy('name')->pluck('slug', 'id')->toArray();
+        $features = ProgramFeature::where('is_active', 1)->orderBy('slug')->pluck('name', 'id')->toArray();
 
         return view('dashboard.school_program.form', compact('school_program', 'schools', 'domains', 'accreditations', 'features'));
     }
