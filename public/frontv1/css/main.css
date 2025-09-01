@@ -3016,7 +3016,7 @@ button.reset-filter {
   background: #f7fcfe;
   padding: 1rem;
   border: 3px solid var(--accent-color);
-  background: #fff1ea;
+  background: #fff1ead4;
   transition: all ease-in-out .9s;
   position: sticky;
   top: 11.5vh;

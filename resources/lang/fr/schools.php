@@ -87,6 +87,7 @@ return [
     'thesis_defense' => 'Mémoire et soutenance en fin de parcours',
     'bilingual_training' => 'Formation bilingue',
     'communication_skills_development' => 'Développement des compétences en communication',
+    'exam_preparation_support' => 'Orientation / accompagnement pour les concours',
 
     'has_programs_with_double_diplomes' => 'Propose des programmes avec doubles diplômes',
     'has_internership' => 'Garantie de stages',
