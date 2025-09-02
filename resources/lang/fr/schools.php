@@ -88,6 +88,8 @@ return [
     'bilingual_training' => 'Formation bilingue',
     'communication_skills_development' => 'Développement des compétences en communication',
     'exam_preparation_support' => 'Orientation / accompagnement pour les concours',
+    'doctoral_workshops_and_international_conferences' => 'Ateliers doctoraux et colloques internationaux',
+    'personal_professional_development' => 'Développement personnel/professionnel inclus',
 
     'has_programs_with_double_diplomes' => 'Propose des programmes avec doubles diplômes',
     'has_internership' => 'Garantie de stages',

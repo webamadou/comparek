@@ -12,6 +12,7 @@ enum ProgramLevelEnum: string
     case MBA = 'MBA';
     case DOCTORAT = 'Doctorat';
     case CERTIFICAT = 'Certificat';
+    case ENGINEERING = 'Diplôme d\'ingénieur';
 
     public static function labels(): array
     {
@@ -24,6 +25,7 @@ enum ProgramLevelEnum: string
             self::MBA->value => 'MBA',
             self::DOCTORAT->value => 'Doctorat',
             self::CERTIFICAT->value => 'Certificat',
+            self::ENGINEERING->value => 'Diplôme d\'ingénieur',
         ];
     }
 
