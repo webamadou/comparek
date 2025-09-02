@@ -42,6 +42,20 @@
                             </ul>
                         </div>
                         @endif
+                        @if ($accreditations->isNotEmpty())
+                        <div class="program-features">
+                            <h3>{{ __('schools.features') }}:</h3>
+                            <ul>
+                                @foreach ($program->features
+                                            ->flatten()
+                                            ->unique('id')
+                                            ->sortBy('slug')
+                                            ->pluck('name','icon_class') as $icon => $feat)
+                                    <li class="badge badge-success"><span class="{{ $icon }}"></span> {{ __("schools.{$feat}")  }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                     </div>
                     <div class="col-sm-6 col-md-4 page-bilboard-img">
                         <img src="{{ asset('frontv1/img/illustration/illust23.png') }}" alt="comparek"

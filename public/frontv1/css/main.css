@@ -493,6 +493,15 @@ a:focus {
   text-align: justify;
   position: relative;
   background: var(--second-color);
+  overflow: hidden;
+}
+
+.page-bilboard-text .page-description {
+  height: 170px;
+}
+
+.page-description.active {
+  height: auto;
 }
 
 .page-title a {
@@ -2813,9 +2822,6 @@ button.reset-filter {
   color: var(--heading-color);
 }
 
-.page-description.active {
-  height: auto;
-}
 
 .page-description h2 {
   color: var(--accent-color);
@@ -3556,7 +3562,7 @@ span.round-no {
 }
 
 .program-details p {
-  background: #edf0f1;
+  background: var(--second-color);
   padding: .2rem 0.9rem;
   margin-left: .3rem;
   border-radius: 5px;
@@ -3565,20 +3571,27 @@ span.round-no {
 }
 
 .program-domains h3,
+.program-features h3,
 .program-accred h3 {
-  font-size: large;
+  font-size: .8rem;
   font-weight: 600;
+  margin: 0;
+  text-align: left;
 }
 
-.program-domains {
+.program-domains,
+.program-features,
+.program-accred {
   display: flex;
+  align-items: center;
   position: relative;
   margin: 1.2rem 0;
-  background: #f3f0f0;
-  padding: 1rem;
+  background: var(--second-color);
+  padding: .5rem;
 }
 
-.program-domains ul {
+.program-domains ul,
+.program-features ul {
   padding: 0;
   margin: 0;
   margin-left: 1rem;
@@ -3588,21 +3601,24 @@ span.round-no {
   list-style: none;
 }
 
-.program-domains ul li {
+.program-domains ul li,
+.program-features ul li {
   border-radius: 4px;
   padding: .2rem 1rem;
   margin-right: .5rem;
-  font-size: small;
+  margin-bottom: .5rem;
+  font-size: .7rem;
   background: var(--accent-color);
   color: #fff;
 }
 
 .program-accred {
   display: flex;
+  align-items: center;
   position: relative;
   margin: 1.2rem 0;
-  background: #f3f0f0;
-  padding: 1rem;
+  background: var(--second-color);
+  padding: .5rem;
 }
 
 .program-accred ul {
@@ -3618,14 +3634,14 @@ span.round-no {
   border: 1px solid #4f089e;
   border-radius: 4px;
   padding: .2rem 1rem;
-  font-size: small;
+  font-size: .6rem;
   background: var(--heading-color);
   color: #fff;
   margin-left: 1rem;
 }
 
 .program-description {
-  background: rgba(255, 255, 255, 0.83);
+  background: rgba(255, 247, 244, 0.83);
 }
 
 .similar-programs .similar {
@@ -3643,8 +3659,8 @@ span.round-no {
 
 .similar-programs .program-name a {
   text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: normal;
+  font-size: 0.8rem;
+  font-weight: 600;
   text-align: left;
   display: inline-block;
   padding: 0 .4rem;

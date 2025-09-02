@@ -220,6 +220,9 @@
                         },
                         success: function (data) {
                             $('#schoolResults').html(data);
+                            if (window.innerWidth <= 768) {
+                                $('.school-filter-wrapper').addClass('collapsed');
+                            }
                         },
                         error: function () {
                             alert('Erreur lors du chargement des écoles.');

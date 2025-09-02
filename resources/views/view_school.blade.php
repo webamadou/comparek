@@ -16,7 +16,7 @@
                         <img src="{{ asset('frontv1/img/illustration/illust18.svg') }}" alt="comparek"
                              class="img-fluid">
                     </div>
-                    <div class="card mb-3 p-3 col-sm-12 col-md-12">
+                    <div class="col-md-12 page-description">
                         <p class="card-text">{!! $school->full_description !!}</p>
                     </div>
                 </div>

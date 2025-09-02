@@ -3,7 +3,7 @@
         <div class="school-logo col-sm-2 col-md-2">
             @if($program->school->images)
                 <a href="{{ route('view_school', $program->school) }}" title="{{ $program->school->name }}">
-                    <img src="{{ Storage::disk('public')->url($program->school->images->path) }}" width="100%" alt="{{ $program->school->images->path }}">
+                        
                 </a>
             @endif
         </div>
