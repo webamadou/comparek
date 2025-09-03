@@ -1,11 +1,11 @@
-<div class="container py-4">
+<div class="container py-4 comparison-container">
     <h2>{{ __('schools.compare_schools') }}</h2>
     <p class="text-sm text-gray-600 mb-4">
         {{ __('schools.compare_schools_description') }}
     </p>
 
     <div class="row fields comparison-select position-relative">
-        <div class="select-wrapper">
+        <div class="select-wrapper wrapperA">
             {{--<label for="schoolA" class="block mb-1 font-medium">École 1</label>--}}
             <select wire:model.live="schoolA" id="schoolA" class="form-select w-full">
                 <option value="">{{ __('schools.pick_a_school') }}</option>
@@ -15,7 +15,7 @@
             </select>
         </div>
         <div class="andvs">VS</div>
-        <div class="select-wrapper">
+        <div class="select-wrapper wrapperB">
             {{--<label for="schoolB" class="block mb-1 font-medium">École 2</label>--}}
             <select wire:model.live="schoolB" id="schoolB" class="form-select w-full">
                 <option value="">{{ __('schools.pick_a_school') }}</option>
