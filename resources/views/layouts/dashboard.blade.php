@@ -24,7 +24,8 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
         <!-- Place the first <script> tag in your HTML's <head> -->
-        <script src="https://cdn.tiny.cloud/1/81puvyoink3jh3lq92ay58tevsqqmzggczglnm6ov1bw6w0a/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+        <!-- <script src="https://cdn.tiny.cloud/1/81puvyoink3jh3lq92ay58tevsqqmzggczglnm6ov1bw6w0a/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script> -->
+        <script src="https://cdn.tiny.cloud/1/ei7028dsqr3exr5q2ehiuf9ahogwlzjxj7dnlv5v4r7zo375/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
     </head>
     <body class="font-sans antialiased">
         @include('layouts.partials.sidebar')
