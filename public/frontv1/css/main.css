@@ -3362,7 +3362,7 @@ ul.program-list {
 #schoolComparison select {
   border: none;
   padding: 0 0;
-  width: 70%;
+  width: 90%;
   border-radius: 0;
   font-size: 1.3rem;
   font-weight: 400;
@@ -3373,6 +3373,12 @@ ul.program-list {
   appearance: none;
   background: var(--accent-color);
   color: #fff;
+  position: relative;
+  z-index: 99;
+}
+
+#schoolComparison select#schoolA {
+  background: var(--heading-color);
 }
 
 .comparison-filter-wrapper {
@@ -3425,6 +3431,7 @@ ul.program-list {
 .select-wrapper.wrapperA {
   display: flex;
   justify-content: end;
+  background: var(--heading-color);
 }
 
 .select-wrapper.wrapperB {
@@ -3491,6 +3498,14 @@ ul.program-list {
   background: #f7fbfd;
 }
 
+.comparison-wrapper .left-column {
+  background: #f0ebf5;
+}
+
+.comparison-wrapper .right-column {
+  background: #fdf0e8;
+}
+
 .comparison-wrapper .right-column {
   margin-left: 1%;
 }
@@ -3501,7 +3516,7 @@ ul.program-list {
 
 .program-row {
   position: relative;
-  background: #f3e8e2;
+  background: #fff;
   margin-bottom: .9rem;
   padding: 1rem 0.8rem;
   font-size: .8rem;
@@ -3758,7 +3773,7 @@ span.round-no {
   background-repeat: no-repeat;
   position: absolute;
   top: 0;
-  left: -10px;
+  left: -14px;
 }
 
 .wrapperB:after {
@@ -3772,7 +3787,7 @@ span.round-no {
   background-repeat: no-repeat;
   position: absolute;
   top: 0;
-  right: 0;
+  right: -4px;
 }
 
 .comparison-container h2 {
