@@ -1,11 +1,13 @@
 @foreach($programs as $program)
     <div class="row mb-0 school-row p-0 school-row-wrapper">
         <div class="school-logo col-sm-2 col-md-2">
+            <a href="{{ route('view_school', $program->school) }}" title="{{ $program->school->name }}">
             @if($program->school->images)
-                <a href="{{ route('view_school', $program->school) }}" title="{{ $program->school->name }}">
-                        
-                </a>
+                <img src="{{ Storage::disk('public')->url($program->school->images->path) }}" width="100%" alt="{{ $program->school->name }}">
+            @else
+                <img src="{{ asset('frontv1/img/illustration/default-img.png') }}" width="100%" alt="{{ $program->school->name }}">
             @endif
+            </a>
         </div>
         <div class="school-text col-sm-10 col-md-10 row">
             <div class="row m-0 p-0">
