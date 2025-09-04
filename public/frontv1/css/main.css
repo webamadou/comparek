@@ -3580,6 +3580,14 @@ span.round-no {
   background: var(--accent-color);
 }
 
+.badge-gray {
+  background: #dadada;
+  padding: .3rem .6rem;
+  line-height: 1.5;
+  margin-top: .3rem;
+  display: inline-block;
+}
+
 .badge.program {
   font-size: .9rem;
   font-weight: 100;

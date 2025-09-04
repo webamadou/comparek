@@ -55,12 +55,14 @@
                 <div class="comparison-row schoola mt-4 py-4 school-caracteristics">
                     <div class="mb-4">
                         <h4 class="p-0">{{ __('schools.accreditations') }}</h4>
-                        @foreach($schoolAData->programs->map(fn($p) => $p->accreditationBodies->map(fn($a) => $a->name))
+                        @forelse($schoolAData->programs->map(fn($p) => $p->accreditationBodies->map(fn($a) => $a->name))
                                 ->flatten()
                                 ->unique()
                                 ->toArray() as $acc)
                             <span class="badge"> <span class="bi bi-award"></span> {{ $acc }}</span>
-                        @endforeach
+                        @empty
+                            <span class="badge-gray">{{ __('schools.no_accreditations') }}</span>
+                        @endforelse
                     </div>
                     <div class="mb-4 school-caracteristics-features">
                         <h4 class="p-0">{{ __('schools.features') }}</h4>
@@ -90,9 +92,13 @@
                             </div>
                             <div class="program-accreds">
                                 <p class="m-0 p-0">{{ __('schools.accreditations') }}</p>
+                                @if (! $program->accreditationBodies->isEmpty())
                                 <ul>
                                     {!! '<li>' . implode(', ', $program->accreditationBodies->pluck('name')->toArray()) . '</li>' !!}
                                 </ul>
+                                @else
+                                    <span class="badge-gray">{{ __('schools.no_accreditations') }}</span>
+                                @endif
                             </div>
                         </div>
                     @endforeach
@@ -118,12 +124,14 @@
                 <div class="comparison-row schoolb mt-4 py-3 school-caracteristics">
                     <div class="mb-4">
                         <h4 class="p-0">{{ __('schools.accreditations') }}</h4>
-                        @foreach($schoolBData->programs->map(fn($p) => $p->accreditationBodies->map(fn($a) => $a->name))
+                        @forelse($schoolBData->programs->map(fn($p) => $p->accreditationBodies->map(fn($a) => $a->name))
                                 ->flatten()
                                 ->unique()
                                 ->toArray() as $acc)
                             <span class="badge"> <span class="bi bi-award"></span> {{ $acc }}</span>
-                        @endforeach
+                        @empty
+                            <span class="badge-gray">{{ __('schools.no_accreditations') }}</span>
+                        @endforelse
                     </div>
                     <div class="mb-4 school-caracteristics-features">
                         <h4 class="p-0">{{ __('schools.features') }}</h4>
@@ -153,9 +161,13 @@
                             </div>
                             <div class="program-accreds">
                                 <p class="m-0 p-0">{{ __('schools.accreditations') }}</p>
+                                @if($program->accreditationBodies->isNotEmpty())
                                 <ul>
                                     {!! '<li>' . implode(', ', $program->accreditationBodies->pluck('name')->toArray()) . '</li>' !!}
                                 </ul>
+                                @else
+                                    <span class="badge-gray">{{ __('schools.no_accreditations') }}</span>
+                                @endif
                             </div>
                         </div>
                     @endforeach
