@@ -90,6 +90,7 @@ return [
     'exam_preparation_support' => 'Orientation / accompagnement pour les concours',
     'doctoral_workshops_and_international_conferences' => 'Ateliers doctoraux et colloques internationaux',
     'personal_professional_development' => 'Développement personnel/professionnel inclus',
+    'computer_center' => 'Centre informatique équipé et softwares spécialisés',
 
     'has_programs_with_double_diplomes' => 'Propose des programmes avec doubles diplômes',
     'has_internership' => 'Garantie de stages',
