@@ -6,7 +6,7 @@ enum ProgramLevelEnum: string
 {
     case BAC = 'BAC';
     case BTS = 'BTS';
-    case LICENCE = 'Licence';
+    case LICENCE = 'Licence/Bachelor';
     case MASTERUN = 'Master';
     case MASTERDEUX = 'Master 2';
     case MBA = 'MBA';
@@ -19,7 +19,7 @@ enum ProgramLevelEnum: string
         return [
             self::BAC->value => 'BAC',
             self::BTS->value => 'BTS',
-            self::LICENCE->value => 'Licence',
+            self::LICENCE->value => 'Licence/Bachelor',
             self::MASTERUN->value => 'Master 1',
             self::MASTERDEUX->value => 'Master 2',
             self::MBA->value => 'MBA',

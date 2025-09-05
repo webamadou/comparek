@@ -67,7 +67,7 @@ return [
     'evening-weekend-classes' => 'Cours du soir et week-end',
     'hybrid-format' => 'Format hybride présentiel/online',
     'small-classes-supervision' => 'Petites classes et encadrement',
-    'included-certifications' => 'Certifications incluses',
+    'included-certifications' => 'Certifications possibles',
     'incubator-entrepreneurship' => 'Incubateur d\'entrepreneuriat',
     'partner-companies' => 'Entreprises partenaires',
     'company-visits-learning-trips' => 'Visites d\'entreprises et voyages d\'étude',
