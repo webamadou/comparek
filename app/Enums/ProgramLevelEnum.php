@@ -6,7 +6,7 @@ enum ProgramLevelEnum: string
 {
     case BAC = 'BAC';
     case BTS = 'BTS';
-    case LICENCE = 'Licence/Bachelor';
+    case LICENCE = 'Licence';
     case MASTERUN = 'Master';
     case MASTERDEUX = 'Master 2';
     case MBA = 'MBA';
