@@ -3023,6 +3023,7 @@ button.reset-filter {
   padding: 1rem;
   border: 3px solid var(--accent-color);
   background: #fff1ead4;
+  backdrop-filter: blur(5px);
   transition: all ease-in-out .9s;
   position: sticky;
   top: 11.5vh;
