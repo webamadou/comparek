@@ -208,7 +208,6 @@
                                 </div>
                             </div>
                         </div>
-                       {{-- <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">3</div>--}}
                     </div>
                 </div>
                 <div id="schoolResults" class="px-1">
@@ -318,9 +317,7 @@
                             if (!$el.hasClass('collapsed')) {
                                 $el.addClass('collapsed');
                             }
-                        }/*  else {
-                            $el.removeClass('collapsed');
-                        } */
+                        }
                     });
                 }
 
@@ -332,6 +329,7 @@
                 $('#double_diplomes').on('change', fetchPrograms);
                 $('#has_internership').on('change', fetchPrograms);
 
+                // Sync tab visibility with results
                 $('#myTab button[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
                     const target = $(e.target).attr('data-bs-target');
                     if (target === '#schools-filters') {
@@ -342,29 +340,10 @@
                         $('#programResults').show();
                     }
                 });
+
                 // Hide programResults by default (since schools tab is active)
                 $('#programResults').hide();
-
-                /* // Initial check
-                handleSticky();
-
-                // Check on scroll
-                $(window).on('scroll', handleSticky);
-
-                // Optional: also check on resize
-                $(window).on('resize', handleSticky); */
-
             });
-
-            /* $('.school-row-wrapper').click(function() {
-                var firstLink = $(this).find('a').first();
-                if (firstLink.length > 0) {
-                    var href = firstLink.attr('href');
-                    if (href) {
-                        window.location.href = href;
-                    }
-                }
-            }); */
         </script>
     @endpush
 

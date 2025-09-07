@@ -32,7 +32,7 @@ return [
     'are_u_sure' => 'Êtes vous sûre?',
     'error_occurred' => "Il s'est produit une erreur!",
     'duration' => 'Durée',
-    'year' => 'An',
+    'years' => 'an(s)',
     'currency' => 'Devise',
     'actions' => 'Actions',
     'feature_image' => 'Image de l\'article',

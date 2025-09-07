@@ -18,7 +18,7 @@
     <section class="p-0">
         <div class="container">
             <div class="row justify-content-between gy-4">
-                <div class="col-lg-12 school-filter-wrapper sticky-element collapsed">
+                <div class="col-lg-12 school-filter-wrapper sticky-element">
                     <span class="collapse-trigger bi bi-chevron-double-down"></span>
                     <div id="spinner" wire:loading class="justify-content-center"><span class="loader"></span></div>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -43,14 +43,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-3 form-group">
-                                    <h3><span class="bi bi-globe-americas"></span> {{ __('filters.foreign_students') }}</h3>
-                                    <label for="accept_foreign" class="custom-checkbox">
-                                        <input id="accept_foreign" type="checkbox" value="1">
-                                        <span>{{ __('schools.accept_foreign_students') }}</span>
-                                    </label>
-                                </div>
-                                <div class="col-sm-12 col-md-3 form-group">
+                                <div class="col-sm-12 col-md-5 form-group">
                                     <h3><span class="bi bi-mortarboard-fill"></span> {{ __('filters.school_type') }}</h3>
                                     <div class="d-flex">
                                         <div class="form-check">
@@ -63,7 +56,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-3 form-group">
+                                <div class="col-sm-12 col-md-4 form-group">
                                     <h3><span class="bi bi-patch-check-fill"></span> {{ __('filters.certification') }}</h3>
                                     <div class="d-flex justify-content-between">
                                         <label for="accred3" class="custom-checkbox">
@@ -114,7 +107,7 @@
                                 <div class="col-sm-12 col-md-3 form-group">
                                     <h3><span class="bi bi-bar-chart-steps"></span> {{__('filters.levels')}}</h3>
                                     <div class="custom-checkbox-group">
-                                        <select name="level" class="form-select school-filter">
+                                        <select name="level" class="form-select program-filter">
                                             <option value=""> --- </option>
                                             @foreach(\App\Enums\ProgramLevelEnum::cases() as $level)
                                                 <option value="{{ $level->value }}">{{ $level->value }}</option>
@@ -125,7 +118,7 @@
                                 <div class="col-sm-12 col-md-3 form-group">
                                     <h3><span class="bi bi-textarea"></span> {{__('filters.domains')}}</h3>
                                     <div class="custom-checkbox-group">
-                                        <select name="domain" class="form-select school-filter">
+                                        <select name="domain" class="form-select program-filter">
                                             <option value=""> --- </option>
                                             @foreach($domains as $id => $name)
                                                 <option value="{{ $id }}">{{ $name }}</option>
@@ -138,21 +131,54 @@
                                     <div class="d-flex">
                                         @foreach(\App\Enums\LanguageEnum::cases() as $lang)
                                             <div class="form-check">
-                                                <input class="form-check-input school-filter" type="radio" name="language" id="{{ "lang{$lang->value}" }}" value="{{ $lang->value }}">
+                                                <input class="form-check-input program-filter" type="radio" name="language" id="{{ "lang{$lang->value}" }}" value="{{ $lang->value }}">
                                                 <label class="form-check-label" for="{{ "lang{$lang->value}" }}">{{ $lang->value }}</label>
                                             </div>
                                         @endforeach
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-2 form-group">
-                                    <h3><span class="bi bi-list"></span> {{__('filters.modality')}}</h3>
-                                    <div class="custom-checkbox-group">
-                                        <select name="modalite" class="form-select school-filter">
-                                            <option value=""> --- </option>
-                                            @foreach(\App\Enums\ProgramModalityEnum::cases() as $modalite)
-                                                <option value="{{ $modalite->value }}">{{ $modalite->value }}</option>
+                                    <h3><span class="bi bi-patch-check-fill"></span> {{ __('filters.certification') }}</h3>
+                                    <div class="d-flex justify-content-between">
+                                        <label for="p-accred3" class="custom-checkbox">
+                                            <input class="p-accred-filter" id="p-accred3" type="checkbox" name="paccreditations[]"
+                                                   value="3">
+                                            <span>ISO 9001</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 row filter-bottom-row">
+                                    <div class="col-sm-12 col-md-3 mt-3 form-group">
+                                        <h3><span class="bi bi-award-fill"></span> {{ __('filters.accreditations_national') }}</h3>
+                                        <div class="d-flex justify-content-between">
+                                            <label for="p-accred1" class="custom-checkbox">
+                                                <input class="p-accred-filter" id="p-accred1" type="checkbox" name="paccreditations[]"
+                                                       value="1">
+                                                <span>ANAQ-Sup</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-3 mt-3 form-group">
+                                        <h3><span class="bi bi-award-fill"></span> {{ __('filters.accreditations_regional') }}</h3>
+                                        <div class="d-flex justify-content-between">
+                                            <label for="p-accred2" class="custom-checkbox">
+                                                <input class="p-accred-filter" id="p-accred2" type="checkbox" name="paccreditations[]"
+                                                       value="2">
+                                                <span>CAMES</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 mt-3 form-group">
+                                        <h3><span class="bi bi-award-fill"></span> {{ __('filters.accreditations_international') }}</h3>
+                                        <div class="d-flex justify-content-between">
+                                            @foreach($accreditations as $id => $name)
+                                                <label for="{{ "p-accred{$id}" }}" class="custom-checkbox">
+                                                    <input class="p-accred-filter" id="{{ "p-accred{$id}" }}" type="checkbox" name="paccreditations[]"
+                                                           value="{{ $id }}">
+                                                    <span>{{ $name }}</span>
+                                                </label>
                                             @endforeach
-                                        </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3 form-group">
@@ -171,11 +197,13 @@
                                 </div>
                             </div>
                         </div>
-                       {{-- <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">3</div>--}}
                     </div>
                 </div>
                 <div id="schoolResults" class="px-1">
                     @include('partials.schools-list', ['schools' => $schools])
+                </div>
+                <div id="programResults" class="px-1">
+                    @include('partials.school-programs-list', ['programs' => $programs])
                 </div>
             </div>
         </div>
@@ -187,18 +215,9 @@
                     $('#spinner').addClass('active');
 
                     let city = $('*[name="city"]').val();
-                    let level = $('*[name="level"]').val();
-                    let domain = $('*[name="domain"]').val();
-                    let modalite = $('*[name="modalite"]').val();
-
-                    let foreign = $('#accept_foreign:checked').val();
                     let is_private = $('*[name="is_private"]:checked').val();
-                    let language = $('*[name="language"]:checked').val();
-                    let double_diplomes = $('#double_diplomes:checked').val();
-                    let internership = $('#has_internership:checked').val();
 
                     let accreds = [];
-
                     $('.accred-filter:checked').each(function () {
                         accreds.push($(this).val());
                     });
@@ -208,13 +227,6 @@
                         method: 'GET',
                         data: {
                             city: city,
-                            level: level,
-                            domain: domain,
-                            modalite: modalite,
-                            foreign: foreign,
-                            language: language,
-                            double_diplomes: double_diplomes,
-                            internership: internership,
                             is_private: is_private,
                             'accreditations[]': accreds
                         },
@@ -231,21 +243,72 @@
                     $('#spinner').removeClass('active');
                 }
 
+                function fetchPrograms() {
+                    $('#spinner').addClass('active');
+
+                    let level = $('*[name="level"]').val();
+                    let domain = $('*[name="domain"]').val();
+                    let modalite = $('*[name="modalite"]').val();
+
+                    let language = $('*[name="language"]:checked').val();
+                    let double_diplomes = $('#double_diplomes:checked').val();
+                    let internership = $('#has_internership:checked').val();
+
+                    let accreds = [];
+
+                    $('.p-accred-filter:checked').each(function () {
+                        accreds.push($(this).val());
+                    });
+
+                    $.ajax({
+                        url: '/ecoles/ajax',
+                        method: 'GET',
+                        data: {
+                            type: 'program',
+                            level: level,
+                            domain: domain,
+                            modalite: modalite,
+                            language: language,
+                            double_diplomes: double_diplomes,
+                            internership: internership,
+                            'paccreditations[]': accreds
+                        },
+                        success: function (data) {
+                            $('#programResults').html(data);
+                            if (window.innerWidth <= 768) {
+                                $('.school-filter-wrapper').addClass('collapsed');
+                            }
+                        },
+                        error: function () {
+                            alert('Erreur lors du chargement des écoles.');
+                        }
+                    });
+                    $('#spinner').removeClass('active');
+                }
+
                 $('.school-filter').on('change', fetchSchools);
                 $('.accred-filter').on('change', fetchSchools);
-                $('#double_diplomes').on('change', fetchSchools);
-                $('#has_internership').on('change', fetchSchools);
+
+                $('.p-accred-filter').on('change', fetchPrograms);
+                $('.program-filter').on('change', fetchPrograms);
+                $('#double_diplomes').on('change', fetchPrograms);
+                $('#has_internership').on('change', fetchPrograms);
             });
 
-            /* $('.school-row-wrapper').click(function() {
-                var firstLink = $(this).find('a').first();
-                if (firstLink.length > 0) {
-                    var href = firstLink.attr('href');
-                    if (href) {
-                        window.location.href = href;
-                    }
+            // Sync tab visibility with results
+            $('#myTab button[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                const target = $(e.target).attr('data-bs-target');
+                if (target === '#schools-filters') {
+                    $('#schoolResults').show();
+                    $('#programResults').hide();
+                } else if (target === '#programs-filter') {
+                    $('#schoolResults').hide();
+                    $('#programResults').show();
                 }
-            }); */
+            });
+
+            // Hide programResults by default (since schools tab is active)
+            $('#programResults').hide();
         </script>
     @endpush
 

@@ -19,10 +19,10 @@
                     <ul class="program-list">
                         <li> <strong><span class="bi bi-stack"></span> {{__('schools.domains') }}</strong> : {{ $program->domains->pluck('name')->implode(',') }} </li>
                         <li> <strong><span class="bi bi-flag-fill"></span> {{__('schools.level') }}</strong> : {{ $program->level }} </li>
-                        <li> <strong><span class="bi bi-clock-fill"></span> {{__('schools.duration') }}</strong> : {{ $program->duration_years }} </li>
+                        <li> <strong><span class="bi bi-clock-fill"></span> {{__('schools.duration') }}</strong> : {{ $program->duration_years . ' ' . __('commons.years') }} </li>
                         <li> <strong><span class="bi bi-book-fill"></span> {{__('schools.modality') }}</strong> : {{ $program->modality }} </li>
-                        @if (! empty($accreds = $program->accreditationBodies->pluck('name')))
-                            <li> <strong><span class="bi bi-award-fill"></span> {{__('schools.accreditations') }}</strong> : {{ $accreds->implode(', ') }} </li>
+                        @if (! $program->accreditationBodies->pluck('name')->isEmpty())
+                            <li> <strong><span class="bi bi-award-fill"></span> {{__('schools.accreditations') }}</strong> : {{ $program->accreditationBodies->pluck('name')->implode(', ') }} </li>
                         @else
                             <li> <strong><span class="bi bi-award-fill"></span> {{__('schools.accreditations') }}</strong> : {{ __('schools.no_accreditations') }} </li>
                         @endif
