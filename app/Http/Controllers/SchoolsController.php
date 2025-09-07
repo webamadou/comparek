@@ -13,11 +13,35 @@ class SchoolsController extends Controller
 {
     public function index()
     {
-        $accreditations = AccreditationBody::whereNotIn('id', [1,2,3])->orderBy('name')->pluck('name', 'id')->toArray();
-        $domains = ProgramDomain::orderBy('name')->pluck('name', 'id')->toArray();
-        $schools = School::where('is_active', 1)->orderBy('name')->get();
+        // Caching 6 hours
+        $ttl = now()->addHours(6);
 
-        return view('list_schools',  compact('accreditations',  'schools',  'domains'));
+        $accreditations = Cache::remember('schools:accreditations:v2', $ttl, function () {
+            return AccreditationBody::whereNotIn('id', [1, 2, 3])
+                ->orderBy('name')
+                ->pluck('name', 'id');
+        });
+
+        $domains = Cache::remember('schools:domains:v3', $ttl, function () {
+            return ProgramDomain::orderBy('name')
+                ->orderBy('name')
+                ->pluck('name', 'id');
+        });
+
+        $schools = Cache::remember('schools:schools:v1', $ttl, function () {
+            return School::where('is_active', 1)->orderBy('name')->get();
+        });
+
+        $programs = Cache::remember('schools:programs:v1.2.1', $ttl, function () {
+            return SchoolProgram::select(['id', 'name', 'slug', 'school_id', 'level', 'duration_years', 'modality'])
+                ->with(['school:id,slug,name'])
+                ->without(['domains', 'accreditationBodies', 'features'])
+                ->whereHas('school')
+                ->orderBy('name')->orderBy('school_id')
+                ->get();
+        });
+
+        return view('list_schools',  compact('accreditations',  'schools',  'domains', 'programs'));
     }
 
     public function view(School $school)

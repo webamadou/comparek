@@ -208,7 +208,6 @@
                                 </div>
                             </div>
                         </div>
-                       {{-- <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">3</div>--}}
                     </div>
                 </div>
                 <div id="schoolResults" class="px-1">
@@ -332,6 +331,7 @@
                 $('#double_diplomes').on('change', fetchPrograms);
                 $('#has_internership').on('change', fetchPrograms);
 
+                // Sync tab visibility with results
                 $('#myTab button[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
                     const target = $(e.target).attr('data-bs-target');
                     if (target === '#schools-filters') {
@@ -342,6 +342,7 @@
                         $('#programResults').show();
                     }
                 });
+
                 // Hide programResults by default (since schools tab is active)
                 $('#programResults').hide();
 
