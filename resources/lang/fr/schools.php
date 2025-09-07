@@ -110,6 +110,7 @@ return [
     'registration_fee' => 'Frais d\'inscription',
     'registration_fee_not_available' => 'Frais d\'inscription non disponible',
     'accredited_schools' => 'Écoles accréditées',
+    'accredited_schools_programs' => 'Écoles et programmes accrédités',
     'accredited_programs' => 'Programmes accrédités',
     'accreditations' => 'Accréditation(s)',
     'accreditation' => 'Accréditation',

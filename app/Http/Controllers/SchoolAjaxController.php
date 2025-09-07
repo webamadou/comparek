@@ -55,8 +55,8 @@ class SchoolAjaxController
         }
 
         if ($request->has('internership') && ! empty($request->internership)) {
-            $query->whereHas('programs.features', function ($q) use ($request) {
-                $q->whereIn('program_features.id', [1]);
+            $query->whereHas('features', function ($q) use ($request) {
+                $q->whereIn('id', [1]);
             });
         }
 
@@ -128,7 +128,9 @@ class SchoolAjaxController
     public function accredSchoolProgramFilter(Request $request)
     {
         $query = School::query();
+        $queryProgram = SchoolProgram::query();
         $schoolId = $request->schoolId;
+        $isProgramFilter = ! empty($request->type) && $request->type === 'program';
 
         if ($request->has('city') && ! empty($request->city)) {
             $query->where('city', $request->city);
@@ -143,31 +145,27 @@ class SchoolAjaxController
         }
 
         if ($request->has('level') && ! empty($request->level)) {
-            $query->whereHas('programs', function ($q) use ($request) {
-                $q->where('level', $request->level);
-            });
+            $queryProgram->where('level', $request->level);
         }
 
         if ($request->has('language') && ! empty($request->language)) {
-            $query->whereHas('programs', function ($q) use ($request) {
-                $q->where('language', $request->language);
-            });
+            $queryProgram->where('language', $request->language);
         }
 
         if ($request->has('modalite') && ! empty($request->modalite)) {
-            $query->whereHas('programs', function ($q) use ($request) {
+            $queryProgram->whereHas('programs', function ($q) use ($request) {
                 $q->where('modality', $request->modalite);
             });
         }
 
         if ($request->has('domain') && ! empty($request->domain)) {
-            $query->whereHas('programs.domains', function ($q) use ($request) {
+            $queryProgram->whereHas('domains', function ($q) use ($request) {
                 return $q->where('program_domains.id', $request->domain);
             });
         }
 
         if ($request->has('double_diplomes') && ! empty($request->double_diplomes)) {
-            $query->whereHas('programs.features', function ($q) use ($request) {
+            $queryProgram->whereHas('features', function ($q) use ($request) {
                 $q->whereIn('program_features.id', [2]);
             });
         }
@@ -176,11 +174,24 @@ class SchoolAjaxController
             $query->whereHas('programs.accreditationBodies', fn ($q) => $q->whereIn('accreditation_bodies.id', $request->accreditations));
         }
 
-        $schools = $query
-            ->whereHas('programs', fn ($q) => $q->whereHas('accreditationBodies'))
-            ->with('programs')
-            ->get();
+        if ($request->has('paccreditations')) {
+            $queryProgram->whereHas('accreditationBodies', fn ($q) => $q->whereIn('accreditation_bodies.id', $request->paccreditations));
+        }
+;
+        if ($isProgramFilter) {
+            $programs = $queryProgram->whereHas('accreditationBodies')
+                ->orderBy('name')
+                ->get();
 
-        return view('partials.schools-list-accreds', compact('schools'));
+            return view('partials.school-programs-list', compact('programs'));
+        }
+        else {
+            $schools = $query
+                ->whereHas('programs', fn($q) => $q->whereHas('accreditationBodies'))
+                ->with('programs')
+                ->orderBy('name')
+                ->get();
+            return view('partials.schools-list-accreds', compact('schools'));
+        }
     }
 }

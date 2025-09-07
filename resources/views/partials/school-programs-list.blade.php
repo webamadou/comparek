@@ -23,6 +23,8 @@
                         <li> <strong><span class="bi bi-book-fill"></span> {{__('schools.modality') }}</strong> : {{ $program->modality }} </li>
                         @if (! empty($accreds = $program->accreditationBodies->pluck('name')))
                             <li> <strong><span class="bi bi-award-fill"></span> {{__('schools.accreditations') }}</strong> : {{ $accreds->implode(', ') }} </li>
+                        @else
+                            <li> <strong><span class="bi bi-award-fill"></span> {{__('schools.accreditations') }}</strong> : {{ __('schools.no_accreditations') }} </li>
                         @endif
                     </ul>
                 </div>
