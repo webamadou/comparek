@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ProgramSuperDomain;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
             TelecomOfferFeatureSeeder::class,
             ScoreCriteriaSeeder::class,
             SchoolSeeder::class,
+            ProgramSuperDomainSeeder::class,
             ProgramDomainSeeder::class,
             AccreditationBodySeeder::class,
             CategorySeeder::class,
