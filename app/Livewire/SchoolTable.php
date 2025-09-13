@@ -15,6 +15,7 @@ class SchoolTable extends Component
     public $sortField = 'name';
     public $sortDirection = 'asc';
     public $filterAccredited = null;
+    public $filterActive = null;
     public $filterForeignStudents = null;
     public bool $showDeleteModal = false;
     public $deleteId;
@@ -52,13 +53,13 @@ class SchoolTable extends Component
     public function render()
     {
         $schools = School::query()
-            ->where('is_active', true)
+            /* ->where('is_active', true) */
             ->when(! empty($this->search), fn($query) =>
             $query->where('name', 'like', "%{$this->search}%")
                 ->orWhere('city', 'like', "%{$this->search}%")
             )
-            ->when(! empty($this->filterAccredited), fn($query) =>
-            $query->where('is_accredited', $this->filterAccredited)
+            ->when(! empty($this->filterActive), fn($query) =>
+            $query->where('is_active', $this->filterActive)
             )
             ->when(! empty($this->filterForeignStudents), fn($query) =>
             $query->where('accepts_foreign_students', $this->filterForeignStudents)

@@ -6,17 +6,17 @@
 
         <div class="col-md-2">
             <select wire:model.live="filterAccredited" class="form-select">
-                <option value="">Tout</option>
-                <option value="1">Accredited</option>
-                <option value="0">Not Accredited</option>
+                <option value="">Accrédité & Non Accrédité</option>
+                <option value="1">Accrédité</option>
+                <option value="0">Non Accrédité</option>
             </select>
         </div>
 
         <div class="col-md-2">
-            <select wire:model.live="filterForeignStudents" class="form-select">
-                <option value="">Tout</option>
-                <option value="1">Accepts Foreign Students</option>
-                <option value="0">Does Not Accept</option>
+            <select wire:model.live="filterActive" class="form-select">
+                <option value="">Active & Inactive</option>
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
             </select>
         </div>
 
