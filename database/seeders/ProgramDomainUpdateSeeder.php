@@ -14,7 +14,7 @@ class ProgramDomainUpdateSeeder extends Seeder
     public function run(): void
     {
         $mapping = [
-            'Banque, Finance & Assurance' => [
+            'banque_finance_assurance' => [
                 'Banque',
                 'Finance',
                 'Finance & Gestion des Risques',
@@ -32,7 +32,7 @@ class ProgramDomainUpdateSeeder extends Seeder
                 'Risques',
             ],
 
-            'Administration & Gouvernance' => [
+            'administration_gouvernance' => [
                 'Administration d’entreprise',
                 'Administration des Affaires',
                 'Administration publique',
@@ -46,7 +46,7 @@ class ProgramDomainUpdateSeeder extends Seeder
                 'Marchés publics',
             ],
 
-            'Management & Stratégie' => [
+            'management_strategie' => [
                 'Gestion',
                 'Gestion d’entreprise',
                 'Gestion des projets',
@@ -68,7 +68,7 @@ class ProgramDomainUpdateSeeder extends Seeder
                 'Immobilier',
             ],
 
-            'Informatique & Développement' => [
+            'informatique_developpement' => [
                 'Informatique',
                 'Informatique / Gestion',
                 'Informatique & Réseaux',
@@ -83,7 +83,7 @@ class ProgramDomainUpdateSeeder extends Seeder
                 'Digital', // terme générique côté tech (distinct de "Marketing digital")
             ],
 
-            'Data, IA & Cybersécurité' => [
+            'data_ia_cybersecurite' => [
                 'Big Data',
                 'Data analysis',
                 'Data Science',
@@ -99,7 +99,7 @@ class ProgramDomainUpdateSeeder extends Seeder
                 "Systèmes d'information", // au cas où la base contiendrait les guillemets
             ],
 
-            'Marketing, Commerce & Communication' => [
+            'marketing_commerce_communication' => [
                 'Business',
                 'Business analysis',
                 'Commerce',
@@ -122,7 +122,7 @@ class ProgramDomainUpdateSeeder extends Seeder
                 'Sport business',
             ],
 
-            'Droit & Relations internationales' => [
+            'droit_relations_internationales' => [
                 'Droit',
                 'Droit des affaires',
                 'Droit fiscal',
@@ -134,7 +134,7 @@ class ProgramDomainUpdateSeeder extends Seeder
                 'International',
             ],
 
-            'Économie & Mathématiques appliquées' => [
+            'economie_mathematiques_appliquees' => [
                 'Actuariat',
                 'Économie',
                 'Économie appliquée',
@@ -147,7 +147,7 @@ class ProgramDomainUpdateSeeder extends Seeder
                 'Sciences sociales',
             ],
 
-            'Ingénierie & Sciences' => [
+            'ingenierie_sciences' => [
                 'BTP',
                 'Génie civil',
                 'Ingénierie',
@@ -156,14 +156,14 @@ class ProgramDomainUpdateSeeder extends Seeder
                 'Géopolitique énergétique',
             ],
 
-            'Énergie, Environnement & Développement durable' => [
+            'energie_environnement_developpement_durable' => [
                 'Énergie',
                 'Environnement',
                 'Développement durable',
                 'RSE',
             ],
 
-            'Agro & Santé' => [
+            'agro_sante' => [
                 'Agro-business',
                 'Agroalimentaire',
                 'Pharmacie',
@@ -171,7 +171,7 @@ class ProgramDomainUpdateSeeder extends Seeder
                 'Santé',
             ],
 
-            'Transport & Logistique' => [
+            'transport_logistique' => [
                 'Logistique',
                 'Logistique urbaine',
                 'Mobilité urbaine',
@@ -181,25 +181,25 @@ class ProgramDomainUpdateSeeder extends Seeder
                 'Transport durable',
             ],
 
-            'Tourisme & Hôtellerie' => [
+            'transport_logistique' => [
                 'Tourisme',
             ],
 
-            'Entrepreneuriat & Innovation' => [
+            'tourisme_hotellerie' => [
                 'Entrepreneurship ', // avec espace insécable
                 'Entrepreneurship', // variante sans espace insécable si besoin
                 'Développement personnel',
                 'Formation',
             ],
 
-            'Qualité & Sécurité' => [
+            'qualite_securite' => [
                 'QHSE',
                 'Qualité',
             ],
         ];
 
         foreach ($mapping as $superDomain => $subDomains) {
-            $superDomainId = DB::table('program_super_domains')->where('name', $superDomain)->value('id');
+            $superDomainId = DB::table('program_super_domains')->where('slug', $superDomain)->value('id');
 
             foreach ($subDomains as $domain) {
                 DB::table('program_domains')
