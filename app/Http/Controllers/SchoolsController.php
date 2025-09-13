@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AccreditationBody;
 use App\Models\ProgramDomain;
+use App\Models\ProgramSuperDomain;
 use App\Models\School;
 use App\Models\SchoolProgram;
 use Illuminate\Http\Request;
@@ -22,10 +23,12 @@ class SchoolsController extends Controller
                 ->pluck('name', 'id');
         });
 
-        $domains = Cache::remember('schools:domains:v3', $ttl, function () {
-            return ProgramDomain::orderBy('name')
-                ->orderBy('name')
-                ->pluck('name', 'id');
+        $domains = Cache::remember('schools:domains:v2', $ttl, function () {
+            return collect();
+        });
+
+        $superDomains = Cache::remember('schools:super-domains:v1', $ttl, function () {
+            return ProgramSuperDomain::orderBy('slug')->pluck('name', 'id');
         });
 
         $schools = Cache::remember('schools:schools:v1', $ttl, function () {
@@ -41,7 +44,7 @@ class SchoolsController extends Controller
                 ->get();
         });
 
-        return view('list_schools',  compact('accreditations',  'schools',  'domains', 'programs'));
+        return view('list_schools',  compact('accreditations',  'schools',  'domains', 'programs', 'superDomains'));
     }
 
     public function view(School $school)
@@ -66,13 +69,14 @@ class SchoolsController extends Controller
         });
 
         /*$domains = ProgramDomain::orderBy('name')->pluck('name', 'id')->toArray();*/
-        $domains = Cache::remember('accred-schools:domains:v3', $ttl, function () {
-            return ProgramDomain::orderBy('name')
-                ->orderBy('name')
-                ->pluck('name', 'id');
+        $domains = Cache::remember('accred-schools:domains:v1', $ttl, function () {
+            return collect();
         });
 
-        /*$schools = School::whereHas('programs', fn ($q) => $q->whereHas('accreditationBodies'))->orderBy('name')->get();*/
+        $superDomains = Cache::remember('schools:super-domains:v1', $ttl, function () {
+            return ProgramSuperDomain::orderBy('slug')->pluck('name', 'id');
+        });
+
         $schools = Cache::remember('accred-schools:schools:v1', $ttl, function () {
             return School::whereHas('programs', fn ($q) => $q->whereHas('accreditationBodies'))
                 ->orderBy('name')
@@ -88,7 +92,7 @@ class SchoolsController extends Controller
                 ->get();
         });
 
-        return view('list_schools_accreds', compact('accreditations',  'schools',  'domains', 'programs'));
+        return view('list_schools_accreds', compact('accreditations',  'schools',  'domains', 'programs', 'superDomains'));
     }
 
     public function comparison()

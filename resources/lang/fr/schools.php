@@ -108,6 +108,10 @@ return [
     'entrepreneurship_innovation' => 'Entrepreneuriat & Innovation',
     'quality_safety' => 'Qualité & Sécurité',
 
+    'select_super_domain' => 'Sélectionnez un sup-domaine',
+    'select_domain' => 'Sélectionnez un domaine pour filtrer',
+    'super_domain' => 'Super domaine',
+    'super_domains' => 'Super domaines',
     'has_programs_with_double_diplomes' => 'Propose des programmes avec doubles diplômes',
     'has_internership' => 'Garantie de stages',
     'has_programs_with_guaranties_internship' => 'Propose des programmes avec garanties de stages',

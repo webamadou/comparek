@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProgramDomain;
+use App\Models\ProgramSuperDomain;
 use App\Models\School;
 use App\Models\SchoolProgram;
 use Illuminate\Http\Request;
@@ -68,12 +70,23 @@ class SchoolAjaxController
             });
         }
 
+        // We need this list for the filter dropdown
+        $superDomains = ProgramSuperDomain::orderBy('slug')->pluck('name', 'id');
+        $domains = collect();
+
+        // If a super domain is selected, we need to filter the domain dropdown
+        if ($request->filled('super_domain_id')) {
+            $domains = ProgramDomain::where('super_domain_id', $request->integer('super_domain_id'))
+                        ->orderBy('name')
+                        ->pluck('name', 'id');
+        }
+
         if ($isProgramFilter) {
             $programs = $queryProgram
                 ->orderBy('name')
                 ->get();
 
-            return view('partials.school-programs-list', compact('programs'));
+            return view('partials.school-programs-list', compact('programs', 'superDomains'));
         }
         else {
             $schools = $query
@@ -81,7 +94,7 @@ class SchoolAjaxController
                 ->orderBy('name')
                 ->get();
 
-            return view('partials.schools-list', compact('schools'));
+            return view('partials.schools-list', compact('schools', 'superDomains'));
         }
     }
 
@@ -204,5 +217,23 @@ class SchoolAjaxController
                 ->get();
             return view('partials.schools-list-accreds', compact('schools'));
         }
+    }
+
+    /**
+     * Get the list of program domains for a given super domain.
+    */
+    public function programDomains(Request $request)
+    {
+        $request->validate([
+            'super_domain_id' => ['required', 'integer', 'exists:program_super_domains,id'],
+        ]);
+
+        $domains = ProgramDomain::where('super_domain_id', $request->input('super_domain_id'))
+            ->orderBy('name')
+            ->get(['id', 'name']);
+
+        return response()->json([
+            'data' => $domains,
+        ]);
     }
 }

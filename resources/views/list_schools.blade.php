@@ -116,26 +116,23 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3 form-group">
-                                    <h3><span class="bi bi-textarea"></span> {{__('filters.domains')}}</h3>
-                                    <div class="custom-checkbox-group">
-                                        <select name="domain" class="form-select program-filter">
-                                            <option value=""> --- </option>
-                                            @foreach($domains as $id => $name)
-                                                <option value="{{ $id }}">{{ $name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-4 form-group">
-                                    <h3><span class="bi bi-translate"></span> {{ __('filters.languages') }}</h3>
-                                    <div class="d-flex">
-                                        @foreach(\App\Enums\LanguageEnum::cases() as $lang)
-                                            <div class="form-check">
-                                                <input class="form-check-input program-filter" type="radio" name="language" id="{{ "lang{$lang->value}" }}" value="{{ $lang->value }}">
-                                                <label class="form-check-label" for="{{ "lang{$lang->value}" }}">{{ $lang->value }}</label>
-                                            </div>
+                                    <h3><span class="bi bi-bar-chart-steps"></span> {{__('schools.super_domain')}}</h3>
+                                    <select id="super_domain_id" name="super_domain_id" class="form-select program-filter">
+                                        <option value="">{{ __('schools.select_super_domain') }}</option>
+                                        @foreach($superDomains as $id => $name)
+                                            <option value="{{ $id }}" @selected(request('super_domain_id') == $id)>{{ __('schools.' . $name) }}</option>
                                         @endforeach
-                                    </div>
+                                    </select>
+                                </div>
+                                {{-- Domaine (2e dropdown caché par défaut) --}}
+                                <div class="col-sm-12 col-md-3 form-group" id="domain_wrapper" style="{{ $domains->isEmpty() ? 'display:none' : '' }}">
+                                    <h3><span class="bi bi-bar-chart-steps"></span> {{__('schools.domains')}}</h3>
+                                    <select id="domain_id" name="domain" class="form-select program-filter">
+                                        <option value="">{{ __('schools.select_domain') }}</option>
+                                        @foreach($domains as $id => $name)
+                                            <option value="{{ $id }}" @selected(request('domain') == $id)>{{ $name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-sm-12 col-md-2 form-group">
                                     <h3><span class="bi bi-patch-check-fill"></span> {{ __('filters.certification') }}</h3>
@@ -293,7 +290,51 @@
                 $('.program-filter').on('change', fetchPrograms);
                 $('#double_diplomes').on('change', fetchPrograms);
                 $('#has_internership').on('change', fetchPrograms);
-            });
+
+                // Fetch domains when super_domain_id changes
+                const $superSelect   = $('#super_domain_id');
+                const $domainWrapper = $('#domain_wrapper');
+                const $domainSelect  = $('#domain_id');
+
+                $superSelect.on('change', function() {
+                    let superId = $(this).val();
+                    $('#spinner').addClass('active');
+
+                    // RESET domain select
+                    $domainSelect.html('<option value="">{{ __("schools.select_domain") }}</option>');
+
+                    if (!superId) {
+                        $domainWrapper.hide();
+                        return;
+                    }
+
+                    $.ajax({
+                        url: "{{ route('program-domains.ajax') }}",
+                        method: 'GET',
+                        data: { super_domain_id: superId },
+                        success: function (res) {
+                            if (res.data && res.data.length > 0) {
+                                $.each(res.data, function (i, item) {
+                                    $domainSelect.append(
+                                        $('<option>', { value: item.id, text: item.name })
+                                    );
+                                });
+                                $domainWrapper.show();
+                            } else {
+                                $domainWrapper.hide();
+                            }
+
+                            $('#spinner').removeClass('active');
+                        },
+                        error: function (xhr) {
+                            console.error(xhr.responseText);
+                            $domainWrapper.hide();
+
+                            $('#spinner').removeClass('active');
+                        }
+                    });
+                });
+            }); // end of document ready
 
             // Sync tab visibility with results
             $('#myTab button[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
