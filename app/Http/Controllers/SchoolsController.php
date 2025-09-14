@@ -49,11 +49,23 @@ class SchoolsController extends Controller
 
     public function view(School $school)
     {
-        $accreditations = AccreditationBody::whereNotIn('id', [1,2,3])->orderBy('name')->pluck('name', 'id')->toArray();
-        $domains = ProgramDomain::orderBy('name')->pluck('name', 'id')->toArray();
-        $programs = $school->programs;
+        // Caching 6 hours
+        $ttl = now()->addHours(6);
 
-        return view('view_school', compact('school',  'accreditations', 'domains', 'programs'));
+        $accreditations = Cache::remember('school:accreditations_for_school_'.$school->id.':v1', $ttl, fn() =>
+            AccreditationBody::whereNotIn('id', [1,2,3])->orderBy('name')->pluck('name', 'id')->toArray()
+        );
+
+        $supDomains = Cache::remember(
+            'school:domains_for_school_'.$school->id.':v2',
+            $ttl,
+            fn() => \App\Models\ProgramSuperDomain::orderBy('slug')->with('domains')->get()
+        );
+
+        $programs = Cache::remember('school:programs_for_school_'.$school->id.':v1', $ttl, fn() => $school->programs)
+            ->load(['domains', 'accreditationBodies', 'features']);
+
+        return view('view_school', compact('school',  'accreditations', 'supDomains', 'programs'));
     }
 
     public function accredited()

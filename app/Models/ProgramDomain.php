@@ -31,4 +31,9 @@ class ProgramDomain extends Model
     {
         return $this->belongsToMany(SchoolProgram::class);
     }
+
+    public function superDomain(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(ProgramSuperDomain::class, 'super_domain_id');
+    }
 }

@@ -21,4 +21,9 @@ class ProgramSuperDomain extends Model
             ->usingSeparator('_')
             ->doNotGenerateSlugsOnUpdate();
     }
+
+    public function domains(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ProgramDomain::class, 'super_domain_id');
+    }
 }

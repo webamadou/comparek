@@ -51,8 +51,12 @@
                                     <div class="custom-checkbox-group">
                                         <select name="domain" class="form-select school-filter">
                                             <option value=""> ---</option>
-                                            @foreach($domains as $id => $name)
-                                                <option value="{{ $id }}">{{ $name }}</option>
+                                            @foreach($supDomains as $supDomain)
+                                            <optgroup label="{{ __('schools.' . $supDomain->name) }}">
+                                                @foreach($supDomain->domains as $domain)
+                                                    <option value="{{ $domain->id }}">{{ $domain->name }}</option>
+                                                @endforeach
+                                            </optgroup>
                                             @endforeach
                                         </select>
                                     </div>
