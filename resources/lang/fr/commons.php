@@ -12,6 +12,8 @@ return [
     'delete' => 'Supprimer',
     'save' => 'Enregistrer',
     'back' => 'Retour',
+    'cancel' => 'Annuler',
+    'update' => 'Mettre à jour',
     'confirm_deletion' => 'Confirmer la suppression!',
     'no_record_found' => 'Aucun enregistrement trouvé.',
     'record_deleted' => 'Enregistrement supprimé!',

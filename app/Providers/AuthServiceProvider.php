@@ -16,6 +16,7 @@ class AuthServiceProvider extends ServiceProvider
         Bank::class         => BankPolicy::class,
         BankProduct::class  => BankProductPolicy::class,
         ProductOffer::class => ProductOfferPolicy::class,
+        Page::class         => PagePolicy::class,
     ];
 
     public function boot(): void

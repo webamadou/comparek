@@ -31,6 +31,7 @@ Route::get('/articles/{category:slug?}', [\App\Http\Controllers\PostController::
 Route::get('/banques', [\App\Http\Controllers\BankController::class, 'index'])->name('banks');
 Route::get('/banques/{bank:slug}', [\App\Http\Controllers\BankController::class, 'show'])->name('view_banks');
 Route::get('/comparateur/banque', [\App\Http\Controllers\BankController::class, 'compare'])->name('compare_banks');
+Route::get('/page/{page:slug}', [\App\Http\Controllers\PageController::class, 'show'])->name('view_page');
 
 /* === AJAX CALLS === */
 Route::get('/ecoles/ajax', [SchoolAjaxController::class, 'index'])->name('ecoles.ajax');
@@ -65,6 +66,7 @@ Route::middleware(['auth'])
     Route::resource('bank', \App\Http\Controllers\Admin\BankController::class);
     Route::resource('bank_product', \App\Http\Controllers\Admin\BankProductController::class);
     Route::resource('bank_offer', \App\Http\Controllers\Admin\ProductOfferController::class);
+    Route::resource('page', \App\Http\Controllers\Admin\PageController::class);
 });
 
 require __DIR__.'/auth.php';

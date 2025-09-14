@@ -46,12 +46,20 @@
         </li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon">
-                    <span class="iconify" data-icon="mdi-school"></span> &nbsp;
+                    <span class="iconify" data-icon="mdi-bullhorn"></span> &nbsp;
                 </svg> Articles</a>
             <ul class="compact">
                 <li class="nav-item"><a class="nav-link" href="{{ route('post.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Articles</a></li>
                 <li class="nav-item"> - </li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('category.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Catégories</a></li>
+            </ul>
+        </li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+                <svg class="nav-icon">
+                    <span class="iconify" data-icon="mdi-page-layout-header-footer"></span> &nbsp;
+                </svg> Pages</a>
+            <ul class="compact">
+                <li class="nav-item"><a class="nav-link" href="{{ route('page.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Gest. Pages</a></li>
             </ul>
         </li>
         <!--<li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
