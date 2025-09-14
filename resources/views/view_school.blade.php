@@ -30,7 +30,14 @@
             <div class="row justify-content-between gy-4">
                 <div class="col-lg-12 school-filter-wrapper sticky-element collapsed">
                     <span class="collapse-trigger bi bi-chevron-double-down"></span>
-                    <h3>{{ __('filters.filter') }}</h3>
+                    <h3>
+                        {{ __('filters.filter') }}
+                        <small>
+                            <a href="#" id="reset-filter" data-target="filterTabsContent">
+                                <span class="bi bi-arrow-clockwise"></span> {{ __('filters.reset') }}
+                            </a>
+                        </small>
+                    </h3>
                     <div id="spinner" wire:loading class="justify-content-center"><span class="loader"></span></div>
                     <div class="" id="filterTabsContent">
                         <div class="" id="programs-filter" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">

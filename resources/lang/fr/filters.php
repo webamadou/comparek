@@ -2,6 +2,7 @@
 
 return [
     'filter' => 'Filtrer',
+    'reset' => 'Réinitialiser les filtres',
     'cities' => 'Filtrer par ville',
     'private_school' => 'Ecole privée',
     'foreign_students' => 'Acceptation des étudiants étrangers',

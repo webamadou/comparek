@@ -24,3 +24,29 @@ $('.collapse-trigger').on('click', function () {
     $('.school-filter-wrapper').toggleClass('collapsed');
     $(this).toggleClass('bi-chevron-double-down bi-chevron-double-up');
 });
+
+$('#reset-filter').on('click', function (e) {
+    e.preventDefault();
+    const targetId = $(this).data('target');
+    const target = document.getElementById(targetId);
+    if (target) {
+        const inputs = target.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+        inputs.forEach(input => input.checked = false);
+        const selects = target.querySelectorAll('select');
+        selects.forEach(select => select.selectedIndex = 0);
+        // Dispatch a change event to notify Livewire of the changes
+        const event = new Event('change', { bubbles: true });
+        target.dispatchEvent(event);
+    }
+});
+
+// The following is used to show a spinner when Livewire is loading
+document.addEventListener('livewire:load', function () {
+    Livewire.hook('message.sent', (message, component) => {
+        $('#spinner').show();
+    });
+
+    Livewire.hook('message.processed', (message, component) => {
+        $('#spinner').hide();
+    });
+});

@@ -44,7 +44,7 @@
                         @endif
                         @if ($accreditations->isNotEmpty())
                         <div class="program-features">
-                            <h3>{{ __('schools.features') }}:</h3>
+                            <h3>{{ __('schools.feature') }}:</h3>
                             <ul>
                                 @foreach ($program->features
                                             ->flatten()

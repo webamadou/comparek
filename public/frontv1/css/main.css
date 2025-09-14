@@ -3060,6 +3060,14 @@ button.reset-filter {
   line-height: 1.5;
 }
 
+#reset-filter {
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: x-small;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
 .school-filter-wrapper.collapsed {
   height: 50px;
   overflow-y: hidden;

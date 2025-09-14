@@ -29,6 +29,12 @@
                             <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#programs-filter" type="button" role="tab" aria-controls="programs-filter" aria-selected="false">Filtrer par programmes</button>
                         </li>
                     </ul>
+
+                    <small>
+                        <a href="#" id="reset-filter" data-target="filterTabsContent">
+                            <span class="bi bi-arrow-clockwise"></span> {{ __('filters.reset') }}
+                        </a>
+                    </small>
                     <div class="tab-content my-1 mt-4 " id="filterTabsContent">
                         <div class="tab-pane fade show active" id="schools-filters" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                             <div class="row">
