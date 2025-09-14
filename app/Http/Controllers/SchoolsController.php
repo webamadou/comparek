@@ -27,8 +27,8 @@ class SchoolsController extends Controller
             return collect();
         });
 
-        $superDomains = Cache::remember('schools:super-domains:v1', $ttl, function () {
-            return ProgramSuperDomain::orderBy('slug')->pluck('name', 'id');
+        $superDomains = Cache::remember('schools:super-domains:v1.2', $ttl, function () {
+            return ProgramSuperDomain::orderBy('slug')->with('domains')->get();
         });
 
         $schools = Cache::remember('schools:schools:v1', $ttl, function () {
@@ -59,7 +59,7 @@ class SchoolsController extends Controller
         $supDomains = Cache::remember(
             'school:domains_for_school_'.$school->id.':v2',
             $ttl,
-            fn() => \App\Models\ProgramSuperDomain::orderBy('slug')->with('domains')->get()
+            fn() => ProgramSuperDomain::orderBy('slug')->with('domains')->get()
         );
 
         $programs = Cache::remember('school:programs_for_school_'.$school->id.':v1', $ttl, fn() => $school->programs)
@@ -85,8 +85,8 @@ class SchoolsController extends Controller
             return collect();
         });
 
-        $superDomains = Cache::remember('schools:super-domains:v1', $ttl, function () {
-            return ProgramSuperDomain::orderBy('slug')->pluck('name', 'id');
+        $superDomains = Cache::remember('schools:super-domains:v2', $ttl, function () {
+            return ProgramSuperDomain::orderBy('slug')->with('domains')->get();
         });
 
         $schools = Cache::remember('accred-schools:schools:v1', $ttl, function () {
