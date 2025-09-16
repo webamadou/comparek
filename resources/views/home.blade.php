@@ -1,4 +1,5 @@
 @extends('layouts.frontv1')
+<x-seo-meta :page="$page ?? null" />
 @push('styles')
     @foreach([2,3,5] as $i)
         <link rel="preload" href="{{ asset('frontv1/img/illustration/illust' . $i . '.svg') }}" as="image">

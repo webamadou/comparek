@@ -17,7 +17,7 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/accueil', [HomeController::class, 'index'])->name('accueil');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/telecom/fournisseurs', [TelecomOperatorControllerFront::class, 'operators'])->name('list_operators');
-Route::get('/telecom/fournisseur/{operator}', [TelecomOperatorControllerFront::class, 'operator'])->name('operator_page');
+Route::get('/telecom/fournisseur/{operator:slug}', [TelecomOperatorControllerFront::class, 'operator'])->name('operator_page');
 Route::get('/telecom/comparateur/internet', [TelecomOperatorControllerFront::class, 'telecomsComparison'])->name('telecom_comparison');
 Route::get('/telecom/comparateur/pass_mobile', [TelecomOperatorControllerFront::class, 'passComparison'])->name('telecom_pass_comparison');
 Route::get('/telecom/scores', [TelecomOperatorControllerFront::class, 'scores'])->name('telecom_scores');

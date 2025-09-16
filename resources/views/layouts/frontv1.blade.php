@@ -6,9 +6,23 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('title', 'Comparek') - Comparek</title>
+        <title>@yield('title', 'Comparek')</title>
         <meta name="description" content="@yield('meta_description', '')">
         <meta name="keywords" content="@yield('meta_keywords', '')">
+        <meta name="robots" content="@yield('robots', 'index, follow')">
+        <link rel="canonical" href="@yield('canonical', 'https://www.comparek.sn/')">
+        <!-- Open Graph -->
+        <meta property="og:type" content="@yield('og_type', 'website')">
+        <meta property="og:url" content="@yield('og_url', 'https://www.comparek.sn/')">
+        <meta property="og:title" content="@yield('og_title', 'Comparek | Comparez banques, écoles et opérateurs au Sénégal')">
+        <meta property="og:description" content="@yield('og_description', 'La première plateforme qui vous aide à choisir la meilleure banque, école ou opérateur télécom au Sénégal. Comparez, choisissez, gagnez en transparence.')">
+        <meta property="og:image" content="@yield('og_image', 'https://www.comparek.sn/assets/logo.png')">
+        <meta property="og:locale" content="@yield('og_locale', 'fr_SN')">
+        <!-- Twitter card -->
+        <meta name="twitter:card" content="@yield('twitter_card', 'summary_large_image')">
+        <meta name="twitter:title" content="@yield('twitter_title', 'Comparek | Comparez banques, écoles et opérateurs au Sénégal')">
+        <meta name="twitter:description" content="@yield('twitter_description', 'Comparek simplifie vos choix : comparez banques, écoles et opérateurs télécoms au Sénégal.')">
+        <meta name="twitter:image" content="@yield('twitter_image', 'https://www.comparek.sn/assets/logo.png')">
 
         <!-- Favicons -->
         <link rel="icon" type="image/png" href="{{asset('assets/logo/front-favicons/android-icon-96x96.png')}}" sizes="96x96" />
@@ -33,8 +47,8 @@
         <link href="{{ asset('frontv1/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
         <!-- Main CSS File -->
-        <link href="{{ asset('frontv1/css/main.css') }}" rel="stylesheet">
         @stack('styles')
+        <link href="{{ asset('frontv1/css/main.css') }}" rel="stylesheet">
         @vite('resources/js/app.js')
     </head>
     <body class="index-page">

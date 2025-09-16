@@ -3,7 +3,7 @@
 @section('title', $school->meta_title ?? $school->name)
 @section('meta_description', $school->meta_description)
 @section('meta_keywords', $school->seo_keywords)
-
+<x-seo-meta :page="$page ?? null" />
 @section('content')
     <div class="page-title">
         <div class="heading pb-0">

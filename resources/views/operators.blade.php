@@ -1,5 +1,5 @@
 @extends('layouts.frontv1')
-
+<x-seo-meta :page="$page ?? null" />
 @section('content')
     <div class="page-title">
         <div class="heading" style="padding: 0;">
@@ -32,7 +32,7 @@
                                         background-size: cover;
                                         ">
                             </p>
-                            <a href="{{ route('operator_page', $operator) }}" class="btn btn-primary">
+                            <a href="{{ route('operator_page', $operator->slug) }}" class="btn btn-primary">
                                 En savoir plus
                                 <i class="bi bi-arrow-right"></i>
                             </a>

@@ -1,9 +1,5 @@
 @extends('layouts.frontv1')
-
-@section('title', $program->name)
-<!-- @section('meta_description', $program->meta_description)
-@section('meta_keywords', $program->seo_keywords) -->
-
+<x-seo-meta :page="$page ?? null" />
 @section('content')
     <div class="page-title">
         <div class="heading pb-0">
