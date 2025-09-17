@@ -32,6 +32,10 @@ Route::get('/banques', [\App\Http\Controllers\BankController::class, 'index'])->
 Route::get('/banques/{bank:slug}', [\App\Http\Controllers\BankController::class, 'show'])->name('view_banks');
 Route::get('/comparateur/banque', [\App\Http\Controllers\BankController::class, 'compare'])->name('compare_banks');
 Route::get('/page/{page:slug}', [\App\Http\Controllers\PageController::class, 'show'])->name('view_page');
+Route::get('/about', [\App\Http\Controllers\PageController::class, 'about'])->name('about');
+Route::get('/contact', [\App\Http\Controllers\PageController::class, 'contact'])->name('contact');
+Route::get('/politique-confidentialite', [\App\Http\Controllers\PageController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('/mentions-legales', [\App\Http\Controllers\PageController::class, 'disclaimer'])->name('disclaimer');
 
 /* === AJAX CALLS === */
 Route::get('/ecoles/ajax', [SchoolAjaxController::class, 'index'])->name('ecoles.ajax');

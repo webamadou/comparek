@@ -3,7 +3,17 @@
 @section('title', $school->meta_title ?? $school->name)
 @section('meta_description', $school->meta_description)
 @section('meta_keywords', $school->seo_keywords)
-<x-seo-meta :page="$page ?? null" />
+@section('canonical_url', route('view_school', $school->slug))
+@section('robots', 'index, follow')
+@section('og_type', 'website')
+@section('og_url', route('view_school', $school->slug))
+@section('og_title', $school->og_title ?? $school->name)
+@section('og_description', $school->meta_description ?? $school->meta_description)
+@section('og_image', $school->og_image ?? asset('assets/logo.png'))
+@section('og_locale', 'fr_SN')
+@section('twitter_card', 'summary_large_image')
+@section('twitter_title', $school->twitter_title ?? $school->name)
+
 @section('content')
     <div class="page-title">
         <div class="heading pb-0">

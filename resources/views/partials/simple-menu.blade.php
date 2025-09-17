@@ -26,7 +26,9 @@
                 <li><a href="{{ route('compare_banks') }}"> {{ __('banks.comparator_page') }} </a></li>
             </ul>
         </li>
-        <li class="dropdown"><a href="#pre-footer"><span><strong class="bi bi-envelope-at-fill"></strong> Contact</span></a></li>
+        <li>
+            <a href="{{ route('contact') }}"><span><strong class="bi bi-envelope-at-fill"></strong> Contact</span></a>
+        </li>
     </ul>
     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 </nav>

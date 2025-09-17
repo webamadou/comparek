@@ -10,10 +10,10 @@
         <meta name="description" content="@yield('meta_description', '')">
         <meta name="keywords" content="@yield('meta_keywords', '')">
         <meta name="robots" content="@yield('robots', 'index, follow')">
-        <link rel="canonical" href="@yield('canonical', 'https://www.comparek.sn/')">
+        <link rel="canonical" href="@yield('canonical', url()->current())">
         <!-- Open Graph -->
         <meta property="og:type" content="@yield('og_type', 'website')">
-        <meta property="og:url" content="@yield('og_url', 'https://www.comparek.sn/')">
+        <meta property="og:url" content="@yield('og_url', url()->current())">
         <meta property="og:title" content="@yield('og_title', 'Comparek | Comparez banques, écoles et opérateurs au Sénégal')">
         <meta property="og:description" content="@yield('og_description', 'La première plateforme qui vous aide à choisir la meilleure banque, école ou opérateur télécom au Sénégal. Comparez, choisissez, gagnez en transparence.')">
         <meta property="og:image" content="@yield('og_image', 'https://www.comparek.sn/assets/logo.png')">
@@ -112,6 +112,15 @@
         </section><!-- /Contact Section -->
 
         <div class="container copyright text-center mt-4">
+            <div id="footer-links">
+                <ul>
+                    <li><a href="{{ route('home') }}">Accueil</a></li>
+                    <li><a href="{{ route('about') }}">À propos</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
+                    <li><a href="{{ route('privacy-policy') }}">Politique de confidentialité</a></li>
+                    <li><a href="{{ route('disclaimer') }}">Mentions légales</a></li>
+                </ul>
+            </div>
             <p>© <span>Copyright</span> <strong class="px-1 sitename">Comparek</strong></p>
             <div class="credits">
                 par <a href="https://comparek.sn/">Comparek</a>

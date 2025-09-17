@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AccreditationBody;
+use App\Models\Page;
 use App\Models\ProgramDomain;
 use App\Models\ProgramSuperDomain;
 use App\Models\School;
@@ -14,6 +15,9 @@ class SchoolsController extends Controller
 {
     public function index()
     {
+        $pageObject = Page::where('slug', 'liste_des_ecoles')->first();
+        $page = $pageObject ? $pageObject->toArray() : [];
+
         // Caching 6 hours
         $ttl = now()->addHours(6);
 
@@ -44,7 +48,7 @@ class SchoolsController extends Controller
                 ->get();
         });
 
-        return view('list_schools',  compact('accreditations',  'schools',  'domains', 'programs', 'superDomains'));
+        return view('list_schools',  compact('accreditations',  'schools',  'domains', 'programs', 'superDomains', 'page'));
     }
 
     public function view(School $school)
@@ -70,6 +74,9 @@ class SchoolsController extends Controller
 
     public function accredited()
     {
+        $pageObject = Page::where('slug', 'liste_des_ecoles')->first();
+        $page = $pageObject ? $pageObject->toArray() : [];
+
         // Caching 6 hours
         $ttl = now()->addHours(6);
 
@@ -104,7 +111,7 @@ class SchoolsController extends Controller
                 ->get();
         });
 
-        return view('list_schools_accreds', compact('accreditations',  'schools',  'domains', 'programs', 'superDomains'));
+        return view('list_schools_accreds', compact('accreditations',  'schools',  'domains', 'programs', 'superDomains', 'page'));
     }
 
     public function comparison()
