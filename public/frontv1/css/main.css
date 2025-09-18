@@ -250,6 +250,46 @@ ul.social-medias-links li a {
   padding: 1rem;
 }
 
+.error-bilboard {
+  width: 100%;
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.error-content {
+  width: 80%;
+  padding: 1rem;
+  margin: 50vh auto;
+  color: var(--heading-color);
+  background: #ff5602c7;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-content-text {
+  width: 80%;
+  padding: 1rem;
+  margin: 0 auto 30vh;
+  color: var(--heading-color);
+  background: #ff5602c7;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-code-value {
+  font-size: 12rem;
+  font-weight: bold;
+  color: var(--heading-color);
+}
+
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
