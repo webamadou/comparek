@@ -145,6 +145,15 @@
     <script src="{{ asset('frontv1/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('frontv1/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJM7BFWNL0"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CJM7BFWNL0');
+    </script>
     <!-- Main JS File -->
     <script src="{{ asset('frontv1/js/jquery.min.js') }}"></script>
     <script src="{{ asset('frontv1/js/main.js') }}"></script>
