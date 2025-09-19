@@ -15,6 +15,7 @@
             </div>
         </div>
     </div>
+    <div id="schoolUpTarget"></div>
     <section class="p-0">
         <div class="container">
             <div class="row justify-content-between gy-4">
@@ -232,6 +233,8 @@
                             if (window.innerWidth <= 768) {
                                 $('.school-filter-wrapper').addClass('collapsed');
                             }
+
+                            scrollToElement('schoolUpTarget');
                         },
                         error: function () {
                             alert('Erreur lors du chargement des écoles.');
@@ -275,6 +278,8 @@
                             if (window.innerWidth <= 768) {
                                 $('.school-filter-wrapper').addClass('collapsed');
                             }
+
+                            scrollToElement('schoolUpTarget');
                         },
                         error: function () {
                             alert('Erreur lors du chargement des écoles.');

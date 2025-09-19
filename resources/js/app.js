@@ -50,3 +50,13 @@ document.addEventListener('livewire:load', function () {
         $('#spinner').hide();
     });
 });
+
+// The following is used to scroll to a specific element with an offset of 35px
+window.scrollToElement = (elementId, offset = 35) => {
+    console.log('Scrolling to element:', elementId);
+    const element = document.getElementById(elementId);
+    if (element) {
+        const y = element.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+};
