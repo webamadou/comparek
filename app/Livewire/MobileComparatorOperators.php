@@ -26,6 +26,7 @@ class MobileComparatorOperators extends Component
     public int $phoneCredit = 0;
     public $sortBy = '';
     public $orderDirection = 'asc';
+    public $filterIsVisible = false;
 
     public function mount()
     {
@@ -43,7 +44,13 @@ class MobileComparatorOperators extends Component
 
     public function updated()
     {
-        $this->dispatch('scroll-to-filters');
+        $this->js('window.scrollToElement(\'list-operators\')');
+        $this->filterIsVisible = false;
+    }
+
+    public function toggleFilter()
+    {
+        $this->filterIsVisible = ! $this->filterIsVisible;
     }
 
     public function resetField($field)

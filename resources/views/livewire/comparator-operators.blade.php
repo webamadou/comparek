@@ -1,5 +1,5 @@
 <div>
-    <section id="list-operators py-0">
+    <section id="list-operators" class="py-0">
         <div class="container">
             <div class="row">
                 <div id="spinner" wire:loading class="justify-content-center"><span class="loader"></span></div>
@@ -7,9 +7,9 @@
                     <div class="form-wrapper filter-form-wrapper">
                         <h1 class="d-flex justify-content-between">
                             <span class="bi bi-sliders">&nbsp;{{ __('offers.filter') }}</span>
-                            <span class="d-md-none d-sm-inline-block bi bi-chevron-double-down toggle-filter"></span>
+                            <span class="d-md-none d-sm-inline-block bi bi-chevron-double-down toggle-filter filter-button" wire:click="toggleFilter"></span>
                         </h1>
-                        <div id="filter-wrapper" class="php-email-form">
+                        <div id="filter-wrapper" class="php-email-form {{$filterIsVisible ? '' : 'hide-form'}}">
                             <div class="row">
                                 <div class="col-md-12 my-4 form-group">
                                     <h3><span class="bi bi-filter"></span> {{__('offers.operators')}}</h3>

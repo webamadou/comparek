@@ -27,6 +27,7 @@ class ComparatorOperators extends Component
     public $debit_unit = '';
     public $sortBy = '';
     public $orderDirection = 'asc';
+    public $filterIsVisible = false;
 
     public function updating($property)
     {
@@ -37,7 +38,13 @@ class ComparatorOperators extends Component
 
     public function updated()
     {
-        $this->dispatch('scroll-to-filters');
+        $this->js('window.scrollToElement(\'list-operators\')');
+        $this->filterIsVisible = false;
+    }
+
+    public function toggleFilter()
+    {
+        $this->filterIsVisible = ! $this->filterIsVisible;
     }
 
     public function resetFilter()

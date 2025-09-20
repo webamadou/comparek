@@ -2457,7 +2457,8 @@ ul.opertors-details li {
   margin: 0 1rem;
 }
 
-.toggle-filter {
+.toggle-filter,
+.filter-button {
   padding: 1px 3px;
   box-shadow: 1px 1px 3px #dedcdc;
   border-radius: 4px;

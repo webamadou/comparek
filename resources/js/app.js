@@ -59,4 +59,11 @@ window.scrollToElement = (elementId, offset = 35) => {
         const y = element.getBoundingClientRect().top + window.pageYOffset - offset;
         window.scrollTo({ top: y, behavior: 'smooth' });
     }
+$('#filter-wrapper').addClass('hide-form');
+    // for mobile devices we need to toggle the filter form
+    if (window.innerWidth <= 768) {
+        console.log('Mobile device detected');
+        // document.querySelector('.toggle-filter').click();
+        $('#filter-wrapper').addClass('hide-form');
+    }
 };

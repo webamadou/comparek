@@ -60,7 +60,7 @@ class TelecomOperatorController extends Controller
     /**
      *
      */
-    public function telecomsComparison()
+    public function internetOffers()
     {
         $pageObject = Page::where('slug', 'comparateur_des_offres_box_mobile')->first();
         $page = $pageObject ? $pageObject->toArray() : [];
@@ -72,7 +72,7 @@ class TelecomOperatorController extends Controller
     /**
      *
      */
-    public function passComparison()
+    public function mobileOffers()
     {
         $pageObject = Page::where('slug', 'comparateur_des_offres_mobile')->first();
         $page = $pageObject ? $pageObject->toArray() : [];

@@ -15,6 +15,7 @@ class TelecomComparekScore extends Component
     public $score = [];
     public $scores = '';
     public $sortBy = '';
+    public $filterIsVisible = false;
 
     public function mount()
     {
@@ -24,8 +25,15 @@ class TelecomComparekScore extends Component
 
     public function updated()
     {
-        $this->dispatch('scroll-to-filters');
+        $this->js('window.scrollToElement(\'list-operators\')');
+        $this->filterIsVisible = false;
     }
+
+    public function toggleFilter()
+    {
+        $this->filterIsVisible = ! $this->filterIsVisible;
+    }
+
 
     public function resetFilter()
     {
