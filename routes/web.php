@@ -21,6 +21,7 @@ Route::get('/telecom/fournisseur/{operator:slug}', [TelecomOperatorControllerFro
 Route::get('/telecom/offres/internet', [TelecomOperatorControllerFront::class, 'internetOffers'])->name('telecom_comparison');
 Route::get('/telecom/offres/mobile', [TelecomOperatorControllerFront::class, 'mobileOffers'])->name('telecom_pass_comparison');
 Route::get('/telecom/scores', [TelecomOperatorControllerFront::class, 'scores'])->name('telecom_scores');
+Route::get('comparateur/telecoms', [TelecomOperatorControllerFront::class, 'telecomsComparison'])->name('telecoms_comparison');
 Route::get('/ecoles', [\App\Http\Controllers\SchoolsController::class, 'index'])->name('index_schools');
 Route::get('/ecole/{school}', [\App\Http\Controllers\SchoolsController::class, 'view'])->name('view_school');
 Route::get('/ecoles/accreditees', [\App\Http\Controllers\SchoolsController::class, 'accredited'])->name('accreds_schools');

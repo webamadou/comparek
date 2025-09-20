@@ -12,7 +12,7 @@
                         <img src="{{ asset('frontv1/img/illustration/illust11.svg') }}" alt="comparek" class="img-fluid">
                     </div>
                     <div class="col-12">
-                        <p class="text-left">
+                        <p class="text-left page-description">
                             Sur cette page, comparez en un coup d’œil les offres mobiles et Internet des principaux opérateurs. Utilisez les filtres par opérateur, technologie (2G/3G/4G/5G, fibre), volume data, options d’appels et bien plus pour affiner votre recherche. Trouvez rapidement l’offre qui correspond parfaitement à vos besoins et à votre budget.
                         </p>
                     </div>

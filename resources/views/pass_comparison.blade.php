@@ -12,7 +12,7 @@
                         <img src="{{ asset('frontv1/img/illustration/illust12.svg') }}" alt="comparek" class="img-fluid">
                     </div>
                     <div class="col-12">
-                        <p class="text-left">
+                        <p class="text-left page-description">
                             Sur cette page, comparez en un coup d’œil les offres mobiles des principaux opérateurs. Utilisez les filtres pour affiner votre recherche. Trouvez rapidement l’offre qui correspond parfaitement à vos besoins et à votre budget.
                         </p>
                     </div>

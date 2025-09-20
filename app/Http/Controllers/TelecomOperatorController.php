@@ -88,4 +88,12 @@ class TelecomOperatorController extends Controller
 
         return view('scores', compact('page'));
     }
+
+    public function telecomsComparison()
+    {
+        $pageObject = Page::where('slug', 'comparateur_des_offres_box_mobile_1')->first();
+        $page = $pageObject ? $pageObject->toArray() : [];
+
+        return view('comparison_telecoms', compact('page'));
+    }
 }
