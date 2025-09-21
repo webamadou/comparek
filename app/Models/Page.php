@@ -16,7 +16,7 @@ class Page extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'locale','name','slug','excerpt','body','template',
+        'locale','name','slug','excerpt','body','page_footer','template',
         'status','published_at',
         'meta_title','meta_description','meta_keywords','meta_robots','canonical_url',
         'og_title','og_description','og_image_path','twitter_card',

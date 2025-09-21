@@ -29,4 +29,11 @@ return [
     'search' => 'Rechercher',
     'compare_telecom' => 'Comparaison des télécoms',
     'comparison_telecoms' => 'Comparaison des offres télécoms',
+    'comare_telecoms' => 'Comparer les offres télécoms',
+    'select_telecom_1' => 'Sélectionnez le premier opérateur',
+    'select_telecom_2' => 'Sélectionnez le deuxième opérateur',
+    'see_details' => 'Voir les détails',
+    'no_telecom_selected' => 'Aucun opérateur sélectionné',
+    'select_telecom_to_compare' => 'Sélectionnez deux opérateurs à comparer',
+    'no_offer_available' => 'Aucune offre disponible pour cet opérateur. Editez les filtres ou selectionnez un autre type de service.',
 ];

@@ -49,8 +49,6 @@ class SchoolComparison extends Component
             : $schoolBData?->programs ;
 
         return view('livewire.school-comparison', [
-                'schoolsAList' => $this->schoolsAList,
-                'schoolsBList' => $this->schoolsBList,
                 'schoolAData' => $schoolAData,
                 'schoolBData' => $schoolBData,
                 'schoolAPrograms' => $schoolAPrograms,

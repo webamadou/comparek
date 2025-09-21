@@ -20,6 +20,11 @@
     <textarea name="body" rows="10" class="form-control">{{ old('body', $page->body) }}</textarea>
   </div>
 
+  <div class="col-12">
+    <label class="form-label">Footer</label>
+    <textarea name="page_footer" rows="10" class="form-control">{{ old('page_footer', $page->page_footer) }}</textarea>
+  </div>
+
   <div class="col-md-3">
     <label class="form-label">Modèle</label>
     <input type="text" name="template" class="form-control" value="{{ old('template', $page->template) }}" placeholder="default">

@@ -22,9 +22,14 @@
         <div class="container">
             <div class="row justify-content-between gy-4">
                 <div id="schoolComparison" class="px-1">
-                    @livewire('school-comparison')
+                    @livewire('telecom-comparison')
                 </div>
                 <div style="height: 300px">&nbsp;</div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {!! $page['page_footer'] ?? '' !!}
+                </div>
             </div>
         </div>
     </section>

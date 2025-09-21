@@ -32,7 +32,7 @@ class TelecomOperator extends Model
 
     public function offers(): HasMany
     {
-        return $this->hasMany(TelecomOperator::class, 'telecom_operator_id');
+        return $this->hasMany(TelecomOffer::class, 'telecom_operator_id');
     }
 
     public function images(): MorphOne

@@ -3496,7 +3496,12 @@ ul.program-list {
   border-bottom: 0.1px solid;
   padding: 1rem 0;
   margin-bottom: 1rem;
-  height: 10%;
+  height: auto;
+}
+
+.comparison-header img {
+  height: 52px;
+  width: auto;
 }
 
 .comparison-wrapper {
@@ -3543,8 +3548,10 @@ ul.program-list {
   text-align: center;
 }
 
-.comparison-header.schoola {
+.comparison-header.schoola,
+.comparison-header.schoolb {
   border-radius: 0;
+  font-size: 2.2rem;
 }
 
 .comparison-row .badge {
@@ -3861,7 +3868,8 @@ span.round-no {
   text-align: center;
 }
 
-.wrapperA:before {
+.wrapperA:before,
+.wrapperOperatorA:before {
   content: '';
   display: block;
   width: 15.4vw;
@@ -3875,7 +3883,8 @@ span.round-no {
   left: -14px;
 }
 
-.wrapperB:after {
+.wrapperB:after,
+.wrapperOperatorB:after {
   content: '';
   display: block;
   width: 15.4vw;
@@ -3889,10 +3898,33 @@ span.round-no {
   right: -4px;
 }
 
+.wrapperOperatorA:before {
+  background: url(../img/illustration/illust35.png);
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 18vh;
+  top: -21px;
+}
+
+.wrapperOperatorB:after {
+  background: url(../img/illustration/illust36.png);
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 18vh;
+  top: -21px;
+}
+
 .comparison-container h2 {
   color: var(--accent-color);
   font-weight: bold;
   font-size: 3rem;
+}
+
+.comparison-container a {
+  text-decoration: none;
+  color: var(--accent-color);
 }
 
 .comparaison-description {
@@ -3906,6 +3938,33 @@ span.round-no {
   border-radius: 4px;
   background: var(--background-color);
   color: var(--text-color);
+}
+
+.offer-comparison-row .card.card-body {
+  text-align: left;
+  line-height: 1.5;
+}
+
+.offer-comparison-row {
+  box-shadow: 1px 1px 3px #8f8f8f;
+}
+
+.offer-comparison-row h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 1.3rem;
+  border-bottom: .1px solid var(--heading-color);
+}
+
+.offer-comparison-row {
+  background: #ffffff;
+  padding-top: 1rem;
+}
+
+.offer-comparison-row sup {
+  top: 0;
+  font-size: small;
 }
 
 @media (min-width: 1200px) {
@@ -4856,6 +4915,28 @@ span.round-no {
     top: initial;
     bottom: 40px;
     right: -13px;
+  }
+
+  .comparison-select .select-wrapper {
+    width: 100%;
+  }
+
+  .wrapperOperatorB:after {
+    background: url(../img/illustration/illust36.png);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 18vh;
+    bottom: 24px;
+    top: initial;
+  }
+
+  .select-wrapper.wrapperOperatorB {
+    background: var(--heading-color);
+  }
+
+  .select-wrapper.wrapperOperatorB #operatorB {
+    background: var(--heading-color);
   }
 
   #schoolComparison select {

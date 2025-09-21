@@ -30,6 +30,7 @@ class UpdatePageRequest extends FormRequest
             'name'            => ['required','string','max:180'],
             'excerpt'          => ['nullable','string','max:255'],
             'body'             => ['nullable','string'],
+            'page_footer'      => ['nullable','string'],
             'template'         => ['nullable','string','max:80'],
             'status'           => ['required', Rule::in(['draft','published','archived'])],
             'published_at'     => ['nullable','date'],

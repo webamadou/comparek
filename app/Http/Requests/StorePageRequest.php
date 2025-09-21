@@ -29,6 +29,7 @@ class StorePageRequest extends FormRequest
                 Rule::unique('pages')->where(fn($q) => $q->where('locale', $this->input('locale','fr')))],
             'excerpt'          => ['nullable','string','max:255'],
             'body'             => ['nullable','string'],
+            'page_footer'      => ['nullable','string'],
             'template'         => ['nullable','string','max:80'],
             'status'           => ['required', Rule::in(['draft','published','archived'])],
             'published_at'     => ['nullable','date'],
