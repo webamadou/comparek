@@ -50,6 +50,57 @@
 </div>
 @elseif ($serviceType == 'mobile')
 <div>
-    // Mobile offer row component (not implemented yet)
+    <div {{ $attributes->merge(['class' => 'col-lg-12 col-md-12 row my-3 mx-0 offer-comparison-row']) }}>
+        <div class="col-md-12 col-sm-12 m-0 p-0 logo-n-name-wrapper">
+            <h2 class="offer-name">{{ $offer->name }}</h2>
+        </div>
+        <div class="col-sm-12 col-md-5 col-lg-6 m-0 pt-4 row mobile-offer-details-wrapper">
+            <div class="offer-details col-12">
+                <ul>
+                    @if(!empty($offer->data_volume_value))
+                    <li class="data-volume my-1">
+                        <span class="bi bi-database-fill"></span> {!! "{$offer->data_volume_value} <sup>{$offer->data_volume_unit}</sup>" !!}
+                    </li>
+                    @endif
+                    @if(!empty($offer->voice_minutes))
+                    <li class="voice-minutes my-1">
+                        <span class="bi bi-stopwatch-fill"></span> {!! number_format($offer->voice_minutes, 0, '', ' ') . ' ' .__('offers-features.call_minutes')  !!}
+                    </li>
+                    @endif
+                    @if(!empty($offer->sms_nbr))
+                    <li class="sms-nbr my-1">
+                        <span class="bi bi-chat-left-text-fill"></span> {!! number_format($offer->sms_nbr, 0, '', ' ') . ' ' . __('offers-features.sms') !!}
+                    </li>
+                    @endif
+                    @if(!empty($offer->phone_credit))
+                    <li class="phone-credit my-1">
+                        <span class="bi bi-phone-fill"></span> {!! number_format($offer->phone_credit, 0, '', ' ') . ' ' . __('offers-features.phone_credit') !!}
+                    </li>
+                    @endif
+                    @if(!empty($offer->validity_length))
+                    <li class="validity-length my-1">
+                        <span class="bi bi-calendar-range"></span> {!! $offer->validity_length . ' ' . trans_choice('offers-features.day', $offer->validity_length) !!}
+                    </li>
+                    @endif
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4 mobile-offer-price-badge">
+            <div class="mobile-offer-price">
+                @if ((int) $offer->price > 0)
+                    <div class="price">
+                        {!! number_format($offer->price, 0, '', ' ') . '<sup> FCFA</sup>' !!}
+                    </div>
+                @endif
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2 col-lg-2">
+            <div class="mobile-offer-badge">
+                <div class="offer-score">
+                    <x-comparek-score-badge :grade="$offer->offer->currentScoreGrade()" size="small"/>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endif

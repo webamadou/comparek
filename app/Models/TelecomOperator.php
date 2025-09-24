@@ -49,4 +49,16 @@ class TelecomOperator extends Model
     {
         return $this->primaryImage?->thumbnail_path ? asset($this->primaryImage->thumbnail_path) : null;
     }
+
+    public function offerFeatures(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    {
+        return $this->hasManyThrough(
+            TelecomOfferFeature::class,
+            TelecomOffer::class,
+            'telecom_operator_id', // Foreign key on TelecomOffer table...
+            'telecom_offer_id', // Foreign key on TelecomOfferFeature table...
+            'id', // Local key on TelecomOperator table...
+            'id'  // Local key on TelecomOffer table...
+        );
+    }
 }

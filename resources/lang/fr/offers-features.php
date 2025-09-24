@@ -6,6 +6,7 @@ return [
     'data' => 'Données mobile',
     'call_minutes' => "Minutes d'appel",
     'nbr_sms' => 'Nombre de SMS',
+    'sms' => 'sms',
     'phone_credit' => 'Crédit téléphonique',
     'valid' => 'Valable',
     'and_more' => 'et +'
