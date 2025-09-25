@@ -46,19 +46,6 @@ class TelecomComparison extends Component
 
     public function updated()
     {
-        /* $this->operatorsAList = $this->operators->transform(function ($operator) {
-            $operator->disabled = ($operator->id == $this->operatorB);
-            return $operator;
-        });
-
-        $this->operatorsBList = $this->operators->transform(function ($operator) {
-            if ($operator->id == $this->operatorA) {
-                $operator->disabled = true;
-            } else {
-                $operator->disabled = false;
-            }
-            return $operator;
-        }); */
         if (! empty($this->operatorA)) {
             $this->operatorsBList = $this->operators->transform(function ($operator) {
                 if ($operator->id == $this->operatorA) {

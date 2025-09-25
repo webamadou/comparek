@@ -77,7 +77,7 @@ class MobileComparatorOperators extends Component
     {
         $cacheKey = $this->generateCacheKey();
 
-        $telecomOffers = Cache::remember($cacheKey, Config::get('cache.duration'), function () {
+        $telecomOffers = Cache::remember($cacheKey.'v1.0.1.1', Config::get('cache.duration'), function () {
             return $this->buildMobileQueryOffer()->all();
         });
 

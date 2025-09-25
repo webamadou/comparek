@@ -44,13 +44,19 @@
                                         <label class="d-flex justify-content-between font-weight-bold">
                                             <span class="bi bi-filter"> {{ __('offers-features.data') }} </span>
                                             <span class="">
-                                                {!! $data >= 1024 ? ' : 1<sup>Go</sup> ' . __('offers-features.and_more') : ($data > 0 ? ' : ' . number_format($data, 0, '', ' ') . '<sup>Mo</sup>' : '') !!}
+                                                {!!
+                                                    $data >= (1024 * 5) ? ' : '. number_format(ceil($data/1024), 0) .'<sup>Go</sup> ' . __('offers-features.and_more') : (
+                                                        $data >= 1024 ? ' : '. number_format(ceil($data/1024), ) .'<sup>Go</sup> ' : (
+                                                            $data > 0 ? ' : ' . number_format($data, 0, '', ' ') . '<sup>Mo</sup>' : ''
+                                                        )
+                                                    )
+                                                !!}
                                             </span>
                                         </label>
                                         <input type="range"
                                                min="0"
-                                               max="1048"
-                                               step="10"
+                                               max="5120"
+                                               step="{{ $data < 1024 ? 10 : 1024}}"
                                                wire:model.live.200ms="data"
                                                class="form-range w-100"
                                         >
@@ -99,9 +105,9 @@
                                             </span>
                                         </label>
                                         <input type="range"
-                                               min="0"
+                                               min="1000"
                                                max="10000"
-                                               step="100"
+                                               step="1000"
                                                wire:model.live.200ms="phoneCredit"
                                                class="form-range w-100"
                                         >

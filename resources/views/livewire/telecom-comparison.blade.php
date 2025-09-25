@@ -95,7 +95,7 @@
                     </label>
                     <input type="range"
                             min="0"
-                            max="10000"
+                            max="5500"
                             step="100"
                             wire:model.live.200ms="price"
                             class="form-range w-100"
@@ -108,7 +108,7 @@
             <div class="custom-checkbox-group">
                 @foreach($this->validityOptions as $k => $days)
                     <label class="custom-checkbox">
-                        <input type="checkbox" name="validityLength[]" wire:model.live="validityLength" value="{{ $days }}">
+                        <input type="radio" name="validityLength" wire:model.live="validityLength" value="{{ $days }}">
                         <span>{{ $days . ' ' . trans_choice('offers-features.day', $days) }} {{ $days == 30 ? '+' : '' }}</span>
                     </label>
                 @endforeach
@@ -235,7 +235,9 @@
                             </ul>
                         </x-offer-row>
                     @empty
-                        <p class="text-center py-4">{{ __('offers.no_offer_available') }}</p>
+                        <div class="alert alert-info my-4">
+                            <p class="text-center py-4">{{ __('offers.no_offer_available') }}</p>
+                        </div>
                     @endforelse
                 </div>
             @endif
