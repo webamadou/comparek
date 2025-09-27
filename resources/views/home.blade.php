@@ -60,7 +60,7 @@
                 <div class="col-12 row mt-5 pt-0">
                     <div class="col-sm-12 col-md-4 aos-init aos-animate mb-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="cta-wrapper d-flex justify-content-center">
-                            <a href="{{ route('telecom_comparison') }}" class="btn btn-primary"><span class="iconify" data-icon="mdi-wifi"></span> {{ __('offers.compare_telecom') }}</a>
+                            <a href="{{ route('telecoms_comparison') }}" class="btn btn-primary"><span class="iconify" data-icon="mdi-wifi"></span> {{ __('offers.compare_telecom') }}</a>
                         </div>
                     </div>
 

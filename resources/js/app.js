@@ -1,8 +1,8 @@
 import './bootstrap';
+import '../sass/app.scss';
 import noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import './sliders';
-import '../sass/app.scss';
 
 import Alpine from 'alpinejs';
 

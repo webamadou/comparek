@@ -3465,6 +3465,7 @@ ul.program-list {
   -moz-appearance: none;
   appearance: none;
   background: var(--accent-color);
+  box-shadow: 1px 1px 4px #e05812;
   color: #fff;
   position: relative;
   z-index: 99;
@@ -3868,6 +3869,15 @@ span.round-no {
 
 .comparison-container {
   text-align: center;
+}
+
+.select-wrapper.wrapperOperatorB {
+  background: var(--heading-color);
+}
+
+.select-wrapper.wrapperOperatorB select {
+  background: var(--heading-color) !important;
+  box-shadow: 1px 1px 1px #390a6c !important;
 }
 
 .wrapperA:before,

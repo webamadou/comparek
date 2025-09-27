@@ -95,20 +95,6 @@ class MobileComparatorOperators extends Component
         $this->dispatch('smsRangeChanged:set', $this->smsRange);
         $this->dispatch('creditRangeChanged:set', $this->creditRange);
 
-        $this->reset([
-            'operator',
-            'validityLength',
-            'data',
-            'voiceMinutes',
-            'sms_nbr',
-            'phoneCredit',
-            'price',
-            'mobilePricePerMonthMin',
-            'sortBy',
-            'orderDirection',
-            'score',
-        ]);
-
         // Force page reload to reset sliders
         $this->js('setTimeout(() => window.location.reload(), 100)');
     }

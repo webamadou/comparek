@@ -50,62 +50,6 @@
         @stack('styles')
         <link href="{{ asset('frontv1/css/main.css') }}" rel="stylesheet">
         @vite('resources/js/app.js')
-        <style>
-            /* No-UI theme  */
-            .noUi-horizontal {
-            height: 5px;
-            }
-
-            .noUi-connect {
-            background: var(--heading-color);
-            }
-
-            .noUi-base,
-            .noUi-connects {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            z-index: 1;
-            }
-
-            .noUi-horizontal .noUi-handle {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            right: -9px;
-            top: -8px;
-            background: var(--accent-color);
-            }
-
-            .noUi-handle {
-            box-shadow: none;
-            }
-
-            .noUi-pips .noUi-value {
-            color: #6b5b95;
-            font-size: .5rem;
-            }
-
-            .noUi-marker {
-            position: absolute;
-            background: var(--heading-color);
-            top: 3px;
-            }
-
-            .noUi-tooltip {
-            display: block;
-            position: absolute;
-            border: 1px solid #D9D9D9;
-            border-radius: 3px;
-            background: #fff;
-            color: #000;
-            padding: 0px 3px;
-            text-align: center;
-            white-space: nowrap;
-            font-size: .6rem;
-            }
-
-            /* No-UI theme  */
     </head>
     <body class="index-page">
 

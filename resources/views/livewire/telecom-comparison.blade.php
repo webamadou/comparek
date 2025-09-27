@@ -47,23 +47,19 @@
     <div class="overflow-x-auto row comparison-filter-wrapper row {{ ! empty($operatorDataA) || ! empty($operatorDataB) ? '' : 'd-none' }}">
         <div class="col-12 d-flex justify-content-between align-items-center my-0">
             <h5>{{ __('filters.filter') }}</h5>
-            <div><a href="#" wire:click.prevent="resetFields"> <span class="bi-arrow-clockwise"></span>{{ __('filters.reset') }}</a></div>
+            <div class="d-none"><a href="#" wire:click.prevent="resetTheFilter"> <span class="bi-arrow-clockwise"></span>{{ __('filters.reset') }}</a></div>
         </div>
-        <div class="{{ $serviceType === 'internet' ? '' : 'd-none' }} row col-12 m-0 p-0">
-            <div class="col-md-6 my-2 form-group">
-                <div class="input-group">
-                    <label class="d-flex slider-label">
-                        <span> {{ __('commons.price') }} :</span>
-                        <span class="">
-                            {{ $pricePerMonthMin >= $defaultPricePerMonthMax ? '25 000 CFA et +' : number_format($pricePerMonthMin, 0, '', ' ') . 'CFA' }}
-                        </span>
-                    </label>
-                    <input type="range"
-                            min="100"
-                            max="{{ $defaultPricePerMonthMax }}"
-                            step="100"
-                            wire:model.live.200ms="pricePerMonthMin"
-                            class="form-range w-100"
+        <div id="filter-wrapper" class="{{ $serviceType === 'internet' ? '' : 'd-none' }} row col-12 m-0 p-0">
+            {{-- PRICE (CFA) --}}
+            <div class="col-sm-12 col-md-6 mt-2 form-group mb-3" wire:ignore>
+                <label class="noUI-label">
+                    <span>{{ __('commons.price') }}</span>
+                </label>
+                <div id="internetpriceSlider"
+                    data-event="internetPriceRangeChanged"
+                    data-min="0" data-max="60000" data-step="100"
+                    data-start="{{ json_encode($internetPriceRange ?? [0,60000]) }}"
+                    wire:on:priceRangeChanged="setInternetPriceRange($event.detail)"
                     >
                 </div>
             </div>
@@ -72,7 +68,7 @@
                     <h3><span class="bi bi-filter"></span> {{ __('offers.technologies') }}</h3>
                     @foreach(\App\Enums\TechnologyEnum::cases() as $techno)
                         <label for="{{ $techno->value }}" class="custom-checkbox">
-                            <input id="{{ $techno->value }}" type="radio" name="technology"
+                            <input id="{{ $techno->value }}" type="checkbox" name="technology[]"
                                     value="{{ $techno->value }}" wire:model.live="technology">
                             <span>{{ $techno->label() }}</span>
                         </label>
@@ -84,102 +80,67 @@
 
     <!-- the mobile filters -->
     <div class="{{ $serviceType === 'mobile' && (! empty($operatorA) || ! empty($operatorB)) ? '' : 'd-none' }} row col-12 m-0 p-0">
-        <div class="col-md-3 mt-2 form-group">
-            <div class="col-md-12 my-2 form-group">
-                <div class="input-group">
-                    <label class="d-flex justify-content-between font-weight-bold">
-                        <span> {{__('commons.price')}} </span>
-                        <span class="">
-                            {!! $price >= 5000 ? ' : 5000 <sup>' . __('commons.cfa_and_more') . '</sup>': ($price > 0 ? ' : ' . number_format($price, 0, '', ' ') . ' <sup>' . __('commons.cfa') . '</sup>' : '') !!}
-                        </span>
-                    </label>
-                    <input type="range"
-                            min="0"
-                            max="5500"
-                            step="100"
-                            wire:model.live.200ms="price"
-                            class="form-range w-100"
-                    >
+        <div class="form-wrapper filter-form-wrapper p-3 overflow-hidden">
+            <div id="filter-wrapper" class="php-email-form row">
+                {{-- VALIDITY LENGTH --}}
+                <div class="col-md-12 mt-4 form-group">
+                    <h3><span class="bi bi-filter"></span> {{__('offers-features.validity_length')}}</h3>
+                    <div class="custom-checkbox-group">
+                        @foreach($this->validityOptions as $k => $days)
+                            <label class="custom-checkbox">
+                                <input type="radio" name="validityLength" wire:model.live="validityLength" value="{{ $days }}">
+                                <span>{{ $days . ' ' . trans_choice('offers-features.day', $days) }} {{ $days == 30 ? '+' : '' }}</span>
+                            </label>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-3 mt-2 form-group">
-            <h3><span class="bi bi-filter"></span> {{__('offers-features.validity_length')}}</h3>
-            <div class="custom-checkbox-group">
-                @foreach($this->validityOptions as $k => $days)
-                    <label class="custom-checkbox">
-                        <input type="radio" name="validityLength" wire:model.live="validityLength" value="{{ $days }}">
-                        <span>{{ $days . ' ' . trans_choice('offers-features.day', $days) }} {{ $days == 30 ? '+' : '' }}</span>
+                {{-- PRICE (CFA) --}}
+                <div class="col-sm-12 col-md-6 px-4 mt-2 form-group mb-3" wire:ignore>
+                    <label class="noUI-label">
+                        <span>{{ __('commons.price') }}</span>
                     </label>
-                @endforeach
-            </div>
-        </div>
-        <div class="col-md-3 mt-2 form-group">
-            <div class="input-group">
-                <label class="d-flex justify-content-between font-weight-bold">
-                    <span class="bi bi-filter"> {{ __('offers-features.data') }} </span>
-                    <span class="">
-                        {!! $data >= 1024 ? ' : 1<sup>Go</sup> ' . __('offers-features.and_more') : ($data > 0 ? ' : ' . number_format($data, 0, '', ' ') . '<sup>Mo</sup>' : '') !!}
-                    </span>
-                </label>
-                <input type="range"
-                        min="0"
-                        max="1048"
-                        step="10"
-                        wire:model.live.200ms="data"
-                        class="form-range w-100"
-                >
-            </div>
-        </div>
-        <div class="col-md-3 mt-2 form-group">
-            <div class="input-group">
-                <label class="d-flex justify-content-between font-weight-bold">
-                    <span class="bi bi-filter"> {{ __('offers-features.call_minutes') }} </span>
-                    <span class="">
-                        {{ $voiceMinutes >= 1000 ? ' : 1 000 min et +' : ( $voiceMinutes > 0 ? ' : ' . number_format($voiceMinutes, 0, '', ' ') . 'min' : '')}}
-                    </span>
-                </label>
-                <input type="range"
-                        min="0"
-                        max="1000"
-                        step="10"
-                        wire:model.live.200ms="voiceMinutes"
-                        class="form-range w-100"
-                >
-            </div>
-        </div>
-        <div class="col-md-3 mt-2 form-group">
-            <div class="input-group">
-                <label class="d-flex justify-content-between font-weight-bold">
-                    <span class="bi bi-filter"> {{ __('offers-features.nbr_sms') }} </span>
-                    <span class="">
-                        {{ $sms_nbr >= 1000 ? ' : 1 000 et +' : ($sms_nbr > 0 ? ' : ' . number_format($sms_nbr, 0, '', ' ') : '') }}
-                    </span>
-                </label>
-                <input type="range"
-                        min="0"
-                        max="1000"
-                        step="10"
-                        wire:model.live.200ms="sms_nbr"
-                        class="form-range w-100"
-                >
-            </div>
-        </div>
-        <div class="col-md-3 mt-2 form-group">
-            <div class="input-group">
-                <label class="d-flex justify-content-between font-weight-bold">
-                    <span class="bi bi-filter"> {{ __('offers-features.phone_credit') }} </span>
-                    <span class="">
-                        {{ $phoneCredit >= 10000 ? ' : 10 000 et +' : ($phoneCredit > 0 ? ' : ' . number_format($phoneCredit, 0, '', ' ') : '')  }}
-                    </span>
-                </label>
-                <input type="range"
-                        min="0"
-                        max="10000"
-                        step="100"
-                        wire:model.live.200ms="phoneCredit"
-                        class="form-range w-100"
-                >
+                    <div id="priceSlider"
+                        data-event="priceRangeChanged"
+                        data-min="0" data-max="20000" data-step="100"
+                        data-start="{{ json_encode($priceRange ?? [0,20000]) }}"
+                        wire:on:priceRangeChanged="setPriceRange($event.detail)"
+                        >
+                    </div>
+                </div>
+                {{-- DATA (Mo/Go) --}}
+                <div class="col-sm-12 col-md-6 px-4 mt-2 form-group mb-3" wire:ignore>
+                    <label class="noUI-label">
+                        <span class="bi bi-filter">{{ __('offers-features.data') }}</span>
+                    </label>
+                    <div id="dataSlider"
+                        data-event="dataRangeChanged"
+                        data-min="0" data-max="102400" data-step="10"     {{-- value unit = Mo --}}
+                        data-start="{{ json_encode($dataRange) }}"
+                        data-format="data">
+                    </div>
+                </div>
+                {{-- MINUTES --}}
+                <div class="col-sm-12 col-md-6 px-4 mt-2 form-group mb-3" wire:ignore>
+                    <label class="noUI-label"">
+                        <span class="bi bi-filter">{{ __('offers-features.call_minutes') }}</span>
+                    </label>
+                    <div id="minutesSlider"
+                        data-event="minutesRangeChanged"
+                        data-min="0" data-max="1000" data-step="10"
+                        data-start="{{ json_encode($minutesRange) }}"
+                        data-format="minutes"></div>
+                </div>
+                {{-- SMS --}}
+                <div class="col-sm-12 col-md-6 px-4 mt-2 form-group" wire:ignore>
+                    <label class="noUI-label">
+                        <span class="bi bi-filter">{{ __('offers-features.nbr_sms') }}</span>
+                    </label>
+                    <div id="smsSlider"
+                        data-event="smsRangeChanged"
+                        data-min="0" data-max="1000" data-step="10"
+                        data-start="{{ json_encode($smsRange) }}"
+                        data-format="sms"></div>
+                </div>
             </div>
         </div>
     </div>

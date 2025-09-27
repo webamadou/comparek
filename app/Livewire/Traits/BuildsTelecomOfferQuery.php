@@ -20,6 +20,26 @@ trait BuildsTelecomOfferQuery
     public $score = '';
     public $filterIsApplied = false;
 
+    public function resetFields()
+    {
+        $this->reset([
+            'operator',
+            'validityLength',
+            'data',
+            'voiceMinutes',
+            'sms_nbr',
+            'phoneCredit',
+            'price',
+            'mobilePricePerMonthMin',
+            'sortBy',
+            'orderDirection',
+            'score',
+            //'technology',
+            //'pricePerMonthMin',
+            //'defaultPricePerMonthMax',
+        ]);
+    }
+
     protected function buildMobileQueryOffer()
     {
         return TelecomOfferFeature::query()
@@ -77,26 +97,6 @@ trait BuildsTelecomOfferQuery
             });
     }
 
-    public function resetFields()
-    {
-        $this->reset([
-            'operator',
-            'validityLength',
-            'data',
-            'voiceMinutes',
-            'sms_nbr',
-            'phoneCredit',
-            'price',
-            'mobilePricePerMonthMin',
-            'sortBy',
-            'orderDirection',
-            'score',
-            //'technology',
-            //'pricePerMonthMin',
-            //'defaultPricePerMonthMax',
-        ]);
-    }
-
     protected function buildQueryByOperator($operatorId)
     {
         return TelecomOfferFeature::query()
@@ -108,79 +108,23 @@ trait BuildsTelecomOfferQuery
             ])
             ->when($this->validityLength > 0 && $this->validityLength < 30, fn ($query) => $query->where('validity_length', $this->validityLength))
             ->when($this->validityLength >= 30, fn ($query) => $query->where('validity_length', '>=', $this->validityLength))
-            ->when($this->data > 0, function ($query) {
-                if ($this->data < 1024*5) {
-                    $min = max($this->data - 20, 0);
-                    $max = $this->data + 20;
-
-                    return $query->whereRaw("
-                        CASE
-                            WHEN data_volume_unit = 'Go' THEN data_volume_value * 1024
-                            WHEN data_volume_unit = 'Mo' THEN data_volume_value
-                            ELSE NULL
-                        END BETWEEN ? AND ?
-                    ", [$min, $max]);
-                } else {
-                    return $query->whereRaw("
-                        CASE
-                            WHEN data_volume_unit = 'Go' THEN data_volume_value * 1024
-                            WHEN data_volume_unit = 'Mo' THEN data_volume_value
-                            ELSE NULL
-                        END >= ?
-                    ", [5000]);
-                }
+            ->when($this->priceRange[0] > 0 || $this->priceRange[1] < 5000, function ($query) {
+                return $query->whereBetween('price', $this->priceRange);
             })
-            ->when($this->voiceMinutes > 0, function ($query) {
-                return $this->voiceMinutes < 1000
-                    ? $query->where('voice_minutes', '>=', $this->voiceMinutes - 10)->where('voice_minutes', '<=', $this->voiceMinutes + 10)
-                    : $query->where('voice_minutes', '>=', $this->voiceMinutes);
+            ->when($this->dataRange[0] > 0 || $this->dataRange[1] < 102400, function ($q) {
+                [$min,$max] = $this->dataRange; // Mo
+                $q->whereRaw("
+                CASE
+                    WHEN data_volume_unit = 'Go' THEN data_volume_value * 1024
+                    WHEN data_volume_unit = 'Mo' THEN data_volume_value
+                    ELSE NULL
+                END BETWEEN ? AND ?
+                ", [$min, $max]);
             })
-            ->when($this->sms_nbr > 0, function ($query) {
-                return $this->sms_nbr < 1000
-                    ? $query->where('sms_nbr', '>=', $this->sms_nbr - 10)->where('sms_nbr', '<=', $this->sms_nbr + 10)
-                    : $query->where('sms_nbr', '>=', $this->sms_nbr);
-            })
-            ->when($this->phoneCredit > 0, function ($query) {
-                return $this->phoneCredit < 8000
-                    ? $query->where('phone_credit', '>=', $this->phoneCredit)->where('phone_credit', '<=', $this->phoneCredit + 50)
-                    : $query->where('phone_credit', '>=', $this->phoneCredit);
-            })
-            ->when($this->price > 0, function ($query) {
-                return $this->price < 5000
-                    ? $query->where('price', '>=', $this->price - 200)->where('price', '<=', $this->price + 200)
-                    : $query->where('price', '>=', $this->price);
-            })
-
-            // Sorting
-            ->when($this->sortBy === 'sms_nbr', fn ($query) =>
-                $query->whereNotNull('sms_nbr')->orderBy('sms_nbr', $this->orderDirection)
-            )
-            ->when($this->sortBy === 'data_volume_value', fn ($query) =>
-                $query->whereNotNull('data_volume_value')->whereNotNull('data_volume_unit')
-                    ->orderByRaw("
-                        CASE
-                            WHEN data_volume_unit = 'Go' THEN data_volume_value * 1024
-                            WHEN data_volume_unit = 'Mo' THEN data_volume_value
-                            ELSE NULL
-                        END {$this->orderDirection}
-                    ")
-            )
-            ->when(!empty($this->sortBy) && $this->sortBy !== 'sort_note' && !in_array($this->sortBy, ['sms_nbr', 'data_volume_value']), fn ($query) =>
-                $query->orderBy($this->sortBy, $this->orderDirection)
-            )
+            ->when($this->minutesRange[0] > 0 || $this->minutesRange[1] < 1000, fn($q) => $q->whereBetween('voice_minutes', $this->minutesRange))
+            ->when($this->smsRange[0] > 0 || $this->smsRange[1] < 1000, fn($q) => $q->whereBetween('sms_nbr', $this->smsRange))
             ->orderBy('validity_length', 'asc')
-            ->get()
-            ->filter(function ($feature) {
-                if (!empty($this->score)) {
-                    return $feature->offer->currentScoreGrade()->name === $this->score;
-                }
-                return $feature;
-            })
-            /* ->sortByDesc(function ($feature) {
-                if ($this->sortBy === 'sort_note') {
-                    return $feature->validityLength;
-                }
-            }) */;
+            ->get();
     }
 
     public function updateFilterIsApplied()

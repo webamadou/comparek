@@ -17,7 +17,8 @@ const fmt = {
 // ---- Pips sets (you can tweak per slider) ----------------------
 function pipsFor(el, min, max) {
     const id = el.id;
-    if (id === 'priceSlider') return [50, 100, 500, 1000, 2000, 3000, 4000, 5000]; // more ticks
+    if (id === 'InternetpriceSlider') return [0, 10000, 15000, 25000, 50000, 60000]; // more ticks
+    if (id === 'priceSlider') return [50, 100, 500, 1000, 2000, 3000, 4000, 5000, 10000, 15000, 20000]; // more ticks
     if (id === 'creditSlider') return [0, 50, 100];            // fewer ticks
     if (id === 'minutesSlider') return [0, 10, 20, 50, 100];      // skewed to left
     if (id === 'smsSlider') return [0, 25, 50, 75, 100];
@@ -48,7 +49,7 @@ function initRange(el) {
     const event = el.dataset.event || 'rangeChanged';
     const formatKey = el.dataset.format || (
         el.id.includes('price') ? 'cfa' :
-            el.id.includes('credit') ? 'cfa' :
+            el.id.includes('credit') ? ' credit' :
                 el.id.includes('data') ? 'data' :
                     el.id.includes('minutes') ? 'minutes' :
                         el.id.includes('sms') ? 'sms' : 'raw'
