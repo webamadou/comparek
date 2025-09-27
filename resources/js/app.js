@@ -1,4 +1,7 @@
 import './bootstrap';
+import noUiSlider from 'nouislider';
+import 'nouislider/dist/nouislider.css';
+import './sliders';
 import '../sass/app.scss';
 
 import Alpine from 'alpinejs';
@@ -59,7 +62,7 @@ window.scrollToElement = (elementId, offset = 35) => {
         const y = element.getBoundingClientRect().top + window.pageYOffset - offset;
         window.scrollTo({ top: y, behavior: 'smooth' });
     }
-$('#filter-wrapper').addClass('hide-form');
+    $('#filter-wrapper').addClass('hide-form');
     // for mobile devices we need to toggle the filter form
     if (window.innerWidth <= 768) {
         console.log('Mobile device detected');

@@ -22,6 +22,97 @@ class MobileComparatorOperators extends Component
     public $data_unit = '';
     public $filterIsVisible = false;
 
+    // Properties (initial ranges)
+    public array $priceRange      = [0, 10000];
+    public array $dataRange       = [0, 102400];   // Mo
+    public array $minutesRange    = [0, 1000];
+    public array $smsRange        = [0, 1000];
+    public array $creditRange     = [1000, 10000];
+
+    // Listen to browser events
+    protected $listeners = [
+        'priceRangeChanged'   => 'setPriceRange',
+        'dataRangeChanged'    => 'setDataRange',
+        'minutesRangeChanged' => 'setMinutesRange',
+        'smsRangeChanged'     => 'setSmsRange',
+        'creditRangeChanged'  => 'setCreditRange',
+    ];
+
+    public function setPriceRange(int $min, int $max): void
+    {
+        $this->priceRange = [$min, $max];
+    }
+
+    public function setDataRange(int $min, int $max): void
+    {
+        $this->dataRange = [$min, $max];
+    }
+
+    public function setMinutesRange(int $min, int $max): void
+    {
+        $this->minutesRange = [$min, $max];
+    }
+
+    public function setSmsRange(int $min, int $max): void
+    {
+        $this->smsRange = [$min, $max];
+    }
+
+    public function setCreditRange(int $min, int $max): void
+    {
+        $this->creditRange = [$min, $max];
+    }
+
+
+    public function resetFilter()
+    {
+        // Reset properties first
+        $this->reset([
+            'operator',
+            'validityLength',
+            'data',
+            'voiceMinutes',
+            'sms_nbr',
+            'phoneCredit',
+            'price',
+            'mobilePricePerMonthMin',
+            'sortBy',
+            'orderDirection',
+            'score',
+        ]);
+
+        // Reset ranges
+        $this->priceRange   = [0, 10000];
+        $this->dataRange    = [0, 2048];
+        $this->minutesRange = [0, 1000];
+        $this->smsRange     = [0, 1000];
+        $this->creditRange  = [1000, 10000];
+
+        // Then dispatch events to update sliders (server → client)
+        $this->dispatch('priceRangeChanged:set', $this->priceRange);
+        $this->dispatch('dataRangeChanged:set', $this->dataRange);
+        $this->dispatch('minutesRangeChanged:set', $this->minutesRange);
+        $this->dispatch('smsRangeChanged:set', $this->smsRange);
+        $this->dispatch('creditRangeChanged:set', $this->creditRange);
+
+        $this->reset([
+            'operator',
+            'validityLength',
+            'data',
+            'voiceMinutes',
+            'sms_nbr',
+            'phoneCredit',
+            'price',
+            'mobilePricePerMonthMin',
+            'sortBy',
+            'orderDirection',
+            'score',
+        ]);
+
+        // Force page reload to reset sliders
+        $this->js('setTimeout(() => window.location.reload(), 100)');
+    }
+
     public function mount()
     {
         $this->operators = TelecomOperator::all();
@@ -52,7 +143,7 @@ class MobileComparatorOperators extends Component
         $this->reset($field);
     }
 
-    public function resetFilter()
+    public function resetFilter__()
     {
         $this->js('window.location.reload()');
     }
@@ -62,11 +153,11 @@ class MobileComparatorOperators extends Component
         return 'mobile_comparator_' . md5(json_encode([
                 'operator' => $this->operator,
                 'validityLength' => $this->validityLength,
-                'data' => $this->data,
-                'voiceMinutes' => $this->voiceMinutes,
-                'sms_nbr' => $this->sms_nbr,
-                'phoneCredit' => $this->phoneCredit,
-                'price' => $this->price,
+                'data' => implode('-', $this->dataRange),
+                'voiceMinutes' => implode('-', $this->minutesRange),
+                'sms_nbr' => implode('-', $this->smsRange),
+                'phoneCredit' => implode('-', $this->creditRange),
+                'price' => implode('-', $this->priceRange),
                 'score' => $this->score,
                 'sortBy' => $this->sortBy,
                 'orderDirection' => $this->orderDirection,
@@ -77,13 +168,16 @@ class MobileComparatorOperators extends Component
     {
         $cacheKey = $this->generateCacheKey();
 
-        $telecomOffers = Cache::remember($cacheKey.'v1.0.1.1', Config::get('cache.duration'), function () {
+        $telecomOffers = Cache::remember($cacheKey.'v1.2', Config::get('cache.duration'), function () {
             return $this->buildMobileQueryOffer()->all();
         });
 
-        return view('livewire.mobile-comparator-operators', [
-            'telecomOffers' => $telecomOffers,
-        ]);
+        return view(
+            'livewire.mobile-comparator-operators',
+            [
+                'telecomOffers' => $telecomOffers,
+            ]
+        );
     }
 
 }

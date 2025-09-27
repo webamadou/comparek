@@ -11,24 +11,21 @@
                         </h1>
                         <div id="filter-wrapper" class="php-email-form {{$filterIsVisible ? '' : 'hide-form'}}">
                             <div class="row">
-                                <div class="col-md-12 mt-2 form-group">
-                                    <div class="input-group">
-                                        <label class="d-flex justify-content-between font-weight-bold">
-                                            <span> {{__('commons.price')}} </span>
-                                            <span class="">
-                                                {!! $price >= 5000 ? ' : 5000 <sup>' . __('commons.cfa_and_more') . '</sup>': ($price > 0 ? ' : ' . number_format($price, 0, '', ' ') . ' <sup>' . __('commons.cfa') . '</sup>' : '') !!}
-                                            </span>
-                                        </label>
-                                        <input type="range"
-                                               min="0"
-                                               max="10000"
-                                               step="100"
-                                               wire:model.live.200ms="price"
-                                               class="form-range w-100"
-                                        >
+                                {{-- OPERATOR --}}
+                                <div class="col-md-12 mt-1 form-group">
+                                    <h3><span class="bi bi-filter"></span> {{__('offers.operators')}}</h3>
+                                    <div class="custom-checkbox-group">
+                                        @foreach($operators as $op)
+                                            <label class="custom-checkbox">
+                                                <input type="radio" name="operator" wire:model.live="operator"
+                                                       value="{{ $op->id }}">
+                                                <span>{{ $op->name }}</span>
+                                            </label>
+                                        @endforeach
                                     </div>
                                 </div>
-                                <div class="col-md-12 mt-2 form-group">
+                                {{-- VALIDITY LENGTH --}}
+                                <div class="col-md-12 mt-4 form-group">
                                     <h3><span class="bi bi-filter"></span> {{__('offers-features.validity_length')}}</h3>
                                     <div class="custom-checkbox-group">
                                         @foreach($this->validityOptions as $k => $days)
@@ -39,92 +36,54 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="col-md-12 mt-2 form-group">
-                                    <div class="input-group">
-                                        <label class="d-flex justify-content-between font-weight-bold">
-                                            <span class="bi bi-filter"> {{ __('offers-features.data') }} </span>
-                                            <span class="">
-                                                {!!
-                                                    $data >= (1024 * 5) ? ' : '. number_format(ceil($data/1024), 0) .'<sup>Go</sup> ' . __('offers-features.and_more') : (
-                                                        $data >= 1024 ? ' : '. number_format(ceil($data/1024), ) .'<sup>Go</sup> ' : (
-                                                            $data > 0 ? ' : ' . number_format($data, 0, '', ' ') . '<sup>Mo</sup>' : ''
-                                                        )
-                                                    )
-                                                !!}
-                                            </span>
-                                        </label>
-                                        <input type="range"
-                                               min="0"
-                                               max="5120"
-                                               step="{{ $data < 1024 ? 10 : 1024}}"
-                                               wire:model.live.200ms="data"
-                                               class="form-range w-100"
+                                {{-- PRICE (CFA) --}}
+                                <div class="col-md-12 mt-2 form-group mb-3" wire:ignore>
+                                    <label class="noUI-label">
+                                        <span>{{ __('commons.price') }}</span>
+                                    </label>
+                                    <div id="priceSlider"
+                                        data-event="priceRangeChanged"
+                                        data-min="0" data-max="5000" data-step="100"
+                                        data-start="{{ json_encode($priceRange ?? [0,5000]) }}"
+                                        wire:on:priceRangeChanged="setPriceRange($event.detail)"
                                         >
                                     </div>
                                 </div>
-                                <div class="col-md-12 mt-2 form-group">
-                                    <div class="input-group">
-                                        <label class="d-flex justify-content-between font-weight-bold">
-                                            <span class="bi bi-filter"> {{ __('offers-features.call_minutes') }} </span>
-                                            <span class="">
-                                                {{ $voiceMinutes >= 1000 ? ' : 1 000 min et +' : ( $voiceMinutes > 0 ? ' : ' . number_format($voiceMinutes, 0, '', ' ') . 'min' : '')}}
-                                            </span>
-                                        </label>
-                                        <input type="range"
-                                               min="0"
-                                               max="1000"
-                                               step="10"
-                                               wire:model.live.200ms="voiceMinutes"
-                                               class="form-range w-100"
-                                        >
+                                {{-- DATA (Mo/Go) --}}
+                                <div class="col-md-12 mt-2 form-group mb-3" wire:ignore>
+                                    <label class="noUI-label">
+                                        <span class="bi bi-filter">{{ __('offers-features.data') }}</span>
+                                    </label>
+                                    <div id="dataSlider"
+                                        data-event="dataRangeChanged"
+                                        data-min="0" data-max="102400" data-step="10"     {{-- value unit = Mo --}}
+                                        data-start="{{ json_encode($dataRange) }}"
+                                        data-format="data">
                                     </div>
                                 </div>
-                                <div class="col-md-12 mt-2 form-group">
-                                    <div class="input-group">
-                                        <label class="d-flex justify-content-between font-weight-bold">
-                                            <span class="bi bi-filter"> {{ __('offers-features.nbr_sms') }} </span>
-                                            <span class="">
-                                                {{ $sms_nbr >= 1000 ? ' : 1 000 et +' : ($sms_nbr > 0 ? ' : ' . number_format($sms_nbr, 0, '', ' ') : '') }}
-                                            </span>
-                                        </label>
-                                        <input type="range"
-                                               min="0"
-                                               max="1000"
-                                               step="10"
-                                               wire:model.live.200ms="sms_nbr"
-                                               class="form-range w-100"
-                                        >
-                                    </div>
+                                {{-- MINUTES --}}
+                                <div class="col-md-12 mt-2 form-group mb-3" wire:ignore>
+                                    <label class="noUI-label"">
+                                        <span class="bi bi-filter">{{ __('offers-features.call_minutes') }}</span>
+                                    </label>
+                                    <div id="minutesSlider"
+                                        data-event="minutesRangeChanged"
+                                        data-min="0" data-max="1000" data-step="10"
+                                        data-start="{{ json_encode($minutesRange) }}"
+                                        data-format="minutes"></div>
                                 </div>
-                                <div class="col-md-12 mt-2 form-group">
-                                    <div class="input-group">
-                                        <label class="d-flex justify-content-between font-weight-bold">
-                                            <span class="bi bi-filter"> {{ __('offers-features.phone_credit') }} </span>
-                                            <span class="">
-                                                {{ $phoneCredit >= 10000 ? ' : 10 000 et +' : ($phoneCredit > 0 ? ' : ' . number_format($phoneCredit, 0, '', ' ') : '')  }}
-                                            </span>
-                                        </label>
-                                        <input type="range"
-                                               min="1000"
-                                               max="10000"
-                                               step="1000"
-                                               wire:model.live.200ms="phoneCredit"
-                                               class="form-range w-100"
-                                        >
-                                    </div>
+                                {{-- SMS --}}
+                                <div class="col-md-12 mt-2 form-group" wire:ignore>
+                                    <label class="noUI-label">
+                                        <span class="bi bi-filter">{{ __('offers-features.nbr_sms') }}</span>
+                                    </label>
+                                    <div id="smsSlider"
+                                        data-event="smsRangeChanged"
+                                        data-min="0" data-max="1000" data-step="10"
+                                        data-start="{{ json_encode($smsRange) }}"
+                                        data-format="sms"></div>
                                 </div>
-                                <div class="col-md-12 mt-4 form-group">
-                                    <h3 class="m-0"><span class="bi bi-filter"></span> {{__('offers.operators')}}</h3>
-                                    <div class="custom-checkbox-group">
-                                        @foreach($operators as $op)
-                                            <label class="custom-checkbox">
-                                                <input type="radio" name="operator" wire:model.live="operator" value="{{ $op->id }}">
-                                                <span>{{ $op->name }}</span>
-                                            </label>
-                                        @endforeach
-                                    </div>
-                                </div>
-                                <div class="col-md-12 mt-2 form-group">
+                                <div class="col-md-12 mt-5 form-group ">
                                     <div class="custom-checkbox-group">
                                         <h3 class="m-0"><span class="bi bi-filter"></span> Comparek Score</h3>
                                         @foreach($scores as $score)
@@ -135,14 +94,14 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="col-md-12 mt-2 form-group sorting mb-1">
+                                <div class="col-md-12 mt-2 form-group sorting mb-1 mt-5">
                                     <div class="custom-checkbox-group">
                                         <h3 class="m-0"><span class="bi bi-filter"></span> {{ __('commons.sort') }}</h3>
                                         <label for="sort_price" class="custom-checkbox">
                                             <input id="sort_price" type="radio" name="sortBy" value="price" wire:model.live="sortBy">
                                             <span>{{ __('commons.price') }}</span>
                                         </label>
-                                        <label for="sort_data" class="custom-checkbox">
+                                        <!-- <label for="sort_data" class="custom-checkbox">
                                             <input id="sort_data" type="radio" name="sortBy" value="data_volume_value" wire:model.live="sortBy">
                                             <span>{{ __('offers-features.data') }}</span>
                                         </label>
@@ -157,7 +116,7 @@
                                         <label for="sort_credit" class="custom-checkbox">
                                             <input id="sort_credit" type="radio" name="sortBy" value="phone_credit" wire:model.live="sortBy">
                                             <span>{{ __('offers-features.phone_credit') }}</span>
-                                        </label>
+                                        </label> -->
                                         <label for="sort_note" class="custom-checkbox">
                                             <input id="sort_note" type="radio" name="sortBy" value="sort_note" wire:model.live="sortBy">
                                             <span>{{ __('commons.notes') }}</span>
