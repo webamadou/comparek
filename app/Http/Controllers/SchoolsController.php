@@ -116,7 +116,7 @@ class SchoolsController extends Controller
 
     public function comparison()
     {
-        $pageObject = Page::where('slug', 'comparez_les_offres_des_operateurs_telecoms_au_senegal')->first();
+        $pageObject = Page::where('slug', 'comparez_deux_ecoles_et_universites_au_senegal')->first();
         $page = $pageObject ? $pageObject->toArray() : [];
 
         return view('comparison_schools', compact('page'));
