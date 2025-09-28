@@ -28,7 +28,7 @@ return [
     'all' => 'Tous',
     'search' => 'Rechercher',
     'compare_telecom' => 'Comparaison des télécoms',
-    'comparison_telecoms' => 'Comparaison des offres télécoms',
+    'comparison_telecoms' => 'Comparez les offres des opérateurs télécoms au Sénégal',
     'comare_telecoms' => 'Comparer les offres télécoms',
     'select_telecom_1' => 'Sélectionnez le premier opérateur',
     'select_telecom_2' => 'Sélectionnez le deuxième opérateur',

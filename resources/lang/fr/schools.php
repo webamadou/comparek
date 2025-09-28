@@ -145,7 +145,7 @@ return [
     'accreditation_description' => 'Description de l\'accréditation',
     'double_diplomes_students' => 'Double diplômes',
     'has_internership_students' => 'Garantie de stages',
-    'comparison_schools' => 'Comparaison des écoles',
+    'comparison_schools' => 'Comparez deux écoles et universités au Sénégal',
     '-- Choisir une école --' => '-- Choisir une école --',
     'compare_schools' => 'Comparer deux écoles',
     'comparing_schools' => 'Comparaison des écoles',
