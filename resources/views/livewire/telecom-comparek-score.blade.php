@@ -93,6 +93,19 @@
                                     <strong style="color: var(--heading-color)">{{ $offer->currentScore() . '/ 10' }}</strong>
                                 </div>
                             </div>
+                            <a class="show-more"
+                            data-bs-toggle="collapse"
+                            href="#{{ $offer->id }}_collapse"
+                            role="button"
+                            aria-expanded="false"
+                            aria-controls="{{ $offer->id }}_collapse">
+                                {{ __('commons.more_details') }}
+                            </a>
+                            <div class="collapse" id="{{ $offer->id }}_collapse">
+                                <div class="card card-body">
+                                    {!! $offer->detailed_description !!}
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>
