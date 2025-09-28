@@ -3322,6 +3322,10 @@ button.reset-filter {
   display: inline-block;
 }
 
+.main a {
+  color: var(--heading-color);
+}
+
 .main.posts a {
   text-decoration: none;
   color: var(--heading-color);

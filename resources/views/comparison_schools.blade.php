@@ -33,6 +33,9 @@
                 </div>
                 <div style="height: 300px">&nbsp;</div>
             </div>
+            <div>
+                {!! $page['page_footer'] ?? '' !!}
+            </div>
         </div>
     </section>
 @endsection

@@ -116,6 +116,9 @@ class SchoolsController extends Controller
 
     public function comparison()
     {
-        return view('comparison_schools');
+        $pageObject = Page::where('slug', 'comparez_les_offres_des_operateurs_telecoms_au_senegal')->first();
+        $page = $pageObject ? $pageObject->toArray() : [];
+
+        return view('comparison_schools', compact('page'));
     }
 }
