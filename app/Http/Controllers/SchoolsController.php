@@ -74,7 +74,7 @@ class SchoolsController extends Controller
 
     public function accredited()
     {
-        $pageObject = Page::where('slug', 'liste_des_ecoles')->first();
+        $pageObject = Page::where('slug', 'ecoles_accreditees')->first();
         $page = $pageObject ? $pageObject->toArray() : [];
 
         // Caching 6 hours

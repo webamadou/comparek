@@ -219,6 +219,9 @@
                 <div id="programResults" class="px-1">
                     @include('partials.school-programs-list', ['programs' => $programs, 'accreditations' => $accreditations])
                 </div>
+                <div>
+                    {!! $page['page_footer'] ?? '' !!}
+                </div>
             </div>
         </div>
     </section>

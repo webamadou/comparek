@@ -7,6 +7,7 @@
                 <div class="row d-flex justify-content-center school-bilboard">
                     <div class="col-md-8">
                         <h1>{{ __('schools.schools_university') }}</h1>
+                        {!! $page['body'] ?? '' !!}
                     </div>
                     <div class="col-sm-6 col-md-4 page-bilboard-img">
                         <img src="{{ asset('frontv1/img/illustration/illust17.svg') }}" alt="comparek" class="img-fluid">
