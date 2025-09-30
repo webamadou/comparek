@@ -35,6 +35,7 @@ class PostsRequest extends FormRequest
             'schema_json' => 'nullable|json',
             'robots_directives' => 'nullable|string|max:255',
             'category_id' => 'nullable|exists:categories,id',
+            'logo_path' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

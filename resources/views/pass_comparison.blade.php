@@ -1,5 +1,5 @@
 @extends('layouts/frontv1')
-<x-seo-meta :page="$page ?? null" />
+<x-seo-meta :page="$page ?? []" />
 @section('content')
     <div class="page-title">
         <div class="heading pb-0">
