@@ -297,7 +297,7 @@
                 current = next;
                 // 3️⃣ Build the new src and swap it
                 const img = document.getElementById('hero-illustration');
-                img.src = `{{ asset('frontv1/img/illustration/illust') }}` + current + '.svg';
+                img.src = `{{ asset('frontv1/img/illustration/illust_') }}` + current + '.svg';
             }
 
             // run it every 15 000ms = 15 s
