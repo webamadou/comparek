@@ -2,7 +2,7 @@
 <x-seo-meta :page="$page ?? []" />
 @push('styles')
     @foreach([2,3,5] as $i)
-        <link rel="preload" href="{{ asset('frontv1/img/illustration/illust' . $i . '.svg') }}" as="image">
+        <link rel="preload" href="{{ asset('frontv1/img/illustration/illust_' . $i . '.svg') }}" as="image">
     @endforeach
     <style>
         #hero-illustration {
@@ -52,7 +52,7 @@
 
                 <div class="col-lg-6">
                     <div class="hero-image">
-                        <img id="hero-illustration" src="{{ asset('frontv1/img/illustration/illust' . $illus . '.svg') }}" alt="Business Growth" class="img-fluid" loading="lazy">
+                        <img id="hero-illustration" src="{{ asset('frontv1/img/illustration/illust_' . $illus . '.svg') }}" alt="Business Growth" class="img-fluid" loading="lazy">
                     </div>
                 </div>
 

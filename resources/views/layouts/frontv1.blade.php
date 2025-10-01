@@ -50,6 +50,17 @@
         @stack('styles')
         <link href="{{ asset('frontv1/css/main.css') }}" rel="stylesheet">
         @vite('resources/js/app.js')
+        <!-- Hotjar Tracking Code for https://comparek.sn -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:6453652,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
     </head>
     <body class="index-page">
 
@@ -153,17 +164,6 @@
     gtag('js', new Date());
 
     gtag('config', 'G-CJM7BFWNL0');
-    </script>
-    <!-- Hotjar Tracking Code for https://comparek.sn -->
-    <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:6453652,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
     <!-- Main JS File -->
     <script src="{{ asset('frontv1/js/jquery.min.js') }}"></script>
