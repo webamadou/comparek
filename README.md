@@ -108,13 +108,6 @@ erDiagram
   USERS }o--o{ PERMISSIONS : "via model_has_permissions"
 ```
 
-## Scores & Media
-```mermaid
-erDiagram
-  SCORE_CRITERIAS ||--o{ SCORE_VALUES : has
-  IMAGES ||..|| (polymorphic) : "imageable_type + imageable_id"
-```
-
 ## 🌍 Combined Diagram (All Modules)
 ```mermaid
 erDiagram
