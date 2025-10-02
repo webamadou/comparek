@@ -80,20 +80,25 @@ BANKS ||--o{ BANK_PRODUCTS : has
 ```
 
 ## 📱 Telecom Module
+```mermaid
 erDiagram
   TELECOM_OPERATORS ||--o{ TELECOM_OFFERS : has
   TELECOM_SERVICE_TYPES ||--o{ TELECOM_OFFERS : categorizes
   TELECOM_OFFERS ||--o{ TELECOM_OFFER_FEATURES : has
+```
 
 ## 🎓 Education Module
+```mermaid
 erDiagram
   SCHOOLS ||--o{ SCHOOL_PROGRAMS : offers
   PROGRAM_SUPER_DOMAINS ||--o{ PROGRAM_DOMAINS : groups
   SCHOOL_PROGRAMS }o--o{ PROGRAM_DOMAINS : "via program_domain_school_program"
   SCHOOL_PROGRAMS }o--o{ PROGRAM_FEATURES : "via program_feature_school_program"
   ACCREDITATION_BODIES }o--o{ SCHOOL_PROGRAMS : "via accreditation_programs"
+```
 
 ## 📰 CMS & Auth Module
+```mermaid
 erDiagram
   USERS ||--o{ PAGES : authors
   USERS ||--o{ POSTS : authors
@@ -101,13 +106,17 @@ erDiagram
   ROLES }o--o{ PERMISSIONS : "via role_has_permissions"
   USERS }o--o{ ROLES : "via model_has_roles"
   USERS }o--o{ PERMISSIONS : "via model_has_permissions"
+```
 
 ## Scores & Media
+```mermaid
 erDiagram
   SCORE_CRITERIAS ||--o{ SCORE_VALUES : has
   IMAGES ||..|| (polymorphic) : "imageable_type + imageable_id"
+```
 
 ## 🌍 Combined Diagram (All Modules)
+```mermaid
 erDiagram
   BANKS ||--o{ BANK_PRODUCTS : has
   BANK_PRODUCTS ||--o{ PRODUCT_OFFERS : has
@@ -132,4 +141,4 @@ erDiagram
   USERS }o--o{ PERMISSIONS : "via model_has_permissions"
   SCORE_CRITERIAS ||--o{ SCORE_VALUES : has
   IMAGES ||..|| (polymorphic) : "imageable_type + imageable_id"
-
+```
