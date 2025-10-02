@@ -1,0 +1,8 @@
+
+erDiagram
+  USERS ||--o{ PAGES : authors
+  USERS ||--o{ POSTS : authors
+  CATEGORIES ||--o{ POSTS : categorizes
+  ROLES }o--o{ PERMISSIONS : "via role_has_permissions"
+  USERS }o--o{ ROLES : "via model_has_roles"
+  USERS }o--o{ PERMISSIONS : "via model_has_permissions"

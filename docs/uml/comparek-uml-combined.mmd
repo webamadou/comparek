@@ -1,0 +1,245 @@
+
+erDiagram
+
+  %% ===== BANKING =====
+  BANKS ||--o{ BANK_PRODUCTS : has
+  BANK_PRODUCTS ||--o{ PRODUCT_OFFERS : has
+  PRODUCT_OFFERS ||--o{ PRODUCT_FEATURES : has
+  PRODUCT_OFFERS ||--o{ PRODUCT_FEES : has
+  PRODUCT_OFFERS ||--o{ PRODUCT_INTEREST_RATES : has
+  BANKS ||--o{ BRANCHES : has
+  BANKS ||--o{ ATMS : has
+
+  BANKS {
+    BIGINT id PK
+    VARCHAR name
+    VARCHAR slug UNIQUE
+    VARCHAR website_url
+    JSON metadata
+    TINYINT is_active
+  }
+  BANK_PRODUCTS {
+    BIGINT id PK
+    BIGINT bank_id FK
+    VARCHAR name
+    VARCHAR slug UNIQUE(bank_id,slug)
+    VARCHAR product_type
+  }
+  PRODUCT_OFFERS {
+    BIGINT id PK
+    BIGINT bank_product_id FK
+    VARCHAR name
+    VARCHAR slug UNIQUE(bank_product_id,slug)
+    JSON eligibility
+  }
+  PRODUCT_FEATURES {
+    BIGINT id PK
+    BIGINT product_offer_id FK
+    VARCHAR key UNIQUE(product_offer_id,key)
+    VARCHAR type
+    TEXT/DECIMAL/BOOL value
+  }
+  PRODUCT_FEES {
+    BIGINT id PK
+    BIGINT product_offer_id FK
+    VARCHAR fee_type
+    VARCHAR unit
+    DECIMAL amount
+  }
+  PRODUCT_INTEREST_RATES {
+    BIGINT id PK
+    BIGINT product_offer_id FK
+    VARCHAR rate_type
+    DECIMAL value_percent
+  }
+  BRANCHES {
+    BIGINT id PK
+    BIGINT bank_id FK
+    VARCHAR city
+    JSON opening_hours
+  }
+  ATMS {
+    BIGINT id PK
+    BIGINT bank_id FK
+    VARCHAR city
+    TINYINT is_24_7
+    JSON services
+  }
+
+  %% ===== TELECOM =====
+  TELECOM_OPERATORS ||--o{ TELECOM_OFFERS : has
+  TELECOM_SERVICE_TYPES ||--o{ TELECOM_OFFERS : categorizes
+  TELECOM_OFFERS ||--o{ TELECOM_OFFER_FEATURES : has
+
+  TELECOM_OPERATORS {
+    BIGINT id PK
+    VARCHAR name
+    VARCHAR slug UNIQUE
+  }
+  TELECOM_SERVICE_TYPES {
+    BIGINT id PK
+    VARCHAR name
+    VARCHAR slug UNIQUE
+  }
+  TELECOM_OFFERS {
+    BIGINT id PK
+    BIGINT telecom_operator_id FK
+    BIGINT telecom_service_type_id FK
+    VARCHAR name
+    VARCHAR slug UNIQUE
+  }
+  TELECOM_OFFER_FEATURES {
+    BIGINT id PK
+    BIGINT telecom_offer_id FK
+    DECIMAL data_volume_value
+    VARCHAR data_volume_unit
+    DECIMAL price
+  }
+
+  %% ===== EDUCATION =====
+  SCHOOLS ||--o{ SCHOOL_PROGRAMS : offers
+  PROGRAM_SUPER_DOMAINS ||--o{ PROGRAM_DOMAINS : groups
+  SCHOOL_PROGRAMS }o--o{ PROGRAM_DOMAINS : "via program_domain_school_program"
+  SCHOOL_PROGRAMS }o--o{ PROGRAM_FEATURES : "via program_feature_school_program"
+  ACCREDITATION_BODIES }o--o{ SCHOOL_PROGRAMS : "via accreditation_programs"
+
+  SCHOOLS {
+    BIGINT id PK
+    VARCHAR name
+    VARCHAR slug UNIQUE
+    VARCHAR website_url
+    TINYINT is_accredited
+  }
+  SCHOOL_PROGRAMS {
+    BIGINT id PK
+    BIGINT school_id FK
+    VARCHAR name
+    VARCHAR slug UNIQUE
+    VARCHAR level
+    TINYINT is_accredited
+  }
+  PROGRAM_SUPER_DOMAINS {
+    BIGINT id PK
+    VARCHAR name
+    VARCHAR slug UNIQUE
+  }
+  PROGRAM_DOMAINS {
+    BIGINT id PK
+    BIGINT super_domain_id FK
+    VARCHAR name
+    VARCHAR slug UNIQUE
+  }
+  PROGRAM_FEATURES {
+    BIGINT id PK
+    VARCHAR name
+    VARCHAR slug UNIQUE
+  }
+  PROGRAM_DOMAIN_SCHOOL_PROGRAM {
+    BIGINT id PK
+    BIGINT school_program_id FK
+    BIGINT program_domain_id FK
+  }
+  PROGRAM_FEATURE_SCHOOL_PROGRAM {
+    BIGINT id PK
+    BIGINT school_program_id FK
+    BIGINT program_feature_id FK
+  }
+  ACCREDITATION_BODIES {
+    BIGINT id PK
+    VARCHAR name UNIQUE
+    VARCHAR slug UNIQUE
+  }
+  ACCREDITATION_PROGRAMS {
+    BIGINT id PK
+    BIGINT school_program_id FK
+    BIGINT accreditation_body_id FK
+    INT status "1=pending;2=validated;3=expired"
+  }
+
+  %% ===== CMS & SEO =====
+  USERS ||--o{ PAGES : authors
+  USERS ||--o{ POSTS : authors
+  CATEGORIES ||--o{ POSTS : categorizes
+  CATEGORIES ||--o{ POSTS : "subject_id (2nd category ref)"
+
+  USERS {
+    BIGINT id PK
+    VARCHAR name
+    VARCHAR email UNIQUE
+  }
+  PAGES {
+    BIGINT id PK
+    BIGINT author_id FK
+    VARCHAR locale
+    VARCHAR slug UNIQUE(locale,slug)
+    ENUM status
+  }
+  POSTS {
+    BIGINT id PK
+    BIGINT author_id FK
+    BIGINT category_id FK
+    BIGINT subject_id FK
+    VARCHAR slug UNIQUE
+    TINYINT is_published
+  }
+  CATEGORIES {
+    BIGINT id PK
+    VARCHAR name
+    VARCHAR slug UNIQUE
+  }
+
+  %% ===== SCORES & MEDIA =====
+  SCORE_CRITERIAS ||--o{ SCORE_VALUES : has
+  IMAGES ||..|| (polymorphic) : "imageable_type + imageable_id"
+
+  SCORE_CRITERIAS {
+    BIGINT id PK
+    VARCHAR vertical
+    VARCHAR name
+    DOUBLE weight
+  }
+  SCORE_VALUES {
+    BIGINT id PK
+    BIGINT score_criteria_id FK
+    VARCHAR vertical_entity_type
+    BIGINT vertical_entity_id
+    DOUBLE value
+  }
+  IMAGES {
+    BIGINT id PK
+    VARCHAR imageable_type
+    BIGINT imageable_id
+    VARCHAR path
+    TINYINT is_default
+  }
+
+  %% ===== ROLES & PERMISSIONS (Spatie) =====
+  ROLES }o--o{ PERMISSIONS : "via role_has_permissions"
+  USERS }o--o{ ROLES : "via model_has_roles"
+  USERS }o--o{ PERMISSIONS : "via model_has_permissions"
+
+  ROLES {
+    BIGINT id PK
+    VARCHAR name
+    VARCHAR guard_name
+  }
+  PERMISSIONS {
+    BIGINT id PK
+    VARCHAR name
+    VARCHAR guard_name
+  }
+  ROLE_HAS_PERMISSIONS {
+    BIGINT permission_id FK
+    BIGINT role_id FK
+  }
+  MODEL_HAS_ROLES {
+    BIGINT role_id FK
+    VARCHAR model_type
+    BIGINT model_id
+  }
+  MODEL_HAS_PERMISSIONS {
+    BIGINT permission_id FK
+    VARCHAR model_type
+    BIGINT model_id
+  }
+

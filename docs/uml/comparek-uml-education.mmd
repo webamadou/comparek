@@ -1,0 +1,7 @@
+
+erDiagram
+  SCHOOLS ||--o{ SCHOOL_PROGRAMS : offers
+  PROGRAM_SUPER_DOMAINS ||--o{ PROGRAM_DOMAINS : groups
+  SCHOOL_PROGRAMS }o--o{ PROGRAM_DOMAINS : "via program_domain_school_program"
+  SCHOOL_PROGRAMS }o--o{ PROGRAM_FEATURES : "via program_feature_school_program"
+  ACCREDITATION_BODIES }o--o{ SCHOOL_PROGRAMS : "via accreditation_programs"
