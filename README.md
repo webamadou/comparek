@@ -68,6 +68,7 @@ App will be available at http://127.0.0.1:8000
 
 The Comparek database is organized into modules: Banking, Telecom, Education, CMS/Auth, Scores & Media.
 ## 🏦 Banking Module
+```mermaid
 erDiagram
 BANKS ||--o{ BANK_PRODUCTS : has
   BANK_PRODUCTS ||--o{ PRODUCT_OFFERS : has
@@ -76,6 +77,7 @@ BANKS ||--o{ BANK_PRODUCTS : has
   PRODUCT_OFFERS ||--o{ PRODUCT_INTEREST_RATES : has
   BANKS ||--o{ BRANCHES : has
   BANKS ||--o{ ATMS : has
+```
 
 ## 📱 Telecom Module
 erDiagram
